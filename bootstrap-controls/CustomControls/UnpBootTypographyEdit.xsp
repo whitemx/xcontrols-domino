@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div id="content-container">
+		<div id="editor-wrapper">
+			<div id="formatting-container" class="ql-toolbar-container btn-group">
+				<a href="#" class="ql-bold btn btn-default" title="Bold">
+					<i class="fa fa-bold" />
+				</a>
+				<a href="#" class="ql-italic btn btn-default" title="Italic">
+					<i class="fa fa-italic" />
+				</a>
+				<a href="#" class="ql-underline btn btn-default" title="Underline">
+					<i class="fa fa-underline" />
+				</a>
+				<a href="#" class="ql-strike btn btn-default" title="Strikethrough">
+					<i class="fa fa-strikethrough" />
+				</a>
+				<a href="#" class="ql-bullet btn btn-default" title="Bullet">
+					<i class="fa fa-list-ul" />
+				</a>
+				<a href="#" class="ql-list btn btn-default" title="List">
+					<i class="fa fa-list-ol" />
+				</a>
+			</div>
+			<div id="editor-container" class="ql-container">
+				<div>
+					Hello World!
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<xp:text id="sourcefield" styleClass="richtextsourcefield" value="#{javascript:docedit.getItemValue(compositeData.fieldname)}"
+		escape="false" tagName="textarea">
+		<xp:this.attrs>
+			<xp:attr name="fieldname" value="#{javascript:compositeData.fieldname}">
+			</xp:attr>
+		</xp:this.attrs>
+	</xp:text>
+</xp:view>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Copyright 2013 Teamstudio Inc Licensed under the Apache License,
+		Version 2.0 (the "License"); you may not use this file except in
+		compliance with the License. You may obtain a copy of the License at
+		http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+		applicable law or agreed to in writing, software distributed under the
+		License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+		CONDITIONS OF ANY KIND, either express or implied. See the License for
+		the specific language governing permissions and limitations under the
+		License
+	-->
+
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="viewList">
+			<xp:this.viewName><![CDATA[#{javascript:param.get("chosenView");}]]></xp:this.viewName>
+			<xp:this.databaseName><![CDATA[#{javascript:var dbname = param.get("dbname");
+if (dbname != "" && dbname != "null" && dbname != "undefined"){
+	return dbname;
+}}]]></xp:this.databaseName>
+			<xp:this.keys><![CDATA[#{javascript:var filter = param.get("catFilter");
+if (filter.indexOf("~") > -1){
+	filter = [@Right(filter, "~"), @Left(filter, "~")];
+}
+return filter;}]]></xp:this.keys>
+		</xp:dominoView>
+	</xp:this.data>
+
+	<div id="results">
+		<xp:repeat id="repeat4" var="thisRowData" value="#{viewList}"
+			disableOutputTag="true">
+			<xp:this.first><![CDATA[#{javascript:var start = context.getUrlParameter("start");
+if (start == ""){
+	return 0;
+}else{
+	return parseInt(start, 10);
+}}]]></xp:this.first>
+
+			<xp:this.rows><![CDATA[${javascript:if (sessionScope.accRowcount != null){
+	return sessionScope.accRowcount;
+}else{
+	return 12;
+}}]]></xp:this.rows>
+			<xp:panel tagName="a" id="datarow" styleClass="list-group-item data-row">
+				<xp:this.attrs>
+					<xp:attr name="onclick">
+						<xp:this.value><![CDATA[#{javascript:if (viewScope.accRowcount == null){
+								  viewScope.accRowcount = 1;
+								}else{
+								  viewScope.accRowcount = viewScope.accRowcount + 1;
+								}
+								if(sessionScope.get("ajaxLoad") != "No"){
+									return "unp.openDocument('" + param.get("xpageDoc") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID() + "', 'doccontent', this);"
+								}
+								else{						
+									var url = getDbPath() + "/" + param.get("xpageDoc") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID();
+									return "document.location.href='" + url + "'";
+								}
+							}]]></xp:this.value>
+					</xp:attr>
+				</xp:this.attrs>
+				<xp:image styleClass="rowphoto">
+					<xp:this.rendered><![CDATA[#{javascript:if (context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && context.getUrlParameter("photocol") != "null"){
+	if (thisRowData.getColumnValue(context.getUrlParameter("photocol")) != ""){
+		return true;
+	}else{
+		return false;
+	}
+}else{
+	return false;
+}}]]></xp:this.rendered>
+					<xp:this.url><![CDATA[#{javascript:thisRowData.getColumnValue(context.getUrlParameter("photocol"))}]]></xp:this.url>
+				</xp:image>
+				<xp:label id="label2" styleClass="viewlistsummary">
+					<xp:this.value><![CDATA[#{javascript:var filter = param.get("catFilter");
+if (filter.indexOf("~") > -1){
+	thisRowData.getColumnValues()[2];
+}else{
+	thisRowData.getColumnValues()[1];
+}}]]></xp:this.value>
+				</xp:label>
+				<xp:text tagName="div" id="detail" styleClass="viewlistdetail">
+					<xp:this.value><![CDATA[#{javascript:var filter = param.get("catFilter");
+var index = 2;
+if (filter.indexOf("~") > -1){
+	index = 3;
+}
+if(thisRowData.getColumnValues().length > index){
+  return thisRowData.getColumnValues()[index];
+}else{
+  return "";
+}}]]></xp:this.value>
+				</xp:text>
+
+			</xp:panel>
+		</xp:repeat>
+
+		<xp:panel id="loadmore" styleClass="list-group-item load-more" tagName="a">
+			<xp:this.rendered><![CDATA[#{javascript:if (sessionScope.accRowcount == null){
+	sessionScope.accRowcount = 12;
+}
+viewScope.accRowcount != null && viewScope.accRowcount == sessionScope.accRowcount;}]]></xp:this.rendered>
+			<xp:this.attrs>
+				<xp:attr name="onclick">
+					<xp:this.value><![CDATA[#{javascript:"unp.fetchMoreDetails(this,'" + context.getUrlParameter("chosenView") + "','" + 
+context.getUrlParameter("catFilter") + "', '" + context.getUrlParameter("xpageDoc") + "', '" + context.getUrlParameter("dbname") + "', '" + context.getUrlParameter("summarycol") + "', '" + context.getUrlParameter("datacol") + "', '" + context.getUrlParameter("summarycol") + "');"}]]></xp:this.value>
+				</xp:attr>
+			</xp:this.attrs>
+			<i class="fa fa-repeat" />
+			<span>Load More...</span>
+
+		</xp:panel>
+	</div>
+
+	<xp:this.navigationRules>
+		<xp:navigationRule outcome="xsp-success" viewId="/UnpMain.xsp">
+		</xp:navigationRule>
+	</xp:this.navigationRules>
+</xp:view>

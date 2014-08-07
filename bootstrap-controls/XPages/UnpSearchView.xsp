@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Copyright 2013 Teamstudio Inc Licensed under the Apache License,
+		Version 2.0 (the "License"); you may not use this file except in
+		compliance with the License. You may obtain a copy of the License at
+		http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+		applicable law or agreed to in writing, software distributed under the
+		License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+		CONDITIONS OF ANY KIND, either express or implied. See the License for
+		the specific language governing permissions and limitations under the
+		License
+	-->
+
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="viewList">
+			<xp:this.categoryFilter><![CDATA[#{javascript:var category = param.get("category");
+if (category == "null" || category == "" || category == "undefined"){
+	return null;
+}else{
+	return category;
+}}]]></xp:this.categoryFilter>
+			<xp:this.viewName><![CDATA[#{javascript:var viewname = param.get("chosenView");
+return viewname;}]]></xp:this.viewName>
+			<xp:this.databaseName><![CDATA[#{javascript:var dbName = param.get("dbName");
+if (dbName != "null" && dbName != "" && dbName != "undefined"){
+	return dbName;
+}}]]></xp:this.databaseName>
+		</xp:dominoView>
+	</xp:this.data>
+	<xp:this.resources>
+		<xp:script src="/unpCommon.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<div id="results">
+		<xp:repeat id="repeatrows" var="thisRowData" value="#{viewList}"
+			disableOutputTag="true">
+			<xp:this.first><![CDATA[#{javascript:var start = context.getUrlParameter("start");
+if (start == ""){
+	return 0;
+}else{
+	return parseInt(start, 10);
+}}]]></xp:this.first>
+
+			<xp:this.rows><![CDATA[${javascript:if (sessionScope.rowcount != null){
+	return sessionScope.rowcount;
+}else{
+	return 20;
+}}]]></xp:this.rows>
+			<xp:text escape="false" tagName="a" styleClass="categoryRowFixed"
+				disableTheme="true" rendered="#{javascript:thisRowData.isCategory()}"
+				value="#{javascript:thisRowData.getColumnValues().elementAt(0)}">
+			</xp:text>
+
+			<xp:panel tagName="a" styleClass="list-group-item"
+				rendered="#{javascript:!thisRowData.isCategory()}">
+				<xp:this.attrs>
+					<xp:attr name="onClick">
+						<xp:this.value><![CDATA[#{javascript:try{
+	if (context.getUrlParameter("collapserows") == "Yes"){
+		return "unp.showListDetails('" + getClientId("detail") + "'); event.stopPropagation();";
+	}else{
+		if (viewScope.rowcount == null){
+			viewScope.rowcount = 1;
+		}else{
+			viewScope.rowcount = viewScope.rowcount + 1;
+		}
+		if (context.getUrlParameter("ajaxload") != "No"){
+			return "unp.openDocument('" + getDbPath() + "/" + context.getUrlParameter("xpage") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID() + "', '" + context.getUrlParameter("target") + "', this);";
+		}else{
+			return "document.location.href='" + getDbPath() + "/" + context.getUrlParameter("xpage") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID() + "'";
+		}
+	}
+}catch(e){}}]]></xp:this.value>
+					</xp:attr>
+				</xp:this.attrs>
+
+				<xp:image styleClass="img-rounded pull-left">
+					<xp:this.rendered><![CDATA[#{javascript:if (context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && context.getUrlParameter("photocol") != "null"){
+	if (thisRowData.getColumnValue(context.getUrlParameter("photocol")) != ""){
+		return true;
+	}else{
+		return false;
+	}
+}else{
+	return false;
+}}]]></xp:this.rendered>
+					<xp:this.url><![CDATA[#{javascript:thisRowData.getColumnValue(context.getUrlParameter("photocol"))}]]></xp:this.url>
+				</xp:image>
+
+				<xp:text id="label" tagName="h4" styleClass="list-group-item-heading">
+					<xp:this.value><![CDATA[#{javascript:thisRowData.getColumnValue(context.getUrlParameter("summarycol"));}]]></xp:this.value>
+				</xp:text>
+				<xp:text tagName="p" id="label1">
+					<xp:this.styleClass><![CDATA[#{javascript:"list-group-item-text"}]]></xp:this.styleClass>
+					<xp:this.value><![CDATA[#{javascript:if(context.getUrlParameter("detailcol") == "undefined" || context.getUrlParameter("detailcol") == "null"){
+	return "";
+}else{
+  return thisRowData.getColumnValue(context.getUrlParameter("detailcol"));
+}}]]></xp:this.value>
+				</xp:text>
+
+
+
+			</xp:panel>
+		</xp:repeat>
+		<xp:panel>
+			NOMORERECORDS
+			<xp:this.rendered><![CDATA[#{javascript:if (sessionScope.rowcount == null){
+	sessionScope.rowcount = 20;
+}
+viewScope.rowcount == null || viewScope.rowcount < sessionScope.rowcount;}]]></xp:this.rendered>
+		</xp:panel>
+	</div>
+</xp:view>

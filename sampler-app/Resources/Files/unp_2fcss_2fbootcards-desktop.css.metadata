@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
+<noteinfo noteid="14b6" sequence="1" unid="F4C7BAD2D97F690280257D2D004004AA">
+<created><datetime dst="true">20140807T123914,98+01</datetime></created>
+<modified><datetime dst="true">20140807T123915,05+01</datetime></modified>
+<revised><datetime dst="true">20140807T123915,04+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140807T123915,05+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140807T123915,05+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$FlagsExt"><text>D</text></item>
+<item name="$TITLE" sign="true"><text>unp/css/bootcards-desktop.css</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$MimeCharSet"><text>UTF-8</text></item>
+
+<item name="$FileModDT" sign="true"><datetime dst="true">20140805T121532,00+01</datetime></item>
+
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FileNames" sign="true"><text>bootcards-desktop.css</text></item></note>

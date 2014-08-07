@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+	<xc:commonheader></xc:commonheader>
+
+	<unp:UnpBootTypographyRead title="Typography Read Mode">
+		<xp:this.facets>
+			<xp:panel xp:key="typographyfacet">
+				<p class="lead">Lead body copy vivamus sagittis lacus vel augue
+					laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo
+					luctus.</p>
+				<h1>Heading 1</h1>
+				<h2>Heading 2</h2>
+				<h3>Heading 3</h3>
+				<h4>Heading 4</h4>
+				<h5>Heading 5</h5>
+				<h6>Heading 6</h6>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Nulla lobortis pretium nisl. Etiam at vestibulum purus, sit amet
+					blandit mi. Duis enim lectus, tempus nec varius sed, sollicitudin
+					quis velit. Fusce quis sem porttitor, euismod ante vitae, ultricies
+					erat.</p>
+				<ul>
+					<li>Duis cursus dui et turpis gravida sollicitudin.</li>
+					<li>Donec eget mauris feugiat, euismod purus nec, feugiat
+						neque.</li>
+					<li>Nunc erat est, molestie eget magna in, consectetur euismod
+						lorem.</li>
+				</ul>
+				<ol>
+					<li>Sed luctus congue orci quis tempus.</li>
+					<li>Praesent in viverra lorem.</li>
+					<li>Suspendisse augue lacus, porta quis imperdiet at,
+						posuere vel nulla.</li>
+				</ol>
+			</xp:panel>
+		</xp:this.facets>
+	</unp:UnpBootTypographyRead>
+
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

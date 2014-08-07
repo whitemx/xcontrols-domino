@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="viewList"
+			viewName="#{javascript:compositeData.viewname}">
+			<xp:this.categoryFilter><![CDATA[#{javascript:if (isEmpty(compositeData.categoryfilter)){
+	return null;
+}else{
+	return compositeData.categoryfilter;
+}}]]></xp:this.categoryFilter>
+			<xp:this.databaseName><![CDATA[#{javascript:if (compositeData.dbname != null){
+	var db = session.getDatabase("", compositeData.dbname);
+	if (db == null){
+		return null;
+	}else{
+		return compositeData.dbname;
+	}
+}}]]></xp:this.databaseName>
+		</xp:dominoView>
+	</xp:this.data>
+	<div class="col-sm-5 bootcards-list" id="list">
+		<xp:panel id="azpicker" styleClass="bootcards-az-picker"
+			tagName="ol">
+			<xp:this.rendered><![CDATA[#{javascript:compositeData.enableazpicker=="yes" && (isIOS() || isAndroid())}]]></xp:this.rendered>
+			<xp:repeat id="azlist" var="letter" disableOutputTag="true">
+				<xp:this.value><![CDATA[#{javascript:['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']}]]></xp:this.value>
+				<li>
+					<xp:text id="letter" tagName="a" value="#{javascript:letter}">
+						<xp:this.attrs>
+							<xp:attr name="href" value=""></xp:attr>
+						</xp:this.attrs>
+					</xp:text>
+				</li>
+			</xp:repeat>
+			<li>
+				<a href="">#</a>
+			</li>
+		</xp:panel>
+		<div class="panel panel-default">
+			<xp:panel tagName="div" id="title" styleClass="panel-heading">
+				<div class="row">
+					<div class="col-xs-9">
+						<xp:text id="workspacetitle" tagName="h3" styleClass="panel-title"
+							value="#{javascript:compositeData.title}">
+							<xp:this.style><![CDATA[#{javascript:if (isEmpty(compositeData.title)){
+	return "display: none;";
+}}]]></xp:this.style>
+						</xp:text>
+					</div>
+					<div class="col-xs-3">
+						<xp:panel id="addlink" tagName="a"
+							styleClass="btn btn-primary btn-block" rendered="#{javascript:!isEmpty(compositeData.newlink)}">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[#{javascript:"unp.newDocument('" + compositeData.newlink + "')"}]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
+							<i class="fa fa-plus"></i>
+							<span>&#160;Add</span>
+						</xp:panel>
+					</div>
+				</div>
+			</xp:panel>
+			<xp:panel id="searchpanel" styleClass="panel-body"
+				rendered="#{javascript:!isEmpty(compositeData.searchview) || compositeData.searchlocal == 'yes'}">
+				<div class="search-form">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="form-group">
+								<xp:panel id="searchbox" tagName="input"
+									styleClass="form-control searchbox" rendered="#{javascript:!isEmpty(compositeData.searchview)}">
+									<xp:this.attrs>
+										<xp:attr name="placeholder" value="Search...">
+										</xp:attr>
+										<xp:attr name="search">
+											<xp:this.value><![CDATA[#{javascript:"UnpFlatViewList.xsp?chosenView=" + compositeData.searchview
++ "&summarycol=" + compositeData.summarycolumn + "&detailcol="
++ compositeData.detailcolumn + "&photocol="
++ compositeData.photocolumn + "&xpage=" + compositeData.xpagedoc + "&dbName="
++ compositeData.dbname + "&refreshmethod=pull&start=0"
++ "&ajaxload=" + compositeData.ajaxload + "&target=doccontent";}]]></xp:this.value>
+										</xp:attr>
+									</xp:this.attrs>
+									<i class="fa fa-search"></i>
+								</xp:panel>
+								<xp:panel id="localsearchbox" tagName="input"
+									styleClass="form-control localsearchbox">
+									<xp:this.attrs>
+										<xp:attr name="placeholder" value="Search...">
+										</xp:attr>
+									</xp:this.attrs>
+									<xp:this.rendered><![CDATA[#{javascript:isEmpty(compositeData.searchview) && compositeData.searchlocal=='yes'}]]></xp:this.rendered>
+									<i class="fa fa-search"></i>
+								</xp:panel>
+							</div>
+						</div>
+					</div>
+				</div>
+			</xp:panel>
+			<div class="list-group">
+				<xp:repeat id="repeat4" var="thisRowData" value="#{viewList}"
+					disableOutputTag="true" indexVar="thisRowIndex">
+					<xp:this.rows><![CDATA[${javascript:sessionScope.rowcount = compositeData.numberofrows;
+if (compositeData.enableAZPicker == "yes"){
+	return "5000";
+}else{
+	if (sessionScope.rowcount != null){
+		return sessionScope.rowcount;
+	}else{
+		return 20;
+	}
+}}]]></xp:this.rows>
+
+
+					<xp:text tagName="div" id="datarowcategory"
+						styleClass="list-group-item bootcards-list-subheading"
+						disableTheme="true" rendered="#{javascript:thisRowData.isCategory()}">
+						<xp:this.value><![CDATA[#{javascript:var index = 0;
+if (!isEmpty(compositeData.categoryindex)){
+	index = parseInt(compositeData.categoryindex, 10);
+}
+return thisRowData.getColumnValues().elementAt(index);}]]></xp:this.value>
+					</xp:text>
+					<xp:panel tagName="a" id="datarow">
+						<xp:this.attrs>
+							<xp:attr name="onclick">
+								<xp:this.value><![CDATA[#{javascript:
+var dbPath = getDbPath();
+if (!isEmpty(compositeData.xpagedocdbname)){
+	dbPath = compositeData.xpagedocdbname;
+	if (@Left(dbPath, 1) != "/"){
+		dbPath = "/" + dbPath;
+	}
+}
+var url = dbPath + "/" + compositeData.xpagedoc + "?action=openDocument&documentId=" + thisRowData.getUniversalID();
+if (compositeData.ajaxload != "No"){
+	return "unp.openDocument('" + url + "', 'doccontent', this);"
+}else{
+	return "document.location.href='" + url + "'";
+}
+}]]></xp:this.value>
+							</xp:attr>
+							<xp:attr name="href" value="#"></xp:attr>
+						</xp:this.attrs>
+						<xp:this.styleClass><![CDATA[#{javascript:var out = "list-group-item";
+if (context.getUrlParameter("documentId") == thisRowData.getUniversalID()){
+	out += " active";
+}
+return out;}]]></xp:this.styleClass>
+						<xp:this.rendered><![CDATA[#{javascript:if (viewScope.rowcount == null){
+	viewScope.rowcount = 1;
+}else{
+	viewScope.rowcount = viewScope.rowcount + 1;
+}
+!thisRowData.isCategory()}]]></xp:this.rendered>
+						<xp:image styleClass="img-rounded pull-left"
+							url="#{javascript:thisRowData.getColumnValue(compositeData.photocolumn)}">
+							<xp:this.rendered><![CDATA[#{javascript:if (compositeData.photocolumn != null && compositeData.photocolumn != ""){
+	try{
+		if (thisRowData.getColumnValue(compositeData.photocolumn) != ""){
+			return true;
+		}else{
+			return false;
+		}
+	}catch(e){
+		return false;
+	}
+}else{
+	return false;
+}}]]></xp:this.rendered>
+						</xp:image>
+
+						<xp:text id="label" tagName="h4" styleClass="list-group-item-heading"
+							value="#{javascript:thisRowData.getColumnValue(compositeData.summarycolumn);}">
+						</xp:text>
+						<xp:text tagName="p" id="label1">
+							<xp:this.styleClass><![CDATA[#{javascript:"list-group-item-text rowDetails" + thisRowIndex}]]></xp:this.styleClass>
+							<xp:this.value><![CDATA[#{javascript:if(isEmpty(compositeData.detailcolumn)){
+	return " ";
+}else{
+  return thisRowData.getColumnValue(compositeData.detailcolumn);
+}}]]></xp:this.value>
+						</xp:text>
+					</xp:panel>
+				</xp:repeat>
+			</div>
+			<div class="panel-footer">
+				<div class="summaryDataRow"></div>
+				<xp:div id="pullUpHolder" styleClass="pullupholder">
+					<xp:this.rendered><![CDATA[#{javascript:viewScope.rowcount >= compositeData.numberofrows}]]></xp:this.rendered>
+					<div id="pullUp">
+						<span class="pullUpIcon"></span>
+						<span class="pullUpLabel">
+
+						</span>
+					</div>
+				</xp:div>
+				<xp:div id="loadmorelink">
+					<xp:this.rendered><![CDATA[#{javascript:viewScope.rowcount >= compositeData.numberofrows}]]></xp:this.rendered>
+					<xp:this.styleClass><![CDATA[#{javascript:if (applicationScope.unpluggedserver == true){
+	return "loadmorelink hidden";
+}else{
+	return "loadmorelink";
+}}]]></xp:this.styleClass>
+					<xp:button value="Load More..." id="loadmorebutton"
+						styleClass="loadmorebutton btn">
+						<xp:this.attrs>
+							<xp:attr name="onclick">
+								<xp:this.value><![CDATA[#{javascript:"unp.loadmore('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', 'doccontent')"}]]></xp:this.value>
+							</xp:attr>
+						</xp:this.attrs>
+					</xp:button>
+				</xp:div>
+				<xp:button value="Clear Search" id="clearsearchbutton"
+					styleClass="clearsearchbutton btn" style="display: none;">
+					<xp:this.attrs>
+						<xp:attr name="onclick">
+							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', 'doccontent')"}]]></xp:this.value>
+						</xp:attr>
+					</xp:this.attrs>
+				</xp:button>
+			</div>
+		</div>
+	</div>
+	<!--  Modals -->
+	<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+		aria-labelledby="editModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content"></div>
+		</div>
+	</div>
+
+</xp:view>

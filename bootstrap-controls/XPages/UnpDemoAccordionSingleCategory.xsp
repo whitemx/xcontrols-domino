@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xc:commonheader>
+	</xc:commonheader>
+	<div id="main" class="container">
+		<div class="row fullheightrow">
+			<unp:UnpBootAccordionView title="Advertising Employees"
+				summarycolumn="Name" viewname="EmployessCatByDeptName"
+				expandfirstcategory="yes" ajaxload="yes"
+				loaddocumenttarget="doccontent" detailcolumn="DOB"
+				xpagedoc="UnpDemoAccordionView.xsp" newdatatarget="#editModal"
+				newlink="UnpDemoEmployeeEdit.xsp"
+				photocolumn="Photo" categoryfilter="Advertising">
+			</unp:UnpBootAccordionView>
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
+				<xc:employeeviewer></xc:employeeviewer>
+			</div>
+		</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

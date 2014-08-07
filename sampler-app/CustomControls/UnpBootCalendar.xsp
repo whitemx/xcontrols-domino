@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Copyright 2013 Teamstudio Inc Licensed under the Apache License,
+		Version 2.0 (the "License"); you may not use this file except in
+		compliance with the License. You may obtain a copy of the License at
+		http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+		applicable law or agreed to in writing, software distributed under the
+		License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+		CONDITIONS OF ANY KIND, either express or implied. See the License for
+		the specific language governing permissions and limitations under the
+		License
+	-->
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:script src="/unp/jquery-ui.custom.min.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/moment-with-langs.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/fullcalendar.min.js" clientSide="true"></xp:script>
+		<xp:styleSheet href="/unp/fullcalendar.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:panel tagName="input" id="options" styleClass="calendarconfig"
+		style="display: none;">
+		<xp:this.attrs>
+			<xp:attr name="value">
+				<xp:this.value><![CDATA[#{javascript:'{\n' + 
+'"dbname": "' + compositeData.dbname + '",\n' + 
+'"viewname": "' + compositeData.viewname + '",\n' + 
+'"startdatefield": "' + compositeData.startdatefield + '",\n' + 
+'"enddatefield": "' + compositeData.enddatefield + '",\n' + 
+'"titlefield": "' + compositeData.titlefield + '",\n' + 
+'"viewxpage": "' + compositeData.viewxpage + '",\n' + 
+'"highlightfield": "' + compositeData.highlightfield + '",\n' + 
+'"highlighttest": "' + compositeData.highlighttest + '",\n' +
+'"defaultviewtablet": "' + compositeData.defaultviewtablet + '",\n' + 
+'"defaultviewphone": "' + compositeData.defaultviewphone + '",\n' + 
+'"headerbuttonsleft": "' + compositeData.headerbuttonsleft + '",\n' + 
+'"headerbuttonsrighttablet": "' + compositeData.headerbuttonsrighttablet + '",\n' + 
+'"headerbuttonsrightphone": "' + compositeData.headerbuttonsrightphone + '", \n' +
+'"filter": "' + compositeData.filter + '", \n' +
+'"catfield": "' + compositeData.catfield + '"\n' +  
+'}'}]]></xp:this.value>
+			</xp:attr>
+		</xp:this.attrs>
+	</xp:panel>
+
+	<div class="container">
+		<div class="row">
+			<div class="bootcards-cards">
+				<div class="col-sm-12">
+					<div class="panel panel-default bootcards-calendar">
+						<div class="panel-heading clearfix">
+							<xp:text id="caltitle" tagName="h3" styleClass="panel-title pull-left"
+								value="#{javascript:compositeData.title}">
+							</xp:text>
+						</div>
+						<div class="panel-body">
+						<div id='calendar' class="fc fc-ltr"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--  Modals -->
+	<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+		aria-labelledby="editModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content"></div>
+		</div>
+	</div>
+
+</xp:view>

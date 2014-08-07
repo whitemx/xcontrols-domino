@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" rendered="false">
+
+	<xp:this.afterRenderResponse><![CDATA[#{javascript:var exCon = facesContext.getExternalContext(); 
+var writer = facesContext.getResponseWriter();
+var response = exCon.getResponse();
+response.setContentType("application/json; charset=\"utf-8\"");
+try{
+	var defaultcolors = ['#77b4f9', '#074025', '#176f17', '#50cc86', '#3a61a4', '#b68e8d', '#9f26aa', '#6daa1c', '#b31f1a', '#6f377e', '#390a12', '#edcc89', '#2840e0', '#c63a9c', '#c2bed1', '#0d306f', '#09bb90', '#34ea03', '#b7f1f4'];
+	var colors = [];
+	if (sessionScope.calendarcolors == null){
+		colors = defaultcolors;
+	}else{
+		colors = sessionScope.calendarcolors;
+	}
+	var categories = {};
+	var icolor = 0;
+	var start = context.getUrlParameter("start").split("-");
+	var end = context.getUrlParameter("end").split("-");
+	var filter = context.getUrlParameter('filter');
+	if (filter == 'null'){
+		filter = '';
+	}
+	var startFilter = start[0] + start[1];
+	var filters = [];
+	filters.push(startFilter);
+	if(start[1] == '11'){
+		filters.push(start[0] + @Right("0" + (parseInt(start[1], 10)+1), 2));
+		filters.push((parseInt(start[0], 10) + 1) + '01');
+	}else if(start[1] == '12'){
+		filters.push((parseInt(start[0], 10) + 1) + '01');
+		filters.push((parseInt(start[0], 10) + 1) + '02');
+	}else{
+		filters.push(start[0] + @Right("0" + (parseInt(start[1], 10)+1), 2));
+		filters.push(start[0] + @Right("0" + (parseInt(start[1], 10)+2), 2));
+	}
+	var db = database;
+	if (context.getUrlParameter('dbname') != 'null' && context.getUrlParameter('dbname') != ''){
+		db = session.getDatabase("", context.getUrlParameter('dbname'));
+	}
+	var vw = db.getView(context.getUrlParameter('viewname'));
+	var out = "";
+	for (var iFilter=0; iFilter<filters.length; iFilter++){
+		var coll = vw.getAllDocumentsByKey(filter + filters[iFilter]);
+		var doc:NotesDocument = coll.getFirstDocument();
+		while(doc != null){
+			var entry = "{";
+			entry += "\"id\": \"" + doc.getUniversalID() + "\", ";
+			entry += "\"title\": \"" + doc.getItemValueString(context.getUrlParameter('titlefield')) + "\", ";
+			var startDate = doc.getItemValue(context.getUrlParameter('startdatefield')).elementAt(0).toJavaDate();
+			var endDate = doc.getItemValue(context.getUrlParameter('enddatefield')).elementAt(0).toJavaDate();
+			if (startDate.getHours() == 0 && endDate.getHours() == 0){
+				entry += "\"start\": " + startDate.getTime() + ", ";
+				entry += "\"end\": " + (endDate.getTime() + 86400000) + ", ";
+				entry += "\"allDay\": true, ";
+			}else{
+				entry += "\"start\": " + startDate.getTime() + ", ";
+				entry += "\"end\": " + endDate.getTime() + ", ";			
+			}
+			if (doc.getItemValueString(context.getUrlParameter("highlightfield")) == context.getUrlParameter("highlighttest")){
+				entry += "\"color\": \"#c57852\", ";
+			}else{
+				if (doc.hasItem(context.getUrlParameter('catfield'))){
+					var itemcat = doc.getItemValueString(context.getUrlParameter('catfield'));
+					if (!categories[itemcat]){
+						categories[itemcat] = colors[icolor];
+						icolor++;
+					}
+					entry += "\"color\": \"" + categories[itemcat] + "\", ";
+				}
+			}
+			entry += "\"url\": \"javascript:unp.editDocument('" + context.getUrlParameter('viewxpage') + "', '" + doc.getUniversalID() + "')\"";
+			entry += "}";
+			if (out != ""){
+				out += ", \n";
+			}
+			out += entry;
+			var docnext = coll.getNextDocument(doc);
+			doc.recycle();
+			doc = docnext;
+		}
+	}
+	
+	writer.write("[" + out + "]");
+}catch(e){
+	writer.write("{error: \"" + e.message + "\"}");
+}
+writer.endDocument();
+facesContext.responseComplete();}]]></xp:this.afterRenderResponse></xp:view>

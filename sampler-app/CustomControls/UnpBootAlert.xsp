@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:panel id="dialog">
+		<xp:this.attrs>
+			<xp:attr name="role" value="dialog"></xp:attr>
+		</xp:this.attrs>
+		<xp:this.styleClass><![CDATA[#{javascript:"modal fade in " + compositeData.dialogid}]]></xp:this.styleClass>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="btn-group pull-right">
+						<xp:panel id="okbutton" tagName="a"
+							styleClass="btn btn-success">
+							<xp:this.attrs>
+								<xp:attr name="data-dismiss" value="modal">
+								</xp:attr>
+								<xp:attr name="href" value="#">
+								</xp:attr>
+							</xp:this.attrs>
+							OK
+						</xp:panel>
+					</div>
+					<xp:text id="title" tagName="h3" styleClass="modal-title"
+						value="#{javascript:compositeData.title}">
+					</xp:text>
+				</div>
+				<div class="modal-body">
+					<xp:text value="#{javascript:compositeData.content}"></xp:text>
+				</div>
+			</div>
+		</div>
+	</xp:panel>
+</xp:view>

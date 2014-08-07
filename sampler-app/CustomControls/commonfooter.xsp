@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com">
+
+	<unp:UnpBootFooter synctype="currentdb">
+	</unp:UnpBootFooter>
+	
+	<script type="text/javascript" src="custom.js"></script>
+</xp:view>

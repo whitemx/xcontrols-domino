@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Copyright 2013 Teamstudio Inc Licensed under the Apache License,
+		Version 2.0 (the "License"); you may not use this file except in
+		compliance with the License. You may obtain a copy of the License at
+		http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+		applicable law or agreed to in writing, software distributed under the
+		License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+		CONDITIONS OF ANY KIND, either express or implied. See the License for
+		the specific language governing permissions and limitations under the
+		License
+	-->
+
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+	<xc:commonheader></xc:commonheader>
+	<p style="padding: 40px;">
+		<input type="button" href='#' onclick="unp.openDialog('dialogPopup')"
+			class="btn btn-primary" value="Open Dialog">
+		</input>
+	</p>
+	<p style="padding: 40px;">
+		<input type="button" href='#' onclick="unp.openDialog('alertPopup')"
+			class="btn btn-primary" value="Open Alert">
+		</input>
+	</p>
+	<unp:UnpBootAlert content="This is an alert message"
+		dialogid="alertPopup" title="Alert!">
+	</unp:UnpBootAlert>
+	<unp:UnpBootDialog callback="myCallBackFunction" title="Demo Dialog"
+		dialogid="dialogPopup">
+		<xp:this.facets>
+			<xp:panel xp:key="facet_1">
+				Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Donec vitae sapien mauris, non
+				imperdiet purus.
+				Pellentesque in metus nec
+				sapien volutpat scelerisque ac vel
+				turpis.
+				Nunc
+				sed nulla ac orci lobortis commodo ut eget
+				justo.
+				Curabitur
+				tempor, risus vel congue
+				dignissim, nisi libero tincidunt
+				odio, id
+				pharetra libero purus ut risus. Ut rutrum
+				condimentum sem,
+				at
+				elementum nisi suscipit et.
+				Maecenas semper, lacus et varius
+				blandit,
+				odio
+				mauris sodales ligula, non congue leo neque nec
+				magna. Etiam sed
+				dolor in felis condimentum
+				sodales eget a nisi.
+				Nunc dui lectus,
+				viverra
+				non gravida eu, dictum ac neque.
+
+				Etiam
+				vulputate est nec odio
+				condimentum a
+				ultricies tortor adipiscing.
+				Sed elit nibh,
+				euismod ut
+				dictum et, dignissim nec dolor.
+				Pellentesque ac semper mi. Maecenas
+				cursus
+				dignissim dui vel
+				tristique. Nullam bibendum,
+				lectus ac lobortis
+				blandit, arcu ipsum
+				cursus
+				enim, vitae auctor felis neque iaculis
+				risus.
+				Vestibulum at
+				tellus sapien. Vestibulum in metus
+				tristique dolor
+				luctus faucibus
+				luctus nec nisl.
+				Aliquam erat volutpat. Proin a sapien
+				eu massa
+				malesuada ullamcorper id at nisi. Fusce nec enim
+				sit amet
+				massa
+				iaculis condimentum euismod eget
+				sapien. Fusce pharetra posuere
+				pulvinar. Lorem
+				ipsum dolor sit amet, consectetur adipiscing
+				elit.
+				Ut
+				iaculis vulputate facilisis. Ut eu dui
+				et urna sagittis laoreet.
+				In
+				feugiat, elit nec
+				pretium faucibus, augue elit posuere mi, at
+				egestas
+				ante dolor vitae libero. Pellentesque
+				ullamcorper, diam
+				iaculis
+				euismod sollicitudin,
+				neque eros vestibulum erat, in
+				consectetur quam
+				est vel est.
+
+				Nunc molestie, eros nec fringilla
+				vestibulum,
+				ligula nisl
+				placerat orci, vel interdum enim
+				arcu id
+				justo. Phasellus magna arcu,
+				aliquam
+				eget varius sed, fringilla vel
+				sem. Vivamus
+				pharetra faucibus
+				libero at bibendum. Aliquam at
+				tortor nulla. Phasellus suscipit neque
+				sed diam
+				luctus
+				sollicitudin. Vestibulum ante ipsum
+				primis in faucibus
+				orci luctus
+				et ultrices
+				posuere cubilia Curae; Integer nec velit
+				purus,
+				ut
+				adipiscing sapien. Mauris non placerat elit.
+				Nulla facilisi.
+				Cras
+				euismod ultricies odio eget
+				venenatis. Cras vel est purus, ac
+				tempor justo.
+				Vivamus mattis iaculis erat, sed dignissim
+				tellus
+				rutrum
+				vel.
+
+				Sed eros risus, dictum pretium laoreet vitae,
+				hendrerit
+				at sapien.
+				Proin vulputate consectetur
+				molestie. Curabitur neque
+				lorem, volutpat
+				sit
+				amet porttitor vitae, consequat eget dui.
+				Vivamus vulputate
+				ultrices tellus ut accumsan.
+				Maecenas semper
+				tortor sollicitudin est
+				gravida
+				vitae dapibus purus elementum. Sed
+				non dolor
+				elit. Nulla nulla
+				dui, euismod ac rutrum ac,
+				pretium sed
+				est. Fusce aliquam porta lacus,
+				id
+				vestibulum massa vehicula nec.
+				Curabitur
+				venenatis odio eu neque
+				rhoncus ac commodo eros
+				vehicula.
+				Vestibulum luctus lorem at turpis
+				gravida vel ultrices tellus
+				vestibulum. Aliquam
+				luctus, orci vel
+				semper lacinia, nunc risus
+				fringilla ante, vitae sagittis mi nulla id
+				neque. Etiam et lacus
+				nisi. Fusce placerat
+				molestie ligula ut
+				pulvinar. Class aptent
+				taciti
+				sociosqu ad litora torquent per conubia
+				nostra,
+				per inceptos
+				himenaeos.
+
+				Vivamus blandit risus sem. Mauris
+				ultricies
+				elementum
+				erat a interdum. Donec convallis odio
+				ut arcu
+				blandit ornare. Nulla
+				tincidunt
+				consectetur sapien, in vehicula augue
+				blandit
+				non.
+				Maecenas neque metus, vulputate et iaculis
+				sed, lacinia
+				non augue.
+				In interdum eleifend
+				faucibus. Nam est nisi, accumsan sit
+				amet
+				accumsan sit amet, dapibus sed lacus. Donec
+				imperdiet consequat
+				elit, a ullamcorper dui
+				blandit at. Nunc suscipit rutrum pulvinar.
+				Praesent nisi nulla, cursus eget gravida
+				vulputate, condimentum vel
+				leo. Morbi tincidunt
+				rutrum sapien ut mattis. Integer quis
+				scelerisque nunc. Aenean et augue nec turpis
+				egestas porttitor quis
+				at nisi. Aenean vitae
+				velit eros.
+					</xp:panel>
+		</xp:this.facets>
+	</unp:UnpBootDialog>
+	
+	<xc:commonfooter></xc:commonfooter>
+	<script>
+		function myCallBackFunction(){
+			alert("This is custom code called by the OK button using the callback custom property");
+		}
+	</script>
+</xp:view>

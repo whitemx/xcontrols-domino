@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://unplugged.teamstudio.com</namespace-uri>
+    <default-prefix>unp</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <component-type>UnpBootTypographyEdit</component-type>
+    <composite-name>UnpBootTypographyEdit</composite-name>
+    <composite-file>/UnpBootTypographyEdit.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <category>Unplugged</category>
+      </designer-extension>
+    </composite-extension>
+    <property>
+      <property-name>fieldname</property-name>
+      <property-class>string</property-class>
+    </property>
+  </composite-component>
+</faces-config>

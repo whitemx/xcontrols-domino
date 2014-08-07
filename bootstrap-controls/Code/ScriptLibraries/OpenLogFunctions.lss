@@ -1,0 +1,965 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+Option Public
+Option Explicit
+
+%REM
+	 * =======================================================
+	 * <HEADER>
+	 * NAME:	OpenLogFunctions script library
+	 * VERSION:	20070321a
+	 * AUTHOR(S):	Julian Robichaux ( http://www.nsftools.com )
+	 * ORIGINAL SOURCE:	The OpenLog database, available as an
+	 * open-source project at http://www.OpenNTF.org
+	 * HISTORY:
+	 * 20070321a:	added GetWindowTitle method to try to get the name
+	 * 					of the form or view we're using for UI errors. Added
+	 * 					olStartTime global to mark when this particular agent
+	 * 					run began, so you can group multiple errors/events
+	 * 					together more easily (see the "by Database and
+	 * 					Start Time" view)
+	 * 20060317a:	replaced LSI_Info calls with GetThreadInfo where
+	 * 					possible, and added the NoLSIStackTrace global
+	 * 					variable to indicate that we don't want to use the
+	 * 					LSI_Info(14) call to get stack trace info either (for
+	 * 					people who are paranoid about the LSI_Info function).
+	 * 					Fixed bug where LogErrorEx with no error message
+	 * 					would have no text in the message field. Added
+	 * 					initial support for DDM logging, including new
+	 * 					LogErrorsToDDM and LogEventsToDDM globals.
+	 * 20041110b:	split document creation part of WriteToLog function 
+	 * 					in the LogItem class to a separate function called
+	 * 					CreateLogDoc. This should make it more convenient
+	 * 					to subclass the LogItem class, with no consequence
+	 * 					to people who are already using older versions of this
+	 * 					class; created the OLDebugPrint sub to expose the 
+	 * 					Private DebugPrint sub as a public routine, so subclasses 
+	 * 					could make calls to DebugPrint (I was afraid that if I just
+	 * 					made DebugPrint a public sub, it might conflict with other
+	 * 					libraries that people might be using).
+	 * 20040928a:	make $PublicAccess = "1" when we create new log 
+	 *					docs, so users with Depositor access to this database 
+	 *					can still create log docs; added code in LogItem
+	 * 					constructor that checks for empty CurrentAgent (which
+	 * 					should mean that this script was called from an Action).
+	 * 20040225a:	Added global olDebugLevel variable to report on 
+	 * 					internal errors.
+	 * 20040223a:	add variables for user name, effective user name,
+	 * 					access level, user roles, and client version
+	 * 20040221a:	add UseDefaultLogDb and UseCustomLogDb 
+	 * 					functions; added useServerLogWhenLocal 
+	 * 					and logToCurrentDatabase variables/options
+	 * 20040216d:	this version added the StackTraceData class, along
+	 *					with the related AddToStackTrace function, and
+	 * 					uses the global StackTraceData in the error logging
+	 * 					functions, if any exists. I also wrote the StandardErrorMessage
+	 * 					and StandardTraceMessage functions to make those
+	 * 					repetitive tasks a little more manageable
+	 * 20040214a:	initial version
+	 * 
+	 *   Copyright 2004-2009, Julian Robichaux
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 *
+	 * </HEADER>
+	 * =======================================================
+
+This library contains generic functions that can be used to log events and errors
+to the OpenLog database. All you have to do it copy this script library to any
+database that should be sending errors to the OpenLog database, and add:
+
+Use "OpenLogFunctions"
+
+to the Options section of any agents or script libraries that you want to add the 
+logging functions to. Then, for all functions and subs in the agents/libraries, use
+On Error Goto to send errors to an error block, and add the line:
+
+Call LogError()
+
+to the block. That's all you have to do. The LogError function will automatically
+create a document in the OpenLog database that contains all sorts of information
+about the error that occurred, including the name of the agent and function/sub
+that it occurred in.
+
+For additional functionality, you can use the LogErrorEx function to add a custom
+message, a severity level, and/or a link to a NotesDocument to the log doc.
+
+In addition, you can use the LogEvent function to add a notification document to
+the OpenLog database.
+
+The master copy of this script library resides in the OpenLog database. 
+All copies of this library in other databases should be set to inherit changes from 
+that database.
+%END REM
+
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Class StackTraceData
+Declare Class LogItem
+Declare Sub Initialize
+Declare Function LogError () As String
+Declare Function LogErrorEx (msg As String, severity As String, doc As NotesDocument) As String
+Declare Function LogEvent (msg As String, severity As String, doc As NotesDocument) As Integer
+Declare Sub InitGlobalLogItem ()
+Declare Function GetLogDatabase () As NotesDatabase
+Declare Function CreateLogItem (msg As String, severity As String, doc As NotesDocument) As LogItem
+Declare Function GetLastLogItem () As LogItem
+Declare Function StringToArray (thisText As String, delim As String) As Variant
+Declare Function StandardErrorMessage (errNum As Integer, errLine As Integer, _
+errMsg As String, methodName As String) As String
+Declare Function StandardTraceMessage (methodName As Variant, _
+className As Variant, errLine As Integer) As String
+Declare Function AddToStackTrace () As Integer
+Declare Sub ClearStackTrace ()
+Declare Function AddToStackTraceEx (className As String) As Integer
+Declare Function UseDefaultLogDb () As Integer
+Declare Function UseCustomLogDb (db As NotesDatabase) As Integer
+Declare Private Sub DebugPrint (debugMsg As String)
+Declare Sub OLDebugPrint (debugMsg As String)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:10
+'** this is the name of the database we'll be logging to (we'll set this 
+'** value in Initialize so we can change it without having to recompile
+'** all the agents that use this library)
+Dim logDbName As String
+
+'** this is the form we use in the General Database Log database to
+'** store log message information (we'll set this value in Initialize so
+'** we can change it without having to recompile all the agents that
+'** use this library)
+Dim logFormName As String
+
+'** our global handle to the log database
+Private logDb As NotesDatabase
+
+'** has the log database been initiated yet?
+Private dbInitiated As Integer
+
+'** a few bits of global information we can report for all the events
+Private globalUserName As String
+Private globalEffName As String
+Private globalAccessLevel As String
+Private globalRoles As Variant
+Private globalClientVersion As Variant
+
+'** we'll also use a global custom class to handle our event info for
+'** logging (this way we only have to instantiate it once and then we
+'** can keep reusing it, instead of creating a new object every time
+'** we need to log something)
+Dim globalLogItem As LogItem
+
+'** global flag indicating whether or not there was a logging error
+Dim globalLogSuccess As Integer
+
+'** common severity types
+Const SEVERITY_LOW = "0"
+Const SEVERITY_MEDIUM = "1"
+Const SEVERITY_HIGH = "2"
+
+'** common event types
+Const TYPE_ERROR = "Error"
+Const TYPE_EVENT = "Event"
+
+'** when this is true, the agent will attempt to write errors to the
+'** default OpenLog database on the server that this database
+'** is on, when the agent is run from the local workstation
+Dim useServerLogWhenLocal As Integer
+
+'** when this is true, the agent will attempt to write errors to the
+'** database that we're currently using, instead of to a separate
+'** log database
+Dim logToCurrentDatabase As Integer
+
+'** this variable sets the "debug level" of all the functions. Right now
+'** the valid debug levels are:
+'** 	0 -- internal errors are discarded 
+'** 	1 -- error messages from internal errors are printed
+'** 	2 -- stack traces from internal errors are also printed (R6 and higher)
+Dim olDebugLevel As Integer
+
+'** should we log errors and/or events to Domino Domain Monitoring (DDM)
+'** in Notes 7.0 and higher? True if we should, False otherwise.
+Dim LogErrorsToDDM As Integer
+Dim LogEventsToDDM As Integer
+
+'** record the time we started running this instance of OpenLog, so we can
+'** group all the common error/event records together
+Private olStartTime As Variant
+
+'** if you're really paranoid about using the LSI_Info function, set this variable
+'** to True so it won't be used. Please note that there will be NO stack trace
+'** information logged if you do this, though.
+Dim NoLSIStackTrace As Integer
+
+'** a class for holding custom stack trace information
+Class StackTraceData
+	Public errNum As Integer
+	Public errLine As Integer
+	Public errMsg As String
+	Public methodName As String
+	Public traceData As String
+	
+	Sub New ()
+		'** nothing special we have to do here...
+	End Sub
+	
+	Sub ResetFields ()
+		errNum = 0
+		errLine = 0
+		errMsg = ""
+		methodName = ""
+		traceData = ""
+	End Sub
+End Class
+
+'** a global instance of StackTraceData that we can append information to
+Dim stackTrace As StackTraceData
+
+'** the LogItem class that actually does the logging for us
+Class LogItem
+	'** instead of using Get/Set routines to change these fields,
+	'** I'm just going to let the users do it directly
+	Public formName As String
+	Public errNum As Integer
+	Public errLine As Integer
+	Public errMsg As String
+	Public methodName As String
+	Public stackTrace As Variant
+	Public severity As String
+	Public eventTime As Variant
+	Public eventType As String
+	Public message As String
+	Public doc As NotesDocument
+	Public userName As String
+	Public effName As String
+	Public accessLevel As String
+	Public userRoles As Variant
+	Public clientVersion As Variant
+	
+	Private thisDatabase As String
+	Private thisServer As String
+	Private thisAgent As String
+	Private thisReplicaID As String
+	Private thisDocUnid As String
+	Private ddmLog As NotesLog
+	
+	Sub New ()
+		On Error Resume Next
+		Dim session As New NotesSession
+		thisDatabase = session.CurrentDatabase.FilePath
+		thisServer = session.CurrentDatabase.Server
+		If (session.CurrentAgent Is Nothing) Then
+			thisAgent = GetWindowTitle()
+		Else
+			thisAgent = session.CurrentAgent.Name
+		End If
+		thisReplicaID = session.CurrentDatabase.ReplicaID
+		Call ResetFields()
+	End Sub
+	
+	Private Function GetWindowTitle () As String
+		'** code contributed by David C Slatter 
+		On Error Resume Next
+		Dim ws As Variant
+		Set ws = New NotesUIWorkspace
+		
+		If Not ( ws Is Nothing ) Then
+			If Not (ws.CurrentDocument Is Nothing) Then
+				If (ws.CurrentDocument.Document.Form(0) = "") Then
+					GetWindowTitle = "FORM TITLE: " & ws.CurrentDocument.WindowTitle
+				Else
+					GetWindowTitle = "FORM: " & ws.CurrentDocument.Document.Form(0)
+				End If
+				thisDocUnid = ws.CurrentDocument.Document.UniversalID
+			Elseif Not (ws.CurrentView Is Nothing) Then
+				GetWindowTitle = "VIEW: " & ws.CurrentView.ViewName
+			End If
+		End If
+		
+		If (GetWindowTitle = "") Then
+			GetWindowTitle = "[View or Form Action]"
+		End If
+	End Function
+	
+	Sub Delete ()
+		Set eventTime = Nothing
+		Set doc = Nothing
+	End Sub
+	
+	Sub ResetFields ()
+		formName = logFormName
+		errNum = 0
+		errLine = 0
+		errMsg = ""
+		methodName = ""
+		stackTrace = ""
+		severity = SEVERITY_LOW
+		eventType = TYPE_ERROR
+		Set eventTime = Nothing
+		message = ""
+		Set doc = Nothing
+	End Sub
+	
+	
+	'******************************************************************************
+	'** Write a log document to the specified database
+	'******************************************************************************
+	Function WriteToLog (db As NotesDatabase) As Integer
+		On Error Goto processError
+		
+		Dim logDoc As NotesDocument
+		Set logDoc = CreateLogDoc(db)
+		
+		If Not (logDoc Is Nothing) Then
+			'** make sure Depositor level users can still write/save their docs
+			logDoc.~$PublicAccess = "1"
+			Call logDoc.Save(True, False)
+			WriteToLog = True
+		End If
+		
+		Call LogToDDM()
+		
+		Exit Function
+		
+processError:
+		DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+		WriteToLog = False
+		Exit Function
+		
+	End Function
+	
+	
+	'******************************************************************************
+	'** Create a log document in the specified database
+	'******************************************************************************
+	Function CreateLogDoc (db As NotesDatabase) As NotesDocument
+		On Error Goto processError
+		'** exit early if there is no database
+		If (db Is Nothing) Then
+			Print "Log database was not defined. CreateLogDoc is exiting."
+			Exit Function
+		End If
+		
+		Dim logDoc As New NotesDocument(db)
+		
+		On Error Resume Next
+		logDoc.Form = formName
+		logDoc.LogErrorNumber = errNum
+		logDoc.LogErrorLine = errLine
+		logDoc.LogErrorMessage = errMsg
+		logDoc.LogStackTrace = stackTrace
+		logDoc.LogSeverity = severity
+		logDoc.LogEventTime = eventTime
+		logDoc.LogEventType = eventType
+		logDoc.LogMessage = message
+		logDoc.LogFromDatabase = thisDatabase
+		logDoc.LogFromServer = thisServer
+		logDoc.LogFromAgent = thisAgent
+		logDoc.LogFromMethod = methodName
+		logDoc.LogAgentLanguage = "LotusScript"
+		logDoc.LogUserName = userName
+		logDoc.LogEffectiveName = effName
+		logDoc.LogAccessLevel = accessLevel
+		logDoc.LogUserRoles = userRoles
+		logDoc.LogClientVersion = clientVersion
+		logDoc.LogAgentStartTime = olStartTime
+		
+		On Error Resume Next
+		Dim localDoc As NotesDocument
+		If (doc Is Nothing) And (Len(thisDocUnid) > 0) Then
+			Dim session As New NotesSession
+			Set localDoc = session.CurrentDatabase.GetDocumentByUNID(thisDocUnid)
+			Set doc = localDoc
+		End If
+		
+		If Not (doc Is Nothing) Then
+			Dim rtitem As New NotesRichTextItem(logDoc, "LogDocInfo")
+			rtitem.AppendText("The document associated with this event is:")
+			rtitem.AddNewline(1)
+			rtitem.AppendText("Server: " & doc.ParentDatabase.Server)
+			rtitem.AddNewline(1)
+			rtitem.AppendText("Database: " & doc.ParentDatabase.FilePath)
+			rtitem.AddNewline(1)
+			rtitem.AppendText("UNID: " & doc.UniversalID)
+			rtitem.AddNewline(1)
+			rtitem.AppendText("Note ID: " & doc.NoteID)
+			rtitem.AddNewline(1)
+			rtitem.AppendText("DocLink: ")
+			Call rtitem.AppendDocLink(doc, doc.UniversalID)
+		End If
+		
+		If Not (localDoc Is Nothing) Then
+			Set localDoc = Nothing
+		End If
+		
+		Set CreateLogDoc = logDoc
+		Exit Function
+		
+processError:
+		DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+		Exit Function
+		
+	End Function
+	
+	
+	'******************************************************************************
+	'** Attempt to log to Domino Domain Monitoring, if we're supposed to
+	'******************************************************************************
+	Function LogToDDM () As Integer
+		On Error Goto processError
+		
+		Dim session As New NotesSession
+		Dim ddmLevel As Integer
+		
+	    '** exit early if we shouldn't do this
+		If Not session.IsOnServer Then
+			Exit Function
+		Elseif (eventType = TYPE_ERROR) And (LogErrorsToDDM = False) Then
+			Exit Function
+		Elseif (eventType = TYPE_EVENT) And (LogEventsToDDM = False) Then
+			Exit Function
+		End If
+		
+		If (ddmLog Is Nothing) Then
+			Set ddmLog = session.CreateLog("")
+		End If
+		
+		If (eventType = TYPE_EVENT) Then
+			ddmLevel = 5
+		Elseif (severity = SEVERITY_LOW) Then
+			ddmLevel = 3
+		Elseif (severity = SEVERITY_MEDIUM) Then
+			ddmLevel = 4
+		Elseif (severity = SEVERITY_HIGH) Then
+			ddmLevel = 2
+		Else
+			ddmLevel = 4
+		End If
+		
+		'** write to the special queue that DDM listens to
+		Call ddmLog.LogEvent("OpenLog " & eventType & ": agent '" & thisAgent & _
+		"' in '" & thisDatabase & "' on '" & thisServer & "' produced the message: " & message, _
+		"EventDispatcher", 6, ddmLevel)
+		
+		LogToDDM = True
+		Exit Function
+		
+processError:
+		DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+		Exit Function
+		
+	End Function
+	
+End Class
+
+
+
+'++LotusScript Development Environment:2:2:Initialize:1:10
+Sub Initialize
+	'** MODIFY THESE FOR YOUR OWN ENVIRONMENT
+	
+	'** this should be the name and path of the database that
+	'** you're logging everything to -- you need to explicitly name
+	'** it because it probably won't be the database that you're
+	'** running agents from
+	logDbName = "OpenLog.nsf"
+	
+	'** this is the name of the form used for logging
+	logFormName = "LogEvent"
+	
+	'** go ahead and set the success flag to True
+	globalLogSuccess = True
+	
+	'** set this to True if you want agents that are run from a local
+	'** workstation to always try to log to the server that the database
+	'** is on, or False if you always want agents to log to the local
+	'** machine (this can also be set on an individual basis by the
+	'** agents that are using these functions, so you can override
+	'** the global setting)
+	useServerLogWhenLocal = True
+	
+	'** set this to True if you want errors and events to be logged to
+	'** the database that these functions are currently running in, or
+	'** False to log to the logDbName database (this can also be
+	'** overridden on a case-by-case basis by individual agents)
+	logToCurrentDatabase = False
+	
+	'** set these to True if you want errors and/or events to be logged
+	'** to Domino Domain Monitoring (DDM) in Notes 7.0 and higher,
+	'** or False if you don't.
+	LogErrorsToDDM = True
+	LogEventsToDDM = False
+	
+	'** set the start time
+	olStartTime = Now
+	
+	'** if you're really paranoid about using the LSI_Info function, set this variable
+	'** to True so it won't be used. Please note that there will be NO stack trace
+	'** information logged if you do this, though.
+	NoLSIStackTrace = False
+	
+	
+	'** initialize our global StackTraceData item
+	Set stackTrace = New StackTraceData
+	
+	'** get some of the global bits of information that are common
+	'** to all events and errors
+	Dim session As New NotesSession
+	globalUserName = session.UserName
+	globalEffName = session.EffectiveUserName
+	globalRoles = Evaluate("@UserRoles")
+	
+	Select Case session.CurrentDatabase.CurrentAccessLevel
+	Case 0 : globalAccessLevel = "0: No Access"
+	Case 1 : globalAccessLevel = "1: Depositor"
+	Case 2 : globalAccessLevel = "2: Reader"
+	Case 3 : globalAccessLevel = "3: Author"
+	Case 4 : globalAccessLevel = "4: Editor"
+	Case 5 : globalAccessLevel = "5: Designer"
+	Case 6 : globalAccessLevel = "6: Manager"
+	End Select
+	
+	globalClientVersion = StringToArray(Trim(session.NotesVersion) & "|Build " & session.NotesBuildVersion, "|")
+	
+End Sub
+'++LotusScript Development Environment:2:1:LogError:1:8
+Function LogError () As String
+	'** logs whatever error happens to be on the stack (if any)
+	On Error Goto processError
+	
+	Call InitGlobalLogItem()
+	
+	With globalLogItem
+		Call .ResetFields()
+		.eventTime = Now
+		.eventType = TYPE_ERROR
+		.methodName = Getthreadinfo(10)
+		.userName = globalUserName
+		.effName = globalEffName
+		.accessLevel = globalAccessLevel
+		.userRoles = globalRoles
+		.clientVersion = globalClientVersion
+		
+		If (stackTrace.traceData = "") Then
+			.errNum = Err
+			.errMsg = Error$
+			.errLine = Erl
+			.message = StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(10))
+			If NoLSIStackTrace Then
+				.stackTrace = .methodName & "," & .errLine
+			Else
+				.stackTrace = StringToArray(Strright(Lsi_info(14), Chr(10)), Chr(10))
+			End If
+		Else
+			.errNum = stackTrace.errNum
+			.errMsg = stackTrace.errMsg
+			.errLine = stackTrace.errLine
+			.message = StandardErrorMessage(stackTrace.errNum, stackTrace.errLine, _
+			stackTrace.errMsg, stackTrace.methodName)
+			.stackTrace = StringToArray(stackTrace.traceData & Chr(10) & _
+			StandardTraceMessage(Getthreadinfo(10), "", Erl), Chr(10))
+		End If
+	End With
+	
+	globalLogSuccess = globalLogItem.WriteToLog(GetLogDatabase)
+	Call ClearStackTrace()
+	
+	LogError = globalLogItem.message
+	Exit Function
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Function
+'++LotusScript Development Environment:2:1:LogErrorEx:1:8
+Function LogErrorEx (msg As String, severity As String, doc As NotesDocument) As String
+	'** log an error with some descriptive information
+	On Error Goto processError
+	
+	Call InitGlobalLogItem()
+	
+	With globalLogItem
+		Call .ResetFields()
+		.severity = severity
+		.eventTime = Now
+		.eventType = TYPE_ERROR
+		.methodName = Getthreadinfo(10)
+		Set .doc = doc
+		.message = msg
+		.userName = globalUserName
+		.effName = globalEffName
+		.accessLevel = globalAccessLevel
+		.userRoles = globalRoles
+		.clientVersion = globalClientVersion
+		
+		If (stackTrace.traceData = "") Then
+			.errNum = Err
+			.errMsg = Error$
+			.errLine = Erl
+			If (.message = "") Then
+				.message = StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(10))
+			End If
+			If NoLSIStackTrace Then
+				.stackTrace = .methodName & "," & .errLine
+			Else
+				.stackTrace = StringToArray(Strright(Lsi_info(14), Chr(10)), Chr(10))
+			End If
+		Else
+			.errNum = stackTrace.errNum
+			.errMsg = stackTrace.errMsg
+			.errLine = stackTrace.errLine
+			If (.message = "") Then
+				.message = StandardErrorMessage(stackTrace.errNum, stackTrace.errLine, _
+				stackTrace.errMsg, stackTrace.methodName)
+			End If
+			.stackTrace = StringToArray(stackTrace.traceData & Chr(10) & _
+			StandardTraceMessage(Getthreadinfo(10), "", Erl), Chr(10))
+		End If
+		
+		If (.errMsg = "") Then
+			.errMsg = .message
+		End If
+	End With
+	
+	globalLogSuccess = globalLogItem.WriteToLog(GetLogDatabase)
+	Call ClearStackTrace()
+	
+	LogErrorEx = globalLogItem.message
+	Exit Function
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Function
+'++LotusScript Development Environment:2:1:LogEvent:1:8
+Function LogEvent (msg As String, severity As String, doc As NotesDocument) As Integer
+	'** log a general event
+	On Error Goto processError
+	
+	Call InitGlobalLogItem()
+	
+	With globalLogItem
+		Call .ResetFields()
+		.message = msg
+		.eventTime = Now
+		.eventType = TYPE_EVENT
+		.methodName = Getthreadinfo(10)
+		.severity = severity
+		Set .doc = doc
+		If NoLSIStackTrace Then
+			.stackTrace = .methodName & "," & .errLine
+		Else
+			.stackTrace = StringToArray(Strright(Lsi_info(14), Chr(10)), Chr(10))
+		End If
+		.userName = globalUserName
+		.effName = globalEffName
+		.accessLevel = globalAccessLevel
+		.userRoles = globalRoles
+		.clientVersion = globalClientVersion
+	End With
+	
+	globalLogSuccess = globalLogItem.WriteToLog(GetLogDatabase)
+	
+	'** this function was really intended to return a String, but it has accidentally 
+	'** always returned an Integer, so we'll stick with that to avoid any nasty
+	'** errors that users might run into if we change the signature of this function
+	'LogEvent = globalLogItem.message
+	LogEvent = True
+	Exit Function
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Function
+'++LotusScript Development Environment:2:2:InitGlobalLogItem:1:8
+Sub InitGlobalLogItem ()
+	'** initialize the global LogItem, if it hasn't been initialized already
+	On Error Goto processError
+	
+	If (globalLogItem Is Nothing) Then
+		Set globalLogItem = New LogItem
+	End If
+	
+	Exit Sub
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Sub
+'++LotusScript Development Environment:2:1:GetLogDatabase:1:8
+Function GetLogDatabase () As NotesDatabase
+	'** get a handle to the log database
+	On Error Goto processError
+	
+	'** if we've already tried doing this once, don't bother trying again;
+	'** either we were able to connect to the database and we've already
+	'** got a handle to it, or we failed and we'd keep on failing
+	If Not dbInitiated Then
+		Call UseDefaultLogDb
+	End If
+	
+	Set GetLogDatabase = logDb
+	Exit Function
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Function
+'++LotusScript Development Environment:2:1:CreateLogItem:1:8
+Function CreateLogItem (msg As String, severity As String, doc As NotesDocument) As LogItem
+	'** create and return a new LogItem, with most of the fields prefilled.
+	'** You might want to use this if (for example) you'd rather collect an
+	'** array of LogItems and process them all at once, instead of as the
+	'** events and errors occur.
+	On Error Goto processError
+	
+	Dim li As New LogItem
+	li.message = msg
+	li.severity = severity
+	li.eventTime = Now
+	li.methodName = Getthreadinfo(10)
+	Set li.doc = doc
+	
+	If (Err > 0) Then
+		li.eventType = "Error"
+		li.errNum = Err
+		li.errMsg = Error$
+		li.errLine = Erl
+		If (msg = "") Then
+			li.message = "Error " & Err & " on line " & Erl & " in function " & Getthreadinfo(10) & ": " & Error$
+		End If
+	Else
+		li.eventType = "Event"
+	End If
+	
+	Set CreateLogItem = li
+	Exit Function
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Function
+'++LotusScript Development Environment:2:1:GetLastLogItem:1:8
+Function GetLastLogItem () As LogItem
+	'** return the most recent LogItem, in case the user wants it
+	'** for anything
+	Set GetLastLogItem = globalLogItem
+	
+End Function
+'++LotusScript Development Environment:2:1:StringToArray:1:8
+Function StringToArray (thisText As String, delim As String) As Variant
+	'** convert a string to an array, separating at the specified delimiter
+	On Error Goto processError
+	
+	Dim temparray() As String
+	Dim tempstring As String
+	Dim delimlength As Integer
+	Dim pos As Integer
+	Dim i As Integer
+	
+	tempstring = thisText
+	delimlength = Len(delim)
+	pos = Instr(1, tempstring, delim, 5)
+	i = 0
+	
+	Do While (pos > 0)
+		'** add a placeholder in the array for the new element
+		Redim Preserve temparray(i) As String
+		
+		'** get the substring
+		temparray(i) = Left$(tempstring, pos - 1)
+		
+		'** reset the variables
+		tempstring = Right$(tempstring, Len(tempstring) - pos - delimlength + 1)
+		pos = Instr(1, tempstring, delim, 5)
+		i = i + 1
+	Loop
+	
+	'** make sure you get the stuff at the end of the string
+	Redim Preserve temparray(i) As String
+	temparray(i) = tempstring$
+	
+	'** return the array as a result
+	StringToArray = temparray
+	
+	Exit Function
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Function
+'++LotusScript Development Environment:2:1:StandardErrorMessage:2:8
+Function StandardErrorMessage (errNum As Integer, errLine As Integer, _
+errMsg As String, methodName As String) As String
+	'** the standard error message format we'll be using
+	StandardErrorMessage = "Error " & errNum & " on line " & errLine & " in function " & _
+	methodName & ": " & errMsg
+End Function
+'++LotusScript Development Environment:2:1:StandardTraceMessage:2:8
+Function StandardTraceMessage (methodName As Variant, _
+className As Variant, errLine As Integer) As String
+	'** the standard stack trace message we'll be using (in the Java style)
+	StandardTraceMessage = "at " & methodName & "(" & className & ":" & errLine & ")"
+End Function
+'++LotusScript Development Environment:2:1:AddToStackTrace:1:8
+Function AddToStackTrace () As Integer
+	'** add the current error to the global StackTraceData item
+	On Error Goto processError
+	
+	If (stackTrace.traceData = "") Then
+		With stackTrace
+			.errNum = Err
+			.errLine = Erl
+			.errMsg = Error$
+			.methodName = Getthreadinfo(10)
+			.traceData = StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(10)) & Chr(10) & _
+			StandardTraceMessage(Getthreadinfo(10), "", Erl)
+		End With
+	Else
+		stackTrace.traceData = stackTrace.traceData & Chr(10) & _
+		StandardTraceMessage(Getthreadinfo(10), "", Erl)
+	End If
+	
+	AddToStackTrace = True
+	
+	Exit Function
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Function
+'++LotusScript Development Environment:2:2:ClearStackTrace:1:8
+Sub ClearStackTrace ()
+	'** clear any global StackTraceData we have
+	On Error Resume Next
+	Call stackTrace.ResetFields()
+End Sub
+'++LotusScript Development Environment:2:1:AddToStackTraceEx:1:8
+Function AddToStackTraceEx (className As String) As Integer
+	'** add the current error to the global StackTraceData item,
+	'** including the name of the class or script library that the
+	'** current function is in (as given by the className parameter)
+	On Error Goto processError
+	
+	If (stackTrace.traceData = "") Then
+		With stackTrace
+			.errNum = Err
+			.errLine = Erl
+			.errMsg = Error$
+			.methodName = Getthreadinfo(10)
+			.traceData = StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(10)) & Chr(10) & _
+			StandardTraceMessage(Getthreadinfo(10), className, Erl)
+		End With
+	Else
+		stackTrace.traceData = stackTrace.traceData & Chr(10) & _
+		StandardTraceMessage(Getthreadinfo(10), className, Erl)
+	End If
+	
+	AddToStackTraceEx = True
+	
+	Exit Function
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Function
+'++LotusScript Development Environment:2:1:UseDefaultLogDb:1:8
+Function UseDefaultLogDb () As Integer
+	'** Use the default log database to write our errors to (based on the values set
+	'** in the useServerLogWhenLocal and logToCurrentDatabase variables). This
+	'** method will set the logDb variable as well.
+	'**
+	'** Normally, you should never need to call this method, because it gets called
+	'** automatically the first time you log an event or an error. The two times you 
+	'** might want it are:
+	'**
+	'** 1.  If you want to connect to the log database early in your agent or script,
+	'** so you won't get the small time lag for connecting to the database when the
+	'** first error or event occurs.
+	'** 
+	'** 2. if you were previously sending log messages to a different database from
+	'** a calling to the useCustomLogDb function.
+	On Error Goto processError
+	
+	Dim session As New NotesSession
+	If logToCurrentDatabase Then
+		Set logDb = session.CurrentDatabase
+	Elseif (session.IsOnServer = False) And (useServerLogWhenLocal) Then
+		Set logDb = session.getDatabase(session.CurrentDatabase.Server, logDbName)
+	Else
+		Set logDb = session.GetDatabase("", logDbName)
+	End If
+	
+	dbInitiated = True
+	UseDefaultLogDb = Not (logDb Is Nothing)
+	Exit Function
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Function
+'++LotusScript Development Environment:2:1:UseCustomLogDb:1:8
+Function UseCustomLogDb (db As NotesDatabase) As Integer
+	'** Send all errors and events to the Database of your choice, instead of
+	'** the default OpenLog database. After you've called this method once,
+	'** all further errors and events will be sent to this database (so you don't 
+	'** have to call it before every call to LogError or LogEvent).
+	On Error Goto processError
+	
+	Set logDb = db
+	dbInitiated = True
+	UseCustomLogDb = Not (logDb Is Nothing)
+	Exit Function
+	
+processError:
+	DebugPrint(StandardErrorMessage(Err, Erl, Error$, Getthreadinfo(1)))
+	Resume Next
+	
+End Function
+'++LotusScript Development Environment:2:2:DebugPrint:1:8
+Private Sub DebugPrint (debugMsg As String)
+	'** print internal error messages to the console, if olDebugLevel
+	'** is greater than zero
+	On Error Resume Next
+	
+	If (olDebugLevel >= 1) Then
+		Print "OpenLogFunctions error: " & debugMsg
+	End If
+	
+	If (olDebugLevel >= 2) Then
+		If NoLSIStackTrace Then
+			Print "OpenLogFunctions error trace (stack trace disabled): " & Getthreadinfo(10)
+		Else
+			Print "OpenLogFunctions error trace: " & Lsi_info(14)
+		End If
+	End If
+	
+End Sub
+'++LotusScript Development Environment:2:2:OLDebugPrint:1:8
+Sub OLDebugPrint (debugMsg As String)
+	'** This is a public interface to the Private DebugPrint sub.
+	'** I initially just changed the DebugPrint sub from Private
+	'** to Public, but then it occurred to me that other people
+	'** might be using libraries that had their own DebugPrint
+	'** functions/subs, and I didn't want to step on any toes...
+	Call DebugPrint(debugMsg)
+End Sub

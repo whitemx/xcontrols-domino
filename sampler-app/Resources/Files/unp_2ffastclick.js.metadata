@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
+<noteinfo noteid="14c6" sequence="1" unid="F118319340DC3F0580257D2D004004AE">
+<created><datetime dst="true">20140807T123915,02+01</datetime></created>
+<modified><datetime dst="true">20140807T123915,13+01</datetime></modified>
+<revised><datetime dst="true">20140807T123915,12+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140807T123915,13+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140807T123915,13+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt"><text>D</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20130523T201538,00+01</datetime></item>
+<item name="$TITLE" sign="true"><text>unp/fastclick.js</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>unp_2ffastclick.js</text></item></note>

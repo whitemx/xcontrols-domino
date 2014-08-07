@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoDocument var="docview"
+			formName="#{javascript:compositeData.formname}"
+			action="openDocument">
+			<xp:this.databaseName><![CDATA[#{javascript:if (compositeData.dbname != null){
+	var db = session.getDatabase("", compositeData.dbname);
+	if (db == null){
+		return null;
+	}else{
+		return compositeData.dbname;
+	}
+}}]]></xp:this.databaseName>
+		</xp:dominoDocument>
+	</xp:this.data>
+	
+	
+	<xp:this.beforePageLoad>
+		<xp:executeScript>
+			<xp:this.script><![CDATA[#{javascript:viewScope.images = null;
+var images = new Array;
+var imageFile = "";
+var attachmentList = null;
+if (isUnpluggedServer()){
+	attachmentList = docview.getAttachmentList();
+}else{
+	attachmentList = $A(session.evaluate("@AttachmentNames", docview.getDocument()));
+}
+var thisUNID = docview.getDocument().getUniversalID();
+var dbPath = compositeData.dbname;
+if (dbPath == null || dbPath == ""){
+	dbPath = database.getFilePath();
+}
+dbPath = @ReplaceSubstring(dbPath, "\\", "/");
+if (attachmentList != null && attachmentList.length > 0){
+	for(var i=0; i<attachmentList.length; i++){
+	
+	  var imagename = attachmentList[i];
+	  if (isUnpluggedServer()){
+	  	imagename = imagename.getName();
+	  }
+	  
+	  imageFile = "/" + dbPath + "/0/" + docview.getDocument().getUniversalID() + "/$FILE/" + imagename;
+	  if (imagename != ""){
+		  images.push({
+		     url: imageFile,
+		     filename: imagename
+		  });
+	  } 
+	}
+	
+	viewScope.put("images", images);
+}}]]></xp:this.script>
+		</xp:executeScript>
+	</xp:this.beforePageLoad>
+	<div class="panel panel-default">
+		<div class="panel-heading clearfix">
+			<xp:text id="title" tagName="h3"
+				styleClass="panel-title pull-left">
+				<xp:this.value><![CDATA[#{javascript:return compositeData.title;}]]></xp:this.value>
+			</xp:text>
+			
+			<xp:link id="editbutton" value="#"
+				styleClass="btn btn-primary pull-right" text=" Edit"
+				rendered="#{javascript:compositeData.showbuttons == 'yes'}">
+				<xp:this.attrs>
+					<xp:attr name="onclick">
+						<xp:this.value><![CDATA[#{javascript:return "unp.editDocument('" + compositeData.editxpagename + "', '" + docview.getDocument().getUniversalID() + "'); return false;"}]]></xp:this.value>
+					</xp:attr>
+				</xp:this.attrs>
+				<i class="fa fa-pencil"></i>
+			</xp:link>
+		</div>
+		<xp:callback facetName="facet_1" id="callback1"></xp:callback>
+		<div class="panel-footer">
+			<xp:link id="link1" value="#"
+				styleClass="btn" text="New Response"
+				rendered="#{javascript:!isEmpty(compositeData.newresponsexpagename)}">
+				<xp:this.attrs>
+					<xp:attr name="onclick">
+						<xp:this.value><![CDATA[#{javascript:return "unp.newResponse('" + docview.getDocument().getUniversalID() + "', '" + compositeData.newresponsexpagename + "'); return false;"}]]></xp:this.value>
+					</xp:attr>
+				</xp:this.attrs>
+			</xp:link>
+		</div>
+	</div>
+</xp:view>

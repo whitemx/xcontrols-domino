@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="workspaceview"
+			viewName="#{javascript:compositeData.workspaceview}">
+		</xp:dominoView>
+	</xp:this.data>
+	<div class="panel panel-default bootcards-summary">
+		<div class="panel-heading">
+			<xp:text id="workspacetitle" tagName="h3" styleClass="panel-title"
+				value="#{javascript:compositeData.title}">
+			</xp:text>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<xp:repeat value="#{workspaceview}" var="workspaceitem"
+					indexVar="workspaceitemindex" disableOutputTag="true">
+					<div class="col-xs-6 col-sm-4 col-md-3">
+						<xp:panel id="summaryitem" tagName="a"
+							styleClass="bootcards-summary-item">
+							<xp:this.attrs>
+								<xp:attr name="href"
+									value="#{javascript:workspaceitem.getColumnValue(compositeData.linkurlcol)}">
+								</xp:attr>
+							</xp:this.attrs>
+							<xp:panel id="icon" tagName="i">
+								<xp:this.styleClass><![CDATA[#{javascript:"fa fa-3x " + workspaceitem.getColumnValue(compositeData.iconcol)}]]></xp:this.styleClass>
+							</xp:panel>
+							<xp:text id="title" tagName="h4" escape="false">
+								<xp:this.value><![CDATA[#{javascript:var out = "";
+out += workspaceitem.getColumnValue(compositeData.labelcol);
+try{
+	if (workspaceitem.getColumnValue(compositeData.badgecol) != ""){
+		out += "&nbsp;<span class=\"label label-info\">" + workspaceitem.getColumnValue(compositeData.badgecol) + "</span>";
+	}
+}catch(e){
+}
+
+return out;}]]></xp:this.value>
+							</xp:text>
+						</xp:panel>
+					</div>
+				</xp:repeat>
+			</div>
+		</div>
+		<div class="panel-footer">
+		</div>
+	</div>
+</xp:view>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas"
+		id="slideInMenu">
+		<ul class="nav navmenu-nav">
+			<xp:repeat var="menuitem" disableOutputTag="true">
+				<xp:this.value><![CDATA[#{javascript:compositeData.menuitems;}]]></xp:this.value>
+				<xp:panel id="litop" tagName="li">
+
+					<xp:this.styleClass><![CDATA[#{javascript:if (viewScope.litop){
+	viewScope.litop = viewScope.litop + 1
+}else{
+	viewScope.litop = 1;
+}
+"collapse litop" + viewScope.litop;}]]></xp:this.styleClass>
+					<xp:panel id="toplink" tagName="li"
+						rendered="#{javascript:if (menuitem.children){return false;}else{return true;}}">
+						<xp:link id="link1" text="#{javascript:menuitem.label}"
+							value="#{javascript:menuitem.page}">
+							<xp:panel id="panel2" tagName="i">
+								<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + menuitem.icon}]]></xp:this.styleClass>
+							</xp:panel>
+						</xp:link>
+					</xp:panel>
+					<xp:link text="#{javascript:menuitem.label}" rendered="#{javascript:if (menuitem.children){return true;}else{return false;}}"
+					styleClass="collapsed bootcards-parent">
+						<xp:this.value><![CDATA[#{javascript:return "#" + getClientId("collapse");}]]></xp:this.value>
+						<xp:this.attrs>
+							<xp:attr name="data-toggle" value="collapse">
+							</xp:attr>
+							<xp:attr name="data-parent">
+								<xp:this.value><![CDATA[#{javascript:".litop" + viewScope.litop}]]></xp:this.value>
+							</xp:attr>
+						</xp:this.attrs>
+						<xp:panel id="toplevelicon" tagName="i" styleClass="fa fa-lg fa-fw fa-chevron-circle-right">
+						</xp:panel>
+					</xp:link>
+					<xp:panel id="collapse" styleClass="collapse">
+						<xp:this.rendered><![CDATA[#{javascript:if (menuitem.children){
+	return true;
+}else{return false}}]]></xp:this.rendered>
+						<ul class="nav navmenu-nav">
+							<xp:repeat id="children" disableOutputTag="true" var="child">
+
+								<xp:this.value><![CDATA[#{javascript:if (menuitem.children){
+	menuitem.children
+}}]]></xp:this.value>
+								<xp:panel id="childitem" tagName="li"
+									rendered="#{javascript:if (child.children){return false;}else{return true;}}">
+									<xp:link id="childlink" text="#{javascript:child.label}"
+										value="#{javascript:child.page}">
+										<xp:panel id="childicon" tagName="i">
+											<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + child.icon}]]></xp:this.styleClass>
+										</xp:panel>
+									</xp:link>
+								</xp:panel>
+								<xp:panel id="accordion2" tagName="li"
+									rendered="#{javascript:if (child.children){return true;}else{return false;}}">
+									<xp:link id="collapselink" styleClass="collapsed bootcards-parent"
+										text="#{javascript:child.label}">
+										<xp:this.attrs>
+											<xp:attr name="data-toggle" value="collapse">
+											</xp:attr>
+										</xp:this.attrs>
+										<xp:this.value><![CDATA[#{javascript:"#" + getClientId("accordion2")}]]></xp:this.value>
+										<i class="fa fa-lg fa-fw fa-chevron-circle-right">
+										</i>
+									</xp:link>
+									<xp:panel id="collapse2" styleClass="collapse">
+										<ul class="nav navmenu-nav">
+											<xp:repeat
+												value="#{javascript:if(child.children){return child.children;}}"
+												var="grandchild">
+												<li>
+													<xp:link id="grandchildlink" text="#{javascript:grandchild.label}"
+														value="#{javascript:grandchild.page}">
+														<xp:panel id="grandchildicon" tagName="i">
+															<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + grandchild.icon}]]></xp:this.styleClass>
+														</xp:panel>
+													</xp:link>
+												</li>
+											</xp:repeat>
+										</ul>
+									</xp:panel>
+								</xp:panel>
+							</xp:repeat>
+						</ul>
+					</xp:panel>
+				</xp:panel>
+			</xp:repeat>
+			<xp:panel id="homenavitem" tagName="li">
+				<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
+				<xp:link escape="true" text="Home" value="/unpws.unp/" id="homenavitemlink">
+					<i class="fa fa-home"></i>
+				</xp:link>
+			</xp:panel>
+		</ul>
+	</div>
+</xp:view>

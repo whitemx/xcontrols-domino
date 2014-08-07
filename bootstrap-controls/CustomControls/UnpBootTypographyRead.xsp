@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
+	xmlns:xc="http://www.ibm.com/xsp/custom">
+	<div class="panel panel-default bootcards-richtext">
+		<div class="panel-heading">
+			<div class="pull-right btn-group">
+				<a href="#" class="btn btn-primary" onclick="unp.increaseFontSize(this)">
+					<i class="fa fa-lg fa-search-plus" />
+				</a>
+				<a href="#" class="btn btn-primary" onclick="unp.decreaseFontSize(this)">
+					<i class="fa fa-lg fa-search-minus" />
+				</a>
+			</div>
+			<xp:text id="rttitle" tagName="h3" styleClass="panel-title"
+				value="#{javascript:compositeData.title}" rendered="#{javascript:!isEmpty(compositeData.title)}">
+			</xp:text>
+		</div>
+		<div class="panel-body typographyreadcontent">
+		
+			<xp:callback facetName="typographyfacet" id="typographycallback"></xp:callback>
+					
+		</div>
+	</div>
+
+</xp:view>

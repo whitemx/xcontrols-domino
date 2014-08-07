@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoDocument var="docedit"
+			formName="#{javascript:compositeData.formname}" action="editDocument">
+			<xp:this.databaseName><![CDATA[#{javascript:if (compositeData.dbname != null){
+	var db = session.getDatabase("", compositeData.dbname);
+	if (db == null){
+		return null;
+	}else{
+		return compositeData.dbname;
+	}
+}}]]></xp:this.databaseName>
+		</xp:dominoDocument>
+	</xp:this.data>
+	<div class="modal-content form-horizontal">
+		<div class="modal-header">
+
+			<div class="btn-group pull-left">
+				<a href="#" class="btn btn-danger" data-dismiss="modal">
+					<i class="fa fa-times" />
+					&#160;Cancel
+				</a>
+			</div>
+
+			
+			<div class="btn-group pull-right">
+				<xp:panel id="savebutton" tagName="a" styleClass="btn btn-success">
+					<i class="fa fa-check" />
+					&#160;Save
+					<xp:this.attrs>
+						<xp:attr name="href" value="#"></xp:attr>
+						<xp:attr name="onclick">
+							<xp:this.value><![CDATA[#{javascript:var out = "unp.saveDocument('" + getClientId("modal-body") + "', '" + docedit.getDocument().getUniversalID() + 
+"', '" + compositeData.viewxpagename + "', '" + compositeData.formname + "'"
+if (context.getUrlParameter("parentunid") != ""){
+	out += ", '" + context.getUrlParameter("parentunid") + "'";
+}else{
+	out += ", 'null'";
+}
+if (compositeData.dbname != null){
+	out += ", '" + compositeData.dbName + "'";
+}
+out += "); return false;"
+return out;}]]></xp:this.value>
+						</xp:attr>
+					</xp:this.attrs>
+				</xp:panel>
+			</div>
+			<xp:text id="title" tagName="h4" styleClass="modal-title"
+				value="#{javascript:compositeData.title}">
+			</xp:text>
+
+		</div>
+		<xp:panel id="modal-body" styleClass="modal-body">
+			<xp:callback facetName="facet_1" id="callback1"></xp:callback>
+			<br />
+		</xp:panel>
+		<xp:panel id="modal-footer" styleClass="modal-footer">
+
+		</xp:panel>
+	</div>
+</xp:view>

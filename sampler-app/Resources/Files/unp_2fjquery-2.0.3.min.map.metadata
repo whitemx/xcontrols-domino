@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
+<noteinfo noteid="150a" sequence="1" unid="57F23ACC3612B4B880257D2D004004BF">
+<created><datetime dst="true">20140807T123915,19+01</datetime></created>
+<modified><datetime dst="true">20140807T123915,47+01</datetime></modified>
+<revised><datetime dst="true">20140807T123915,46+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140807T123915,47+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140807T123915,47+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$TITLE" sign="true"><text>unp/jquery-2.0.3.min.map</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>unp_2fjquery-2.0.3.min.map</text></item></note>

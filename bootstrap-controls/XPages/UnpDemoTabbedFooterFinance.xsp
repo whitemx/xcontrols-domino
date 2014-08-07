@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+	<xc:commonheader></xc:commonheader>
+	<div id="main" class="container">
+		<div class="row fullheightrow">
+			<unp:UnpBootFlatView title="Finance Employees"
+				summarycolumn="Name" viewname="EmployeesCatByDept" numberofrows="20"
+				ajaxload="Yes"
+				detailcolumn="DOB" xpagedoc="UnpDemoFlatViewCategory.xsp"
+				newlink="UnpDemoEmployeeEdit.xsp"
+				categoryfilter="Finances">
+			</unp:UnpBootFlatView>
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
+				<xc:employeeviewer></xc:employeeviewer>
+			</div>
+		</div>
+	</div>
+	<unp:UnpBootFooter synctype="currentdb">
+		<unp:this.tabs><![CDATA[#{javascript:[
+  {label: "Home", page: "/UnpMain.xsp", icon: "fa-home"}, 
+  {label: "All Employees", page: "/UnpDemoTabbedFooter.xsp", icon: "fa-group"},
+  {label: "Finance Employees", page: "/UnpDemoTabbedFooterFinance.xsp", icon: "fa-bank"}
+]}]]></unp:this.tabs>
+	</unp:UnpBootFooter>
+
+</xp:view>

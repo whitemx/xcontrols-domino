@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
+<noteinfo noteid="14ea" sequence="1" unid="B5664C83AA292FE680257D2D004004B7">
+<created><datetime dst="true">20140807T123915,11+01</datetime></created>
+<modified><datetime dst="true">20140807T123915,31+01</datetime></modified>
+<revised><datetime dst="true">20140807T123915,30+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140807T123915,31+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140807T123915,31+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt"><text>D</text></item>
+
+<item name="$FileModDT" sign="true"><datetime dst="true">20140413T130840,00+01</datetime></item>
+
+<item name="$FileNames" sign="true"><text>icomoon.svg</text></item>
+<item name="$TITLE" sign="true"><textlist><text>unp/fonts/icomoon.svg</text></textlist></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item></note>

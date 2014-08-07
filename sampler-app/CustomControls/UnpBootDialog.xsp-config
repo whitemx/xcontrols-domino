@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://unplugged.teamstudio.com</namespace-uri>
+    <default-prefix>unp</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <component-type>UnpBootDialog</component-type>
+    <composite-name>UnpBootDialog</composite-name>
+    <composite-file>/UnpBootDialog.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <category>Unplugged</category>
+      </designer-extension>
+    </composite-extension>
+    <property>
+      <property-name>callback</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>title</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>footertext</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>dialogid</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+  </composite-component>
+</faces-config>

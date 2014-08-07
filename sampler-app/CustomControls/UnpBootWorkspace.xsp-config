@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://www.ibm.com/xsp/custom</namespace-uri>
+    <default-prefix>xc</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <component-type>UnpBootWorkspace</component-type>
+    <composite-name>UnpBootWorkspace</composite-name>
+    <composite-file>/UnpBootWorkspace.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <category>Unplugged</category>
+      </designer-extension>
+    </composite-extension>
+    <property>
+      <property-name>title</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>workspaceview</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>labelcol</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>iconcol</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>linkurlcol</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>badgecol</property-name>
+      <property-class>string</property-class>
+    </property>
+  </composite-component>
+</faces-config>

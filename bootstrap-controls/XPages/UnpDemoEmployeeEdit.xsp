@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
+	xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<unp:UnpBootFormEditor viewxpagename="UnpDemoFlatView.xsp"
+		formname="Employee" showbuttons="yes" title="Employee Details">
+		<xp:this.facets>
+			<xp:panel id="list-group" xp:key="facet_1">
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label" for="name"
+						value="Name"></xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="name" value="#{docedit.name}"
+							styleClass="form-control required">
+							<xp:this.attrs>
+								<xp:attr name="placeholder" value="Name"></xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="DOB" id="doblabel" for="birthday"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="birthday" value="#{docedit.Birthday}"
+							styleClass="form-control" type="date">
+							<xp:this.converter>
+								<xp:convertDateTime>
+									<xp:this.pattern><![CDATA[${javascript:if (docedit.isEditable()){
+	return "yyyy-MM-dd";
+}else{
+	return "dd MMM yyyy";
+}}]]></xp:this.pattern>
+								</xp:convertDateTime>
+							</xp:this.converter>
+						</xp:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Email" id="emaillabel" for="email"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="email" value="#{docedit.Email}"
+							type="email" styleClass="form-control">
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Number" id="numberlabel" for="int_number"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="int_number" value="#{docedit.Number}"
+							type="number" styleClass="form-control">
+							<xp:this.converter>
+								<xp:convertNumber type="number" integerOnly="true">
+								</xp:convertNumber>
+							</xp:this.converter>
+						</xp:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Float" id="label1" for="float_float"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="float_float" value="#{docedit.Float}"
+							type="number" styleClass="form-control">
+						</xp:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Start Month" id="startmonthlabel" for="startmonth"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:comboBox id="startdate" value="#{docedit.StartDate}"
+							styleClass="form-control">
+							<xp:selectItem itemLabel="January">
+							</xp:selectItem>
+							<xp:selectItem itemLabel="February">
+							</xp:selectItem>
+							<xp:selectItem itemLabel="March"></xp:selectItem>
+							<xp:selectItem itemLabel="April"></xp:selectItem>
+							<xp:selectItem itemLabel="May"></xp:selectItem>
+							<xp:selectItem itemLabel="June"></xp:selectItem>
+							<xp:selectItem itemLabel="July"></xp:selectItem>
+							<xp:selectItem itemLabel="August"></xp:selectItem>
+							<xp:selectItem itemLabel="September">
+							</xp:selectItem>
+							<xp:selectItem itemLabel="October">
+							</xp:selectItem>
+							<xp:selectItem itemLabel="November">
+							</xp:selectItem>
+							<xp:selectItem itemLabel="December">
+							</xp:selectItem>
+						</xp:comboBox>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Manager long label blah" id="managerlabel"
+						for="manager" styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="manager" value="#{docedit.Manager}"
+							styleClass="form-control">
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Dept" id="deptlabel" for="dept"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="dept" value="#{docedit.Dept}"
+							styleClass="required form-control autocomplete">
+							<xp:this.attrs>
+								<xp:attr name="auto-src" value="UnpDemoEmployeeEditAuto.xsp">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Mobile Enabled?" id="mobilelabel" for="mobileenabled"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:panel id="toggle">
+							<xp:this.styleClass><![CDATA[#{javascript:var out = "bootcards-toggle";
+if (docedit.getItemValueString('mobileenabled') == "on"){
+	out += " active";
+}
+return out;}]]></xp:this.styleClass>
+							<div class="bootcards-toggle-handle"></div>
+						</xp:panel>
+						<xp:checkBox checkedValue="on" uncheckedValue="off" style="display: none;"
+							value="#{docedit.mobileenabled}" required="false" id="mobileenabled"></xp:checkBox>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Countries" id="countrieslabel" for="countries"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:comboBox id="countries" value="#{docedit.countries}"
+							styleClass="form-control">
+							<xp:selectItems>
+								<xp:this.value><![CDATA[#{javascript:@Unique(@DbColumn(@DbName(), "Employees By Country", 1))}]]></xp:this.value>
+							</xp:selectItems>
+						</xp:comboBox>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Radio Buttons" for="radio"
+						styleClass="col-xs-4 control-label"></xp:label>
+					<div class="col-xs-8">
+						<xp:radioGroup id="radio" value="#{docedit.radio}">
+							<xp:selectItem itemLabel="aaaa" itemValue="aaaa">
+							</xp:selectItem>
+							<xp:selectItem itemLabel="bbbb" itemValue="bbbb">
+							</xp:selectItem>
+							<xp:selectItem itemLabel="cccc" itemValue="cccc"></xp:selectItem>
+						</xp:radioGroup>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Checkbox" for="checkbox" styleClass="col-xs-4 control-label"></xp:label>
+					<div class="col-xs-8">
+						<xp:checkBox text="aaaa" id="checkbox" checkedValue="aaaa"
+							uncheckedValue="xxxx" value="#{docedit.checkbox}">
+							<xp:this.attrs>
+								<xp:attr name="uncheckedValue" value="xxxx">
+								</xp:attr>
+								<xp:attr name="checkedValue" value="aaaa">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:checkBox>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<xp:label value="Details" id="detailslabel" for="description"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<unp:UnpBootTypographyEdit fieldname="description">
+
+						</unp:UnpBootTypographyEdit>
+					</div>
+				</div>
+			</xp:panel>
+		</xp:this.facets>
+	</unp:UnpBootFormEditor>
+
+</xp:view>

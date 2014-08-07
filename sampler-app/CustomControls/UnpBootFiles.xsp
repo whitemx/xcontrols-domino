@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div class="panel panel-default bootcards-file">
+		<div class="panel-heading">
+			<xp:text id="filestitle" tagName="h3" styleClass="panel-title"
+				value="#{javascript:compositeData.filestitle}">
+			</xp:text>
+		</div>
+		<div class="list-group">
+			<xp:repeat value="#{javascript:compositeData.fileslist}"
+				var="filedetails" indexVar="filedetailsindex">
+				<div class="list-group-item">
+					<xp:panel id="filelink" tagName="a">
+						<xp:this.attrs>
+							<xp:attr name="href" value="#{javascript:filedetails.url}">
+							</xp:attr>
+						</xp:this.attrs>
+						<xp:panel id="fileicon" tagName="span">
+							<xp:this.styleClass><![CDATA[#{javascript:var ext = filedetails.filename.split(".");
+ext = ext[ext.length - 1].toLowerCase();
+if (ext == "xls" || ext == "xlsx"){
+	ext = "excel-o";
+}else if(ext == "doc" || ext == "docx"){
+	ext = "word-o";
+}else if(ext == "ppt" || ext == "pptx"){
+	ext = "powerpoint-o";
+}else if(ext == "gif" || ext == "png" || ext == "jpg"){
+	ext = "image-o";
+}else if(ext == "zip"){
+	ext = "archive-o";
+}else if(ext == "pdf"){
+	ext = "pdf-o";
+}else{
+	ext = "o";
+}
+"pull-left fa fa-3x fa-file-" + ext}]]></xp:this.styleClass>
+						</xp:panel>
+					</xp:panel>
+					<xp:panel id="fileheading" tagName="h4"
+						styleClass="list-group-item-heading">
+						<xp:link id="filelink2" text="#{javascript:filedetails.filename}"
+							value="#{javascript:filedetails.url}">
+						</xp:link>
+					</xp:panel>
+					<p class="list-group-item-text">
+						<xp:text id="filetype" tagName="strong">
+							<xp:this.value><![CDATA[#{javascript:var ext = filedetails.filename.split(".");
+return ext[ext.length - 1].toUpperCase();
+}]]></xp:this.value>
+						</xp:text>
+					</p>
+				</div>
+			</xp:repeat>
+		</div>
+	</div>
+</xp:view>

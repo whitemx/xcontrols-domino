@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:panel id="dialog">
+		<xp:this.attrs>
+			<xp:attr name="role" value="dialog"></xp:attr>
+		</xp:this.attrs>
+		<xp:this.styleClass><![CDATA[#{javascript:"modal fade in " + compositeData.dialogid}]]></xp:this.styleClass>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="btn-group pull-left">
+						<button class="btn btn-danger" data-dismiss="modal">
+							Cancel
+					</button>
+					</div>
+					<div class="btn-group pull-right">
+						<xp:panel id="okbutton" tagName="a" styleClass="btn btn-success">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[#{javascript:var out = "";
+if (compositeData.callback){
+	out += compositeData.callback + "(); "
+}
+return out;}]]></xp:this.value>
+								</xp:attr>
+								<xp:attr name="data-dismiss" value="modal">
+								</xp:attr>
+								<xp:attr name="href" value="#">
+								</xp:attr>
+							</xp:this.attrs>
+							OK
+						</xp:panel>
+					</div>
+					<xp:text id="title" tagName="h3" styleClass="modal-title"
+						value="#{javascript:compositeData.title}">
+					</xp:text>
+				</div>
+				<div class="modal-body">
+					<xp:callback facetName="facet_1" id="callback1"></xp:callback>
+				</div>
+			</div>
+			<xp:panel id="footer" styleClass="modal-footer"
+				rendered="#{javascript:!isEmpty(compositeData.footertext)}">
+				<xp:text id="footertext" tagName="small" styleClass="pull-left">
+					<xp:this.value><![CDATA[#{javascript:var text = compositeData.footertext;
+if (isEmpty(text)){
+	text = " ";
+}
+return text;}]]></xp:this.value>
+				</xp:text>
+			</xp:panel>
+		</div>
+	</xp:panel>
+</xp:view>

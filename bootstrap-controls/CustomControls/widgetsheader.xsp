@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
+	disableTheme="true">
+	<unp:UnpBootResources></unp:UnpBootResources>
+	<unp:UnpBootNavigator>
+		<unp:this.menuitems><![CDATA[#{javascript:[
+        {label: "Employees", page: "/UnpDemoWidgets.xsp", icon: "fa-group"},
+        {label: "Partial", page: "/UnpDemoWidgetsEmployeesNoIcons.xsp", icon: "fa-child"}, 
+        {label: "By Department", page: "/UnpDemoWidgetsByDept.xsp", icon: "fa-building"},
+        {label: "Finance", page: "/UnpDemoWidgetsByDeptFinances.xsp", icon: "fa-bank"},
+        {label: "By Country", page: "/UnpDemoWidgetsByCountry.xsp", icon: "fa-globe"},
+        {label: "By Year", page: "/UnpDemoWidgetsByYear.xsp", icon: "fa-calendar"},
+        {label: "About", page: "/UnpDemoWidgetsAbout.xsp", icon: "fa-info"}
+]}]]></unp:this.menuitems>
+	</unp:UnpBootNavigator>
+	<unp:UnpBootHeader title="Bootcards Controls">
+		<unp:this.navitems><![CDATA[#{javascript:[
+        {label: "Employees", page: "/UnpDemoWidgets.xsp", icon: "fa-group"},
+        {label: "Partial", page: "/UnpDemoWidgetsEmployeesNoIcons.xsp", icon: "fa-child"}, 
+        {label: "By Department", page: "/UnpDemoWidgetsByDept.xsp", icon: "fa-building"},
+        {label: "Finance", page: "/UnpDemoWidgetsByDeptFinances.xsp", icon: "fa-bank"},
+        {label: "By Country", page: "/UnpDemoWidgetsByCountry.xsp", icon: "fa-globe"},
+        {label: "By Year", page: "/UnpDemoWidgetsByYear.xsp", icon: "fa-calendar"},
+        {label: "About", page: "/UnpDemoWidgetsAbout.xsp", icon: "fa-info"}
+]}]]></unp:this.navitems>
+	</unp:UnpBootHeader>
+</xp:view>

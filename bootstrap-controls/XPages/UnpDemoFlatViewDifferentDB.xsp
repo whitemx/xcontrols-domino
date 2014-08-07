@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xc:commonheader></xc:commonheader>
+
+	<div id="main" class="container">
+		<div class="row fullheightrow">
+			<unp:UnpBootFlatView title="Teamroom By Date"
+				summarycolumn="Topic" viewname="(UnpDocumentsByDate)" numberofrows="20"
+				ajaxload="Yes"
+				detailcolumn="Categories" xpagedoc="UnpDemoFlatViewDifferentDB.xsp"
+				dbname="teamstudio/widgets/Teamroom.nsf"
+				searchlocal="yes">
+			</unp:UnpBootFlatView>
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
+				<unp:UnpBootFormViewer formname="Document"
+					dbname="teamstudio/widgets/Teamroom.nsf" editxpagewithajax="yes"
+					title="Document" showbuttons="no">
+					<xp:this.facets>
+						<xp:panel id="list-group" xp:key="facet_1">
+							<div class="panel">
+								<div class="list-group">
+									<div class="list-group-item">
+										<label>Subject</label>
+										<xp:text id="subject" tagName="h4"
+											styleClass="list-group-item-heading">
+											<xp:this.value><![CDATA[#{javascript:docview.getItemValueString("Subject")}]]></xp:this.value>
+										</xp:text>
+									</div>
+									<div class="list-group-item">
+										<label>Categories</label>
+										<xp:text id="categories" tagName="h4"
+											styleClass="list-group-item-heading">
+											<xp:this.value><![CDATA[#{javascript:docview.getItemValueString("Categories")}]]></xp:this.value>
+										</xp:text>
+									</div>
+									<div class="list-group-item">
+										<label>Body</label>
+										<xp:text id="computedField1" tagName="h4"
+											styleClass="list-group-item-heading">
+											<xp:this.value><![CDATA[#{javascript:docview.getItemValueString("Body")}]]></xp:this.value>
+										</xp:text>
+									</div>
+								</div>
+								<xc:UnpBootFiles filestitle="Files"
+									fileslist="#{javascript:viewScope.images}">
+									<xc:this.rendered><![CDATA[#{javascript:viewScope.images != null && viewScope.images.length > 0;}]]></xc:this.rendered>
+								</xc:UnpBootFiles>
+							</div>
+						</xp:panel>
+
+					</xp:this.facets>
+
+				</unp:UnpBootFormViewer>
+			</div>
+		</div>
+	</div>
+
+
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

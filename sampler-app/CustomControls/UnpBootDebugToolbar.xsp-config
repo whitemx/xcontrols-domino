@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://unplugged.teamstudio.com</namespace-uri>
+    <default-prefix>unp</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <component-type>UnpBootDebugToolbar</component-type>
+    <composite-name>UnpBootDebugToolbar</composite-name>
+    <composite-file>/UnpBootDebugToolbar.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#xd;
+&lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&#xd;
+  xmlns:xc="http://www.ibm.com/xsp/custom"&gt;&#xd;
+&lt;xp:div style="background-color:#555555; border: 1px solid #000000; color: #ffffff; padding:2px;"&gt;&lt;b&gt;Unplugged Debug Toolbar - v0.1&lt;/b&gt; (by Mark Leusink)&lt;/xp:div&gt;&#xd;
+&lt;/xp:view&gt;</render-markup>
+        <category>Unplugged</category>
+      </designer-extension>
+    </composite-extension>
+    <property>
+      <property-name>defaultCollapsed</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.std.Boolean</editor>
+          <default-value>false</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Indicates if the toolbar will be opened in a collapsed or expanded state (by default)</description>
+    </property>
+    <icon>
+      <small-icon/>
+      <large-icon/>
+    </icon>
+  </composite-component>
+</faces-config>

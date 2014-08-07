@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<button type="button" class="btn btn-default btn-back pull-left hidden"
+				onclick="unp.goback()">
+				<i class="fa fa-lg fa-chevron-left"></i>
+				<span>Back</span>
+			</button>
+			<button type="button"
+				class="btn btn-default btn-menu pull-left offcanvas-toggle">
+				<i class="fa fa-lg fa-bars"></i>
+				<span>Menu</span>
+			</button>
+			<xp:panel id="title" tagName="a" styleClass="navbar-brand">
+				<xp:this.attrs>
+					<xp:attr name="title" value="#{javascript:compositeData.title}">
+					</xp:attr>
+					<xp:attr name="href" value="UnpMain.xsp"></xp:attr>
+				</xp:this.attrs>
+				<xp:text value="#{javascript:compositeData.title}"></xp:text>
+			</xp:panel>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<xp:repeat id="headernavitems" value="#{javascript:compositeData.navitems}"
+						var="navitem" indexVar="navitemindex" disableOutputTag="true">
+						<xp:panel id="navitem" tagName="li">
+							<xp:link escape="true" text="#{javascript:navitem.label}"
+								id="navitemlink" value="#{javascript:navitem.page}">
+								<xp:text id="navitemicon" tagName="i" value="">
+									<xp:this.styleClass><![CDATA[#{javascript:"fa " + navitem.icon}]]></xp:this.styleClass>
+								</xp:text>
+							</xp:link>
+						</xp:panel>
+					</xp:repeat>
+
+					<xp:panel id="homenavitem" tagName="li">
+						<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
+						<xp:link escape="true" text="Home" value="/unpws.unp/"
+							id="homenavitemlink">
+							<i class="fa fa-home"></i>
+						</xp:link>
+					</xp:panel>
+				</ul>
+			</div>
+		</div>
+	</div>
+</xp:view>

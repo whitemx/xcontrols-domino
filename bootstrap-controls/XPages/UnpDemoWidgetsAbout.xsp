@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xc:widgetsheader></xc:widgetsheader>
+
+	<div class="panel panel-default">
+		<div class="panel-heading clearfix">
+			<h3 class="panel-title pull-left">About</h3>
+
+		</div>
+		<div class="panel-body">
+			<h1>Unplugged Controls Library</h1>
+			<h2>v4.0 October 2014</h2>
+			<p>Our goal with this project is to create a highly-optimised
+				set of XPages mobile controls with</p>
+			<ul>
+				<li>close-to-native performance</li>
+				<li>attractive aesthetics and</li>
+				<li>compatible with the Teamstudio Unplugged mobile
+					offline XPages engine running on iOS and Android devices.</li>
+			</ul>
+			<p>We wanted to make it as easy as possible for (reasonably
+				experienced) XPage developers who don’t have much or
+				any mobile development experience to create attractive Unplugged
+				mobile apps. Using these controls,
+				we've also provided 3 application templates (Doc Library, Journal,
+				Teamroom) that are compatible with the original
+				Lotus Domino application templates. We are targeting both smartphone
+				and tablet users, for iOS (iOS 5.01 and higher)
+				and Android devices (Android 3.0 and higher). It is our intention to
+				publish periodic updates to these controls to OpenNTF.</p>
+			<ul>
+				<xp:text tagName="li" escape="true" id="computedField1"
+					value="#{javascript:context.getUserAgent().getUserAgent()}">
+				</xp:text>
+				<xp:text tagName="li" escape="true" id="computedField2">
+					<xp:this.value><![CDATA[#{javascript:"isAndroid = " + isAndroid()}]]></xp:this.value>
+				</xp:text>
+				<xp:text tagName="li" escape="true" id="computedField3">
+					<xp:this.value><![CDATA[#{javascript:"isIOS = " + isIOS()}]]></xp:this.value>
+				</xp:text>
+				<xp:text tagName="li" escape="true" id="computedField4">
+					<xp:this.value><![CDATA[#{javascript:"iOSVersion = " + getiOSVersion()}]]></xp:this.value>
+				</xp:text>
+			</ul>
+		</div>
+		<div class="panel-footer">
+			<small>Copyright Teamstudio 2014</small>
+		</div>
+	</div>
+
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

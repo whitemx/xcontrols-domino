@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom" xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xc:widgetsheader></xc:widgetsheader>
+	<div id="main" class="container">
+		<div class="row fullheightrow">
+			<unp:UnpBootFlatView title="Employees By Department" summarycolumn="Name"
+				viewname="EmployessCatByDept" numberofrows="20"
+				ajaxload="Yes" detailcolumn="DOB"
+				xpagedoc="UnpDemoWidgetsByDept.xsp"
+				newlink="UnpDemoEmployeeEdit.xsp" searchview="Search">
+			</unp:UnpBootFlatView>
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
+				<xc:employeeviewer></xc:employeeviewer>
+			</div>
+		</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

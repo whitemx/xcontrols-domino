@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.beforePageLoad><![CDATA[#{javascript:if (sessionScope.favorites == null){
+        sessionScope.favorites = getFavorites();
+}
+if (sessionScope.downloaded == null){
+        sessionScope.downloaded = getDownloaded();
+}
+}]]></xp:this.beforePageLoad>
+	<xp:this.resources>
+		<xp:script src="/unpCommon.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<div id="loadmoreresults">
+		<xp:repeat id="hviewrepeat" var="rowData" indexVar="rowIndex"
+			rows="10" disableOutputTag="true">
+			<xp:this.value><![CDATA[#{javascript:var filter = "";
+if (context.getUrlParameter("languagefilter") != "" && context.getUrlParameter("languagefilter") != "All"){
+        filter = context.getUrlParameter("languagefilter");
+}
+if (context.getUrlParameter("yearfilter") != "" && context.getUrlParameter("yearfilter") != "All"){
+        if (filter != ""){
+                filter += "~";
+        }
+        filter += context.getUrlParameter("yearfilter");
+}
+var viewname = context.getUrlParameter("primaryview");
+if (filter != ""){
+        filter += "~" + context.getUrlParameter("category");
+        viewname = context.getUrlParameter("filterview");
+}else{
+        filter = context.getUrlParameter("category");
+}
+var alldocs:NotesView = database.getView(viewname);
+var docs:NotesViewEntryCollection = alldocs.getAllEntriesByKey(filter, true);
+return docs;
+}]]></xp:this.value>
+			<xp:this.first><![CDATA[#{javascript:var start = context.getUrlParameter("start");
+if (start == "" || start == "-1"){
+        return 0;
+}else{
+        return parseInt(start, 10);
+}}]]></xp:this.first>
+			<xp:panel id="hviewitem" styleClass="hviewitem">
+				<xp:this.attrs>
+					<xp:attr name="year">
+						<xp:this.value><![CDATA[#{javascript:rowData.getDocument().getItemValueString("Year")}]]></xp:this.value>
+					</xp:attr>
+					<xp:attr name="language">
+						<xp:this.value><![CDATA[#{javascript:rowData.getDocument().getItemValueString("Language")}]]></xp:this.value>
+					</xp:attr>
+					<xp:attr name="unid">
+						<xp:this.value><![CDATA[#{javascript:rowData.getDocument().getUniversalID()}]]></xp:this.value>
+					</xp:attr>
+					<xp:attr name="onclick">
+						<xp:this.value><![CDATA[#{javascript:"unp.openHViewDialog('" + context.getUrlParameter("xpage") + "', '" + context.getUrlParameter("source") + "', '" + rowData.getDocument().getUniversalID() + "')"}]]></xp:this.value>
+					</xp:attr>
+				</xp:this.attrs>
+				<xp:panel id="hviewicon">
+					<xp:this.styleClass><![CDATA[#{javascript:"hviewicon icon-" + rowData.getColumnValues().elementAt(4)}]]></xp:this.styleClass>
+					<xp:panel tagName="span" id="badge1" styleClass="badge badge-favorite">
+						<xp:this.style><![CDATA[#{javascript:if(@IsMember(rowData.getUniversalID(), sessionScope.favorites)){
+        return "display: inline;";
+}else{
+        return "display: none;";
+}}]]></xp:this.style>
+					</xp:panel>
+					<xp:panel tagName="span" id="badge2" styleClass="badge badge-downloaded">
+						<xp:this.rendered><![CDATA[#{javascript:if(@IsMember(rowData.getUniversalID(), sessionScope.downloaded)){
+        return true;
+}else{
+        return false;
+}}]]></xp:this.rendered>
+					</xp:panel>
+					<xp:panel tagName="span" id="badge3" styleClass="badge badge-downloading"
+						rendered="false">
+					</xp:panel>
+				</xp:panel>
+				<xp:text id="hviewtitle" styleClass="hviewtitle">
+					<xp:this.value><![CDATA[#{javascript:if (viewScope.hrowcount == null){
+        viewScope.hrowcount = 1;
+}else{
+        viewScope.hrowcount = viewScope.hrowcount + 1;
+}
+rowData.getDocument().getItemValueString("Title")}]]></xp:this.value>
+				</xp:text>
+			</xp:panel>
+		</xp:repeat>
+		<xp:panel>
+			NOMORERECORDS
+			<xp:this.rendered><![CDATA[#{javascript:if (viewScope.rowcount == null){
+        viewScope.rowcount = 10;
+}
+viewScope.rowcount == null || viewScope.hrowcount < viewScope.rowcount;}]]></xp:this.rendered>
+		</xp:panel>
+	</div>
+</xp:view>

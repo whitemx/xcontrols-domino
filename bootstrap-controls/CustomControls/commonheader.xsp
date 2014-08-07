@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
+	disableTheme="true">
+	<unp:UnpBootResources></unp:UnpBootResources>
+	<unp:UnpBootNavigator>
+		<unp:this.menuitems><![CDATA[#{javascript:[
+	{"label": "Dashboard", "icon": "fa-dashboard", "page": "UnpMain.xsp"}, 
+	{"label": "Parent Item", children: [
+		{"label": "Child Item", "icon": "fa-users", "page": "UnpMain.xsp"}, 
+		{"label": "Child Item with Grandchildren", "children": [
+			{"label": "Grandchild item", "icon": "fa-users", "page": "UnpMain.xsp"}, 
+			{"label": "Another Grandchild item", "icon": "fa-users", "page": "UnpMain.xsp"}
+		]}, 
+		{"label": "Another Child Item", "icon": "fa-users", "page": "UnpMain.xsp"}
+	]}, 
+	{"label": "Contacts", "icon": "fa-users", "page": "UnpMain.xsp"}
+]}]]></unp:this.menuitems>
+	</unp:UnpBootNavigator>
+	<unp:UnpBootHeader title="Bootcards Controls">
+		<unp:this.navitems><![CDATA[#{javascript:[
+        {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
+        {label: "All Widgets", hasSubMenu: false, page: "/UnpDemoWidgets.xsp", icon: "fa-cubes"}
+]}]]></unp:this.navitems>
+	</unp:UnpBootHeader>
+</xp:view>

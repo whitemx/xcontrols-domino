@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="viewList"
+			viewName="#{javascript:compositeData.viewname}">
+			<xp:this.categoryFilter><![CDATA[#{javascript:if (isEmpty(compositeData.categoryfilter)){
+	return null;
+}else{
+	return compositeData.categoryfilter;
+}}]]></xp:this.categoryFilter>
+			<xp:this.databaseName><![CDATA[#{javascript:if (compositeData.dbname != null){
+	var db = session.getDatabase("", compositeData.dbname);
+	if (db == null){
+		return null;
+	}else{
+		return compositeData.dbname;
+	}
+}}]]></xp:this.databaseName>
+		</xp:dominoView>
+	</xp:this.data>
+	<div class="col-sm-5 bootcards-list" id="list">
+		<div class="panel panel-default">
+			<xp:panel tagName="div" id="title" styleClass="panel-heading">
+				<div class="row">
+					<div class="col-xs-9">
+						<xp:text id="workspacetitle" tagName="h3" styleClass="panel-title"
+							value="#{javascript:compositeData.title}">
+							<xp:this.style><![CDATA[#{javascript:if (isEmpty(compositeData.title)){
+	return "display: none;";
+}}]]></xp:this.style>
+						</xp:text>
+					</div>
+					<div class="col-xs-3">
+						<xp:panel id="addlink" tagName="a"
+							styleClass="btn btn-primary btn-block">
+							<xp:this.attrs>
+								<xp:attr name="href" value="#{javascript:compositeData.newlink}">
+								</xp:attr>
+								<xp:attr name="data-toggle" value="modal">
+								</xp:attr>
+								<xp:attr name="data-target"
+									value="#{javascript:compositeData.newdatatarget}">
+								</xp:attr>
+							</xp:this.attrs>
+							<i class="fa fa-plus"></i>
+							<span>&#160;Add</span>
+						</xp:panel>
+					</div>
+				</div>
+			</xp:panel>
+			<xp:panel id="searchpanel" styleClass="panel-body"
+				rendered="#{javascript:!isEmpty(compositeData.searchview) || compositeData.searchlocal == 'yes'}">
+				<div class="search-form">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="form-group">
+								<xp:panel id="searchbox" tagName="input"
+									styleClass="form-control searchbox" rendered="#{javascript:!isEmpty(compositeData.searchview)}">
+									<xp:this.attrs>
+										<xp:attr name="placeholder" value="Search...">
+										</xp:attr>
+										<xp:attr name="search">
+											<xp:this.value><![CDATA[#{javascript:"UnpFlatViewList.xsp?chosenView=" + compositeData.searchview
++ "&summarycol=" + compositeData.summarycolumn + "&detailcol="
++ compositeData.detailcolumn + "&photocol="
++ compositeData.photocolumn + "&xpage=" + compositeData.xpagedoc + "&dbName="
++ compositeData.dbname + "&refreshmethod=" + compositeData.refreshmethod + "&start=0"
++ "&ajaxload=" + compositeData.ajaxload + "&target=" + compositeData.loaddocumenttarget;}]]></xp:this.value>
+										</xp:attr>
+									</xp:this.attrs>
+									<i class="fa fa-search"></i>
+								</xp:panel>
+								<xp:panel id="localsearchbox" tagName="input"
+									styleClass="form-control localsearchbox">
+									<xp:this.attrs>
+										<xp:attr name="placeholder" value="Search...">
+										</xp:attr>
+									</xp:this.attrs>
+									<xp:this.rendered><![CDATA[#{javascript:isEmpty(compositeData.searchview) && compositeData.searchlocal=='yes'}]]></xp:this.rendered>
+									<i class="fa fa-search"></i>
+								</xp:panel>
+							</div>
+						</div>
+					</div>
+				</div>
+			</xp:panel>
+			<xp:panel id="list-group" styleClass="list-group accordion-list-group">
+				<xp:this.attrs>
+					<xp:attr name="expand-first"
+						value="#{javascript:compositeData.expandfirstcategory}">
+					</xp:attr>
+				</xp:this.attrs>
+				<xp:repeat id="repeat4" var="thisRowData"
+					disableOutputTag="true" indexVar="thisRowIndex" rows="999">
+					<xp:this.value><![CDATA[#{javascript:var db = @DbName();
+if (!isEmpty(compositeData.dbname)){
+	db = [@DbName()[0], compositeData.dbname];
+}
+var list;
+if (isEmpty(compositeData.categoryfilter)){
+	list = @Unique(@DbColumn(db, compositeData.viewname, 1));
+}else{
+	if (isUnpluggedServer()){
+		list = @Unique(@DbLookup(db, compositeData.viewname, compositeData.categoryfilter, 2));
+	}else{
+		var thedb:NotesDatabase = session.getDatabase(db[0], db[1]);
+		var vw:NotesView = thedb.getView(compositeData.viewname);
+		var viewnav:NotesViewNavigator = vw.createViewNavFromCategory(compositeData.categoryfilter);
+		var ve = viewnav.getFirst();
+		var list = [];
+		while (ve != null){
+			if (ve.isCategory()){
+				list.push(ve.getColumnValues().elementAt(1));
+			}
+			var vetemp = viewnav.getNext(ve);
+			ve.recycle();
+			ve = vetemp;
+		}
+		viewnav.recycle();
+		vw.recycle();
+		thedb = null;
+	}
+}
+viewScope.categorycount = list.length;
+return list;}]]></xp:this.value>
+					<xp:text tagName="a"
+						styleClass="list-group-item bootcards-list-subheading collapsed"
+						value="#{javascript:thisRowData}">
+						<xp:this.attrs>
+							<xp:attr name="onClick">
+								<xp:this.value><![CDATA[#{javascript:var datacol = compositeData.dataColumn;
+if (isEmpty(datacol)){
+	datacol = null;
+}
+var summarycol = compositeData.summaryColumn;
+if (isEmpty(summarycol)){
+	summarycol = null;
+}
+if (isEmpty(compositeData.categoryfilter)){
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.photocolumn + "')";
+}else{
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.photocolumn + "')";
+}}]]></xp:this.value>
+							</xp:attr>
+						</xp:this.attrs>
+					</xp:text>
+				</xp:repeat>
+				<br />
+				<br />
+				<br />
+			</xp:panel>
+			<div class="panel-footer">
+				<div class="summaryDataRow"></div>
+				<xp:button value="Clear Search" id="clearsearchbutton"
+					styleClass="clearsearchbutton btn" style="display: none;">
+					<xp:this.attrs>
+						<xp:attr name="onclick">
+							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', '" + compositeData.refreshmethod + "', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.loaddocumenttarget + "')"}]]></xp:this.value>
+						</xp:attr>
+					</xp:this.attrs>
+				</xp:button>
+			</div>
+		</div>
+	</div>
+	<!--  Modals -->
+	<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+		aria-labelledby="editModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content"></div>
+		</div>
+	</div>
+
+</xp:view>
