@@ -1,4 +1,1 @@
-unplugged-bootstrapcontrols
-===========================
-
-A mobile and desktop XPages development framework
+A new set of Unplugged Controls built on top of Bootstrap 3.x and the Bootcards project. Bootcards enables us to create controls that will work on both mobile and PC browsers, which is a key goal of the project. A second goal is to maintain or improve on the user interface load times as measured by the UPMark benchmark (if this is technically possible!). The intended audience for these controls is XPage developers, as with the 3.x Controls.
