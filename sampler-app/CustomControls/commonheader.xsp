@@ -33,7 +33,6 @@
 		{"label": "Web App Icons", "page": "FontAwesomeWebApp.xsp"}, 
 		{"label": "New Icons", "page": "FontAwesomeNew.xsp"} 
 	]}, 
-	{"label": "Workspace", "icon": "fa-th-large", "page": "Workspace.xsp"}, 
 	{"label": "Contacts", children: [
 		{"label": "Contacts", "icon": "fa-group", "page": "Contacts.xsp"}, 
 		{"label": "Departments", "icon": "fa-building", "page": "Departments.xsp"},
@@ -41,10 +40,7 @@
 		{"label": "Activities By Contact", "icon": "fa-tasks", "page": "ActivitiesByContact.xsp"},
 		{"label": "Activities By Department", "icon": "fa-tasks", "page": "ActivitiesByDepartment.xsp"}
 	]}, 
-	{"label": "Media", children: [
-		{"label": "Library", "icon": "fa-book", "page": "MediaLibrary.xsp"}, 
-		{"label": "Favorites", "icon": "fa-star", "page": "MediaFavorites.xsp"}
-	]}, 
+	{"label": "Media Library", "icon": "fa-book", "page": "MediaLibrary.xsp"}, 
 	{"label": "Tools", children: [
 		{"label": "Debug Toolbar", "icon": "fa-bug", "page": "DebugToolbar.xsp"}, 
 		{"label": "UPMark 3", "icon": "fa-bolt", "page": "UPMark.xsp"}
@@ -52,4 +48,16 @@
 ]}]]></unp:this.menuitems>
 	</unp:UnpBootNavigator>
 	<unp:UnpBootHeader title="Sampler"></unp:UnpBootHeader>
+	<xp:text escape="false" id="companieslist" tagName="script">
+		<xp:this.value><![CDATA[#{javascript:var list = $A(@Unique(@DbColumn(@DbName(), "People By Company", 1))).sort();
+var out = "var companies = [";
+for (var i=0; i<list.length; i++){
+	if (i > 0){
+		out += ", ";
+	}
+	out += "\"" + list[i] + "\"";	
+}
+out += "];";
+return out;}]]></xp:this.value>
+	</xp:text>
 </xp:view>

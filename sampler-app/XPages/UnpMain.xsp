@@ -2,62 +2,63 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
 	<xc:commonheader></xc:commonheader>
 	<div id="main" class="container">
-		<div class="row fullheightrow">
-			<div class="col-xs-12 col-sm-12 col-md-6">
-				<xc:UnpBootWorkspace workspaceview="HomeLinks"
-					title="Contacts" linkurlcol="UnpUrl" labelcol="Title" iconcol="ImgUrl"
-					badgecol="BadgeID">
-				</xc:UnpBootWorkspace>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-6">
-				<div class="panel panel-default bootcards-chart">
-					<div class="panel-heading">
-						<h3 class="panel-title">Open Cases By Owner</h3>
-					</div>
-					<div class="">
-						<div id="div2" class="chartpanelelement">
-							<div id="pie1">
+		<div class="row">
+			<div class="bootcards-cards fullheightrow">
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<xc:UnpBootWorkspace workspaceview="HomeLinks"
+						title="Contacts" linkurlcol="UnpUrl" labelcol="Title" iconcol="ImgUrl"
+						badgecol="BadgeID">
+					</xc:UnpBootWorkspace>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<div class="panel panel-default bootcards-chart">
+						<div class="panel-heading">
+							<h3 class="panel-title">Open Cases By Owner</h3>
+						</div>
+						<div class="">
+							<div id="div2" class="chartpanelelement">
+								<div id="pie1">
+								</div>
+							</div>
+							<div class="panel-footer">
+								<a href="" class="btn btn-default btn-block" onclick="toggleChartData(); return false;">
+									<i class="fa fa-table"></i>
+									Show Data
+								</a>
 							</div>
 						</div>
-						<div class="panel-footer">
-							<a href="" class="btn btn-default btn-block" onclick="toggleChartData(); return false;">
-								<i class="fa fa-table"></i>
-								Show Data
-							</a>
-						</div>
-					</div>
-					<div class="panel-footer">
-						<small>Randomly generated data!</small>
-					</div>
-				</div>
-				<div class="panel panel-default bootcards-table" style="display: none;">
-					<div class="panel-heading">
-						<h3 class="panel-title">Open Cases By Owner
-						</h3>
-					</div>
-					<table class="table table-hover">
-						<thead>
-							<tr class="active">
-								<th>Name</th>
-								<th>Open Cases</th>
-							</tr>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-					<div class="panel-footer">
-						<a href="" class="btn btn-default btn-block" onclick="toggleChartData(); return false;">
-							<i class="fa fa-bar-chart-o"></i>
-							Show Chart
-						</a>
-					</div>
-					<div class="panel-footer">
 						<div class="panel-footer">
 							<small>Randomly generated data!</small>
 						</div>
 					</div>
+					<div class="panel panel-default bootcards-table" style="display: none;">
+						<div class="panel-heading">
+							<h3 class="panel-title">Open Cases By Owner
+						</h3>
+						</div>
+						<table class="table table-hover">
+							<thead>
+								<tr class="active">
+									<th>Name</th>
+									<th>Open Cases</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<div class="panel-footer">
+							<a href="" class="btn btn-default btn-block" onclick="toggleChartData(); return false;">
+								<i class="fa fa-bar-chart-o"></i>
+								Show Chart
+							</a>
+						</div>
+						<div class="panel-footer">
+							<div class="panel-footer">
+								<small>Randomly generated data!</small>
+							</div>
+						</div>
+					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>

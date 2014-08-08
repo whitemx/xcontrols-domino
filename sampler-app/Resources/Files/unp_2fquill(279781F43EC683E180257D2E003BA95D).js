@@ -40,7 +40,7 @@
 
   /** Used to detected named functions */
   var reFuncName = /^\s*function[ \n\r\t]+\w/;
-
+ 
   /** Used to detect functions containing a `this` reference */
   var reThis = /\bthis\b/;
 

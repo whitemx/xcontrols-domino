@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
-	xmlns:unp="http://unplugged.teamstudio.com"
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
 	xmlns:xc="http://www.ibm.com/xsp/custom">
 
-	<unp:UnpBootFormViewer editxpagename="UnpDemoEmployeeEdit.xsp"
-		editxpagewithajax="yes" formname="Employee" showbuttons="yes"
-		title="Employee Details" titleiconfield="photo1">
+	<unp:UnpBootFormViewer editxpagename="PersonEdit.xsp"
+		editxpagewithajax="yes" formname="Person" showbuttons="yes" title="Person Details"
+		titleiconfield="thumbnail">
 		<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
 		<xp:this.facets>
-			<xp:panel id="list-group" xp:key="facet_1"
-				styleClass="panel">
+			<xp:panel id="list-group" xp:key="facet_1" styleClass="panel">
 				<div class="list-group">
 					<div class="list-group-item">
-						<xp:panel tagName="img" id="titleicon"
-							styleClass="img-rounded pull-left">
+						<xp:panel tagName="img" id="titleicon" styleClass="img-rounded pull-left">
 							<xp:this.rendered><![CDATA[#{javascript:try{
 	if (compositeData.titleiconfield != "" && compositeData.titleiconfield != null){
 		if (docview.getDocument().getFirstItem(compositeData.titleiconfield) != null){
@@ -48,104 +45,64 @@
 							</xp:this.attrs>
 						</xp:panel>
 						<label>Name</label>
-						<xp:text id="unid" tagName="h4"
-							styleClass="list-group-item-heading">
-							<xp:this.value><![CDATA[#{javascript:docview.getItemValueString("Name")}]]></xp:this.value>
+						<xp:text id="fullname" tagName="h4" styleClass="list-group-item-heading">
+							<xp:this.value><![CDATA[#{javascript:docview.getItemValueString("FirstName") + " " + docview.getItemValueString("LastName")}]]></xp:this.value>
 						</xp:text>
 					</div>
 
 					<div class="list-group-item">
-						<xp:label value="DOB" id="doblabel"
-							for="birthday">
+						<xp:label value="Title" id="titlelabel" for="title">
 						</xp:label>
-						<xp:text tagName="h4" id="birthday"
-							value="#{docview.Birthday}">
+						<xp:text tagName="h4" id="title" value="#{docview.Title}">
 						</xp:text>
 					</div>
 					<div class="list-group-item">
-						<xp:label value="Email" id="emaillabel"
-							for="email">
+						<xp:label value="Date" id="datelabel" for="date">
 						</xp:label>
-						<xp:text tagName="h4" id="email"
-							value="#{docview.Email}">
+						<xp:text tagName="h4" id="date" value="#{docview.InitialContactDate}">
 						</xp:text>
 					</div>
 					<div class="list-group-item">
-						<xp:label value="Number" id="numberlabel"
-							for="number">
+						<xp:label value="Email" id="emaillabel" for="email">
 						</xp:label>
-						<xp:text tagName="h4" id="number"
-							value="#{docview.Number}">
-							<xp:this.converter>
-								<xp:convertNumber pattern="#,##0">
-								</xp:convertNumber>
-							</xp:this.converter>
+						<h4>
+							<xp:link escape="true" text="#{docview.Email}" id="email">
+								<xp:this.value><![CDATA[#{javascript:"mailto:" + docview.getItemValueString("Email")}]]></xp:this.value>
+							</xp:link>
+						</h4>
+					</div>
+					<div class="list-group-item">
+						<xp:label value="Mobile Enabled" id="mobilenabledlabel"
+							for="mobileenabled">
+						</xp:label>
+						<xp:text id="mobileenabled" tagName="h4">
+							<xp:this.value><![CDATA[#{javascript:if (docview.getItemValueString("mobileenabled") == "on"){
+	return "Yes";
+}else{
+	return "No";
+}}]]></xp:this.value>
 						</xp:text>
 					</div>
 					<div class="list-group-item">
-						<xp:label value="Float" id="floatlabel"
-							for="float">
+						<xp:label value="Company" id="companylabel" for="company">
 						</xp:label>
-						<xp:text tagName="h4" id="float"
-							value="#{docview.Float}">
-							<xp:this.converter>
-								<xp:convertNumber pattern=" #,##0.00">
-								</xp:convertNumber>
-							</xp:this.converter>
+						<xp:text tagName="h4" id="company" value="#{docview.Company}">
 						</xp:text>
 					</div>
 					<div class="list-group-item">
-						<xp:label value="Start Month"
-							id="startmonthlabel" for="startmonth">
+						<xp:label value="Address" id="addresslabel" for="address">
 						</xp:label>
-						<xp:text tagName="h4" id="startmonth"
-							value="#{docview.StartDate}">
-						</xp:text>
-					</div>
-					<div class="list-group-item">
-						<xp:label value="Manager long label blah blah"
-							id="managerlabel" for="manager" styleClass="longlabel">
-						</xp:label>
-						<xp:text tagName="h4" id="manager"
-							value="#{docview.Manager}">
-						</xp:text>
-					</div>
-					<div class="list-group-item">
-						<xp:label value="Dept" id="deptlabel"
-							for="dept">
-						</xp:label>
-						<xp:text tagName="h4" id="dept"
-							value="#{docview.Dept}">
-						</xp:text>
-					</div>
-					<div class="list-group-item">
-						<xp:label value="Countries" id="countrieslabel"
-							for="countries">
-						</xp:label>
-						<xp:text tagName="h4" id="countries"
-							value="#{docview.Countries}">
-						</xp:text>
-					</div>
-					<div class="list-group-item">
-						<xp:label value="Radio" id="label1"
-							for="radio">
-						</xp:label>
-						<xp:text tagName="h4" id="radio"
-							value="#{docview.radio}">
-						</xp:text>
-					</div>
-					<div class="list-group-item">
-						<xp:label value="Checkbox" id="label2"
-							for="checkbox">
-						</xp:label>
-						<xp:text tagName="h4" id="checkbox"
-							value="#{docview.checkbox}">
-						</xp:text>
-					</div>
+						<xp:text tagName="h4" id="address" escape="false">
 
+							<xp:this.value><![CDATA[#{javascript:var out = docview.getItemValueString("StreetAddress");
+out += "<br />" + docview.getItemValueString("City");
+out += "<br />" + docview.getItemValueString("Country");
+return out;}]]></xp:this.value>
+						</xp:text>
+					</div>
 					<div class="list-group-item">
-						<xp:text id="description" styleClass="richtextdisplay"
-							value="#{docview.Description}" escape="false">
+						<xp:text id="bio" styleClass="richtextdisplay"
+							value="#{docview.Bio}" escape="false">
 						</xp:text>
 					</div>
 
@@ -154,8 +111,41 @@
 		</xp:this.facets>
 	</unp:UnpBootFormViewer>
 
-	<xc:UnpBootFiles filestitle="Files"
-		fileslist="#{javascript:viewScope.images}">
+	<xp:repeat var="imagefile">
 		<xc:this.rendered><![CDATA[#{javascript:viewScope.images != null && viewScope.images.length > 0;}]]></xc:this.rendered>
+		<xp:this.value><![CDATA[#{javascript:if (viewScope.images != null){
+	var out = [];
+	for (var i=0; i<viewScope.images.length; i++){
+		var filetype = viewScope.images[i].filename.toLowerCase().split('.');
+		filetype = filetype[filetype.length - 1];
+		if (filetype == 'png' || filetype == 'gif' || filetype == 'jpg'){
+			out.push(viewScope.images[i]);
+		}
+	}
+	return out;
+}else{
+	return null;
+}}]]></xp:this.value>
+		<unp:UnpBootImageViewer imageurl="#{javascript:imagefile.url}" imagetitle="#{javascript:imagefile.filename}">
+		</unp:UnpBootImageViewer>
+	</xp:repeat>
+	
+		
+	
+	<xc:UnpBootFiles filestitle="Files">
+		<xc:this.rendered><![CDATA[#{javascript:viewScope.images != null && viewScope.images.length > 0;}]]></xc:this.rendered>
+		<xc:this.fileslist><![CDATA[#{javascript:if (viewScope.images != null){
+	var out = [];
+	for (var i=0; i<viewScope.images.length; i++){
+		var filetype = viewScope.images[i].filename.toLowerCase().split('.');
+		filetype = filetype[filetype.length - 1];
+		if (filetype != 'png' && filetype != 'gif' && filetype != 'jpg'){
+			out.push(viewScope.images[i]);
+		}
+	}
+	return out;
+}else{
+	return null;
+}}]]></xc:this.fileslist>
 	</xc:UnpBootFiles>
 </xp:view>
