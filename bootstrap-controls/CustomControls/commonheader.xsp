@@ -22,4 +22,10 @@
         {label: "All Widgets", hasSubMenu: false, page: "/UnpDemoWidgets.xsp", icon: "fa-cubes"}
 ]}]]></unp:this.navitems>
 	</unp:UnpBootHeader>
+	
+	<script>
+		var departments = ["Accounting", "Accounts", "Advertising", "Asset Management", "Customer Relations", "Customer Service", "Development", "Finances", 
+							"Human Resources", "IT", "Legal Department", "Media Relations", "Payroll", "Public Relations", "Quality Assurance", "Research and Development", 
+							"Sales and Marketing", "Tech Support", "Test"];
+	</script>
 </xp:view>

@@ -573,12 +573,8 @@ unp.initDates = function(){
 }
 
 unp.initAutoComplete = function() {
-	$(".autocomplete").each( function() {
-		var thefield = $(this);
-		var options = {
-			serviceUrl : thefield.attr('auto-src')
-		};
-		var a = $(this).autocomplete(options);
+	$(".typeahead").each( function() {
+		$(this).typeahead({source: eval($(this).attr('jslist'))});
 	});
 }
 

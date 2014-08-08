@@ -124,9 +124,9 @@
 					</xp:label>
 					<div class="col-xs-8">
 						<xp:inputText id="dept" value="#{docedit.Dept}"
-							styleClass="required form-control autocomplete">
+							styleClass="required form-control typeahead" autocomplete="off">
 							<xp:this.attrs>
-								<xp:attr name="auto-src" value="UnpDemoEmployeeEditAuto.xsp">
+								<xp:attr name="jslist" value="departments">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>
@@ -145,8 +145,9 @@ if (docedit.getItemValueString('mobileenabled') == "on"){
 return out;}]]></xp:this.styleClass>
 							<div class="bootcards-toggle-handle"></div>
 						</xp:panel>
-						<xp:checkBox checkedValue="on" uncheckedValue="off" style="display: none;"
-							value="#{docedit.mobileenabled}" required="false" id="mobileenabled"></xp:checkBox>
+						<xp:checkBox checkedValue="on" uncheckedValue="off"
+							style="display: none;" value="#{docedit.mobileenabled}" required="false"
+							id="mobileenabled"></xp:checkBox>
 					</div>
 				</div>
 				<div class="form-group">
