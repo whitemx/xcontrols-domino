@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div class="panel panel-default bootcards-media">
+
+		<div class="carousel slide" id="carousel-ios" data-ride="carousel">
+			<xp:text tagName="div" id="inner" styleClass="carousel-inner"
+				escape="false">
+				<xp:this.value><![CDATA[#{javascript:
+				var out = "";
+				if (viewScope.images != null){
+	for (var i=0; i<viewScope.images.length; i++){
+		if (i == 0){
+			out += "<div class=\"item active\">";
+		}else{
+			out += "<div class=\"item\">";
+		}
+		out += "<img src=\"" + viewScope.images[i].url + "\" /></div>";
+	}
+	return out;
+}else{
+	return "";
+}}]]></xp:this.value>
+			</xp:text>
+
+			<a class="left carousel-control" href="#carousel-ios" data-slide="prev">
+				<span class="fa fa-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#carousel-ios" data-slide="next">
+				<span class="fa fa-chevron-right"></span>
+			</a>
+		</div>
+	</div>
+</xp:view>

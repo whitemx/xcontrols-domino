@@ -14,7 +14,7 @@
 			</unp:UnpBootFlatView>
 			<div id="doccontent"
 				class="col-sm-7 bootcards-cards hidden-xs">
-				<xc:employeeviewer></xc:employeeviewer>
+				<xc:employeeviewercarousel></xc:employeeviewercarousel>
 			</div>
 		</div>
 	</div>

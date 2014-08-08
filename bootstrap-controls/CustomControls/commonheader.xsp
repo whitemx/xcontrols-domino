@@ -16,7 +16,7 @@
 	{"label": "Contacts", "icon": "fa-users", "page": "UnpMain.xsp"}
 ]}]]></unp:this.menuitems>
 	</unp:UnpBootNavigator>
-	<unp:UnpBootHeader title="Bootcards Controls">
+	<unp:UnpBootHeader title="Controls 4.0">
 		<unp:this.navitems><![CDATA[#{javascript:[
         {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
         {label: "All Widgets", hasSubMenu: false, page: "/UnpDemoWidgets.xsp", icon: "fa-cubes"}

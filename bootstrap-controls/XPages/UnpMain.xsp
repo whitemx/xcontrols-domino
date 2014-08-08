@@ -16,9 +16,17 @@
 
 	<xc:commonheader>
 	</xc:commonheader>
-	<xc:UnpBootWorkspace title="Dashboard"
-		workspaceview="HomeLinks" linkurlcol="UnpUrl" labelcol="Title"
-		iconcol="ImgUrl" badgecol="BadgeID">
-	</xc:UnpBootWorkspace>
+	<div class="container">
+		<div class="row">
+			<div class="bootcards-cards fullheightrow">
+				<div class="col-sm-12">
+					<xc:UnpBootWorkspace title="Dashboard"
+						workspaceview="HomeLinks" linkurlcol="UnpUrl" labelcol="Title"
+						iconcol="ImgUrl" badgecol="BadgeID">
+					</xc:UnpBootWorkspace>
+				</div>
+			</div>
+		</div>
+	</div>
 	<xc:commonfooter></xc:commonfooter>
 </xp:view>
