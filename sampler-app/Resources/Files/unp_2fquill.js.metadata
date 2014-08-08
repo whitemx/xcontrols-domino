@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
-<noteinfo noteid="1522" sequence="1" unid="D7F68E87C9B0513A80257D2D004004C5">
-<created><datetime dst="true">20140807T123915,25+01</datetime></created>
-<modified><datetime dst="true">20140807T123915,59+01</datetime></modified>
-<revised><datetime dst="true">20140807T123915,58+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140807T123915,59+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140807T123915,59+01</datetime></addedtofile></noteinfo>
+<noteinfo noteid="16ee" sequence="3" unid="279781F43EC683E180257D2E003BA95D">
+<created><datetime dst="true">20140808T115139,81+01</datetime></created>
+<modified><datetime dst="true">20140808T115236,64+01</datetime></modified>
+<revised><datetime dst="true">20140808T115236,63+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140808T115236,64+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140808T115139,91+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
-<item name="$TITLE"><text>unp/quill.js</text></item>
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-<item name="$MimeCharSet"><text>Windows-1258</text></item>
-
-<item name="$FileModDT" sign="true"><datetime dst="true">20140804T112325,16+01</datetime></item>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <item name="$Flags"><text>345CgQ</text></item>
-<item name="$FileNames" sign="true"><text>quill.js</text></item></note>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+
+<item name="$FileModDT" sign="true"><datetime dst="true">20140807T160059,00+01</datetime></item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<item name="$FileNames" sign="true"><text>unp_2fquill.js</text></item>
+<item name="$TITLE" sign="true"><text>unp/quill.js</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>

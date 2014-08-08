@@ -3,13 +3,13 @@
 	<xc:commonheader></xc:commonheader>
 	<div id="main" class="container">
 		<div class="row fullheightrow">
-			<div class="col-xs-12 col-sm-6">
+			<div class="col-xs-12 col-sm-12 col-md-6">
 				<xc:UnpBootWorkspace workspaceview="HomeLinks"
 					title="Contacts" linkurlcol="UnpUrl" labelcol="Title" iconcol="ImgUrl"
 					badgecol="BadgeID">
 				</xc:UnpBootWorkspace>
 			</div>
-			<div class="col-xs-12 col-sm-6">
+			<div class="col-xs-12 col-sm-12 col-md-6">
 				<div class="panel panel-default bootcards-chart">
 					<div class="panel-heading">
 						<h3 class="panel-title">Open Cases By Owner</h3>
@@ -20,16 +20,44 @@
 							</div>
 						</div>
 						<div class="panel-footer">
-							<button class="btn btn-default btn-block" onclick="toggleChartData()">
+							<a href="" class="btn btn-default btn-block" onclick="toggleChartData(); return false;">
 								<i class="fa fa-table"></i>
 								Show Data
-							</button>
+							</a>
 						</div>
 					</div>
 					<div class="panel-footer">
 						<small>Randomly generated data!</small>
 					</div>
 				</div>
+				<div class="panel panel-default bootcards-table" style="display: none;">
+					<div class="panel-heading">
+						<h3 class="panel-title">Open Cases By Owner
+						</h3>
+					</div>
+					<table class="table table-hover">
+						<thead>
+							<tr class="active">
+								<th>Name</th>
+								<th>Open Cases</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<div class="panel-footer">
+						<a href="" class="btn btn-default btn-block" onclick="toggleChartData(); return false;">
+							<i class="fa fa-bar-chart-o"></i>
+							Show Chart
+						</a>
+					</div>
+					<div class="panel-footer">
+						<div class="panel-footer">
+							<small>Randomly generated data!</small>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>

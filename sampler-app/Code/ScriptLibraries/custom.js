@@ -70,12 +70,17 @@ function buildCharts() {
 		var names = [ 'Allan Long', 'Darcy Raffield', 'Darren Eno',
 				'Erik Leavell', 'Jack Floyd', 'Kurt Lobo', 'Tan Ser' ];
 		var piedata = [];
+		var tablerows = "";
 		for ( var i = 0; i < names.length; i++) {
+			var value = getRnd();
 			piedata.push( {
 				'label' : names[i],
-				value : getRnd()
+				value : value
 			});
+			
+			tablerows += "<tr><td>" + names[i] + "</td><td>" + value + "</td></tr>\n";
 		}
+		$(".table tbody").html(tablerows);
 		Morris.Donut({
 			  element: 'pie1',
 			  data: piedata,
@@ -83,7 +88,6 @@ function buildCharts() {
 			}).on('click', function(i, row){
 			  //console.log(i, row);
 		});
-		
 	}
 }
 
@@ -126,4 +130,23 @@ function showFontAwesomeDetails(element){
 	}
 	$("#fontawesomedetails span").attr("style", "display: block;");
 	unp.openDialog("dialogPopup");
+}
+
+function toggleChartData() {
+	var $ev = $(event.target)
+	var $chart = $ev.parents('.bootcards-chart');
+	if ($chart.length>0) {
+		$chart.fadeOut( 'fast', function()  {
+			$chart
+				.siblings('.bootcards-table')
+					.fadeIn('fast');
+		});
+	} else {
+		var $data = $ev.parents('.bootcards-table');
+		$data.fadeOut( 'fast', function()  {
+			$data
+				.siblings('.bootcards-chart')
+					.fadeIn('fast');
+		});
+	}			
 }

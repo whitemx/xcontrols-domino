@@ -9,21 +9,17 @@
 		<xp:styleSheet href="/unp/unplugged.css"></xp:styleSheet>
 		<xp:script src="/unp/jquery-2.0.3.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/bootstrap.min.js" clientSide="true"></xp:script>
-		<xp:script src="/unp/jasny-bootstrap.min.js"
-			clientSide="true">
-		</xp:script>
+		<xp:script src="/unp/bootstrap.typeahead.min.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/jasny-bootstrap.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/js/bootcards.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/unplugged.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/fastclick.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/quill.js" clientSide="true"></xp:script>
-		<xp:script src="/unp/jquery.autocomplete.js"
-			clientSide="true">
-		</xp:script>
+		<xp:script src="/unp/jquery.autocomplete.js" clientSide="true"></xp:script>
 		<xp:script src="/unpCommon.jss" clientSide="false"></xp:script>
 		<xp:metaData name="viewport"
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
 		</xp:metaData>
-		<xp:styleSheet href="/custom.css"></xp:styleSheet>
 	</xp:this.resources>
 
 	<xp:panel tagName="link">

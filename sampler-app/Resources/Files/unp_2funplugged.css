@@ -1,18 +1,19 @@
 #content-container {
-  
+	
 }
-#formatting-container .ql-active,
-#formatting-container a:hover {
-  background-color: #428bca;
-  color: #ffffff;
-  border-color: #428bca;
+
+#formatting-container .ql-active,#formatting-container a:hover {
+	background-color: #428bca;
+	color: #ffffff;
+	border-color: #428bca;
 }
+
 #editor-container {
-  
+	
 }
+
 #editor-wrapper {
-  
-  
+	
 }
 
 .richtextsourcefield {
@@ -22,5 +23,16 @@
 .richtextdisplay i {
 	margin-right: 0px !important;
 	opacity: 1.0 !important;
-	
+}
+
+.carousel {
+	min-height: 300px;
+	max-height: 600px;
+}
+
+.carousel-control .icon-prev,.carousel-control .icon-next,.carousel-control .fa-chevron-left,.carousel-control .fa-chevron-right{
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+	display: inline-block;
 }
