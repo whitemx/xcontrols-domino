@@ -13,7 +13,6 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 	<xp:this.resources>
 		<xp:script src="/unp/jquery-ui.custom.min.js" clientSide="true"></xp:script>
-		<xp:script src="/unp/moment-with-langs.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/fullcalendar.min.js" clientSide="true"></xp:script>
 		<xp:styleSheet href="/unp/fullcalendar.css"></xp:styleSheet>
 	</xp:this.resources>
@@ -21,23 +20,22 @@
 		style="display: none;">
 		<xp:this.attrs>
 			<xp:attr name="value">
-				<xp:this.value><![CDATA[#{javascript:'{\n' + 
-'"dbname": "' + compositeData.dbname + '",\n' + 
-'"viewname": "' + compositeData.viewname + '",\n' + 
-'"startdatefield": "' + compositeData.startdatefield + '",\n' + 
-'"enddatefield": "' + compositeData.enddatefield + '",\n' + 
-'"titlefield": "' + compositeData.titlefield + '",\n' + 
-'"viewxpage": "' + compositeData.viewxpage + '",\n' + 
-'"highlightfield": "' + compositeData.highlightfield + '",\n' + 
-'"highlighttest": "' + compositeData.highlighttest + '",\n' +
-'"defaultviewtablet": "' + compositeData.defaultviewtablet + '",\n' + 
-'"defaultviewphone": "' + compositeData.defaultviewphone + '",\n' + 
-'"headerbuttonsleft": "' + compositeData.headerbuttonsleft + '",\n' + 
-'"headerbuttonsrighttablet": "' + compositeData.headerbuttonsrighttablet + '",\n' + 
-'"headerbuttonsrightphone": "' + compositeData.headerbuttonsrightphone + '", \n' +
-'"filter": "' + compositeData.filter + '", \n' +
-'"catfield": "' + compositeData.catfield + '"\n' +  
-'}'}]]></xp:this.value>
+				<xp:this.value><![CDATA[#{javascript: 
+'"dbname": "' + compositeData.dbname + '",' + 
+'"viewname": "' + compositeData.viewname + '",' + 
+'"startdatefield": "' + compositeData.startdatefield + '",' + 
+'"enddatefield": "' + compositeData.enddatefield + '",' + 
+'"titlefield": "' + compositeData.titlefield + '",' + 
+'"viewxpage": "' + compositeData.viewxpage + '",' + 
+'"highlightfield": "' + compositeData.highlightfield + '",' + 
+'"highlighttest": "' + compositeData.highlighttest + '",' +
+'"defaultviewtablet": "' + compositeData.defaultviewtablet + '",' + 
+'"defaultviewphone": "' + compositeData.defaultviewphone + '",' + 
+'"headerbuttonsleft": "' + compositeData.headerbuttonsleft + '",' + 
+'"headerbuttonsrighttablet": "' + compositeData.headerbuttonsrighttablet + '",' + 
+'"headerbuttonsrightphone": "' + compositeData.headerbuttonsrightphone + '", ' +
+'"filter": "' + compositeData.filter + '", ' +
+'"catfield": "' + compositeData.catfield + '"'}]]></xp:this.value>
 			</xp:attr>
 		</xp:this.attrs>
 	</xp:panel>

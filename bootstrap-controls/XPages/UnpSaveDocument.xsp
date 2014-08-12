@@ -63,7 +63,7 @@ try{
 			var key = keys.next();
 			resp = ("Processing " + key);
 			var value = unescape(param.get(key));
-			if (dateformat.test(value) && fieldname.indexOf("datetime_") == -1){
+			if (dateformat.test(value) && key.indexOf("datetime_") == -1){
 				value = value.split("-");
 				value = session.createDateTime(@Date(parseInt(value[0], 10), parseInt(value[1], 10), parseInt(value[2], 10)));
 			}

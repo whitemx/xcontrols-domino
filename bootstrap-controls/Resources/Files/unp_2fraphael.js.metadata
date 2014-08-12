@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D1E002A1358" version="9.0">
+<noteinfo noteid="76a" sequence="1" unid="A44C866B50B8D6E480257D320047C9ED">
+<created><datetime dst="true">20140812T140407,49+01</datetime></created>
+<modified><datetime dst="true">20140812T140407,90+01</datetime></modified>
+<revised><datetime dst="true">20140812T140407,89+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140812T140407,90+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140812T140407,90+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+
+<item name="$FileModDT" sign="true"><datetime dst="true">20140807T160058,00+01</datetime></item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<item name="$FileNames" sign="true"><text>unp_2fraphael.js</text></item>
+<item name="$TITLE" sign="true"><text>unp/raphael.js</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>

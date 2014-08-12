@@ -16,14 +16,24 @@
 					<xp:panel id="toplink" tagName="li"
 						rendered="#{javascript:if (menuitem.children){return false;}else{return true;}}">
 						<xp:link id="link1" text="#{javascript:menuitem.label}"
-							value="#{javascript:menuitem.page}">
+							value="">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[#{javascript:if (menuitem.ajaxloadid != null && menuitem.ajaxloadid != ""){
+	return "unp.loadPage('" + getDbPath() + menuitem.page + "?rnd=' + Date.now()+ ' #" + menuitem.ajaxloadid + "', '" + menuitem.ajaxtargetid + "', " + viewScope.menuitemindex + "); return false;";
+}else{
+	return "window.location.href='" + getDbPath() + menuitem.page + "'";
+}}]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
 							<xp:panel id="panel2" tagName="i">
 								<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + menuitem.icon}]]></xp:this.styleClass>
 							</xp:panel>
 						</xp:link>
 					</xp:panel>
-					<xp:link text="#{javascript:menuitem.label}" rendered="#{javascript:if (menuitem.children){return true;}else{return false;}}"
-					styleClass="collapsed bootcards-parent">
+					<xp:link text="#{javascript:menuitem.label}"
+						rendered="#{javascript:if (menuitem.children){return true;}else{return false;}}"
+						styleClass="collapsed bootcards-parent">
 						<xp:this.value><![CDATA[#{javascript:return "#" + getClientId("collapse");}]]></xp:this.value>
 						<xp:this.attrs>
 							<xp:attr name="data-toggle" value="collapse">
@@ -32,7 +42,8 @@
 								<xp:this.value><![CDATA[#{javascript:".litop" + viewScope.litop}]]></xp:this.value>
 							</xp:attr>
 						</xp:this.attrs>
-						<xp:panel id="toplevelicon" tagName="i" styleClass="fa fa-lg fa-fw fa-chevron-circle-right">
+						<xp:panel id="toplevelicon" tagName="i"
+							styleClass="fa fa-lg fa-fw fa-chevron-circle-right">
 						</xp:panel>
 					</xp:link>
 					<xp:panel id="collapse" styleClass="collapse">
@@ -47,8 +58,16 @@
 }}]]></xp:this.value>
 								<xp:panel id="childitem" tagName="li"
 									rendered="#{javascript:if (child.children){return false;}else{return true;}}">
-									<xp:link id="childlink" text="#{javascript:child.label}"
-										value="#{javascript:child.page}">
+									<xp:link id="childlink" text="#{javascript:child.label}">
+										<xp:this.attrs>
+											<xp:attr name="onclick">
+												<xp:this.value><![CDATA[#{javascript:if (child.ajaxloadid != null && child.ajaxloadid != ""){
+	return "unp.loadPage('" + getDbPath() + child.page + "?rnd=' + Date.now()+ ' #" + child.ajaxloadid + "', '" + child.ajaxtargetid + "', " + viewScope.menuitemindex + "); return false;";
+}else{
+	return "window.location.href='" + getDbPath() + child.page + "'";
+}}]]></xp:this.value>
+											</xp:attr>
+										</xp:this.attrs>
 										<xp:panel id="childicon" tagName="i">
 											<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + child.icon}]]></xp:this.styleClass>
 										</xp:panel>
@@ -72,8 +91,16 @@
 												value="#{javascript:if(child.children){return child.children;}}"
 												var="grandchild">
 												<li>
-													<xp:link id="grandchildlink" text="#{javascript:grandchild.label}"
-														value="#{javascript:grandchild.page}">
+													<xp:link id="grandchildlink" text="#{javascript:grandchild.label}">
+														<xp:this.attrs>
+															<xp:attr name="onclick">
+																<xp:this.value><![CDATA[#{javascript:if (grandchild.ajaxloadid != null && grandchild.ajaxloadid != ""){
+	return "unp.loadPage('" + getDbPath() + grandchild.page + "?rnd=' + Date.now()+ ' #" + grandchild.ajaxloadid + "', '" + grandchild.ajaxtargetid + "', " + viewScope.menuitemindex + "); return false;";
+}else{
+	return "window.location.href='" + getDbPath() + grandchild.page + "'";
+}}]]></xp:this.value>
+															</xp:attr>
+														</xp:this.attrs>
 														<xp:panel id="grandchildicon" tagName="i">
 															<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + grandchild.icon}]]></xp:this.styleClass>
 														</xp:panel>

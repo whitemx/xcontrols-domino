@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
-
 	<xp:this.resources>
 		<xp:styleSheet href="/unp/bootstrap.min.css"></xp:styleSheet>
 		<xp:styleSheet href="/unp/css/bootcards.css"></xp:styleSheet>
@@ -8,13 +7,16 @@
 		<xp:styleSheet href="/unp/font-awesome.min.css"></xp:styleSheet>
 		<xp:styleSheet href="/unp/unplugged.css"></xp:styleSheet>
 		<xp:script src="/unp/jquery-2.0.3.min.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/moment-with-langs.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/bootstrap.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/bootstrap.typeahead.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/jasny-bootstrap.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/js/bootcards.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/unplugged.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/fastclick.js" clientSide="true"></xp:script>
-		<xp:script src="/unp/quill.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/quill.min.js" clientSide="true">
+
+		</xp:script>
 		<xp:script src="/unp/jquery.autocomplete.js" clientSide="true"></xp:script>
 		<xp:script src="/unpCommon.jss" clientSide="false"></xp:script>
 		<xp:metaData name="viewport"
@@ -38,13 +40,22 @@
 			</xp:attr>
 			<xp:attr name="unp-id" value="primarycss"></xp:attr>
 		</xp:this.attrs>
+		<xp:this.rendered><![CDATA[#{javascript:if (context.getUrlParameter("min") == "true"){
+	return false;
+}else{
+	return true;
+}}]]></xp:this.rendered>
 	</xp:panel>
 	<xp:panel tagName="link">
+		<xp:this.rendered><![CDATA[#{javascript:if (context.getUrlParameter("min") == "true"){
+	return false;
+}else{
+	return true;
+}}]]></xp:this.rendered>
 		<xp:this.attrs>
 			<xp:attr name="type" value="text/css"></xp:attr>
 			<xp:attr name="rel" value="stylesheet"></xp:attr>
-			<xp:attr name="href"
-				value="unp/css/bootcards-mobile-shared.css"
+			<xp:attr name="href" value="unp/css/bootcards-mobile-shared.css"
 				rendered="#{javascript:isIOS() || isAndroid()}">
 			</xp:attr>
 		</xp:this.attrs>
@@ -65,8 +76,7 @@
 			</xp:attr>
 		</xp:this.attrs>
 	</xp:panel>
-	<xp:text tagName="script" id="inlinescript"
-		rendered="#{javascript:!isAjax()}">
+	<xp:text tagName="script" id="inlinescript" rendered="#{javascript:!isAjax()}">
 
 		<xp:this.value><![CDATA[#{javascript:if(isUnpluggedServer()){
 	return "var unpluggedserver = true;";
