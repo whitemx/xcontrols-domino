@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xc:commonheader></xc:commonheader>
+
+	<div id="main" class="container">
+		<div class="row">
+			<div class="bootcards-cards fullheightrow">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="panel panel-default bootcards-summary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Font Awesome - Text Editor</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-align-center"></i>    <h4> fa-align-center</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-align-justify"></i>    <h4> fa-align-justify</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-align-left"></i>    <h4> fa-align-left</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-align-right"></i>    <h4> fa-align-right</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-bold"></i>    <h4> fa-bold</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-chain (alias)"></i>    <h4> fa-chain (alias)</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-chain-broken"></i>    <h4> fa-chain-broken</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-clipboard"></i>    <h4> fa-clipboard</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-columns"></i>    <h4> fa-columns</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-copy (alias)"></i>    <h4> fa-copy (alias)</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-cut (alias)"></i>    <h4> fa-cut (alias)</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-dedent (alias)"></i>    <h4> fa-dedent (alias)</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-eraser"></i>    <h4> fa-eraser</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-file"></i>    <h4> fa-file</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-file-o"></i>    <h4> fa-file-o</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-file-text"></i>    <h4> fa-file-text</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-file-text-o"></i>    <h4> fa-file-text-o</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-files-o"></i>    <h4> fa-files-o</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-floppy-o"></i>    <h4> fa-floppy-o</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-font"></i>    <h4> fa-font</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-header"></i>    <h4> fa-header</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-indent"></i>    <h4> fa-indent</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-italic"></i>    <h4> fa-italic</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-link"></i>    <h4> fa-link</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-list"></i>    <h4> fa-list</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-list-alt"></i>    <h4> fa-list-alt</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-list-ol"></i>    <h4> fa-list-ol</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-list-ul"></i>    <h4> fa-list-ul</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-outdent"></i>    <h4> fa-outdent</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-paperclip"></i>    <h4> fa-paperclip</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-paragraph"></i>    <h4> fa-paragraph</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-paste (alias)"></i>    <h4> fa-paste (alias)</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-repeat"></i>    <h4> fa-repeat</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-rotate-left (alias)"></i>    <h4> fa-rotate-left (alias)</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-rotate-right (alias)"></i>    <h4> fa-rotate-right (alias)</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-save (alias)"></i>    <h4> fa-save (alias)</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-scissors"></i>    <h4> fa-scissors</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-strikethrough"></i>    <h4> fa-strikethrough</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-subscript"></i>    <h4> fa-subscript</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-superscript"></i>    <h4> fa-superscript</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-table"></i>    <h4> fa-table</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-text-height"></i>    <h4> fa-text-height</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-text-width"></i>    <h4> fa-text-width</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-th"></i>    <h4> fa-th</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-th-large"></i>    <h4> fa-th-large</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-th-list"></i>    <h4> fa-th-list</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-underline"></i>    <h4> fa-underline</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-undo"></i>    <h4> fa-undo</h4>  </a></div>
+<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-unlink (alias)"></i>    <h4> fa-unlink (alias)</h4>  </a></div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

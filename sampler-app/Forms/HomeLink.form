@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='15e' unid='C4D4B1B781462E6F80257CD8002C3322' sequence='4'>
+<noteinfo noteid='15e' unid='C4D4B1B781462E6F80257CD8002C3322' sequence='5'>
 <created><datetime dst='true'>20140514T090246,74+01</datetime></created>
-<modified><datetime dst='true'>20140807T123415,10+01</datetime></modified>
-<revised><datetime dst='true'>20140807T120944,89+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140807T123415,10+01</datetime></lastaccessed>
+<modified><datetime dst='true'>20140811T080313,87+01</datetime></modified>
+<revised><datetime dst='true'>20140811T080313,86+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20140811T080313,87+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20140807T123415,10+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
@@ -33,10 +33,10 @@ hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
 <item name='BadgeID' placeholder='true'>
 <rawitemdata type='0'>
 </rawitemdata></item>
-<item name='LoadTimeMode' placeholder='true'>
+<item name='CATEGORY' placeholder='true'>
 <rawitemdata type='0'>
 </rawitemdata></item>
-<item name='$Fields'><textlist><text>LoadTimeMode</text><text>BadgeID</text><text
+<item name='$Fields'><textlist><text>Category</text><text>BadgeID</text><text
 >UnpURL</text><text>ImgURL</text><text>Title</text></textlist></item>
 <item name='$Body' sign='true'>
 <rawitemdata type='1'>
@@ -54,9 +54,9 @@ AAAAAAAAAQAACgAAAAAAAAAABgAAAAAAVW5wVVJMYg4BAIQAAAAAAAAAAADeBgAAiv+F/wgAAQAA
 CoECgwQBAIX/EQABAAAKQmFkZ2VJRDogAN0GAACK//7/UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiv8s
 AIoAAAUAMAAAAAAAAAAAAQAACgAAAAAAAAAABwAAAAAAQmFkZ2VJRABiDgEAhAAAAAAAAAAAAN4G
-AACK/4X/CAABAAAKgQKDBAEAhf8YAAEAAApMb2FkIFRpbWUgTW9kZTog3QYAAIr//v9QAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAACw/xQAAAAEIAAAAAAAAAAAAAAAAIr/OACKQgEFAiACAAAAAAAAAgEAAAoA
-AAAAAAAAAAwAAAAHAExvYWRUaW1lTW9kZQEAAwBZZXMA3gYAAIr/hf8IAAEAAAo=
+AACK/4X/CAABAAAKgQKDBAEAhf8SAAEAAApDYXRlZ29yeTog3QYAAIr//v9QAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAACK/ywAigAABQAwAgAAAAAAAAIBAAAKAAAAAAAAAAAIAAAAAABDYXRlZ29yeWIOAQCE
+AAAAAAAAAAAA3gYAAIr/hf8IAAEAAAo=
 </rawitemdata></item></note>
 

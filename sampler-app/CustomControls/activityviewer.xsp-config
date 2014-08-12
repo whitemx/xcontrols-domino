@@ -5,9 +5,9 @@
     <default-prefix>xc</default-prefix>
   </faces-config-extension>
   <composite-component>
-    <component-type>employeeviewer</component-type>
-    <composite-name>employeeviewer</composite-name>
-    <composite-file>/employeeviewer.xsp</composite-file>
+    <component-type>activityviewer</component-type>
+    <composite-name>activityviewer</composite-name>
+    <composite-file>/activityviewer.xsp</composite-file>
     <composite-extension>
       <designer-extension>
         <in-palette>true</in-palette>

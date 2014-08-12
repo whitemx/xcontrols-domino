@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
+	xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xc:commonheader></xc:commonheader>
+	<div id="main" class="container">
+		<div class="row">
+			<div class="bootcards-cards fullheightrow">
+				<div id="intro" class="col-xs-12 col-sm-12 col-md-6">
+					<div id="contentwrapper" class="left-aligned">
+						<div class="panel panel-default bootcards-chart">
+							<div class="panel-heading">
+								<h3 class="panel-title">UPMark 3.0</h3>
+							</div>
+							<div class="panel-body">
+								<p>This page runs a standardised suite of tests which
+									involve opening
+									various pages in this application and timing
+									each event.</p>
+								<p>When you press the button below, the test runs and
+									when
+									it's finished the results will be displayed. The results are
+									very dependent on the device being used, so your phone might
+									be
+									faster than your iPad for example.</p>
+								<p>
+									For more information on UPMark, refer to the relevant section
+									of the Bootstrap Controls documentation.
+										</p>
+							</div>
+							<div class="panel-footer">
+								<a id="starttestbutton" href="" class="btn btn-default btn-block" onclick="startTest(); return false;">
+									<i class="fa fa-play"></i>
+									Run test
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6" id="results-card">
+					<div class="panel panel-default bootcards-chart">
+						<div class="panel-heading">
+							<h3 class="panel-title">Results</h3>
+						</div>
+						<div class="panel-body">
+							<div id="qunit" class="panel" style="display: none;"></div>
+							<br />
+							<br />
+							<br />	
+							<iframe id="upmarkiframe" src=""
+								style="width: 1px; height: 1px; display: block; border: 0px;"></iframe>
+						</div>
+
+						<div class="panel-footer">
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

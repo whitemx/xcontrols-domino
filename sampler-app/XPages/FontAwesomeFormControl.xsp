@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xc:commonheader></xc:commonheader>
+
+	<div id="main" class="container">
+		<div class="row">
+			<div class="bootcards-cards fullheightrow">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="panel panel-default bootcards-summary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Font Awesome - Form Control</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-check-square"></i>    <h4> fa-check-square</h4>  </a></div>
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-check-square-o"></i>    <h4> fa-check-square-o</h4>  </a></div>
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-circle"></i>    <h4> fa-circle</h4>  </a></div>
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-circle-o"></i>    <h4> fa-circle-o</h4>  </a></div>
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-dot-circle-o"></i>    <h4> fa-dot-circle-o</h4>  </a></div>
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-minus-square"></i>    <h4> fa-minus-square</h4>  </a></div>
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-minus-square-o"></i>    <h4> fa-minus-square-o</h4>  </a></div>
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-plus-square"></i>    <h4> fa-plus-square</h4>  </a></div>
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-plus-square-o"></i>    <h4> fa-plus-square-o</h4>  </a></div>
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-square"></i>    <h4> fa-square</h4>  </a></div>
+								<div class="col-xs-6 col-sm-4 col-md-3"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-square-o"></i>    <h4> fa-square-o</h4>  </a></div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

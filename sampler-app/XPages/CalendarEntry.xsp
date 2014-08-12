@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
+	xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<unp:UnpBootFormEditor viewxpagename="UnpDemoCalendar.xsp"
+		formname="CalendarEntry" showbuttons="yes" title="Calendar Entry">
+		<xp:this.facets>
+			<xp:panel id="list-group" xp:key="facet_1">
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label" for="title"
+						value="Title"></xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="name" value="#{docedit.title}"
+							styleClass="form-control required">
+							<xp:this.attrs>
+								<xp:attr name="placeholder" value="Title"></xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Start Date" id="startdatelabel" for="startdate"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="datetime_startdate"
+							value="#{docedit.startdate}" styleClass="form-control"
+							type="datetime-local">
+							<xp:this.attrs>
+								<xp:attr name="datevalue">
+									<xp:this.value><![CDATA[#{javascript:var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime('startdate');
+return date.toJavaDate().getTime();}]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="End Date" id="enddatelabel" for="enddate"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="datetime_enddate"
+							value="#{docedit.enddate}" styleClass="form-control"
+							type="datetime-local">
+							<xp:this.attrs>
+								<xp:attr name="datevalue">
+									<xp:this.value><![CDATA[#{javascript:var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime('enddate');
+return date.toJavaDate().getTime();}]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<xp:label value="Details" id="detailslabel" for="details"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<unp:UnpBootTypographyEdit fieldname="details">
+
+						</unp:UnpBootTypographyEdit>
+					</div>
+				</div>
+			</xp:panel>
+		</xp:this.facets>
+	</unp:UnpBootFormEditor>
+
+</xp:view>

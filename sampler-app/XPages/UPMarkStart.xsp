@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com" xmlns:xc="http://www.ibm.com/xsp/custom">
+	
+	<xc:commonheader>
+	</xc:commonheader>
+	<div id="qunit" class="bootcards-cards fullheightrow"></div>
+	<div id="main" class="container">
+		<div class="row fullheightrow">
+			<unp:UnpBootFlatView title="People" summarycolumn="FullName"
+				viewname="People By Last Name" numberofrows="20"
+				ajaxload="Yes" detailcolumn="Company"
+				xpagedoc="FlatView.xsp"
+				newlink="PersonEdit.xsp" searchview="Search"
+				photocolumn="Photo">
+			</unp:UnpBootFlatView>
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
+				<xc:personviewer></xc:personviewer>
+			</div>
+		</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+	
+	
+	<div id="extraresources">
+		<link rel="stylesheet" type="text/css" href="unp/qunit-1.12.css"></link>
+	</div>
+	
+	<script type="text/javascript" src="unp/qunit-1.12.js"></script>
+	<script type="text/javascript" src="unpperformance.js"></script>
+</xp:view>

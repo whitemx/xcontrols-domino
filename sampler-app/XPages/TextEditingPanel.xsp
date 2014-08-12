@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+	
+	<xc:commonheader></xc:commonheader>
+
+	<div id="main" class="container">
+		<div class="row">
+			<div class="bootcards-cards fullheightrow">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<unp:UnpBootFormEditor showbuttons="yes"
+						formname="RefData" title="Click Text To Start Editing"
+						viewxpagename="/TextEditingPanel.xsp">
+						<xp:this.facets>
+							<xp:panel xp:key="facet_1">
+							<xp:this.data>
+		<xp:dominoDocument var="docedit" formName="RefData"
+			action="editDocument">
+			<xp:this.documentId><![CDATA[#{javascript:var vw:NotesView = database.getView("Reference Data");
+var doc:NotesDocument = vw.getDocumentByKey("SamplerEditHTML");
+if (doc != null){
+	return doc.getUniversalID();
+}}]]></xp:this.documentId>
+		</xp:dominoDocument>
+	</xp:this.data>
+								<unp:UnpBootTypographyEdit fieldname="value">
+								</unp:UnpBootTypographyEdit>
+							</xp:panel>
+						</xp:this.facets>
+					</unp:UnpBootFormEditor>
+				</div>
+			</div>
+		</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+	<script>unp.initRichText();</script>
+</xp:view>

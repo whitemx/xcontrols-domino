@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xc:commonheader></xc:commonheader>
+
+	<div id="main" class="container">
+		<div class="row">
+			<div class="bootcards-cards fullheightrow">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="panel panel-default bootcards-summary">
+						<div class="panel-heading">
+							<h3 class="panel-title">CSS</h3>
+						</div>
+						<div class="panel-body">
+
+							<h1>
+								h1. Bootstrap heading
+								<small>Secondary text</small>
+							</h1>
+							<h2>
+								h2. Bootstrap heading
+								<small>Secondary text</small>
+							</h2>
+							<h3>
+								h3. Bootstrap heading
+								<small>Secondary text</small>
+							</h3>
+							<h4>
+								h4. Bootstrap heading
+								<small>Secondary text</small>
+							</h4>
+							<h5>
+								h5. Bootstrap heading
+								<small>Secondary text</small>
+							</h5>
+							<h6>
+								h6. Bootstrap heading
+								<small>Secondary text</small>
+							</h6>
+
+
+							<div class="bs-example">
+								<p>Nullam quis risus eget urna mollis ornare vel eu leo.
+									Cum
+									sociis natoque penatibus et magnis dis parturient montes,
+									nascetur ridiculus mus. Nullam id dolor id nibh ultricies
+									vehicula.</p>
+								<p>Cum sociis natoque penatibus et magnis dis parturient
+									montes, nascetur ridiculus mus. Donec ullamcorper nulla non
+									metus
+									auctor fringilla. Duis mollis, est non commodo luctus,
+									nisi erat
+									porttitor ligula, eget lacinia odio sem nec elit.
+									Donec
+									ullamcorper nulla non metus auctor fringilla.</p>
+								<p>Maecenas sed diam eget risus varius blandit sit amet
+									non magna. Donec id elit non mi porta gravida at eget metus.
+									Duis
+									mollis, est non commodo luctus, nisi erat porttitor ligula,
+									eget
+									lacinia odio sem nec elit.</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

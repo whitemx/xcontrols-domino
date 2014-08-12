@@ -1,53 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
-	xmlns:unp="http://unplugged.teamstudio.com" disableTheme="true">
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
+	disableTheme="true">
+
 	<xp:this.resources>
 		<xp:script src="/custom.jss" clientSide="false"></xp:script>
 	</xp:this.resources>
-	<unp:UnpBootResources></unp:UnpBootResources>
+
+	<unp:UnpBootResources>
+	</unp:UnpBootResources>
 
 	<unp:UnpBootNavigator>
 		<unp:this.menuitems><![CDATA[#{javascript:[
-	{"label": "Dashboard", "icon": "fa-dashboard", "page": "UnpMain.xsp"}, 
+	{"label": "Dashboard", "icon": "fa-dashboard", "page": "/UnpMain.xsp"}, 
 	{"label": "UI Elements", children: [
-		{"label": "Accordion", "icon": "fa-th-list", "page": "Accordion.xsp"}, 
-		{"label": "Calendar", "icon": "fa-calendar", "page": "Calendar.xsp"},
-		{"label": "CSS Controls", "icon": "fa-css3", "page": "CSS.xsp"},
-		{"label": "Dialog", "icon": "fa-comment", "page": "Dialog.xsp"},
-		{"label": "Flat View", "icon": "fa-list-alt", "page": "FlatView.xsp"},
-		{"label": "Flat View (Categorized)", "icon": "fa-list", "page": "Categorized.xsp"},
-		{"label": "Media", "icon": "fa-files-o", "page": "Media.xsp"}
+		{"label": "Accordion", "icon": "fa-th-list", "page": "/Accordion.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Calendar", "icon": "fa-calendar", "page": "/Calendar.xsp"},
+		{"label": "Carousel", "icon": "fa-files-o", "page": "/Media.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "CSS Controls", "icon": "fa-css3", "page": "/CSS.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "Dialog", "icon": "fa-comment", "page": "/Dialog.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "Flat View", "icon": "fa-list-alt", "page": "/FlatView.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "Flat View (Categorized)", "icon": "fa-list", "page": "/Categorized.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
 	{"label": "Typography", children: [
-		{"label": "Text Reading Panel", "icon": "fa-search", "page": "TextReadingPanel.xsp"}, 
-		{"label": "Text Editing Panel", "icon": "fa-edit", "page": "TextEditingPanel.xsp"}
+		{"label": "Text Reading Panel", "icon": "fa-search", "page": "/TextReadingPanel.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Text Editing Panel", "icon": "fa-edit", "page": "/TextEditingPanel.xsp?action=editDocument&documentId=CA3BC19DE184CF1380257CDD0024D68E&", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
 	{"label": "Font Awesome", children: [
-		{"label": "Brand Icons", "page": "FontAwesomeBrand.xsp"}, 
-		{"label": "Currency Icons", "page": "FontAwesomeCurrency.xsp"}, 
-		{"label": "Directional Icons", "page": "FontAwesomeDirectional.xsp"}, 
-		{"label": "Form Control Icons", "page": "FontAwesomeFormControl.xsp"}, 
-		{"label": "Medical Icons", "page": "FontAwesomeMedical.xsp"}, 
-		{"label": "Text Editor Icons", "page": "FontAwesomeTextEditor.xsp"}, 
-		{"label": "Video Player Icons", "page": "FontAwesomeVideoPlayer.xsp"}, 
-		{"label": "Web App Icons", "page": "FontAwesomeWebApp.xsp"}, 
-		{"label": "New Icons", "page": "FontAwesomeNew.xsp"} 
+		{"label": "Brand Icons", "page": "/FontAwesomeBrand.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Currency Icons", "page": "/FontAwesomeCurrency.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Directional Icons", "page": "/FontAwesomeDirectional.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Form Control Icons", "page": "/FontAwesomeFormControl.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Medical Icons", "page": "/FontAwesomeMedical.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Text Editor Icons", "page": "/FontAwesomeTextEditor.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Video Player Icons", "page": "/FontAwesomeVideoPlayer.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Web App Icons", "page": "/FontAwesomeWebApp.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "New Icons", "page": "/FontAwesomeNew.xsp", ajaxloadid: "main", ajaxtargetid: "main"} 
 	]}, 
 	{"label": "Contacts", children: [
-		{"label": "Contacts", "icon": "fa-group", "page": "Contacts.xsp"}, 
-		{"label": "Departments", "icon": "fa-building", "page": "Departments.xsp"},
-		{"label": "My Activities", "icon": "fa-tasks", "page": "MyActivities.xsp"},
-		{"label": "Activities By Contact", "icon": "fa-tasks", "page": "ActivitiesByContact.xsp"},
-		{"label": "Activities By Department", "icon": "fa-tasks", "page": "ActivitiesByDepartment.xsp"}
+		{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "My Activities", "icon": "fa-tasks", "page": "/MyActivities.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "Activities By Contact", "icon": "fa-tasks", "page": "/ActivitiesByContact.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "Activities By Department", "icon": "fa-tasks", "page": "/ActivitiesByDepartment.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
-	{"label": "Media Library", "icon": "fa-book", "page": "MediaLibrary.xsp"}, 
 	{"label": "Tools", children: [
-		{"label": "Debug Toolbar", "icon": "fa-bug", "page": "DebugToolbar.xsp"}, 
-		{"label": "UPMark 3", "icon": "fa-bolt", "page": "UPMark.xsp"}
+		{"label": "Debug Toolbar", "icon": "fa-bug", "page": "/DebugToolbar.xsp"}, 
+		{"label": "UPMark 3", "icon": "fa-bolt", "page": "/UPMark.xsp"}
 	]}	
 ]}]]></unp:this.menuitems>
 	</unp:UnpBootNavigator>
-	<unp:UnpBootHeader title="Sampler"></unp:UnpBootHeader>
+	<unp:UnpBootHeader title="Sampler">
+		<unp:this.navitems><![CDATA[#{javascript:[
+        {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
+        {label: "UI Elements", hasSubMenu: false, page: "/DesktopNav.xsp?filter=UI%20Elements", icon: "fa-th-large"},
+        {label: "Typography", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Typography", icon: "fa-edit"},
+        {label: "Font Awesome", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Font%20Awesome", icon: "fa-flag"},
+        {label: "Contacts", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-group"},
+        {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}      
+]}]]></unp:this.navitems>
+	</unp:UnpBootHeader>
 	<xp:text escape="false" id="companieslist" tagName="script">
 		<xp:this.value><![CDATA[#{javascript:var list = $A(@Unique(@DbColumn(@DbName(), "People By Company", 1))).sort();
 var out = "var companies = [";

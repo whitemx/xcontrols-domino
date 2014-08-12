@@ -16,17 +16,16 @@
 
 	<xc:commonheader></xc:commonheader>
 
-
-	<unp:UnpBootCalendar enddatefield="EndDate"
-		highlightfield="HighLight" catfield="Category" highlighttest="Yes"
-		startdatefield="StartDate" titlefield="Title"
-		viewname="CalendarEntries" viewxpage="CalendarEntry.xsp"
-		headerbuttonsleft="prev,today,next" defaultviewtablet="month"
-		defaultviewphone="basicWeek"
-		headerbuttonsrighttablet="agendaDay,agendaWeek,month"
-		headerbuttonsrightphone="" title="Calendar">
-	</unp:UnpBootCalendar>
-
+	<div id="main" class="container">
+		<unp:UnpBootCalendar enddatefield="EndDate"
+			highlightfield="HighLight" catfield="Category" highlighttest="Yes"
+			startdatefield="StartDate" titlefield="Title" viewname="CalendarEntries"
+			viewxpage="CalendarEntry.xsp" headerbuttonsleft="prev,today,next"
+			defaultviewtablet="month" defaultviewphone="basicWeek"
+			headerbuttonsrighttablet="agendaDay,agendaWeek,month"
+			headerbuttonsrightphone="" title="Calendar">
+		</unp:UnpBootCalendar>
+	</div>
 
 	<xc:commonfooter></xc:commonfooter>
 </xp:view>

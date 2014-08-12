@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
-	xmlns:xc="http://www.ibm.com/xsp/custom"
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 
 	<xc:commonheader></xc:commonheader>
-
 	<div id="main" class="container">
 		<div class="row fullheightrow">
 			<unp:UnpBootAccordionView title="People By Country"
 				summarycolumn="FullName" viewname="People By Country"
-				expandfirstcategory="no" ajaxload="Yes"
-				loaddocumenttarget="doccontent" detailcolumn="Company"
-				xpagedoc="Accordion.xsp" newdatatarget="#editModal"
-				newlink="PersonEdit.xsp" searchview="Search"
-				photocolumn="Photo">
+				expandfirstcategory="no" ajaxload="Yes" loaddocumenttarget="doccontent"
+				detailcolumn="Company" xpagedoc="Accordion.xsp" newdatatarget="#editModal"
+				newlink="PersonEdit.xsp" searchview="Search" photocolumn="Photo">
 			</unp:UnpBootAccordionView>
-			<div id="doccontent"
-				class="col-sm-7 bootcards-cards hidden-xs">
-				<xc:employeeviewer></xc:employeeviewer>
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs" style="display: none;">
+				<xc:personviewer>
+					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
+				</xc:personviewer>
 			</div>
 		</div>
 	</div>
-
-
-	<xc:commonheader></xc:commonheader>
+	<xc:commonfooter></xc:commonfooter>
 </xp:view>

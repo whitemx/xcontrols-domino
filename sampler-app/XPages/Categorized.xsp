@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xc:commonheader>
+	</xc:commonheader>
+	<div id="main" class="container">
+		<div class="row fullheightrow">
+			<unp:UnpBootFlatView title="People From UK"
+				summarycolumn="FullName" viewname="People By Country Filter"
+				numberofrows="999" ajaxload="Yes" detailcolumn="Company"
+				xpagedoc="Categorized.xsp" categoryindex="1"
+				newlink="PersonEdit.xsp" searchview="Search" categoryfilter="UK"
+				enableazpicker="yes">
+			</unp:UnpBootFlatView>
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
+				<xc:personviewer></xc:personviewer>
+			</div>
+		</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

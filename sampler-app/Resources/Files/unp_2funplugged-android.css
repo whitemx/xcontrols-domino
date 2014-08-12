@@ -2,6 +2,10 @@
 	height: 100%;
 	padding-bottom: 50px;	
 }
+.panel-body .row {
+	margin-bottom: 100px;	
+}
+
 span.deleteicon input {
   padding-right: 16px;
 }

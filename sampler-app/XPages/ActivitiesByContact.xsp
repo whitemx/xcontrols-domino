@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xc:commonheader></xc:commonheader>
+
+	<div id="main" class="container">
+		<div class="row fullheightrow">
+			<unp:UnpBootAccordionView title="Activities By Contact"
+				summarycolumn="Title" viewname="Activities By Contact"
+				expandfirstcategory="no" ajaxload="Yes"
+				loaddocumenttarget="doccontent" detailcolumn="Detail"
+				xpagedoc="ActivitiesByContact.xsp" newdatatarget="#editModal"
+				newlink="ActivityEdit.xsp">
+			</unp:UnpBootAccordionView>
+			<div id="doccontent"
+				class="col-sm-7 bootcards-cards hidden-xs" style="display: none;">
+				<xc:activityviewer></xc:activityviewer>
+			</div>
+		</div>
+	</div>
+
+
+	<xc:commonheader></xc:commonheader>
+</xp:view>

@@ -109,15 +109,15 @@ function labelFormatter(label, series) {
 }
 
 function startTest() {
-	$('head').append(
-			$('<link rel="stylesheet" type="text/css" />').attr('href',
-					'./unp/qunit-1.12.css?open&rnd=' + getRnd(10000)));
+	//$('head').append(
+	//		$('<link rel="stylesheet" type="text/css" />').attr('href',
+	//				'./unp/qunit-1.12.css?open&rnd=' + getRnd(10000)));
 	$("#qunit")
 			.html(
-					"<p><i class=\"glyphicons stopwatch\" /> Running test, this can take up to 30 seconds...</p><p style=\"width: 100%; text-align: center; padding-top: 30px;\"><img src=\"ajax-loader.gif\" /></p>");
-	$('#intro').hide();
+					"<p><i class=\"fa fa-spinner fa-spin\"></i> Running test, this can take up to 30 seconds...</p>");
+	$("#results-card").show();
 	$("#qunit").show();
-	$("#startbutton").hide();
+	$("#starttestbutton").hide();
 	$("#upmarkiframe").attr("src", "UPMarkStart.xsp?starttime=" + Date.now());
 }
 
@@ -149,4 +149,8 @@ function toggleChartData() {
 					.fadeIn('fast');
 		});
 	}			
+}
+
+function myCallBackFunction(){
+	alert("This is custom code called by the OK	button using the callback custom property");
 }
