@@ -592,12 +592,15 @@ unp.initiscroll = function() {
 		}
 		return false;
 	});
+	
+	
 
 	if (unp.isIOS() || unp.isAndroid()) {
 		var navbarheight = 0;
 		$('.navbar').each( function() {
 			navbarheight += $(this).height();
 		})
+		$(".fullheightrow").height(($(window).height() - 44));
 	}
 
 	try {
@@ -614,6 +617,11 @@ unp.initiscroll = function() {
 									this).outerHeight()) {
 								unp.doflatviewscroll();
 							}
+							if ($(".bootcards-az-picker").length > 0){
+								var scrolltop = $(this).scrollTop() - 50;
+								$(".bootcards-az-picker").css("top", scrolltop);
+								$(".bootcards-az-picker").css("bottom", (scrolltop * -1));
+							}
 						});
 	} else {
 		$(window).bind(
@@ -626,7 +634,6 @@ unp.initiscroll = function() {
 				})
 	}
 
-	$(".atozpicker").show();
 }
 
 unp.doflatviewscroll = function() {
@@ -647,8 +654,17 @@ unp.jumpToLetter = function(letterelement, event) {
 		scrollTop : 0
 	}, 0);
 	var letter = letterelement.text();
-	var list = $("#list .list-group a").each( function() {
-		var summary = $(this).find("h4").text();
+	var sel = "#list .list-group a";
+	if ($(".bootcards-list-subheading").length > 0){
+		sel = ".bootcards-list-subheading"
+	}
+	var list = $(sel).each( function() {
+		var summary = "";
+		if ($(this).tagName == "a"){
+			summary = $(this).find("h4").text();
+		}else{
+			summary = $(this).text();
+		}
 		var firstletter = summary.substring(0, 1);
 		if (firstletter == letter) {
 			$('#list').animate( {
