@@ -2,33 +2,37 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core"
 	xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
-
+	<xp:this.data>
+		<xp:dominoDocument var="docview"
+			formName="RefData"
+			action="openDocument">
+			<xp:this.documentId><![CDATA[#{javascript:var vw:NotesView = database.getView("Reference Data");
+var docview:NotesDocument = vw.getDocumentByKey("SamplerSwipeView");
+return docview.getUniversalID();}]]></xp:this.documentId>
+		</xp:dominoDocument>
+	</xp:this.data>
 	<xp:this.beforePageLoad>
 		<xp:executeScript>
 			<xp:this.script><![CDATA[#{javascript:
-var vw:NotesView = database.getView("Reference Data");
-var docview:NotesDocument = vw.getDocumentByKey("SamplerSwipeView");
 viewScope.images = null;
 var images = new Array;
 var imageFile = "";
 var attachmentList = null;
+var docviewdoc = docview;
 if (isUnpluggedServer()){
-	attachmentList = docview.getAttachmentList();
+	attachmentList = docview.getItemValueString("value").split(",");
 }else{
 	attachmentList = $A(session.evaluate("@AttachmentNames", docview));
 }
-var thisUNID = docview.getUniversalID();
+var thisUNID = docviewdoc.getUniversalID();
 var dbPath = database.getFilePath();
 dbPath = @ReplaceSubstring(dbPath, "\\", "/");
 if (attachmentList != null && attachmentList.length > 0){
 	for(var i=0; i<attachmentList.length; i++){
 	
 	  var imagename = attachmentList[i];
-	  if (isUnpluggedServer()){
-	  	imagename = imagename.getName();
-	  }
 	  
-	  imageFile = "/" + dbPath + "/0/" + docview.getUniversalID() + "/$FILE/" + imagename;
+	  imageFile = "/" + dbPath + "/0/" + docviewdoc.getUniversalID() + "/$FILE/" + imagename;
 	  if (imagename != ""){
 		  images.push({
 		     url: imageFile,
