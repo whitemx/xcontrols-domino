@@ -7,6 +7,7 @@
 		<xp:styleSheet href="/unp/font-awesome.min.css"></xp:styleSheet>
 		<xp:styleSheet href="/unp/unplugged.css"></xp:styleSheet>
 		<xp:script src="/unp/jquery-2.0.3.min.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/moment-with-langs.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/bootstrap.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/bootstrap.typeahead.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/jasny-bootstrap.min.js" clientSide="true"></xp:script>

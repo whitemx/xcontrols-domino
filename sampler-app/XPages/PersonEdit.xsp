@@ -68,18 +68,15 @@
 						styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="initialcontactdate" value="#{docedit.InitialContactDate}"
-							styleClass="form-control" type="date">
-							<xp:this.converter>
-								<xp:convertDateTime>
-									<xp:this.pattern><![CDATA[${javascript:if (docedit.isEditable()){
-	return "yyyy-MM-dd";
-}else{
-	return "dd MMM yyyy";
-}}]]></xp:this.pattern>
-								</xp:convertDateTime>
-							</xp:this.converter>
+						<xp:inputText id="initialcontactdate" styleClass="form-control">
+							<xp:this.attrs>
+								<xp:attr name="datevalue">
+									<xp:this.value><![CDATA[#{javascript:var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime('date');
+return date.toJavaDate().getTime();}]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
 						</xp:inputText>
+
 					</div>
 				</div>
 				<div class="form-group">

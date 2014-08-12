@@ -13,7 +13,6 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 	<xp:this.resources>
 		<xp:script src="/unp/jquery-ui.custom.min.js" clientSide="true"></xp:script>
-		<xp:script src="/unp/moment-with-langs.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/fullcalendar.min.js" clientSide="true"></xp:script>
 		<xp:styleSheet href="/unp/fullcalendar.css"></xp:styleSheet>
 	</xp:this.resources>

@@ -561,10 +561,15 @@ unp.initToggle = function(){
 
 unp.initDates = function(){
 	//Now init datetime-local fields bloody Domino won't output correct format!
-	$('[datevalue]').each(function(){
-		var newval = moment(parseInt($(this).attr('datevalue'), 10)).format().substr(0, 16);
+	$('[datetimevalue]').each(function(){
+		var newval = moment(parseInt($(this).attr('datetimevalue'), 10)).format().substr(0, 16);
 		$(this).attr('value', newval);
 		$(this).attr('type', 'datetime-local');
+	})
+	$('[datevalue]').each(function(){
+		var newval = moment(parseInt($(this).attr('datevalue'), 10)).format('YYYY-MM-DD').substr(0, 16);
+		$(this).attr('value', newval);
+		$(this).attr('type', 'date');
 	})
 }
 

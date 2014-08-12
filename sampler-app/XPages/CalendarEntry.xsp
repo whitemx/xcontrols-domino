@@ -24,10 +24,9 @@
 					</xp:label>
 					<div class="col-xs-8">
 						<xp:inputText id="datetime_startdate"
-							value="#{docedit.startdate}" styleClass="form-control"
-							type="datetime-local">
+							value="#{docedit.startdate}" styleClass="form-control">
 							<xp:this.attrs>
-								<xp:attr name="datevalue">
+								<xp:attr name="datetimevalue">
 									<xp:this.value><![CDATA[#{javascript:var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime('startdate');
 return date.toJavaDate().getTime();}]]></xp:this.value>
 								</xp:attr>
@@ -41,10 +40,9 @@ return date.toJavaDate().getTime();}]]></xp:this.value>
 					</xp:label>
 					<div class="col-xs-8">
 						<xp:inputText id="datetime_enddate"
-							value="#{docedit.enddate}" styleClass="form-control"
-							type="datetime-local">
+							value="#{docedit.enddate}" styleClass="form-control">
 							<xp:this.attrs>
-								<xp:attr name="datevalue">
+								<xp:attr name="datetimevalue">
 									<xp:this.value><![CDATA[#{javascript:var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime('enddate');
 return date.toJavaDate().getTime();}]]></xp:this.value>
 								</xp:attr>
