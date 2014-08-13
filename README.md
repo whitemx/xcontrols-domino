@@ -1,4 +1,4 @@
-bootcards.github.io
+bootstrapcontrols.github.io
 ===================
 
-Public site for the Bootcards site, also available at http://bootcards.org
+Public site for the Bootstrap Controls site, also available at http://bootstrapcontrols.com
