@@ -1,72 +1,290 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Unplugged-bootstrapcontrols by unplugged</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bootstrap Controls - A cards-based UI for mobile and desktop apps, built on top of Bootcards and Bootstrap">
+  <meta name="author" content="Bootstrap Controls">
+  <!--<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">-->
+
+  <title>Bootstrap Controls - Cards-based UI built with Bootcards and Bootstrap</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="public/css/bootcards-site.css">
+
+  <!--font awesome-->
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">Unplugged-bootstrapcontrols</h1>
-        <p class="header">A mobile and desktop XPages development framework</p>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
 
-        <ul>
-          <li class="download"><a class="buttons" href="https://github.com/unplugged/unplugged-bootstrapcontrols/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/unplugged/unplugged-bootstrapcontrols/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/unplugged/unplugged-bootstrapcontrols">View On GitHub</a></li>
+    </head>
+
+    <body>
+
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Bootstrap Controls</a>
+          </div>
+
+          <div class="navbar-collapse collapse">
+
+           <ul class="nav navbar-nav">
+            <li class="active">
+             <a href="./index.html"><span class="fa fa-home"></span> Home</a>
+           </li>
+           <li>
+            <a href="./public/docs.html"><span class="fa fa-book"></span> Documentation</a>
+          </li>
+          <li>
+            <a href="./public/about.html"><span class="fa fa-info-circle"></span> About</a>
+          </li>
+
         </ul>
 
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/unplugged">unplugged</a></p>
+      </div>
 
-
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
-  </body>
+  </div>
+
+  <div class="jumbotron jumbotron-main">
+    <div class="container">
+
+      <div class="row">
+       <div class="col-md-5 col-sm-5 text-center intro">
+        	<img src="public/images/bootcards-icon-rounded-120x120.png"/>
+          <h1>Bootstrap Controls</h1>
+          <p>A cards-based UI for mobile and desktop IBM XPages apps, built on top of Bootcards and Bootstrap.</p>
+          <div class="btn-group">
+          	<a href="#" class="btn btn-default active" data-carousel="#carousel-ios">
+          		<i class="fa fa-apple"></i> 
+          		iOS
+          	</a>
+          	<a href="#" class="btn btn-default" data-carousel="#carousel-android">
+          		<i class="fa fa-android"></i> 
+          		Android
+          	</a>
+          	<a href="#" class="btn btn-default" data-carousel="#carousel-desktop">
+          		<i class="fa fa-desktop"></i> 
+          		Desktop
+          	</a>
+          </div>
+        <div>
+
+        </div>
+      </div>
+
+      <div class="col-md-7 col-sm-7">
+
+        <div class="carousel slide" id="carousel-ios" data-ride="carousel">
+        
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="public/images/ipad-chart.png" />
+            </div>
+          	<div class="item">
+              <img src="public/images/ipad-edit.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/ipad-image.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/ipad-view.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/iphone-accordion.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/iphone-chart.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/iphone-contact.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/iphone-flatview.png" />
+            </div>
+          </div>
+
+          <a class="left carousel-control" href="#carousel-ios" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-ios" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div><!--end carousel-->
+
+       <div class="carousel slide" id="carousel-android" data-ride="carousel" style="display:none">
+         
+          <div class="carousel-inner">
+          	<div class="item active">
+              <img src="public/images/android-accordion.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/android-chart.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/android-flatview.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/android-image.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/android-view.png" />
+            </div>
+          </div>
+
+          <a class="left carousel-control" href="#carousel-android" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-android" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div><!--end carousel-->
+
+        <div class="carousel slide" id="carousel-desktop" data-ride="carousel" style="display:none">
+         
+          <div class="carousel-inner">
+          	<div class="item active">
+              <img src="public/images/desktop-accordion.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/desktop-chart.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/desktop-edit.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/desktop-flatview.png" />
+            </div>
+            <div class="item">
+              <img src="public/images/desktop-image.png" />
+            </div>
+          </div>
+
+          <a class="left carousel-control" href="#carousel-desktop" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-desktop" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div><!--end carousel-->
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>
+
+<div class="jumbotron subheader">
+ <div class="container text-center">
+
+  <div class="row">
+
+    <a href="https://github.com/unplugged/unplugged-bootstrapcontrols" target="_blank" class="btn btn-link"><i class="fa fa-github fa-2x"></i> GitHub Project</a>
+    <a href="http://unp.londc.com/bootstrapsampler.nsf/UnpMain.xsp" target="_blank" class="btn btn-link"><i class="fa fa-mobile-phone fa-2x"></i> Demo App</a>
+    <a href="https://twitter.com/bootcards" target="_blank" class="btn btn-link"><i class="fa fa-twitter fa-2x"></i> Follow @bootcards</a>
+
+  </div>
+</div>
+</div>
+
+<div class="container content">
+  <div class="row">
+    <div class="col-md-4">
+      <h3><span class="fa fa-question"></span> Why cards</h3>
+      <p>We think Cards are the design pattern for mobile of the future. The <strong>near</strong> future that is. Cards are appearing already on sites and apps like Twitter, Google Now, Spotify, Pinterest and Amazon. To kickstart your (and our) projects we decided to use Bootcards: a Cards-based UI framework built on top of <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> and then extend it to work with IBM XPages so that you can quickly create applications that look good and work well across all devices.
+      </p>
+      <p>
+        Want to read more about cards? Try one of these links:
+       <ul>
+        <li><a href="http://insideintercom.io/why-cards-are-the-future-of-the-web/" target="_blank">Why cards are the future of the web</a></li>
+        <li><a href="http://smashinghub.com/9-inspirational-cards-ui-design-example.htm" target="_blank">9 inspirational cards ui design example</a></li>
+        <li><a href="https://dev.twitter.com/docs/cards"  target="_blank">Twitter Cards</a></li>
+        <li><a href="http://www.pinterest.com/flexewebs/cards-ui/" target="_blank">Cards UI samples on Pinterest</a></li>
+      </ul>
+    </p>
+    </div>
+    <div class="col-md-4">
+      <h3><span class="fa fa-apple"></span> Native look and feel</h3>
+      <p>Bootcards includes stylesheets to give your apps a native look, whether that's on iOS, Android or desktop. Try opening the <a href="http://unp.londc.com/bootstrapsampler.nsf/UnpMain.xsp" target="_blank"><b>demo app</b></a> with multiple devices and see the difference!
+      </p>
+      <p>
+        The demo app is a sampler that shows all of the different controls that we offer in the Bootstrap Controls project, from listing data in views, viewing and editing documents to working with file attachments and rich text.
+      </p>
+    </div>
+
+     <div class="col-md-4">
+    <h3><span class="fa fa-code"></span> Work in progress</h3>
+    <p>The Bootstrap Controls are a work in progress, but we have a stable release available. You can <a href="https://github.com/unplugged/unplugged-bootstrapcontrols/archive/master.zip">download</a> it directly from the GitHub repository or from the Bootstrap Controls OpenNTF page.</p>
+    <p>Want to help or want to know more? Drop us a <a href="mailto:matt@londc.com">note</a>.</p>
+  </div>
+    
+
+</div>
+</div>
+
+<div class="container">
+
+ <div class="row">
+
+  <div class="col-md-12">
+      <h3><span class="fa fa-flag-checkered"></span> Getting started</h3>
+      <p>
+        The simplest way to get started is to download the latest release from OpenNTF. Open the template in Domino Designer and then copy all of the resources, custom controls and XPages into your application.
+      </p>
+
+      <p>
+        To add Bootstrap Controls to your application you'll need to include the resources from our standard template. Once you've got them, have a look at some of the sample pages. Every page will need the UnpBootResources control that includes all of the CSS and JavaScript you'll use. But then there are many combinations of how to put pages together after that.
+      </p>
+
+    </div>
+
+</div>
+
+<hr />
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<!--analytics tracking-->
+
+<script>
+//carousel switcher
+$("a[data-carousel]").on("click", function(e) {
+  var $this = $(this);
+  if (!$this.hasClass('active') ) {
+
+    var t = $this.data("carousel");
+    $('.carousel:visible').fadeOut( function() {
+      $(t).fadeIn();
+    } );
+
+    $this
+    .addClass('active')
+    .siblings().removeClass('active');
+  }
+
+  e.preventDefault();
+});
+
+</script>
+
+
+</body>
 </html>

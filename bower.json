@@ -1,0 +1,21 @@
+{
+  "name": "bootcards-site",
+  "version": "0.0.0",
+  "homepage": "https://github.com/bootcards/bootcards.github.io",
+  "authors": [
+    "Mark Leusink <m.leusink@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootcards": "~0.0.2",
+    "morris.js": "0.5.0"
+  }
+}
