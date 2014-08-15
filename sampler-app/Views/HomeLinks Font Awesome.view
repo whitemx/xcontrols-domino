@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='17a2' unid='4D9BB90E9A6DC48680257D3100273223' sequence='4'>
+<noteinfo noteid='57e' unid='4D9BB90E9A6DC48680257D3100273223' sequence='6'>
 <created><datetime dst='true'>20140811T080807,39+01</datetime></created>
-<modified><datetime dst='true'>20140811T080826,81+01</datetime></modified>
-<revised><datetime dst='true'>20140811T080826,80+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140811T080917,11+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140811T080807,40+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst='true'>20140815T121858,29+01</datetime></modified>
+<revised><datetime dst='true'>20140813T154244,79+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20140815T121858,29+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20140815T121858,29+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name='$FormulaClass' sign='true'><text>1</text></item>

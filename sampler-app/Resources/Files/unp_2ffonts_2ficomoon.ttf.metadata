@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
-<noteinfo noteid="164a" sequence="1" unid="91EEAFBA1A95EB0280257D2E003B4EBB">
+<noteinfo noteid="5ca" sequence="4" unid="91EEAFBA1A95EB0280257D2E003B4EBB">
 <created><datetime dst="true">20140808T114747,79+01</datetime></created>
-<modified><datetime dst="true">20140808T114748,01+01</datetime></modified>
-<revised><datetime dst="true">20140808T114748,00+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140808T114748,01+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140808T114748,01+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst="true">20140815T121858,70+01</datetime></modified>
+<revised><datetime dst="true">20140813T154226,13+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140815T121858,70+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140815T121858,70+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$Flags"><text>345CgQ</text></item>
 <item name="$FlagsExt"><text>D</text></item>
-
 <item name="$FileModDT" sign="true"><datetime dst="true">20140413T130840,00+01</datetime></item>
+<item name="$TITLE" sign="true"><text>unp/fonts/icomoon.ttf</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
 
-<item name="$FileNames" sign="true"><text>icomoon.ttf</text></item>
-<item name="$TITLE" sign="true"><textlist><text>unp/fonts/icomoon.ttf</text></textlist></item>
-<item name="$DesignerVersion"><text>8.5.3</text></item></note>
+
+<item name="$FileNames" sign="true"><text>unp_2ffonts_2ficomoon.ttf</text></item></note>

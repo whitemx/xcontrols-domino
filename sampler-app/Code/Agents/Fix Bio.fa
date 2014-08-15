@@ -1,13 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='filter' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='12a' unid='8CF2EA2A582743B280257CD8002C3436' sequence='4'>
+<noteinfo noteid='53a' unid='8CF2EA2A582743B280257CD8002C3436' sequence='6'>
 <created><datetime dst='true'>20140514T090249,50+01</datetime></created>
-<modified><datetime dst='true'>20140807T123414,84+01</datetime></modified>
-<revised><datetime dst='true'>20140807T120808,96+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140807T123414,84+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140807T123414,84+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst='true'>20140815T121857,90+01</datetime></modified>
+<revised><datetime dst='true'>20140813T154245,23+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20140815T121857,90+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20140815T121857,90+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<item name='$AssistAction_Ex' sign='true'>
+<rawitemdata type='14'>
+gQI=
+</rawitemdata></item>
 <item name='$TITLE' sign='true'><text>Fix Bio</text></item>
 <item name='$DesignerVersion'><text>8.5.3</text></item>
 <item name='$Restricted' sign='true'><number>1</number></item>
@@ -40,7 +44,7 @@ AAAAAAAAAAA=
 <item name='$AssistDocCount' sign='true'><number>0</number></item>
 <item name='$AssistRunInfo' summary='true'>
 <rawitemdata type='3'>
-BgAAAgAACAAmAQAAAAAAAAEAAAAAAAAAAAAAAA==
+BgAAAgAACAA2BQAAAAAAAAEAAAAAAAAAAAAAAA==
 </rawitemdata></item>
 <item name='$Flags'><text>3f</text></item>
 <item name='$FlagsExt' sign='true'><text/></item></note>

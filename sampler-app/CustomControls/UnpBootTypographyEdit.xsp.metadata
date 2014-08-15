@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
-<noteinfo noteid="16de" sequence="8" unid="4347995DFE2F1D0A80257D2E003B5FD1">
+<noteinfo noteid="692" sequence="16" unid="4347995DFE2F1D0A80257D2E003B5FD1">
 <created><datetime dst="true">20140808T114831,53+01</datetime></created>
-<modified><datetime dst="true">20140808T114917,20+01</datetime></modified>
-<revised><datetime dst="true">20140808T114917,19+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140808T114917,20+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140808T114831,56+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst="true">20140815T121859,66+01</datetime></modified>
+<revised><datetime dst="true">20140813T154240,62+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140815T121859,66+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140815T121859,66+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpBootTypographyEdit.xsp</text></item>
 <item name="$Flags"><text>gC~4;</text></item>
 
 
+
+
 <item name="$FileNames" sign="true"><text>UnpBootTypographyEdit.xsp</text></item>
-
-
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
 

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
-<noteinfo noteid="175a" sequence="14" unid="19136FA324F3A9A480257D2E00523DE3">
+<noteinfo noteid="70a" sequence="21" unid="19136FA324F3A9A480257D2E00523DE3">
 <created><datetime dst="true">20140808T155817,95+01</datetime></created>
-<modified><datetime dst="true">20140808T160412,84+01</datetime></modified>
-<revised><datetime dst="true">20140808T160412,83+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140808T160412,84+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140808T155817,96+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst="true">20140815T121900,71+01</datetime></modified>
+<revised><datetime dst="true">20140813T154241,98+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140815T121900,71+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140815T121900,71+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$Flags"><text>gC~4K</text></item>
 <item name="$TITLE"><text>TextReadingPanel.xsp</text></item>
 
 
-
-
-
 <item name="$FileNames" sign="true"><text>TextReadingPanel.xsp</text></item>
 <item name="$DesignerVersion"><text>8.5</text></item>
+
+
+
 
 </note>

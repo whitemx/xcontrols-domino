@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
-<noteinfo noteid="16f6" sequence="16" unid="3BE1A9D4DB119C8580257D2E003FDB53">
+<noteinfo noteid="63e" sequence="38" unid="3BE1A9D4DB119C8580257D2E003FDB53">
 <created><datetime dst="true">20140808T123729,15+01</datetime></created>
-<modified><datetime dst="true">20140808T140448,04+01</datetime></modified>
-<revised><datetime dst="true">20140808T140448,03+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140808T140448,04+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140808T123729,16+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst="true">20140815T121859,28+01</datetime></modified>
+<revised><datetime dst="true">20140813T154244,22+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140815T121859,28+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140815T121859,28+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$Flags"><text>gC~4K</text></item>
 <item name="$TITLE"><text>Accordion.xsp</text></item>
 
 
-
-
-
 <item name="$FileNames" sign="true"><text>Accordion.xsp</text></item>
 <item name="$DesignerVersion"><text>8.5</text></item>
+
+
+
 
 </note>
