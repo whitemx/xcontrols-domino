@@ -20,7 +20,7 @@
 			<button type="button"
 				class="btn btn-default btn-menu pull-left offcanvas-toggle">
 				<i class="fa fa-lg fa-bars"></i>
-				<span>Menu</span>
+				<span>&#160;Menu</span>
 			</button>
 			<xp:panel id="title" tagName="a" styleClass="navbar-brand">
 				<xp:this.attrs>
