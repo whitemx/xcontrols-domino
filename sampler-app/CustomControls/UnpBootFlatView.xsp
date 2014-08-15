@@ -97,9 +97,15 @@
 					</div>
 				</div>
 			</xp:panel>
-			<div class="list-group">
-				<xp:repeat id="repeat4" var="thisRowData" value="#{viewList}"
-					disableOutputTag="true" indexVar="thisRowIndex">
+			<xp:panel>
+				<xp:this.styleClass><![CDATA[#{javascript:var out = "list-group";
+if (compositeData.enableazpicker && (isIOS() || isAndroid())){
+	out += " bootcards-no-indicators";
+}
+return out;}]]></xp:this.styleClass>
+				<xp:repeat id="repeat4" var="thisRowData"
+					value="#{viewList}" disableOutputTag="true"
+					indexVar="thisRowIndex">
 					<xp:this.rows><![CDATA[${javascript:sessionScope.rowcount = compositeData.numberofrows;
 if (compositeData.enableAZPicker == "yes"){
 	return "5000";
@@ -114,7 +120,8 @@ if (compositeData.enableAZPicker == "yes"){
 
 					<xp:text tagName="div" id="datarowcategory"
 						styleClass="list-group-item bootcards-list-subheading"
-						disableTheme="true" rendered="#{javascript:thisRowData.isCategory()}">
+						disableTheme="true"
+						rendered="#{javascript:thisRowData.isCategory()}">
 						<xp:this.value><![CDATA[#{javascript:var index = 0;
 if (!isEmpty(compositeData.categoryindex)){
 	index = parseInt(compositeData.categoryindex, 10);
@@ -170,7 +177,8 @@ return out;}]]></xp:this.styleClass>
 }}]]></xp:this.rendered>
 						</xp:image>
 
-						<xp:text id="label" tagName="h4" styleClass="list-group-item-heading"
+						<xp:text id="label" tagName="h4"
+							styleClass="list-group-item-heading"
 							value="#{javascript:thisRowData.getColumnValue(compositeData.summarycolumn);}">
 						</xp:text>
 						<xp:text tagName="p" id="label1">
@@ -183,7 +191,7 @@ return out;}]]></xp:this.styleClass>
 						</xp:text>
 					</xp:panel>
 				</xp:repeat>
-			</div>
+			</xp:panel>
 			<div class="panel-footer">
 				<div class="summaryDataRow"></div>
 				<xp:div id="pullUpHolder" styleClass="pullupholder">
