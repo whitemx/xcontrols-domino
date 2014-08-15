@@ -72,15 +72,15 @@ if (start == ""){
 }}]]></xp:this.rendered>
 					<xp:this.url><![CDATA[#{javascript:thisRowData.getColumnValue(context.getUrlParameter("photocol"))}]]></xp:this.url>
 				</xp:image>
-				<xp:label id="label2" styleClass="viewlistsummary">
+				<xp:text id="label2" styleClass="list-group-item-heading" tagName="h4">
 					<xp:this.value><![CDATA[#{javascript:var filter = param.get("catFilter");
 if (filter.indexOf("~") > -1){
 	thisRowData.getColumnValues()[2];
 }else{
 	thisRowData.getColumnValues()[1];
 }}]]></xp:this.value>
-				</xp:label>
-				<xp:text tagName="div" id="detail" styleClass="viewlistdetail">
+				</xp:text>
+				<xp:text tagName="p" id="detail" styleClass="list-group-item-text">
 					<xp:this.value><![CDATA[#{javascript:var filter = param.get("catFilter");
 var index = 2;
 if (filter.indexOf("~") > -1){
