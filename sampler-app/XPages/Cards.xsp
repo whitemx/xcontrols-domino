@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xc:commonheader></xc:commonheader>
+
+	<div id="main" class="container">
+		<div class="row">
+			<div class="bootcards-cards fullheightrow">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading clearfix">
+							<h3 class="panel-title pull-left">Card Title</h3>
+							<a class="btn btn-default pull-right" href="#">
+								<i class="fa fa-check"></i>
+								Button
+							</a>
+						</div>
+						<div class="panel-body">
+							<p>Bootcards builds on Twitter Bootstrap's grid system to allow separate column scrolling in touchscreen devices.</p>
+							<p>You can find out more about the different types of cards at&#160;<a href="http://bootcards.org">bootcards.org</a></p>
+						</div>
+						<div class="panel-footer">
+							<small>Card footer...</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>
