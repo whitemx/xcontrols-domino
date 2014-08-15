@@ -23,7 +23,20 @@
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
 		</xp:metaData>
 	</xp:this.resources>
-
+	<xp:panel tagName="link">
+		<xp:this.rendered><![CDATA[#{javascript:if (context.getUrlParameter("min") == "true"){
+	return false;
+}else{
+	return true;
+}}]]></xp:this.rendered>
+		<xp:this.attrs>
+			<xp:attr name="type" value="text/css"></xp:attr>
+			<xp:attr name="rel" value="stylesheet"></xp:attr>
+			<xp:attr name="href" value="unp/css/bootcards-mobile-shared.css"
+				rendered="#{javascript:isIOS() || isAndroid()}">
+			</xp:attr>
+		</xp:this.attrs>
+	</xp:panel>
 	<xp:panel tagName="link">
 		<xp:this.attrs>
 			<xp:attr name="type" value="text/css"></xp:attr>
@@ -46,20 +59,7 @@
 	return true;
 }}]]></xp:this.rendered>
 	</xp:panel>
-	<xp:panel tagName="link">
-		<xp:this.rendered><![CDATA[#{javascript:if (context.getUrlParameter("min") == "true"){
-	return false;
-}else{
-	return true;
-}}]]></xp:this.rendered>
-		<xp:this.attrs>
-			<xp:attr name="type" value="text/css"></xp:attr>
-			<xp:attr name="rel" value="stylesheet"></xp:attr>
-			<xp:attr name="href" value="unp/css/bootcards-mobile-shared.css"
-				rendered="#{javascript:isIOS() || isAndroid()}">
-			</xp:attr>
-		</xp:this.attrs>
-	</xp:panel>
+
 	<xp:panel tagName="link">
 		<xp:this.attrs>
 			<xp:attr name="type" value="text/css"></xp:attr>
