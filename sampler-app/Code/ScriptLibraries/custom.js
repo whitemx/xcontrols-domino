@@ -30,6 +30,10 @@ $(document).ajaxComplete(function(){
 	if ($(".buttons").length > 1){
 		$(".buttons").eq(1).hide();
 	}
+	
+	if ($(".pagetitle").text() != ""){
+		$(".navbar-brand").text($(".pagetitle").text());
+	}
 })
 
 function myCallBackFunction() {

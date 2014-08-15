@@ -14,7 +14,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 
-	<xc:commonheader></xc:commonheader>
+	<xc:commonheader pagetitle="Calendar"></xc:commonheader>
 
 	<div id="main" class="container">
 		<unp:UnpBootCalendar enddatefield="EndDate"
@@ -25,6 +25,7 @@
 			headerbuttonsrighttablet="agendaDay,agendaWeek,month"
 			headerbuttonsrightphone="" title="Calendar">
 		</unp:UnpBootCalendar>
+		<div class="pagetitle hidden">Calendar</div>
 	</div>
 
 	<xc:commonfooter></xc:commonfooter>

@@ -2,8 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 
-	<xc:commonheader>
-	</xc:commonheader>
+	<xc:commonheader pagetitle="Flat View"></xc:commonheader>
 
 	<div id="main" class="container">
 		<div class="row fullheightrow">
@@ -16,6 +15,7 @@
 				<xc:personviewer></xc:personviewer>
 			</div>
 		</div>
+		<div class="pagetitle hidden">Flat View</div>
 	</div>
 
 	<xc:commonfooter></xc:commonfooter>

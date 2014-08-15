@@ -17,6 +17,7 @@
 				</xc:personviewer>
 			</div>
 		</div>
+		<div class="pagetitle hidden">Accordion</div>
 	</div>
 	<xc:commonfooter></xc:commonfooter>
 </xp:view>

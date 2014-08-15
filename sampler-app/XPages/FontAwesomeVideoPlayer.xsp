@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
-	<xc:commonheader></xc:commonheader>
+	<xc:commonheader pagetitle="Video Player Icons"></xc:commonheader>
 
 	<div id="main" class="container">
 		<div class="row">
@@ -36,6 +36,7 @@
 				</div>
 			</div>
 		</div>
+		<div class="pagetitle hidden">Video Player Icons</div>
 	</div>
 	<xc:commonfooter></xc:commonfooter>
 </xp:view>

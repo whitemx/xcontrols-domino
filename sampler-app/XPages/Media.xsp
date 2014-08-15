@@ -48,7 +48,7 @@ if (attachmentList != null && attachmentList.length > 0){
 	<xp:this.resources>
 		<xp:script src="/unpCommon.jss" clientSide="false"></xp:script>
 	</xp:this.resources>
-	<xc:commonheader></xc:commonheader>
+	<xc:commonheader pagetitle="Carousel"></xc:commonheader>
 	<div id="main" class="container">
 		<div class="row fullheightrow">
 			<div class="col-sm-12">
@@ -57,6 +57,7 @@ if (attachmentList != null && attachmentList.length > 0){
 				</unp:UnpBootCarousel>
 			</div>
 		</div>
+		<div class="pagetitle hidden">Carousel</div>
 	</div>
 	<xc:commonfooter></xc:commonfooter>
 </xp:view>

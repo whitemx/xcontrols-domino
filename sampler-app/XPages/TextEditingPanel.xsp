@@ -2,7 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 	
-	<xc:commonheader></xc:commonheader>
+	<xc:commonheader pagetitle="Editing Panel"></xc:commonheader>
 
 	<div id="main" class="container">
 		<div class="row">
@@ -31,6 +31,7 @@ if (doc != null){
 				</div>
 			</div>
 		</div>
+		<div class="pagetitle hidden">Editing Panel</div>
 	</div>
 	<xc:commonfooter></xc:commonfooter>
 	<script>unp.initRichText();</script>

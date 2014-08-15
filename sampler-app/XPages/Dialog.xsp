@@ -13,12 +13,12 @@
 
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
-	<xc:commonheader></xc:commonheader>
+	<xc:commonheader pagetitle="Dialog"></xc:commonheader>
 	<div id="main" class="container">
 		<div class="row">
 			<div class="bootcards-cards fullheightrow">
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					<div class="panel panel-default bootcards-chart">
+					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Open Cases By Owner</h3>
 						</div>
@@ -78,6 +78,7 @@
 					</xp:panel>
 			</xp:this.facets>
 		</unp:UnpBootDialog>
+		<div class="pagetitle hidden">Dialog</div>
 	</div>
 
 	<xc:commonfooter></xc:commonfooter>

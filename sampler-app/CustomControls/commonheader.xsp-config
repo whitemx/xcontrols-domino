@@ -13,5 +13,14 @@
         <in-palette>true</in-palette>
       </designer-extension>
     </composite-extension>
+    <property>
+      <property-name>pagetitle</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>Sampler</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
   </composite-component>
 </faces-config>

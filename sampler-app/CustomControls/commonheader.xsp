@@ -15,15 +15,15 @@
 	{"label": "UI Elements", children: [
 		{"label": "Accordion", "icon": "fa-th-list", "page": "/Accordion.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Calendar", "icon": "fa-calendar", "page": "/Calendar.xsp"},
+		{"label": "Cards", "icon": "fa-css3", "page": "/Cards.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Carousel", "icon": "fa-files-o", "page": "/Media.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "CSS Controls", "icon": "fa-css3", "page": "/CSS.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Dialog", "icon": "fa-comment", "page": "/Dialog.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Flat View", "icon": "fa-list-alt", "page": "/FlatView.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Flat View (Categorized)", "icon": "fa-list", "page": "/Categorized.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
 	{"label": "Typography", children: [
-		{"label": "Text Reading Panel", "icon": "fa-search", "page": "/TextReadingPanel.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Text Editing Panel", "icon": "fa-edit", "page": "/TextEditingPanel.xsp?action=editDocument&documentId=CA3BC19DE184CF1380257CDD0024D68E&", ajaxloadid: "main", ajaxtargetid: "main"}
+		{"label": "Reading Panel", "icon": "fa-search", "page": "/TextReadingPanel.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Editing Panel", "icon": "fa-edit", "page": "/TextEditingPanel.xsp?action=editDocument&documentId=CA3BC19DE184CF1380257CDD0024D68E&", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
 	{"label": "Font Awesome", children: [
 		{"label": "Brand Icons", "page": "/FontAwesomeBrand.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
@@ -49,7 +49,7 @@
 	]}	
 ]}]]></unp:this.menuitems>
 	</unp:UnpBootNavigator>
-	<unp:UnpBootHeader title="Sampler">
+	<unp:UnpBootHeader>
 		<unp:this.navitems><![CDATA[#{javascript:[
         {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
         {label: "UI Elements", hasSubMenu: false, page: "/DesktopNav.xsp?filter=UI%20Elements", icon: "fa-th-large"},
@@ -58,6 +58,11 @@
         {label: "Contacts", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-group"},
         {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}      
 ]}]]></unp:this.navitems>
+		<unp:this.title><![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
+	return "Sampler";
+}else{
+	return compositeData.pagetitle;
+}}]]></unp:this.title>
 	</unp:UnpBootHeader>
 	<xp:text escape="false" id="companieslist" tagName="script">
 		<xp:this.value><![CDATA[#{javascript:var list = $A(@Unique(@DbColumn(@DbName(), "People By Company", 1))).sort();

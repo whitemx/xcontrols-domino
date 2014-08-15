@@ -51,7 +51,7 @@ try {
 */
 }]]></xp:this.beforePageLoad>
 
-	<xc:commonheader></xc:commonheader>
+	<xc:commonheader pagetitle="Debug Toolbar"></xc:commonheader>
 
 
 

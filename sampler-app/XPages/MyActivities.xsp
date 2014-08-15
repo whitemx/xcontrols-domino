@@ -2,8 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 
-	<xc:commonheader>
-	</xc:commonheader>
+	<xc:commonheader pagetitle="My Activities"></xc:commonheader>
 	<div id="main" class="container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="My Activities"
@@ -16,6 +15,7 @@
 				<xc:activityviewer></xc:activityviewer>
 			</div>
 		</div>
+		<div class="pagetitle hidden">My Activities</div>
 	</div>
 	<xc:commonfooter></xc:commonfooter>
 </xp:view>
