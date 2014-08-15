@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='57e' unid='4D9BB90E9A6DC48680257D3100273223' sequence='6'>
-<created><datetime dst='true'>20140811T080807,39+01</datetime></created>
-<modified><datetime dst='true'>20140815T121858,29+01</datetime></modified>
-<revised><datetime dst='true'>20140813T154244,79+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140815T153353,89+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140815T121858,29+01</datetime></addedtofile></noteinfo>
+<noteinfo noteid='17ba' unid='07941108ACADF24780257D35004F9DB7' sequence='4'>
+<created><datetime dst='true'>20140815T152937,19+01</datetime></created>
+<modified><datetime dst='true'>20140815T153028,62+01</datetime></modified>
+<revised><datetime dst='true'>20140815T153028,61+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20140815T153042,03+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20140815T152937,19+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name='$FormulaClass' sign='true'><text>1</text></item>
-<item name='$TITLE' sign='true'><text>HomeLinks Font Awesome</text></item>
+<item name='$TITLE' sign='true'><text>HomeLinks Home</text></item>
 <item name='$Index' sign='true'><text/></item>
 <item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-FAECAHIAAgAkMAUABgBVbnBVUkwBAAQALm5zZkcCrwBSABAABQAGAFVucFVSTK4AQgABAAEALwCL
+DAECAHIAAgAkMAUABgBVbnBVUkwBAAQALm5zZkcCrwBSABAABQAGAFVucFVSTK4AQgABAAEALwCL
 AAAAAAAAAAAA8D8QAWsCAQABAFwAAQABAC8AhAMiAgEAAQAvACICBQAGAFVucFVSTCICrgAEALUD
 AwAFAEgARAAIAAUABgAHAAIABwAIAAkABABUaXRsZUltZ1VSTEZsYWdnZWQkMEJhZGdlSURDQVRF
-R09SWSRDb25mbGljdCRSRUYEAAQAAABCAAUABABGb3JtAQAIAEhvbWVMaW5rCgIEAAQABQAIAENB
-VEVHT1JZAQAMAEZvbnQgQXdlc29tZQoCBAAcAgMABwASAAwACUwxUzRTNVM4UzlT
+R09SWSRDb25mbGljdCRSRUYEAAQAAAA6AAUABABGb3JtAQAIAEhvbWVMaW5rCgIEAAQABQAIAENB
+VEVHT1JZAQAEAEhvbWUKAgQAHAIDAAcAEgAMAAlMMVM0UzVTOFM5Uw==
 </formula></item>
 <item name='$Collation' summary='true'>
 <rawitemdata type='2'>
