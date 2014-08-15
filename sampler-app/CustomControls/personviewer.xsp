@@ -3,8 +3,8 @@
 	xmlns:xc="http://www.ibm.com/xsp/custom">
 
 	<unp:UnpBootFormViewer editxpagename="PersonEdit.xsp"
-		editxpagewithajax="yes" formname="Person" showbuttons="yes" title="Person Details"
-		titleiconfield="thumbnail">
+		editxpagewithajax="yes" formname="Person" showbuttons="yes" title="Contact Details"
+		titleiconfield="thumbnail" footertext="Built with Bootcards - Base Card">
 		<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
 		<xp:this.facets>
 			<xp:panel id="list-group" xp:key="facet_1" styleClass="panel">
@@ -53,19 +53,19 @@
 					<div class="list-group-item">
 						<xp:label value="Title" id="titlelabel" for="title">
 						</xp:label>
-						<xp:text tagName="h4" id="title" value="#{docview.Title}">
+						<xp:text tagName="h4" id="title" value="#{docview.Title}" styleClass="list-group-item-heading">
 						</xp:text>
 					</div>
 					<div class="list-group-item">
 						<xp:label value="Date" id="datelabel" for="date">
 						</xp:label>
-						<xp:text tagName="h4" id="date" value="#{docview.InitialContactDate}">
+						<xp:text tagName="h4" id="date" value="#{docview.InitialContactDate}" styleClass="list-group-item-heading">
 						</xp:text>
 					</div>
 					<div class="list-group-item">
 						<xp:label value="Email" id="emaillabel" for="email">
 						</xp:label>
-						<h4>
+						<h4 class="list-group-item-heading">
 							<xp:link escape="true" text="#{docview.Email}" id="email">
 								<xp:this.value><![CDATA[#{javascript:"mailto:" + docview.getItemValueString("Email")}]]></xp:this.value>
 							</xp:link>
@@ -75,7 +75,7 @@
 						<xp:label value="Mobile Enabled" id="mobilenabledlabel"
 							for="mobileenabled">
 						</xp:label>
-						<xp:text id="mobileenabled" tagName="h4">
+						<xp:text id="mobileenabled" tagName="h4" styleClass="list-group-item-heading">
 							<xp:this.value><![CDATA[#{javascript:if (docview.getItemValueString("mobileenabled") == "on"){
 	return "Yes";
 }else{
@@ -86,13 +86,13 @@
 					<div class="list-group-item">
 						<xp:label value="Company" id="companylabel" for="company">
 						</xp:label>
-						<xp:text tagName="h4" id="company" value="#{docview.Company}">
+						<xp:text tagName="h4" id="company" value="#{docview.Company}" styleClass="list-group-item-heading">
 						</xp:text>
 					</div>
 					<div class="list-group-item">
 						<xp:label value="Address" id="addresslabel" for="address">
 						</xp:label>
-						<xp:text tagName="h4" id="address" escape="false">
+						<xp:text tagName="h4" id="address" escape="false" styleClass="list-group-item-heading">
 
 							<xp:this.value><![CDATA[#{javascript:var out = docview.getItemValueString("StreetAddress");
 out += "<br />" + docview.getItemValueString("City");
@@ -101,7 +101,9 @@ return out;}]]></xp:this.value>
 						</xp:text>
 					</div>
 					<div class="list-group-item">
-						<xp:text id="bio" styleClass="richtextdisplay"
+						<xp:label value="Details" id="detailslabel" for="bio">
+						</xp:label>
+						<xp:text id="bio" tagName="h4"  styleClass="list-group-item-heading"
 							value="#{docview.Bio}" escape="false">
 						</xp:text>
 					</div>
