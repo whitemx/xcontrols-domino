@@ -1,8 +1,7 @@
 $(document).ready(function() {
-	$(".fontawesome div").click(function(){
+	$(".fontawesomeicons a.bootcards-summary-item").click(function(){
 		showFontAwesomeDetails(this);
 	})
-	
 	buildCharts();
 })
 
@@ -11,7 +10,7 @@ $(document).ajaxComplete(function(){
 		//We need to re-init the charts
 		buildCharts();
 	}
-	$(".fontawesome div").click(function(){
+	$(".fontawesomeicons a.bootcards-summary-item").click(function(){
 		showFontAwesomeDetails(this);
 	})	
 	/*
@@ -34,6 +33,7 @@ $(document).ajaxComplete(function(){
 	if ($(".pagetitle").text() != ""){
 		$(".navbar-brand").text($(".pagetitle").text());
 	}
+	
 })
 
 function myCallBackFunction() {
@@ -125,17 +125,6 @@ function startTest() {
 	$("#upmarkiframe").attr("src", "UPMarkStart.xsp?starttime=" + Date.now());
 }
 
-function showFontAwesomeDetails(element){
-	$("#fontawesomedetails").html(element.outerHTML);
-	if (window.innerHeight > window.innerWidth && window.innerHeight < 700){
-		$("#fontawesomedetails i").addClass("fa-5x");
-		$("#fontawesomedetails div").attr("style", "text-align: center; padding-top: 100px;")
-	}else{
-	}
-	$("#fontawesomedetails span").attr("style", "display: block;");
-	unp.openDialog("dialogPopup");
-}
-
 function toggleChartData() {
 	var $ev = $(event.target)
 	var $chart = $ev.parents('.bootcards-chart');
@@ -157,4 +146,16 @@ function toggleChartData() {
 
 function myCallBackFunction(){
 	alert("This is custom code called by the OK	button using the callback custom property");
+}
+
+function showFontAwesomeDetails(element){
+	$(".modal-title").text($(element).find("h4").text());
+	$(".modal-body").html($(element).html());
+	if (!$(".modal-body").hasClass("text-center")){
+		$(".modal-body").addClass("text-center");
+	}
+	$(".modal-body fa-3x").removeClass("fa-3x").addClass("fa-4x");
+	$(".modal-body h4").removeClass("hidden");
+	unp.openDialog('fa-alert');
+	//<a class="bootcards-summary-item"><i class="fa fa-3x  fa-adn"></i><h4 class="hidden">fa-adn</h4></a>
 }

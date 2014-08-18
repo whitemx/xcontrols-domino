@@ -25,17 +25,7 @@
 		{"label": "Reading Panel", "icon": "fa-search", "page": "/TextReadingPanel.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Editing Panel", "icon": "fa-edit", "page": "/TextEditingPanel.xsp?action=editDocument&documentId=CA3BC19DE184CF1380257CDD0024D68E&", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
-	{"label": "Font Awesome", children: [
-		{"label": "Brand Icons", "page": "/FontAwesomeBrand.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Currency Icons", "page": "/FontAwesomeCurrency.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Directional Icons", "page": "/FontAwesomeDirectional.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Form Control Icons", "page": "/FontAwesomeFormControl.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Medical Icons", "page": "/FontAwesomeMedical.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Text Editor Icons", "page": "/FontAwesomeTextEditor.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Video Player Icons", "page": "/FontAwesomeVideoPlayer.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Web App Icons", "page": "/FontAwesomeWebApp.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "New Icons", "page": "/FontAwesomeNew.xsp", ajaxloadid: "main", ajaxtargetid: "main"} 
-	]}, 
+	{"label": "Font Awesome", "page": "/FontAwesome.xsp", ajaxloadid: "main", ajaxtargetid: "main", icon: "fa-flag"}, 
 	{"label": "Contacts", children: [
 		{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
@@ -54,7 +44,7 @@
         {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
         {label: "UI Elements", hasSubMenu: false, page: "/DesktopNav.xsp?filter=UI%20Elements", icon: "fa-th-large"},
         {label: "Typography", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Typography", icon: "fa-edit"},
-        {label: "Font Awesome", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Font%20Awesome", icon: "fa-flag"},
+        {label: "Font Awesome", hasSubMenu: false, page: "/FontAwesome.xsp", icon: "fa-flag"},
         {label: "Contacts", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-group"},
         {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}      
 ]}]]></unp:this.navitems>
