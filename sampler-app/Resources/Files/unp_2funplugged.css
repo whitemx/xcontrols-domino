@@ -44,3 +44,7 @@
 	z-index: 5;
 	display: inline-block;
 }
+
+.unp-highlight {
+	color: #1F2C37;
+}

@@ -48,7 +48,7 @@
 						<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
 						<xp:link escape="true" text="Home" value="/unpws.unp/"
 							id="homenavitemlink">
-							<i class="fa fa-home"></i>
+							<i class="fa fa-home unp-highlight"></i>
 						</xp:link>
 					</xp:panel>
 				</ul>

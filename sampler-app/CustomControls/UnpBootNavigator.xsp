@@ -3,10 +3,10 @@
 	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas"
 		id="slideInMenu">
 		<ul class="nav navmenu-nav">
-			<xp:panel id="homenavitem" tagName="li">
+			<xp:panel id="homenavitem" tagName="li" styleClass="unp-highlight">
 				<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
 				<xp:link escape="true" text="Home" value="/unpws.unp/" id="homenavitemlink">
-					<i class="fa fa-lg fa-home"></i>
+					<i class="fa fa-lg fa-home unp-highlight"></i>
 				</xp:link>
 			</xp:panel>
 			
