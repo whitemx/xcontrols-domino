@@ -35,10 +35,11 @@
 }
 
 .carousel .active {
-	text-align: center;	
+	text-align: center;
 }
 
-.carousel-control .icon-prev,.carousel-control .icon-next,.carousel-control .fa-chevron-left,.carousel-control .fa-chevron-right{
+.carousel-control .icon-prev,.carousel-control .icon-next,.carousel-control .fa-chevron-left,.carousel-control .fa-chevron-right
+	{
 	position: absolute;
 	top: 50%;
 	z-index: 5;
@@ -47,4 +48,9 @@
 
 .unp-highlight {
 	color: #1F2C37;
+}
+
+.ql-toolbar-container .btn {
+	padding-left: 12px;
+	padding-right: 12px
 }

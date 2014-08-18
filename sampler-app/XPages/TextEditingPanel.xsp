@@ -9,21 +9,26 @@
 			<div class="bootcards-cards fullheightrow">
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<unp:UnpBootFormEditor showbuttons="yes"
-						formname="RefData" title="Click Text To Start Editing"
-						viewxpagename="/TextEditingPanel.xsp">
+						formname="RefData" viewxpagename="/TextEditingPanel.xsp">
+						<unp:this.title><![CDATA[#{javascript:if (isDesktop()){
+	return "Click Text To Start Editing";
+}else{
+	return "Tap Text To Start Editing";
+}}]]></unp:this.title>
 						<xp:this.facets>
 							<xp:panel xp:key="facet_1">
-							<xp:this.data>
-		<xp:dominoDocument var="docedit" formName="RefData"
-			action="editDocument">
-			<xp:this.documentId><![CDATA[#{javascript:var vw:NotesView = database.getView("Reference Data");
+								<xp:this.data>
+									<xp:dominoDocument var="docedit"
+										formName="RefData" action="editDocument">
+										<xp:this.documentId><![CDATA[#{javascript:var vw:NotesView = database.getView("Reference Data");
 var doc:NotesDocument = vw.getDocumentByKey("SamplerEditHTML");
 if (doc != null){
 	return doc.getUniversalID();
 }}]]></xp:this.documentId>
-		</xp:dominoDocument>
-	</xp:this.data>
-								<unp:UnpBootTypographyEdit fieldname="value">
+									</xp:dominoDocument>
+								</xp:this.data>
+								<unp:UnpBootTypographyEdit
+									fieldname="value">
 								</unp:UnpBootTypographyEdit>
 							</xp:panel>
 						</xp:this.facets>

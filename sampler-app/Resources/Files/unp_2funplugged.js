@@ -180,7 +180,17 @@ unp.initRichText = function() {
 				'toolbar': { container: '#formatting-container' },
 				'image-tooltip': false,
 				'link-tooltip': false
-			}
+			}, 
+			styles: {
+			    'body': {
+					'font-size': '15px;', 
+					'padding': '12px;', 
+					'font-family': '"Helvetica Neue",Helvetica,Arial,sans-serif;'
+			    },
+			    'a': {
+			      'text-decoration': 'none'
+			    }
+			  }
 		});
 		editor.on('selection-change', function(range) {});
 		editor.on('text-change', function(delta, source) {
@@ -375,7 +385,7 @@ unp.editDocument = function(xpage, unid){
 				$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
 			}, 1000);
 		}else{
-			$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
+			//$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
 		}
 	});
 	return false;
