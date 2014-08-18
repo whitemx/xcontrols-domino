@@ -70,9 +70,10 @@ unp.initPage = function(){
 		}
 	}
 
-	$('.navmenu').offcanvas({toggle: false});
+	//$('.navmenu').offcanvas({toggle: false});
 	$('.offcanvas-toggle').on('click', function() {
 		$('.navmenu').offcanvas('toggle');
+		$(".offcanvas-clone").remove();
 	})
 	unp.initiscroll();
 	try {
