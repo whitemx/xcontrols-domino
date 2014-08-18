@@ -4,6 +4,7 @@
 
 	<xp:this.resources>
 		<xp:script src="/custom.jss" clientSide="false"></xp:script>
+		<xp:styleSheet href="/custom.css"></xp:styleSheet>
 	</xp:this.resources>
 
 	<unp:UnpBootResources>

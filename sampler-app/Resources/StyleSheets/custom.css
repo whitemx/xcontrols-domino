@@ -24,3 +24,7 @@
 	white-space: nowrap;
 	margin: 0.1em 0
 }
+
+.fontawesomeicons i {
+	color: #000000 !important;
+}
