@@ -14,9 +14,7 @@
 		<xp:script src="/unp/js/bootcards.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/unplugged.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/fastclick.js" clientSide="true"></xp:script>
-		<xp:script src="/unp/quill.min.js" clientSide="true">
-
-		</xp:script>
+		<xp:script src="/unp/quill.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/jquery.autocomplete.js" clientSide="true"></xp:script>
 		<xp:script src="/unpCommon.jss" clientSide="false"></xp:script>
 		<xp:metaData name="viewport"

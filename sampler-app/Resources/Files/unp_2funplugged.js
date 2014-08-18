@@ -598,8 +598,10 @@ unp.initiscroll = function() {
 		return false;
 	});
 	
+	if(unp.isIOS){
+		bootcards.disableRubberBanding();
+	}
 	
-
 	if (unp.isIOS() || unp.isAndroid()) {
 		var navbarheight = 0;
 		$('.navbar').each( function() {
