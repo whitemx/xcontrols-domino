@@ -362,7 +362,7 @@ unp.openDocument = function(url, target, caller) {
 unp.editDocument = function(xpage, unid){
 	
 	var url = xpage + '?action=editDocument&documentId=' + unid + ' .modal-content';
-	$('#editModal .modal-content').load(url, function(response, status, xhr){
+	$('#editModal .modal-dialog').load(url, function(response, status, xhr){
 		//console.log(status);
 		$('#editModal').modal();
 		unp.initDeleteable();
@@ -370,6 +370,13 @@ unp.editDocument = function(xpage, unid){
 		unp.initRichText();
 		unp.initToggle();
 		unp.initDates();
+		if (unpluggedserver){
+			setTimeout(function(){
+				$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
+			}, 1000);
+		}else{
+			$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
+		}
 	});
 	return false;
 }
@@ -384,6 +391,7 @@ unp.newDocument = function(xpage){
 		unp.initRichText();
 		unp.initToggle();
 		unp.initDate();
+		$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
 	});
 }
 
