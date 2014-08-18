@@ -48,3 +48,79 @@
 .unp-highlight {
 	color: #1F2C37;
 }
+
+
+/* debug toolbar styles */
+#dBar {
+	background: #ffffff; 
+	position: absolute; 
+	top:0;
+	right: 0;
+	font-size: 12px; 
+	z-index: 25;	
+}
+#dBarLoad {
+	font-weight: bold; 
+	width: 100px; 
+	padding: 6px 7px;	
+	cursor: pointer;
+	background: #ddd;
+}
+#dBarContents {
+	width: 400px; 
+	display: none; 
+	padding:0;
+	border: 1px solid #444444;
+}
+
+/*smartphones*/
+@media only screen 
+	and (max-device-width : 600px) {
+	#dBar {
+		position:relative;
+	}
+	
+	#dBarContents {
+		width: 100%;
+	}
+}
+
+div.dBar {
+	text-shadow:none;
+}
+	
+div.dBar .header {
+	background:#444444;
+	padding: 5px; 
+	color: #ffffff;
+	text-align: middle;
+}
+
+div.dBar table.table th {
+	font-weight:bold;
+	background: #bbbbbb;
+}
+div.dBar table.table td {
+	padding: 2px 3px;
+}
+div.dBar table.table td.debug {
+	font-style: italic;
+}
+div.dBar td.first {
+	width: 85px;
+}
+
+div.dBar div.section {
+	padding: 0;
+	clear: both;
+}
+div.dBar div.title {
+	background:#bbbbbb; 
+	padding:5px; 
+	font-weight: bold;
+	border-bottom: 1px solid #000000;
+}
+div.dBar .content {
+	margin: 7px 5px;
+}
+/*end debug toolbar styles*/

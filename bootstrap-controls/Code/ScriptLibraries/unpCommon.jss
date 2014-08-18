@@ -210,3 +210,184 @@ function setDownloaded(downloadedarray){
 	session.setEnvironmentVar("ro.downloaded." + @LowerCase(@ReplaceSubstring(database.getFilePath(), "\\", "")), @Implode(@Trim(downloadedarray), ","), true);
 	sessionScope.downloaded = null;
 }
+
+/* debug toolbar */
+var dBar = {
+		
+		TYPE_DEBUG : "debug",
+		TYPE_INFO : "info",
+		TYPE_ERROR : "error",
+		TYPE_WARNING : "warning",
+		
+		_get : function() {
+		
+			if (sessionScope.containsKey("dBar") ) {
+				return sessionScope.get("dBar");
+			} else {
+				return {
+					isCollapsed : false,
+					isEnabled : true,
+					messages : [],
+					isInit : false,
+					timerStarted : 0
+				};
+			}
+		
+		}, 
+		
+		init : function( collapsed:boolean ) {
+			
+			var dBar = this._get();
+			if (!dBar.isInit) {
+				dBar.isInit = true;
+				dBar.isCollapsed = collapsed;
+			}
+			sessionScope.put("dBar", dBar);
+			
+		},
+		
+		setCollapsed : function( to:boolean ) {
+			
+			var dBar = this._get();
+			dBar.isCollapsed = to;
+			sessionScope.put("dBar", dBar);
+			
+		},
+		
+		setEnabled : function( to:boolean ) {
+			
+			var dBar = this._get();
+			dBar.isEnabled = to;
+			sessionScope.put("dBar", dBar);
+			
+		},
+		
+		//check if the toolbar is enabled
+		isEnabled : function() {
+			return this._get().isEnabled;
+		},
+		
+		//returns if the toolbar is in a collapsed or expanded state
+		isCollapsed : function() {
+			return this._get().isCollapsed;
+		},
+		
+		//retrieve a list of messages
+		getMessages : function() {
+			return this._get().messages;
+		},
+		
+		//clears the list of messages & timer start
+		clear : function() {
+			var dBar = this._get();
+			dBar.messages = [];
+			dBar.timerStarted = 0;
+			sessionScope.put("dBar", dBar);
+		},
+			
+		//add a message to the toolbar
+		//note: this function doesn't do anything if the toolbar is disabled
+		addMessage : function(msg, type:String, showTimeSincePrevious:boolean ) {
+			
+			try {
+			
+				var dBar = this._get();
+				
+				if ( !dBar.isEnabled ) { return; }
+				
+				var messages = dBar.messages;
+				
+				if (typeof msg != "string") {
+					msg = msg.toString();
+				}
+				
+				var now = new Date();
+				
+				if (showTimeSincePrevious && messages.length > 0) {
+					
+					var nowMs = now.getTime();
+					var timerStarted = dBar.timerStarted;
+					
+					if (timerStarted == 0) {
+						dBar.timerStarted = nowMs;
+						timerStarted = nowMs;
+					}
+					
+					var prevMessage = messages[0];
+					var sincePrev = " (+" + ( nowMs - prevMessage.date.getTime() )  + "ms / " + (nowMs - timerStarted) + " ms)";
+					msg += sincePrev;
+				}
+				
+				var m = {
+					"text": msg, 
+					"date" : now, 
+					"type" : type
+				};
+				messages.unshift( m );
+				
+				dBar.messages = messages;
+				
+				sessionScope.put("dBar", dBar);
+				
+			} catch (e) {		//error while logging
+				print(e.toString() );
+			}
+
+		},
+		
+		//function to log different types of messages
+		debug : function(msg) {
+			this.addMessage(msg, this.TYPE_DEBUG, false);	
+		},
+		info : function(msg) {
+			this.addMessage(msg, this.TYPE_INFO, false);	
+		},
+		error : function(msg) {
+			this.addMessage(msg, this.TYPE_ERROR, false);
+		},
+		warn : function(msg) {
+			this.addMessage(msg, this.TYPE_WARNING, false);	
+		},
+		time : function(msg) {
+			this.addMessage(msg, this.TYPE_DEBUG, true);	
+		},
+		
+		//store all messages in a document in the current app
+		save : function() {
+		
+			try {
+				
+				var doc = database.createDocument();
+				
+				doc.replaceItemValue("Form", "UnpluggedLog");
+				doc.replaceItemValue("CreatedBy", @UserName() );
+				doc.replaceItemValue("AppTitle", database.getTitle() );
+				doc.replaceItemValue("LastPage", context.getUrl().toString() );
+				doc.replaceItemValue("User-Agent", facesContext.getExternalContext().getRequest().getHeader("User-Agent") );
+				
+				var dBar = this._get();
+				
+				var messages = dBar.messages;
+				var messagesArr = [];
+				
+				for (var i=0; i<messages.length; i++) {
+					
+					var t = messages[i].date;
+					
+					var timeOnly = (t.getHours()<10?'0' : '') + t.getHours() + ":" + 
+					(t.getMinutes()<10?'0':'') + t.getMinutes() + ":" + 
+					(t.getSeconds()<10?'0':'') + t.getSeconds() + ":" + t.getMilliseconds(); 
+				
+					messagesArr.push( timeOnly + " " + messages[i].text );
+				}
+				
+				doc.replaceItemValue("LogMessages", messagesArr);
+				doc.save();
+			
+			} catch (e) {
+				print("error while saving:");
+				print(e);
+			}
+		}
+			
+	}

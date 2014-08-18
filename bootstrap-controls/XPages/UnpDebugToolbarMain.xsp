@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Copyright 2013,2014 Teamstudio Inc Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in
+		compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+		applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+		CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under
+		the License
+	-->
+
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	<xp:this.beforePageLoad><![CDATA[#{javascript:dBar.init(false);
+	}]]></xp:this.beforePageLoad>
+
+	<xp:this.afterPageLoad><![CDATA[#{javascript:var _type = context.getUrlParameter("type") + "";
+var _msg = context.getUrlParameter("msg") + "";
+
+if (!_type) { return; }
+
+switch (_type) {
+
+	case "debug":
+		dBar.debug(_msg);
+		break;
+	case "time":
+		dBar.time(_msg);
+		break;
+	case "sync":
+		/*var _db = session.getCurrentDatabase();
+		_db.replicate("someserver");*/
+		@Command("[ReplicatorReplicateHigh]");	
+		break;
+	case "clear":
+		dBar.clear();
+		break;
+	case "save":
+		dBar.save();
+		break;
+}
+
+}]]></xp:this.afterPageLoad>
+
+	<xp:this.resources>
+		<xp:script
+			src="/unpCommon.jss"
+			clientSide="false">
+		</xp:script>
+	</xp:this.resources>
+	<xp:panel
+		id="dBar"
+		styleClass="dBar"
+		rendered="#{javascript:dBar.isEnabled()}">
+
+		<div class="header">
+
+			<div class="pull-right">
+
+				<xp:button
+					value="Hide"
+					id="button1"
+					disableTheme="true"
+					styleClass="btn btn-sm btn-default">
+					<xp:this.attrs>
+						<xp:attr name="onclick">
+
+							<xp:this.value><![CDATA[
+							
+								var dBarLoad = dojo.byId('dBarLoad');
+							
+						var dBarContents = dojo.byId('dBarContents');
+						dojo.style(dBarContents, 'display', 'none');
+						
+						dojo.html.set(dBarLoad, 'Show toolbar');
+						dojo.style(dBarLoad, 'display', 'block');
+						
+						]]></xp:this.value>
+						</xp:attr>
+					</xp:this.attrs>
+				</xp:button>
+
+			</div>
+
+			<h5>Unplugged Debug Toolbar</h5>
+
+		</div>
+
+		<xp:div
+			rendered="#{javascript:!dBar.isCollapsed()}"
+			id="dBarContent">
+
+			<!-- actions -->
+			<div class="section">
+
+				<div class="content btn-group">
+
+					<xp:button
+						styleClass="btn btn-sm btn-default"
+						disableTheme="true"
+						value="Startpage">
+						<xp:this.attrs>
+							<xp:attr name="onclick">
+								<xp:this.value><![CDATA[
+								window.location.href = 'UnpMain.xsp';
+								]]></xp:this.value>
+							</xp:attr>
+						</xp:this.attrs>
+					</xp:button>
+
+					<xp:button
+						styleClass="btn btn-sm btn-default"
+						disableTheme="true"
+						value="Back">
+						<xp:this.attrs>
+							<xp:attr name="onclick">
+								<xp:this.value><![CDATA[
+								history.back();
+								]]></xp:this.value>
+							</xp:attr>
+						</xp:this.attrs>
+					</xp:button>
+
+					<xp:button
+						styleClass="btn btn-sm btn-default"
+						disableTheme="true"
+						value="Workspace">
+						<xp:this.attrs>
+							<xp:attr name="onclick">
+								<xp:this.value><![CDATA[
+								window.location.href = '/unpws.unp/';
+								]]></xp:this.value>
+							</xp:attr>
+						</xp:this.attrs>
+					</xp:button>
+
+					<xp:button
+						disableTheme="true"
+						styleClass="btn btn-sm btn-default"
+						value="Sync">
+						<xp:this.attrs>
+							<xp:attr name="onclick">
+								<xp:this.value><![CDATA[
+								dojo.query('#dBarContents h5').forEach( function(h) { dojo.html.set(h, 'Syncing...'); } );
+							dojo.xhrGet( {
+									url : 'UnpDebugToolbarMain.xsp?type=sync',
+									load : function() {
+										dojo.query('#dBarContents h5').forEach( function(h) { dojo.html.set(h, 'Syncing completed'); } );
+									}
+								} );
+							]]></xp:this.value>
+							</xp:attr>
+						</xp:this.attrs>
+					</xp:button>
+
+					<xp:button
+						value="Reload"
+						id="button7"
+						disableTheme="true"
+						styleClass="btn btn-sm btn-default">
+						<xp:this.attrs>
+							<xp:attr name="onclick">
+
+								<xp:this.value><![CDATA[
+							var dBarContents = dojo.byId('dBarContents');
+							dojo.query('#dBarContents h5').forEach( function(h) { dojo.html.set(h, 'Reloading toolbar...'); } );
+							
+							dojo.xhrGet( {
+								url : 'UnpDebugToolbarMain.xsp',
+								load : function(res) {
+									var tempNode = dojo.create('div', {innerHTML : res});
+									var dBar = dojo.query('.dBar', tempNode);
+									
+									dojo.html.set(dBarContents, dBar);
+								}
+							} );
+							]]></xp:this.value>
+							</xp:attr>
+						</xp:this.attrs>
+					</xp:button>
+
+				</div>
+			</div>
+
+			<!-- messages -->
+			<div
+				id="dBarMessages"
+				class="section">
+				<div
+					class="title"
+					style="font-weight:bold">
+					Messages
+
+					<div class="pull-right btn-group">
+
+						<xp:button
+							styleClass="btn btn-sm btn-default"
+							disableTheme="true"
+							value="Save">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[
+								dojo.xhrGet( {
+									url : 'UnpDebugToolbarMain.xsp?type=save',
+									load : function() { 
+										alert('Debug messages saved in current database');
+									}
+								});
+							]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:button>
+
+						<xp:button
+							styleClass="btn btn-sm btn-default"
+							disableTheme="true"
+							value="Clear">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[
+							dojo.xhrGet( {
+									url : 'UnpDebugToolbarMain.xsp?type=clear',
+									load : function() {
+										dojo.query('#dBarMessages .content').forEach( function(node) { dojo.html.set(node, 'No messages found' ); } );
+									}
+								} );
+							]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:button>
+					</div>
+
+					<br style="clear:both" />
+
+				</div>
+
+				<div class="content">
+
+					<xp:text
+						rendered="#{javascript:dBar.getMessages().length==0}"
+						value="No messages found" />
+
+					<table class="table table-condensed">
+						<tbody>
+							<xp:repeat
+								id="repeat1"
+								rows="250"
+								var="msg">
+								<xp:this.value><![CDATA[#{javascript:dBar.getMessages();}]]></xp:this.value>
+								<xp:tr style="vertical-align:top">
+
+									<!-- timestamp -->
+									<xp:this.styleClass><![CDATA[#{javascript:switch (msg.type) {
+	case 'error':
+		return 'danger';
+	case 'warning':
+	case 'info':
+		return msg.type;
+
+}}]]></xp:this.styleClass>
+									<td class="first">
+
+										<xp:text
+											escape="true"
+											id="computedField1">
+											<xp:this.value><![CDATA[#{javascript:var d = msg.date;
+									d.getHours() + ":" + @Right("0" + d.getMinutes(), 2) + ":" + @Right("0" + d.getSeconds(), 2) + ":" + @Right("00" + d.getMilliseconds(), 3)}]]></xp:this.value>
+										</xp:text>
+
+									</td>
+
+									<!-- message -->
+									<xp:td styleClass="#{javascript:msg.type}">
+										<xp:text
+											escape="true"
+											disableTheme="true"
+											value="#{javascript:msg.text}">
+										</xp:text>
+									</xp:td>
+								</xp:tr>
+							</xp:repeat>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
+			<!-- environment -->
+			<div class="section">
+				<div
+					class="title"
+					style="font-weight:bold">
+					Environment
+				</div>
+
+				<div class="content">
+					<table class="table table-condensed">
+						<tbody>
+
+							<tr>
+								<td>app title</td>
+								<td>
+									<xp:text
+										escape="true"
+										disableTheme="true"
+										value="#{javascript:database.getTitle()}">
+									</xp:text>
+								</td>
+							</tr>
+
+							<tr>
+								<td>app path</td>
+								<td>
+									<xp:text
+										escape="true"
+										disableTheme="true"
+										value="#{javascript:database.getFilePath()}">
+									</xp:text>
+								</td>
+							</tr>
+
+							<tr>
+								<td>documents</td>
+								<td>
+									<xp:text
+										escape="true"
+										disableTheme="true"
+										value="#{javascript:database.getAllDocuments().getCount()}">
+									</xp:text>
+								</td>
+							</tr>
+
+							<tr>
+								<td>user</td>
+								<td>
+									<xp:text
+										escape="true"
+										disableTheme="true"
+										value="#{javascript:@UserName()}">
+									</xp:text>
+								</td>
+							</tr>
+							<tr>
+								<td>url</td>
+								<td>
+									<xp:text
+										escape="true"
+										disableTheme="true">
+										<xp:this.value><![CDATA[#{javascript:var url = context.getUrl().toString();
+var noPort = url.substring(url.indexOf('//')+2);
+noPort.substring( noPort.indexOf('/')  );}]]></xp:this.value>
+									</xp:text>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+
+			<!-- scope variables -->
+			<div class="section">
+				<div
+					class="title"
+					style="font-weight:bold">
+					Scope variables
+				</div>
+
+				<div class="content">
+
+					<table class="table table-condensed">
+						<tbody>
+
+							<!-- applicationScope -->
+							<tr>
+								<th colspan="2">applicationScope</th>
+							</tr>
+							<xp:repeat
+								id="repAppScope"
+								rows="250"
+								var="entry">
+
+								<xp:this.value><![CDATA[#{javascript:var k = applicationScope.keySet();
+var it = k.iterator();
+
+var entries = [];
+
+while (it.hasNext() ) {
+	var key = it.next();
+	entries.push( {"key":  key, "value" : applicationScope.get(key) });
+}
+	
+return entries;}]]></xp:this.value>
+								<tr>
+									<td>
+										<xp:text
+											disableTheme="true"
+											value="#{javascript:entry.key}">
+										</xp:text>
+									</td>
+									<td>
+										<xp:text
+											disableTheme="true"
+											value="#{javascript:entry.value}">
+										</xp:text>
+									</td>
+								</tr>
+							</xp:repeat>
+
+							<!-- sessionScope -->
+							<tr>
+								<th colspan="2">sessionScope</th>
+							</tr>
+							<xp:repeat
+								id="repSessScope"
+								rows="250"
+								var="entry">
+
+								<xp:this.value><![CDATA[#{javascript:var k = sessionScope.keySet();
+var it = k.iterator();
+
+var entries = [];
+
+while (it.hasNext() ) {
+	var key = it.next();
+	entries.push( {"key":  key, "value" : sessionScope.get(key) });
+}
+	
+return entries;}]]></xp:this.value>
+								<tr>
+									<td>
+										<xp:text
+											disableTheme="true"
+											value="#{javascript:entry.key}">
+										</xp:text>
+									</td>
+									<td>
+										<xp:text
+											disableTheme="true"
+											value="#{javascript:entry.value}">
+										</xp:text>
+									</td>
+								</tr>
+
+							</xp:repeat>
+
+							<!-- viewScope -->
+							<tr>
+								<th colspan="2">viewScope</th>
+							</tr>
+							<xp:repeat
+								id="repViewScope"
+								rows="250"
+								var="entry">
+
+								<xp:this.value><![CDATA[#{javascript:var k = viewScope.keySet();
+var it = k.iterator();
+
+var entries = [];
+
+while (it.hasNext() ) {
+	var key = it.next();
+	entries.push( {"key":  key, "value" : viewScope.get(key) });
+}
+	
+return entries;}]]></xp:this.value>
+								<tr>
+									<td>
+										<xp:text
+											disableTheme="true"
+											value="#{javascript:entry.key}">
+										</xp:text>
+									</td>
+									<td>
+										<xp:text
+											disableTheme="true"
+											value="#{javascript:entry.value}">
+										</xp:text>
+									</td>
+								</tr>
+
+							</xp:repeat>
+
+							<!-- requestScope -->
+							<tr>
+								<th colspan="2">requestScope</th>
+							</tr>
+							<xp:repeat
+								id="repReqScope"
+								rows="250"
+								var="entry">
+
+								<xp:this.value><![CDATA[#{javascript:var k = requestScope.keySet();
+var it = k.iterator();
+
+var entries = [];
+
+while (it.hasNext() ) {
+	var key = it.next();
+	entries.push( {"key":  key, "value" : requestScope.get(key) });
+}
+	
+return entries;}]]></xp:this.value>
+								<tr>
+									<td>
+										<xp:text
+											disableTheme="true"
+											value="#{javascript:entry.key}">
+										</xp:text>
+									</td>
+									<td>
+										<xp:text
+											disableTheme="true"
+											value="#{javascript:entry.value}">
+										</xp:text>
+									</td>
+								</tr>
+
+							</xp:repeat>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+
+		</xp:div>
+
+	</xp:panel>
+
+</xp:view>

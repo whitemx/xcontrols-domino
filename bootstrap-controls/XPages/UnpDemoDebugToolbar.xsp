@@ -18,7 +18,7 @@
  * loaded in the custom control. To have access here too,
  * we need to add it at sooner
 */
-/*
+
 try {
 	dBar.debug("(bpl) adding demo variables to scopes");
 	
@@ -48,7 +48,8 @@ try {
 	dBar.error(e);
 
 }
-*/
+
+
 }]]></xp:this.beforePageLoad>
 
 	<xc:commonheader></xc:commonheader>
