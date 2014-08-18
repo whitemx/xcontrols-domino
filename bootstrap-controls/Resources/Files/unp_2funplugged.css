@@ -26,8 +26,16 @@
 }
 
 .carousel {
-	min-height: 300px;
-	max-height: 600px;
+	min-height: 100%;
+	max-height: 100%;
+}
+
+.carousel img {
+	max-height: 500px;
+}
+
+.carousel .active {
+	text-align: center;	
 }
 
 .carousel-control .icon-prev,.carousel-control .icon-next,.carousel-control .fa-chevron-left,.carousel-control .fa-chevron-right{
@@ -35,4 +43,8 @@
 	top: 50%;
 	z-index: 5;
 	display: inline-block;
+}
+
+.unp-highlight {
+	color: #1F2C37;
 }

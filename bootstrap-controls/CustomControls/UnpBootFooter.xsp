@@ -2,56 +2,62 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 	<div class="navbar navbar-default navbar-fixed-bottom">
 		<div class="container">
-			<div class="btn-group">
-				<xp:link id="currentdbsync" styleClass="btn btn-success"
-					value="#" text=" Sync">
-					<xp:this.rendered><![CDATA[#{javascript:isUnpluggedServer() && compositeData.synctype == "currentdb";}]]></xp:this.rendered>
-					<xp:eventHandler event="onclick" submit="true"
-						refreshMode="complete">
-						<xp:this.action>
-							<xp:actionGroup>
-								<xp:executeScript>
-									<xp:this.script><![CDATA[#{javascript:db = session.getCurrentDatabase();
+			<div class="row">
+				<div class="col-xs-3 col-sm-2">
+					<xp:link id="currentdbsync" styleClass="btn btn-success pull-left"
+						value="#" text=" Sync">
+						<xp:this.rendered><![CDATA[#{javascript:isUnpluggedServer() && compositeData.synctype == "currentdb";}]]></xp:this.rendered>
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action>
+								<xp:actionGroup>
+									<xp:executeScript>
+										<xp:this.script><![CDATA[#{javascript:db = session.getCurrentDatabase();
 var date = new Date();
 session.setEnvironmentVar("ro.last.sync." + @LowerCase(@ReplaceSubstring(db.getFilePath(), "\\", "")), @Text(date.getTime()), true);
 db.replicate("someserver");}]]></xp:this.script>
-								</xp:executeScript>
-								<xp:openPage target="openDocument">
-									<xp:this.name><![CDATA[#{javascript:if (compositeData.postSyncTarget == null || compositeData.postSyncTarget == ""){
+									</xp:executeScript>
+									<xp:openPage target="openDocument">
+										<xp:this.name><![CDATA[#{javascript:if (compositeData.postSyncTarget == null || compositeData.postSyncTarget == ""){
 	return "/UnpMain.xsp";
 }else{
 	return compositeData.postSyncTarget;
 }}]]></xp:this.name>
-								</xp:openPage>
-							</xp:actionGroup>
-						</xp:this.action>
-					</xp:eventHandler>
-					<i class="fa fa-2x fa-refresh" />
-				</xp:link>
-				<xp:link id="alldbsync" styleClass="btn btn-success" value="#"
-					text=" Sync">
-					<xp:this.rendered><![CDATA[#{javascript:isUnpluggedServer() && compositeData.synctype == "alldbs";}]]></xp:this.rendered>
-					<xp:this.attrs>
-						<xp:attr name="onclick">
-							<xp:this.value><![CDATA[#{javascript:if (compositeData.postSyncTarget != null && compositeData.postSyncTarget != ""){
+									</xp:openPage>
+								</xp:actionGroup>
+							</xp:this.action>
+						</xp:eventHandler>
+						<i class="fa fa-2x fa-refresh" />
+					</xp:link>
+					<xp:link id="alldbsync" styleClass="btn btn-success pull-left"
+						value="#" text=" Sync">
+						<xp:this.rendered><![CDATA[#{javascript:isUnpluggedServer() && compositeData.synctype == "alldbs";}]]></xp:this.rendered>
+						<xp:this.attrs>
+							<xp:attr name="onclick">
+								<xp:this.value><![CDATA[#{javascript:if (compositeData.postSyncTarget != null && compositeData.postSyncTarget != ""){
 	return "unp.syncAllDbs('" + compositeData.postSyncTarget + "')";
 }else{
 	return "unp.syncAllDbs()";
 }}]]></xp:this.value>
-						</xp:attr>
-					</xp:this.attrs>
-					<i class="fa fa-2x fa-refresh" />
-				</xp:link>
-				<xp:repeat value="#{javascript:compositeData.tabs}" var="footertab"
-					indexVar="footertabindex" disableOutputTag="true">
-					<xp:link escape="true" text="#{javascript:footertab.label}"
-						id="footertablink" value="#{javascript:footertab.page}"
-						styleClass="btn btn-default">
-						<xp:panel id="footertabicon" tagName="i">
-							<xp:this.styleClass><![CDATA[#{javascript:"fa fa-2x " + footertab.icon}]]></xp:this.styleClass>
-						</xp:panel>
+							</xp:attr>
+						</xp:this.attrs>
+						<i class="fa fa-2x fa-refresh" />
 					</xp:link>
-				</xp:repeat>
+				</div>
+				<div class="col-xs-9 col-sm-10">
+					<div class="btn-group">
+						<xp:repeat value="#{javascript:compositeData.tabs}" var="footertab"
+							indexVar="footertabindex" disableOutputTag="true">
+							<xp:link escape="true" text="#{javascript:footertab.label}"
+								id="footertablink" value="#{javascript:footertab.page}"
+								styleClass="btn btn-default">
+								<xp:panel id="footertabicon" tagName="i">
+									<xp:this.styleClass><![CDATA[#{javascript:"fa fa-2x " + footertab.icon}]]></xp:this.styleClass>
+								</xp:panel>
+							</xp:link>
+						</xp:repeat>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

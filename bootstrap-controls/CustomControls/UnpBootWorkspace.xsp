@@ -15,7 +15,12 @@
 			<div class="row">
 				<xp:repeat value="#{workspaceview}" var="workspaceitem"
 					indexVar="workspaceitemindex" disableOutputTag="true">
-					<div class="col-xs-6 col-sm-4 col-md-3">
+					<xp:panel>
+						<xp:this.styleClass><![CDATA[#{javascript:if (!isEmpty(compositeData.columndefinition)){
+	return compositeData.columndefinition;
+}else{
+	return "col-xs-6 col-sm-4 col-md-3";
+}}]]></xp:this.styleClass>
 						<xp:panel id="summaryitem" tagName="a"
 							styleClass="bootcards-summary-item">
 							<xp:this.attrs>
@@ -26,7 +31,8 @@
 							<xp:panel id="icon" tagName="i">
 								<xp:this.styleClass><![CDATA[#{javascript:"fa fa-3x " + workspaceitem.getColumnValue(compositeData.iconcol)}]]></xp:this.styleClass>
 							</xp:panel>
-							<xp:text id="title" tagName="h4" escape="false">
+							<xp:text id="title" tagName="h4"
+								escape="false">
 								<xp:this.value><![CDATA[#{javascript:var out = "";
 out += workspaceitem.getColumnValue(compositeData.labelcol);
 try{
@@ -39,7 +45,7 @@ try{
 return out;}]]></xp:this.value>
 							</xp:text>
 						</xp:panel>
-					</div>
+					</xp:panel>
 				</xp:repeat>
 			</div>
 		</div>

@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 	<div class="panel panel-default bootcards-media">
-
-		<div class="carousel slide" id="carousel-ios" data-ride="carousel">
-			<xp:text tagName="div" id="inner" styleClass="carousel-inner"
-				escape="false">
-				<xp:this.value><![CDATA[#{javascript:
+		<div class="panel-heading">
+		</div>
+		<div class="panel-body">
+			<div class="carousel slide" id="carousel-ios" data-ride="carousel">
+				<xp:text tagName="div" id="inner" styleClass="carousel-inner"
+					escape="false">
+					<xp:this.value><![CDATA[#{javascript:
 				var out = "";
 				if (viewScope.images != null){
 	for (var i=0; i<viewScope.images.length; i++){
 		if (i == 0){
-			out += "<div class=\"item active\">";
+			out += "<div class=\"item center-block active\">";
 		}else{
 			out += "<div class=\"item\">";
 		}
-		out += "<img src=\"" + viewScope.images[i].url + "\" /></div>";
+		out += "<img src=\"" + viewScope.images[i].url + "\" class=\"center-block\" /></div>";
 	}
 	return out;
 }else{
 	return "";
 }}]]></xp:this.value>
-			</xp:text>
+				</xp:text>
 
-			<a class="left carousel-control" href="#carousel-ios" data-slide="prev">
-				<span class="fa fa-chevron-left"></span>
-			</a>
-			<a class="right carousel-control" href="#carousel-ios" data-slide="next">
-				<span class="fa fa-chevron-right"></span>
-			</a>
+				<a class="left carousel-control" href="#carousel-ios" data-slide="prev">
+					<span class="fa fa-3x fa-chevron-left"></span>
+				</a>
+				<a class="right carousel-control" href="#carousel-ios" data-slide="next">
+					<span class="fa fa-3x fa-chevron-right"></span>
+				</a>
+			</div>
+		</div>
+		<div class="panel-footer">
 		</div>
 	</div>
 </xp:view>

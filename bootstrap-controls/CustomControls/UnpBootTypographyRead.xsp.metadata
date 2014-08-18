@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D1E002A1358" version="9.0">
-<noteinfo noteid="7ca" sequence="4" unid="77515EFC388460CB80257D320047FF38">
-<created><datetime dst="true">20140812T140623,92+01</datetime></created>
-<modified><datetime dst="true">20140812T140624,52+01</datetime></modified>
-<revised><datetime dst="true">20140812T140624,51+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140812T140624,52+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140812T140623,95+01</datetime></addedtofile></noteinfo>
+<noteinfo noteid="842" sequence="8" unid="CD65A58428388C4280257D38003CDAEA">
+<created><datetime dst="true">20140818T120442,02+01</datetime></created>
+<modified><datetime dst="true">20140818T120448,73+01</datetime></modified>
+<revised><datetime dst="true">20140818T120448,72+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140818T120448,73+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140818T120442,05+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpBootTypographyRead.xsp</text></item>
@@ -12,5 +12,11 @@
 
 
 <item name="$FileNames" sign="true"><text>UnpBootTypographyRead.xsp</text></item>
+
+
+<item name="$DesignerVersion"><text>8.5.2</text></item>
+
+
+
 
 </note>

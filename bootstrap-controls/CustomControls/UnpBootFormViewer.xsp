@@ -62,7 +62,7 @@ if (attachmentList != null && attachmentList.length > 0){
 			</xp:text>
 			
 			<xp:link id="editbutton" value="#"
-				styleClass="btn btn-primary pull-right" text=" Edit"
+				styleClass="btn btn-primary pull-right"
 				rendered="#{javascript:compositeData.showbuttons == 'yes'}">
 				<xp:this.attrs>
 					<xp:attr name="onclick">
@@ -70,12 +70,17 @@ if (attachmentList != null && attachmentList.length > 0){
 					</xp:attr>
 				</xp:this.attrs>
 				<i class="fa fa-pencil"></i>
+				&#160;Edit
 			</xp:link>
 		</div>
 		<xp:callback facetName="facet_1" id="callback1"></xp:callback>
 		<div class="panel-footer">
+			<xp:text id="footertext" tagName="small"
+				styleClass="pull-left"
+				value="#{javascript:compositeData.footertext}">
+			</xp:text>
 			<xp:link id="link1" value="#"
-				styleClass="btn" text="New Response"
+				styleClass="btn btn-default pull-right" text="New Response"
 				rendered="#{javascript:!isEmpty(compositeData.newresponsexpagename)}">
 				<xp:this.attrs>
 					<xp:attr name="onclick">

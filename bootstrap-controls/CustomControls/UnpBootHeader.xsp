@@ -20,7 +20,7 @@
 			<button type="button"
 				class="btn btn-default btn-menu pull-left offcanvas-toggle">
 				<i class="fa fa-lg fa-bars"></i>
-				<span>Menu</span>
+				<span>&#160;Menu</span>
 			</button>
 			<xp:panel id="title" tagName="a" styleClass="navbar-brand">
 				<xp:this.attrs>
@@ -48,7 +48,7 @@
 						<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
 						<xp:link escape="true" text="Home" value="/unpws.unp/"
 							id="homenavitemlink">
-							<i class="fa fa-home"></i>
+							<i class="fa fa-home unp-highlight"></i>
 						</xp:link>
 					</xp:panel>
 				</ul>

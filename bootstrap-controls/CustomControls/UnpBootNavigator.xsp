@@ -3,6 +3,13 @@
 	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas"
 		id="slideInMenu">
 		<ul class="nav navmenu-nav">
+			<xp:panel id="homenavitem" tagName="li" styleClass="unp-highlight">
+				<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
+				<xp:link escape="true" text="Home" value="/unpws.unp/" id="homenavitemlink">
+					<i class="fa fa-lg fa-home unp-highlight"></i>
+				</xp:link>
+			</xp:panel>
+			
 			<xp:repeat var="menuitem" disableOutputTag="true">
 				<xp:this.value><![CDATA[#{javascript:compositeData.menuitems;}]]></xp:this.value>
 				<xp:panel id="litop" tagName="li">
@@ -115,12 +122,6 @@
 					</xp:panel>
 				</xp:panel>
 			</xp:repeat>
-			<xp:panel id="homenavitem" tagName="li">
-				<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
-				<xp:link escape="true" text="Home" value="/unpws.unp/" id="homenavitemlink">
-					<i class="fa fa-home"></i>
-				</xp:link>
-			</xp:panel>
 		</ul>
 	</div>
 </xp:view>

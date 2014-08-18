@@ -24,7 +24,7 @@
 						value="#{javascript:compositeData.title}">
 					</xp:text>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body text-center">
 					<xp:text value="#{javascript:compositeData.content}"></xp:text>
 				</div>
 			</div>
