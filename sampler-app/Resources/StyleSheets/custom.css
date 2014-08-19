@@ -28,3 +28,7 @@
 .fontawesomeicons i {
 	color: #000000 !important;
 }
+
+#qunit-tests .badge {
+	font-size: 1.5em !important;
+}
