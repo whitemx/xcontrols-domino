@@ -59,10 +59,10 @@
 #dBar {
 	background: #ffffff; 
 	position: absolute; 
-	top:0;
+	top: 0;
 	right: 0;
 	font-size: 12px; 
-	z-index: 25;	
+	z-index: 1050;	
 }
 #dBarLoad {
 	font-weight: bold; 
@@ -129,3 +129,30 @@ div.dBar .content {
 	margin: 7px 5px;
 }
 /*end debug toolbar styles*/
+
+/* off canvas menu based on http://blog.tomri.ch/super-simple-off-canvas-menu-navigation */
+#slideInMenu { 
+  position: fixed;
+  top: 45px;
+  bottom: 0;
+  width: 18em;
+	left: -18em;
+  height: 100%;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  -moz-transform: translate3d(0px, 0px, 0px);
+  -o-transform: translate3d(0px, 0px, 0px);
+  -ms-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+  -webkit-transition: 0.25s ease;
+  -moz-transition: 0.25s ease;
+  -o-transition: 0.25s ease;
+  transition: 0.25s ease;
+  z-index: 99;
+}
+#slideInMenu.active {
+  -webkit-transform: translate3d(18em, 0px, 0px);
+  -moz-transform: translate3d(18em, 0px, 0px);
+  -o-transform: translate3d(18em, 0px, 0px);
+  -ms-transform: translate3d(18em, 0px, 0px);
+  transform: translate3d(18em, 0px, 0px);
+}

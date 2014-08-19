@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
-	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas"
+	<div class="navmenu navmenu-default navmenu-fixed-left"
 		id="slideInMenu">
 		<ul class="nav navmenu-nav">
 			<xp:panel id="homenavitem" tagName="li" styleClass="unp-highlight">

@@ -10,6 +10,10 @@ the specific language governing permissions and limitations under the License
  -->
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 
+	<xp:this.resources>
+		<xp:dojoModule name="dojox.html._base"></xp:dojoModule>
+	</xp:this.resources>
+	
 	<div id="dBar">
 
 		<div id="dBarLoad">Show toolbar</div>

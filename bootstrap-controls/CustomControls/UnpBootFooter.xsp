@@ -27,7 +27,7 @@ db.replicate("someserver");}]]></xp:this.script>
 								</xp:actionGroup>
 							</xp:this.action>
 						</xp:eventHandler>
-						<i class="fa fa-2x fa-refresh" />
+						<i class="fa fa-refresh" />
 					</xp:link>
 					<xp:link id="alldbsync" styleClass="btn btn-success pull-left"
 						value="#" text=" Sync">
