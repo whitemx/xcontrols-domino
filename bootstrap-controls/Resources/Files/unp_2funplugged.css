@@ -35,7 +35,7 @@
 }
 
 .carousel .active {
-	text-align: center;	
+	text-align: center;
 }
 
 .carousel-control .icon-prev,.carousel-control .icon-next,.carousel-control .fa-chevron-left,.carousel-control .fa-chevron-right{
@@ -49,12 +49,17 @@
 	color: #1F2C37;
 }
 
+.ql-toolbar-container .btn {
+	padding-left: 12px;
+	padding-right: 12px
+}
+
 
 /* debug toolbar styles */
 #dBar {
 	background: #ffffff; 
 	position: absolute; 
-	top:0;
+	top:50px;
 	right: 0;
 	font-size: 12px; 
 	z-index: 25;	
