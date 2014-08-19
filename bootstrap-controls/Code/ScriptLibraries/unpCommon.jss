@@ -212,7 +212,7 @@ function setDownloaded(downloadedarray){
 }
 
 /* debug toolbar */
-var dBar = {
+var unpDBar = {
 		
 		TYPE_DEBUG : "debug",
 		TYPE_INFO : "info",
@@ -221,55 +221,26 @@ var dBar = {
 		
 		_get : function() {
 		
-			if (sessionScope.containsKey("dBar") ) {
-				return sessionScope.get("dBar");
+			if (sessionScope.containsKey("unp.dbar") ) {
+				return sessionScope.get("unp.dbar");
 			} else {
 				return {
-					isCollapsed : false,
-					isEnabled : true,
 					messages : [],
 					isInit : false,
 					timerStarted : 0
 				};
 			}
 		
-		}, 
+		},
 		
-		init : function( collapsed:boolean ) {
+		init : function() {
 			
-			var dBar = this._get();
-			if (!dBar.isInit) {
-				dBar.isInit = true;
-				dBar.isCollapsed = collapsed;
+			var unpDBar = this._get();
+			if (!unpDBar.isInit) {
+				unpDBar.isInit = true;
 			}
-			sessionScope.put("dBar", dBar);
+			sessionScope.put("unp.dbar", unpDBar);
 			
-		},
-		
-		setCollapsed : function( to:boolean ) {
-			
-			var dBar = this._get();
-			dBar.isCollapsed = to;
-			sessionScope.put("dBar", dBar);
-			
-		},
-		
-		setEnabled : function( to:boolean ) {
-			
-			var dBar = this._get();
-			dBar.isEnabled = to;
-			sessionScope.put("dBar", dBar);
-			
-		},
-		
-		//check if the toolbar is enabled
-		isEnabled : function() {
-			return this._get().isEnabled;
-		},
-		
-		//returns if the toolbar is in a collapsed or expanded state
-		isCollapsed : function() {
-			return this._get().isCollapsed;
 		},
 		
 		//retrieve a list of messages
@@ -279,10 +250,10 @@ var dBar = {
 		
 		//clears the list of messages & timer start
 		clear : function() {
-			var dBar = this._get();
-			dBar.messages = [];
-			dBar.timerStarted = 0;
-			sessionScope.put("dBar", dBar);
+			var unpDBar = this._get();
+			unpDBar.messages = [];
+			unpDBar.timerStarted = 0;
+			sessionScope.put("unp.dbar", unpDBar);
 		},
 			
 		//add a message to the toolbar
@@ -291,11 +262,9 @@ var dBar = {
 			
 			try {
 			
-				var dBar = this._get();
+				var unpDBar = this._get();
 				
-				if ( !dBar.isEnabled ) { return; }
-				
-				var messages = dBar.messages;
+				var messages = unpDBar.messages;
 				
 				if (typeof msg != "string") {
 					msg = msg.toString();
@@ -306,10 +275,10 @@ var dBar = {
 				if (showTimeSincePrevious && messages.length > 0) {
 					
 					var nowMs = now.getTime();
-					var timerStarted = dBar.timerStarted;
+					var timerStarted = unpDBar.timerStarted;
 					
 					if (timerStarted == 0) {
-						dBar.timerStarted = nowMs;
+						unpDBar.timerStarted = nowMs;
 						timerStarted = nowMs;
 					}
 					
@@ -325,9 +294,9 @@ var dBar = {
 				};
 				messages.unshift( m );
 				
-				dBar.messages = messages;
+				unpDBar.messages = messages;
 				
-				sessionScope.put("dBar", dBar);
+				sessionScope.put("unp.dbar", unpDBar);
 				
 			} catch (e) {		//error while logging
 				print(e.toString() );
@@ -365,9 +334,9 @@ var dBar = {
 				doc.replaceItemValue("LastPage", context.getUrl().toString() );
 				doc.replaceItemValue("User-Agent", facesContext.getExternalContext().getRequest().getHeader("User-Agent") );
 				
-				var dBar = this._get();
+				var unpDBar = this._get();
 				
-				var messages = dBar.messages;
+				var messages = unpDBar.messages;
 				var messagesArr = [];
 				
 				for (var i=0; i<messages.length; i++) {
@@ -390,4 +359,4 @@ var dBar = {
 			}
 		}
 			
-	}
+	};

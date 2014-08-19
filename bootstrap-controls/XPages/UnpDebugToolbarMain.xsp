@@ -9,10 +9,10 @@
 
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 
-	<xp:this.beforePageLoad><![CDATA[#{javascript:dBar.init(false);
-	}]]></xp:this.beforePageLoad>
+	<xp:this.beforePageLoad><![CDATA[#{javascript:unpDBar.init();}]]></xp:this.beforePageLoad>
 
-	<xp:this.afterPageLoad><![CDATA[#{javascript:var _type = context.getUrlParameter("type") + "";
+	<xp:this.afterPageLoad><![CDATA[#{javascript:
+	var _type = context.getUrlParameter("type") + "";
 var _msg = context.getUrlParameter("msg") + "";
 
 if (!_type) { return; }
@@ -20,10 +20,10 @@ if (!_type) { return; }
 switch (_type) {
 
 	case "debug":
-		dBar.debug(_msg);
+		unpDBar.debug(_msg);
 		break;
 	case "time":
-		dBar.time(_msg);
+		unpDBar.time(_msg);
 		break;
 	case "sync":
 		/*var _db = session.getCurrentDatabase();
@@ -31,10 +31,10 @@ switch (_type) {
 		@Command("[ReplicatorReplicateHigh]");	
 		break;
 	case "clear":
-		dBar.clear();
+		unpDBar.clear();
 		break;
 	case "save":
-		dBar.save();
+		unpDBar.save();
 		break;
 }
 
@@ -48,8 +48,7 @@ switch (_type) {
 	</xp:this.resources>
 	<xp:panel
 		id="dBar"
-		styleClass="dBar"
-		rendered="#{javascript:dBar.isEnabled()}">
+		styleClass="dBar">
 
 		<div class="header">
 
@@ -85,13 +84,13 @@ switch (_type) {
 		</div>
 
 		<xp:div
-			rendered="#{javascript:!dBar.isCollapsed()}"
 			id="dBarContent">
 
 			<!-- actions -->
 			<div class="section">
 
-				<div class="content btn-group">
+				<div class="content">
+				<div class="btn-group">
 
 					<xp:button
 						styleClass="btn btn-sm btn-default"
@@ -158,7 +157,6 @@ switch (_type) {
 						styleClass="btn btn-sm btn-default">
 						<xp:this.attrs>
 							<xp:attr name="onclick">
-
 								<xp:this.value><![CDATA[
 							var dBarContents = dojo.byId('dBarContents');
 							dojo.query('#dBarContents h5').forEach( function(h) { dojo.html.set(h, 'Reloading toolbar...'); } );
@@ -176,6 +174,18 @@ switch (_type) {
 							</xp:attr>
 						</xp:this.attrs>
 					</xp:button>
+					
+				</div>
+				
+				<div style="margin: 5px 0 0 5px">
+					Open a page:
+					<input type="text" id="unpdbar-goto" style="margin: 0 5px; border-bottom: 1px solid #eee;" />
+					<button type="button" class="btn btn-default btn-sm" onclick="var url = dojo.byId('unpdbar-goto').value;
+					if (url=='') { alert('Enter the URL of the page to open'); return; }
+					window.location.href = url;">
+					Go</button>
+				
+				</div>
 
 				</div>
 			</div>
@@ -235,7 +245,7 @@ switch (_type) {
 				<div class="content">
 
 					<xp:text
-						rendered="#{javascript:dBar.getMessages().length==0}"
+						rendered="#{javascript:unpDBar.getMessages().length==0}"
 						value="No messages found" />
 
 					<table class="table table-condensed">
@@ -244,7 +254,7 @@ switch (_type) {
 								id="repeat1"
 								rows="250"
 								var="msg">
-								<xp:this.value><![CDATA[#{javascript:dBar.getMessages();}]]></xp:this.value>
+								<xp:this.value><![CDATA[#{javascript:unpDBar.getMessages();}]]></xp:this.value>
 								<xp:tr style="vertical-align:top">
 
 									<!-- timestamp -->

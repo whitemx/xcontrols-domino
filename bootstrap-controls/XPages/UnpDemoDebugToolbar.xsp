@@ -14,13 +14,13 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 
-	<xp:this.beforePageLoad><![CDATA[#{javascript:/* no access to dBar here yet, since the SSJS library is
- * loaded in the custom control. To have access here too,
- * we need to add it at sooner
-*/
+<!-- Note: The unpDBar cannot be called in the beforePageLoad event on this page. If you want to be able to do that, you'll need to -->
+<!-- add the unpCommon library to the resources of the calling XPage -->
+
+	<xp:this.afterPageLoad><![CDATA[#{javascript:
 
 try {
-	dBar.debug("(bpl) adding demo variables to scopes");
+	unpDBar.debug("(apl) adding demo variables to scopes");
 	
 	//add test variables to scope
 	applicationScope.put("testVarString", "string in appScope");
@@ -35,36 +35,80 @@ try {
 	requestScope.put("testVarString", "in requestScope");
 	requestScope.put("testVarNr", 25458);
 	
-	dBar.debug("done");
+	unpDBar.debug("done");
 	
-	dBar.error("sample error message");
+	unpDBar.error("sample error message");
 	
-	dBar.info("sample info msg");
+	unpDBar.info("sample info msg");
 	
-	dBar.warn("sample warning message");
+	unpDBar.warn("sample warning message");
 	
 } catch (e) {
 
-	dBar.error(e);
+	unpDBar.error(e);
 
 }
 
-
-}]]></xp:this.beforePageLoad>
+}]]></xp:this.afterPageLoad>
 
 	<xc:commonheader></xc:commonheader>
-
-
-
+ 
 	<unp:UnpBootDebugToolbar defaultCollapsed="true"></unp:UnpBootDebugToolbar>
-
-
 
 	<xc:commonfooter></xc:commonfooter>
 
-	<xp:this.afterPageLoad><![CDATA[#{javascript:if (isUnpluggedServer()){
-	dBar.debug("afterPageLoad");
-}}]]></xp:this.afterPageLoad>
-	<xp:this.beforeRenderResponse><![CDATA[#{javascript:dBar.debug("beforeRenderResponse");}]]></xp:this.beforeRenderResponse>
+	<p>Add a sample message to the Unplugged Degbug Toolbar:</p>
+	
+	<p>
+		<xp:button
+			value="info"
+			id="button1" styleClass="btn btn-default">
+		<xp:eventHandler
+			event="onclick"
+			submit="true"
+			refreshMode="complete">
+			<xp:this.action><![CDATA[#{javascript:unpDBar.info("I'm an info message");}]]></xp:this.action>
+		</xp:eventHandler></xp:button>
+		
+		<xp:button
+			value="warning"
+			id="button2" styleClass="btn btn-default">
+		<xp:eventHandler
+			event="onclick"
+			submit="true"
+			refreshMode="complete">
+			<xp:this.action><![CDATA[#{javascript:unpDBar.warn("I'm a warning message");}]]></xp:this.action>
+		</xp:eventHandler></xp:button>
+		
+		<xp:button
+			value="debug"
+			id="button3" styleClass="btn btn-default">
+		<xp:eventHandler
+			event="onclick"
+			submit="true"
+			refreshMode="complete">
+			<xp:this.action><![CDATA[#{javascript:unpDBar.debug("I'm a debug message");}]]></xp:this.action>
+		</xp:eventHandler></xp:button>
+		
+		<xp:button
+			value="error"
+			id="button4" styleClass="btn btn-default">
+		<xp:eventHandler
+			event="onclick"
+			submit="true"
+			refreshMode="complete">
+			<xp:this.action><![CDATA[#{javascript:try {
+			
+				unpDBar.error("This will throw an error:");
+			
+				print(doc.wontWork);
+				
+			} catch (e) {
+			
+				unpDBar.error(e);
+				
+			};}]]></xp:this.action>
+		</xp:eventHandler></xp:button>
+	</p>
 
 </xp:view>

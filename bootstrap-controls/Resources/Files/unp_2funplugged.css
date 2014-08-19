@@ -59,10 +59,10 @@
 #dBar {
 	background: #ffffff; 
 	position: absolute; 
-	top:50px;
+	top: 0;
 	right: 0;
 	font-size: 12px; 
-	z-index: 25;	
+	z-index: 1050;	
 }
 #dBarLoad {
 	font-weight: bold; 
