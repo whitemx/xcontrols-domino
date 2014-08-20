@@ -164,3 +164,7 @@ div.dBar .content {
 .modal-content {
 	height: auto !important;
 }
+
+#slideInMenu {
+	overflow: auto;
+}
