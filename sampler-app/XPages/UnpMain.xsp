@@ -6,7 +6,7 @@
 			<div class="bootcards-cards fullheightrow">
 				<div class="col-xs-12 col-sm-12 col-md-6">
 					<xc:UnpBootWorkspace title="Workspace"
-						linkurlcol="UnpUrl" labelcol="Title" iconcol="ImgUrl"
+						linkurlcol="UnpUrl" labelcol="Title" iconcol="ImgUrl" footertext="Built with Bootcards - Summary Card"
 						badgecol="BadgeID" columndefinition="col-xs-6 col-md-6">
 						<xc:this.workspaceview><![CDATA[#{javascript:"HomeLinks Home"}]]></xc:this.workspaceview>
 					</xc:UnpBootWorkspace>
@@ -14,7 +14,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-6">
 					<div class="panel panel-default bootcards-chart">
 						<div class="panel-heading">
-							<h3 class="panel-title">Open Cases By Owner</h3>
+							<h3 class="panel-title">Closed sales by team member - $000s (December)</h3>
 						</div>
 						<div class="">
 							<div id="div2" class="chartpanelelement">
@@ -24,24 +24,24 @@
 							<div class="panel-footer">
 								<a href="" class="btn btn-default btn-block" onclick="toggleChartData(); return false;">
 									<i class="fa fa-table"></i>
-									Show Data
+									&#160;Show Data
 								</a>
 							</div>
 						</div>
 						<div class="panel-footer">
-							<small>Randomly generated data!</small>
+							<small class="pull-left">Randomly generated data!</small>
 						</div>
 					</div>
 					<div class="panel panel-default bootcards-table" style="display: none;">
 						<div class="panel-heading">
-							<h3 class="panel-title">Open Cases By Owner
+							<h3 class="panel-title">Closed sales by team member - $000s (December)
 						</h3>
 						</div>
 						<table class="table table-hover">
 							<thead>
 								<tr class="active">
 									<th>Name</th>
-									<th>Open Cases</th>
+									<th class="text-right">Sales Value</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -50,7 +50,7 @@
 						<div class="panel-footer">
 							<a href="" class="btn btn-default btn-block" onclick="toggleChartData(); return false;">
 								<i class="fa fa-bar-chart-o"></i>
-								Show Chart
+								&#160;Show Chart
 							</a>
 						</div>
 						<div class="panel-footer">

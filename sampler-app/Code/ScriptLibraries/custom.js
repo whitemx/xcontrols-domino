@@ -82,13 +82,25 @@ function buildCharts() {
 				value : value
 			});
 			
-			tablerows += "<tr><td>" + names[i] + "</td><td>" + value + "</td></tr>\n";
+			tablerows += "<tr><td>" + names[i] + "</td><td class=\"text-right\">$" + numberWithCommas(value) + "</td></tr>\n";
 		}
 		$(".table tbody").html(tablerows);
 		Morris.Donut({
 			  element: 'pie1',
 			  data: piedata,
-			  formatter: function (x) { return x}
+			  formatter: function (y, data) { 
+			    	//prefixes the values by an $ sign, adds thousands seperators
+
+					nStr = y + '';
+					x = nStr.split('.');
+					x1 = x[0];
+					x2 = x.length > 1 ? '.' + x[1] : '';
+					var rgx = /(\d+)(\d{3})/;
+					while (rgx.test(x1)) {
+						x1 = x1.replace(rgx, '$1' + ',' + '$2');
+					}
+					return '$ ' + x1 + x2;
+			    }
 			}).on('click', function(i, row){
 			  //console.log(i, row);
 		});
@@ -102,9 +114,13 @@ function isPhone() {
 
 function getRnd(max) {
 	if (!max) {
-		max = 30
+		max = 6000
 	}
 	return parseInt(Math.random() * max);
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function labelFormatter(label, series) {
