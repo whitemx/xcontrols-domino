@@ -156,3 +156,7 @@ div.dBar .content {
   -ms-transform: translate3d(18em, 0px, 0px);
   transform: translate3d(18em, 0px, 0px);
 }
+
+.navbar-fixed-bottom .fa-2x {
+	font-size: 20px;
+}
