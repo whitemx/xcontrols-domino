@@ -160,3 +160,7 @@ div.dBar .content {
 .navbar-fixed-bottom .fa-2x {
 	font-size: 20px;
 }
+
+.modal-content {
+	height: auto !important;
+}
