@@ -36,7 +36,7 @@
 	]}, 
 	{"label": "Tools", children: [
 		{"label": "Debug Toolbar", "icon": "fa-bug", "page": "/DebugToolbar.xsp"}, 
-		{"label": "UPMark 3", "icon": "fa-bolt", "page": "/UPMark.xsp"}
+		{"label": "UPMark 4", "icon": "fa-bolt", "page": "/UPMark.xsp"}
 	]}	
 ]}]]></unp:this.menuitems>
 	</unp:UnpBootNavigator>
