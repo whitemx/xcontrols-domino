@@ -113,41 +113,5 @@ return out;}]]></xp:this.value>
 		</xp:this.facets>
 	</unp:UnpBootFormViewer>
 
-	<xp:repeat var="imagefile">
-		<xc:this.rendered><![CDATA[#{javascript:viewScope.images != null && viewScope.images.length > 0;}]]></xc:this.rendered>
-		<xp:this.value><![CDATA[#{javascript:if (viewScope.images != null){
-	var out = [];
-	for (var i=0; i<viewScope.images.length; i++){
-		var filetype = viewScope.images[i].filename.toLowerCase().split('.');
-		filetype = filetype[filetype.length - 1];
-		if (filetype == 'png' || filetype == 'gif' || filetype == 'jpg'){
-			out.push(viewScope.images[i]);
-		}
-	}
-	return out;
-}else{
-	return null;
-}}]]></xp:this.value>
-		<unp:UnpBootImageViewer imageurl="#{javascript:imagefile.url}" imagetitle="#{javascript:imagefile.filename}">
-		</unp:UnpBootImageViewer>
-	</xp:repeat>
-	
-		
-	
-	<xc:UnpBootFiles filestitle="Files">
-		<xc:this.rendered><![CDATA[#{javascript:viewScope.images != null && viewScope.images.length > 0;}]]></xc:this.rendered>
-		<xc:this.fileslist><![CDATA[#{javascript:if (viewScope.images != null){
-	var out = [];
-	for (var i=0; i<viewScope.images.length; i++){
-		var filetype = viewScope.images[i].filename.toLowerCase().split('.');
-		filetype = filetype[filetype.length - 1];
-		if (filetype != 'png' && filetype != 'gif' && filetype != 'jpg'){
-			out.push(viewScope.images[i]);
-		}
-	}
-	return out;
-}else{
-	return null;
-}}]]></xc:this.fileslist>
-	</xc:UnpBootFiles>
+
 </xp:view>
