@@ -1,49 +1,44 @@
 <?xml version='1.0' encoding='utf-8'?>
-<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
- replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='586' unid='1463C1D6EC2C343680257CD8002C3142' sequence='6'>
+<view name='Documents' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
+ replicaid='80257D3A003BCC3B' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='true' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='18e' unid='1463C1D6EC2C343680257CD8002C3142' sequence='8'>
 <created><datetime dst='true'>20140514T090241,94+01</datetime></created>
-<modified><datetime dst='true'>20140815T121858,34+01</datetime></modified>
-<revised><datetime dst='true'>20140813T154244,87+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140815T121858,34+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140815T121858,34+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst='true'>20140820T120826,86+01</datetime></modified>
+<revised><datetime dst='true'>20140820T120826,85+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20140820T120826,86+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20140820T115313,06+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
-<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
-<item name='$FormulaClass' sign='true'><text>1</text></item>
-<item name='$TITLE' sign='true'><text>Documents</text></item>
-<item name='$Index' sign='true'><text/></item>
-<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-BgECADQAAgAkOQEAAwBBbGwABQAEAHRhZ3MfAgQAAQABAH4AIgIFAAgAQ2F0ZWdvcnkiAgMAAgBA
-AAIAJDQFAA8AYXR0YWNobWVudGRvY2lkAAEABwAvJEZJTEUvACICBQAOAGF0dGFjaG1lbnRuYW1l
-IgIDAAIAJAACACQ1BQAOAGF0dGFjaG1lbnRuYW1lAQABAC4AYAIDAAUAQgA+AAkAAgAFAAQAAgAC
-AAgABAAJAAQAJDlUaXRsZVRBR1MkNCQ1TEFOR1VBR0VZRUFSJENvbmZsaWN0JFJFRgQABAAAABwA
-BQAEAEZvcm0BAAgARG9jdW1lbnQKAgMABwAKAAQACUwxUw==
-</formula></item>
-<item name='$Collation' summary='true'>
-<rawitemdata type='2'>
-GwACAABECGYHAAACAIBmAAIABQAkOVRpdGxl
-</rawitemdata></item>
-<item name='$ViewFormat' summary='true' sign='true'>
-<rawitemdata type='5'>
-AQAHAAAACAAAAFZDAwACAAgASgAAAFAAAQAACgABAAAAAAAAAAICAAAAVkMBAAUABQAAAAAAUAAB
-AAAKAAAAAAAAAAAAAgIAAABWQwAABAAEAAAAAABQAAEAAAoAAAAAAAAAAAACAgAAAFZDAAACAA0A
-UAAAAEoCAQAACgAAAAAAAAAAAAICAAAAVkMAAAIABwAwAAAAUAABAAAKAAAAAAAAAAAAAgIAAABW
-QwAACAAIAAAAAABQAAEAAAoAAAAAAAAAAAACAgAAAFZDAAAEAAQAAAAAAFAAAQAACgAAAAAAAAAA
-AAICAAAAJDlDYXRlZ29yeUoAAgA0AAIAJDkBAAMAQWxsAAUABAB0YWdzHwIEAAEAAQB+ACICBQAI
-AENhdGVnb3J5IgIDAAcAFAANAAkyUzNTNVM2UzdTOFMAVGl0bGVUaXRsZVRBR1NUYWdzJDRBdHRh
-Y2htZW50VVJMUAACAEAAAgAkNAUADwBhdHRhY2htZW50ZG9jaWQAAQAHAC8kRklMRS8AIgIFAA4A
-YXR0YWNobWVudG5hbWUiAgMABwAOAAcACTJTM1M0UwAkNURvY1R5cGUwAAIAJAACACQ1BQAOAGF0
-dGFjaG1lbnRuYW1lAQABAC4AYAIDAAcACgADAAk0UwBMQU5HVUFHRUxhbmd1YWdlWUVBUlllYXIm
-AAEAAAABAQAJAQAACgEBAAoAAAEArSsBAAEAAQAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD/
-/wAAAAAAAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAA
-AAAAAFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEBAAkA
-AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAA
-AAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA
-AP//AAAAAAAAAAAAAAAAAABCAAAAAAABAP///wAFAP///wABAAAAAAAAAAAAAAAAAAEA////AAEA
-////AAAAAQAAAAAAAQAAAAAAAQAAAAAAAAAIAAAAAAABAA==
-</rawitemdata></item>
-<item name='$Comment' sign='true'><text/></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
-<item name='$Flags'><text>Y</text></item></note>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby><code event='selection'><formula
+>SELECT Form="Document"</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='$9' width='10' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='true' sortnocase='true' showaslinks='false'
+ categorized='true'><columnheader title='Category'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>("All" : tags) + "~" + Category</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='Title' width='10'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Title'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='TAGS' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Tags'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$4' width='73.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='AttachmentURL'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>attachmentdocid+ "/$FILE/" + attachmentname</formula></code></column>
+<column hidedetailrows='false' itemname='$5' width='10' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='DocType'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Right(attachmentname; ".")</formula></code></column>
+<column hidedetailrows='false' itemname='LANGUAGE' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Language'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='YEAR' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Year'><font size='9pt' style='bold'/></columnheader></column></view>
 

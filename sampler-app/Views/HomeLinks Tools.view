@@ -1,47 +1,39 @@
 <?xml version='1.0' encoding='utf-8'?>
-<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
- replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='566' unid='A21BB9577ABFD6C480257D3100274564' sequence='6'>
+<view name='HomeLinks Tools' xmlns='http://www.lotus.com/dxl' version='9.0'
+ maintenanceversion='1.0' replicaid='80257D3A003BCC3B' showinmenu='false'
+ publicaccess='false' designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened'
+ onrefresh='displayindicator' headers='beveled' opencollapsed='false' showresponsehierarchy='true'
+ showmargin='true' shrinkrows='false' extendlastcolumn='false' showhierarchies='false'
+ unreadcolor='black' rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white'
+ totalscolor='black' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
+ allownewdocuments='false' allowcustomizations='true' hidemarginborder='false'
+ marginwidth='0px' marginbgcolor='white' uniquekeys='false'>
+<noteinfo noteid='16e' unid='A21BB9577ABFD6C480257D3100274564' sequence='8'>
 <created><datetime dst='true'>20140811T080856,68+01</datetime></created>
-<modified><datetime dst='true'>20140815T121858,16+01</datetime></modified>
-<revised><datetime dst='true'>20140813T154244,75+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140815T153355,55+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140815T121858,16+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst='true'>20140820T120826,70+01</datetime></modified>
+<revised><datetime dst='true'>20140820T120826,69+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20140820T120826,70+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20140820T115312,23+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
-<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
-<item name='$FormulaClass' sign='true'><text>1</text></item>
-<item name='$TITLE' sign='true'><text>HomeLinks Tools</text></item>
-<item name='$Index' sign='true'><text/></item>
-<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-DgECAHIAAgAkMAUABgBVbnBVUkwBAAQALm5zZkcCrwBSABAABQAGAFVucFVSTK4AQgABAAEALwCL
-AAAAAAAAAAAA8D8QAWsCAQABAFwAAQABAC8AhAMiAgEAAQAvACICBQAGAFVucFVSTCICrgAEALUD
-AwAFAEgARAAIAAUABgAHAAIABwAIAAkABABUaXRsZUltZ1VSTEZsYWdnZWQkMEJhZGdlSURDQVRF
-R09SWSRDb25mbGljdCRSRUYEAAQAAAA8AAUABABGb3JtAQAIAEhvbWVMaW5rCgIEAAQABQAIAENB
-VEVHT1JZAQAFAFRvb2xzAAoCBAAcAgMABwASAAwACUwxUzRTNVM4UzlT
-</formula></item>
-<item name='$Collation' summary='true'>
-<rawitemdata type='2'>
-EgABAABEAGYAAAAFAFRpdGxl
-</rawitemdata></item>
-<item name='$ViewFormat' summary='true' sign='true'>
-<rawitemdata type='5'>
-AQAGAAAACAAAAFZDAQAFAAUAAAAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMAAAYABgAAAAAAUAAB
-AAAKAAAAAAAAAAAAAgIAAABWQwAABwAHAAAAAABQAAEAAAoAAAAAAAAAAAACAgAAAFZDAAACAAYA
-ngAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMAAAcABwAAAAAAUAABAAAKAAAAAAAAAAAAAgIAAABW
-QwAACAAIAAAAAABQAAEAAAoAAAAAAAAAAAACAgAAAFRpdGxlVGl0bGVJbWdVUkxJbWdVcmxGbGFn
-Z2VkRmxhZ2dlZCQwVW5wVXJsngACAHIAAgAkMAUABgBVbnBVUkwBAAQALm5zZkcCrwBSABAABQAG
-AFVucFVSTK4AQgABAAEALwCLAAAAAAAAAAAA8D8QAWsCAQABAFwAAQABAC8AhAMiAgEAAQAvACIC
-BQAGAFVucFVSTCICrgAEALUDAwAHACoAIwAJNlM5UzExUzEyUzEzUzE5UzIzUzI1UzI3UzI4UzI5
-UzMwUwBCYWRnZUlEQmFkZ2VJRENBVEVHT1JZQ2F0ZWdvcnkmAAEAAAABAQAJAQAACgEBAAoAAAEA
-rSsBAAEAAQAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAA
-AAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAQAJ
-AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAA
-AAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAA
-AAD//wAAAAAAAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAA
-AAAAAAAAAEIAAAAAAAEA////AAUA////AAEAAAAAAAAAAAAAAAAAAQD///8AAQD///8AAAABAAAA
-AAABAAAAAAABAAAAAAAAAAgAAAAAAAEA
-</rawitemdata></item>
-<item name='$Comment' sign='true'><text/></item>
-<item name='$Flags'><text>Y</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item></note>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby><code event='selection'><formula
+>SELECT ((Form = "HomeLink")) &amp; (CATEGORY="Tools")</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='Title' width='10'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader title='Title'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ImgURL' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='ImgUrl'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Flagged' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Flagged'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$0' width='10' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='UnpUrl'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@If(@Contains(UnpURL; ".nsf"); UnpURL; "/" + @ReplaceSubstring(@Subset(@DbName; -1); "\\"; "/") + "/" + UnpURL)</formula></code></column>
+<column hidedetailrows='false' itemname='BadgeID' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='BadgeID'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='CATEGORY' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Category'><font size='9pt' style='bold'/></columnheader></column></view>
 
