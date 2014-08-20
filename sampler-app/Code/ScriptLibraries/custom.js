@@ -171,6 +171,14 @@ function showFontAwesomeDetails(element){
 		$(".modal-body").addClass("text-center");
 	}
 	$(".modal-body fa-3x").removeClass("fa-3x").addClass("fa-4x");
+	$(".modal-body i").clone().insertBefore(".modal-body h4");
+	$(".modal-body i").clone().insertBefore(".modal-body h4");
+	$(".modal-body i").removeClass("fa-3x");
+	var i = 5;
+	$(".modal-body i").each(function(){
+		$(this).addClass("fa-" + (i--) + "x");
+		$(this).css("padding-right", "5px");
+	})
 	$(".modal-body h4").removeClass("hidden");
 	unp.openDialog('fa-alert');
 	//<a class="bootcards-summary-item"><i class="fa fa-3x  fa-adn"></i><h4 class="hidden">fa-adn</h4></a>

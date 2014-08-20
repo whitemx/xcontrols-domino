@@ -26,7 +26,17 @@
 		{"label": "Reading Panel", "icon": "fa-search", "page": "/TextReadingPanel.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Editing Panel", "icon": "fa-edit", "page": "/TextEditingPanel.xsp?action=editDocument&documentId=CA3BC19DE184CF1380257CDD0024D68E&", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
-	{"label": "Font Awesome", "page": "/FontAwesome.xsp", ajaxloadid: "main", ajaxtargetid: "main", icon: "fa-flag"}, 
+	{"label": "Font Awesome", children: [
+		{"label": "Brands", "icon": "fa-apple", "page": "/FontAwesome.xsp?filter=Brands&", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Currencies", "icon": "fa-gbp", "page": "/FontAwesome.xsp?filter=Currencies&", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Directional", "icon": "fa-arrows", "page": "/FontAwesome.xsp?filter=Directional&", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Form Control", "icon": "fa-check-square", "page": "/FontAwesome.xsp?filter=Form%20Control&", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Medical", "icon": "fa-ambulance", "page": "/FontAwesome.xsp?filter=Medical&", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "New", "icon": "fa-bomb", "page": "/FontAwesome.xsp?filter=New&", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Text Editor", "icon": "fa-bold", "page": "/FontAwesome.xsp?filter=Text%20Editor&", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Video Player", "icon": "fa-play", "page": "/FontAwesome.xsp?filter=Video%20Player&", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Web App", "icon": "fa-asterisk", "page": "/FontAwesome.xsp?filter=Web%20App&", ajaxloadid: "main", ajaxtargetid: "main"} 
+	]}, 
 	{"label": "Contacts", children: [
 		{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
@@ -45,7 +55,7 @@
         {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
         {label: "UI Elements", hasSubMenu: false, page: "/DesktopNav.xsp?filter=UI%20Elements", icon: "fa-th-large"},
         {label: "Typography", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Typography", icon: "fa-edit"},
-        {label: "Font Awesome", hasSubMenu: false, page: "/FontAwesome.xsp", icon: "fa-flag"},
+        {label: "Font Awesome", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Font%20Awesome", icon: "fa-flag"},
         {label: "Contacts", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-group"},
         {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}      
 ]}]]></unp:this.navitems>
