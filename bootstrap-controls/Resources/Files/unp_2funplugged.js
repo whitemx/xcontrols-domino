@@ -38,6 +38,10 @@ unp.storePageRequest = function(url) {
 
 }
 
+$(document).ready( function () {
+	unp.initAZPicker();
+});
+
 $(window).load( function() {
 	unp.initPage();
 	unp._firstLoad = false;
@@ -594,23 +598,17 @@ var touchmovehandler = function(e) {
 	e.preventDefault();
 }
 
-var scrollContent;
-var scrollMenu;
-unp.initiscroll = function() {
+unp.initAZPicker = function() {
 	
 	var azPicker = $(".bootcards-az-picker");
 	
-	console.log("init");
-	
 	if (azPicker.length > 0) {
-		
-		console.log("-picker");
-		
+	
 		// Register the letter click events
-		$("a", azPicker).click( function(event) {
+		$("a", azPicker).off().on('click', function(event) {
 			
 			var $this = $(this);
-
+	
 			event.stopPropagation();
 			if ($this.hasClass("switchletterlist")) {
 				$(".atozpicker").toggle();
@@ -619,28 +617,42 @@ unp.initiscroll = function() {
 				unp.jumpToLetter($this, event);
 			}
 			return false;
+			
 		});
 		
 		//move the az picker to a different location so we can give it a fixed position
 		if ( azPicker.parents("#list").length > 0) {
 			
-		
-			//var listEl = $("#list")
+			//determine the width of the list column
+			var $list = $("#list");
+			var classList = $list.attr('class').split(/\s+/);
+			var colClass = "";
+			$.each( classList, function(index, entry) {
+				if (entry.indexOf('col-') ==0 ) {
+					colClass = entry;
+					return;
+				}
+				
+			});
 			
-			var colWidth = azPicker.parent("div").width();
-			var colClass = azPicker.parent("div").attr('class');
-			
-			alert('init to ' + colWidth + " and " + colClass);
-			
+			//translate the column name to one of the 'push' classes
+			var colSize = colClass.substring( colClass.lastIndexOf('-') + 1 );
+			var colPushClass = colClass.substring( 0, colClass.lastIndexOf('-')) + "-push-" + colSize;
 			
 			//move the picker as a direct child of the #main el so we can give it fixed positioning
 			azPicker
 			    .appendTo( $('#main') )
-			    .css({position:'fixed', left: colWidth-15, width :'15px'});
+			    .addClass(colPushClass)
 		
 		}
 		
 	}
+	
+}
+
+var scrollContent;
+var scrollMenu;
+unp.initiscroll = function() {
 	
 	if(unp.isIOS){
 		bootcards.disableRubberBanding();
@@ -661,7 +673,6 @@ unp.initiscroll = function() {
 	}
 
 	if (unp.isIOS() || unp.isAndroid()) {
-		console.log('go');
 		$('#list')
 				.scroll(
 						function() {
@@ -698,35 +709,61 @@ unp.doflatviewscroll = function() {
 }
 
 unp.jumpToLetter = function(letterelement, event) {
-	$('#list').animate( {
+	
+	var $list = $('#list');
+	
+	$list.animate( {
 		scrollTop : 0
 	}, 0);
-	var letter = letterelement.text();
+	
+	var letter = letterelement.text().toLowerCase();
 	var sel = "#list .list-group a";
 	if ($(".bootcards-list-subheading").length > 0){
 		sel = ".bootcards-list-subheading"
 	}
-	var list = $(sel).each( function() {
+	
+	var $sel = $(sel);
+	
+	var scrolled = false;	
+	$sel.each( function(idx, entry) {
+		var $entry = $(entry);
+		
 		var summary = "";
-		if ($(this).tagName == "a"){
-			summary = $(this).find("h4").text();
+		if ($entry.prop('tagName').toLowerCase() == "a"){
+			summary = $entry.find("h4").text();
 		}else{
-			summary = $(this).text();
+			summary = $entry.text();
 		}
-		var firstletter = summary.substring(0, 1);
+		var firstletter = summary.substring(0, 1).toLowerCase();
+		
+		
 		if (firstletter == letter) {
-			$('#list').animate( {
-				scrollTop : $(this).offset().top - 60
+			var scrollTop = $entry.offset().top - 60;
+			
+			$list.animate( {
+				scrollTop : scrollTop
 			}, 0);
+			scrolled = true;
 			return false;
 		} else if (firstletter > letter) {
-			$('#list').animate( {
-				scrollTop : $(this).offset().top - 120
+			var scrollTop = $entry.offset().top - 120;
+			
+			$list.animate( {
+				scrollTop : scrollTop
 			}, 0);
+			scrolled = true;
 			return false;
-		} else {
 		}
 	});
+	
+	if (!scrolled) {
+
+		var $last = $( $sel[$sel.length-1] );
+		$list.animate( {
+			scrollTop : $last.offset().top - 120
+		}, 0);
+	}
+	
 }
 
 unp.openDialog = function(id) {
