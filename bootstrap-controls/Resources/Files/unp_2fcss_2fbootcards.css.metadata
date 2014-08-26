@@ -1,17 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D1E002A1358" version="9.0">
-<noteinfo noteid="6fa" sequence="8" unid="19032940A4FA901080257D320047C9D1">
-<created><datetime dst="true">20140812T140407,21+01</datetime></created>
-<modified><datetime dst="true">20140819T094617,76+01</datetime></modified>
-<revised><datetime dst="true">20140819T094617,75+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140819T094617,76+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140812T140407,34+01</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
-<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
-<item name="$FlagsExt"><text>D</text></item>
-<item name="$TITLE" sign="true"><text>unp/css/bootcards.css</text></item>
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-
-<item name="$FileModDT" sign="true"><datetime dst="true">20140819T094345,00+01</datetime></item>
-
-<item name="$Flags"><text>345CgQ</text></item>
-<item name="$FileNames" sign="true"><text>bootcards.css</text></item></note>
+<?xml version="1.0" encoding="UTF-8"?><fileresource charset="UTF-8" designerversion="8.5.3" maintenanceversion="1.0" name="unp/css/bootcards.css" publicaccess="false" replicaid="C1257D380041C1D7" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2b6" sequence="22" unid="4DE2ECB09E7AAE33C1257D3800420AF0">
+<created><datetime dst="true">20140818T140121,76+02</datetime></created>
+<modified><datetime dst="true">20140826T125345,54+02</datetime></modified>
+<revised><datetime dst="true">20140826T125345,52+02</datetime></revised>
+<lastaccessed><datetime dst="true">20140826T125345,52+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140818T140121,78+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Leusink/O=LinQed</name></updatedby></fileresource>
