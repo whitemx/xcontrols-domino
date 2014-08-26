@@ -597,17 +597,50 @@ var touchmovehandler = function(e) {
 var scrollContent;
 var scrollMenu;
 unp.initiscroll = function() {
-	// Register the letter click events
-	$(".bootcards-az-picker a").click( function(event) {
-		event.stopPropagation();
-		if ($(this).hasClass("switchletterlist")) {
-			$(".atozpicker").toggle();
-			$(".numberpicker").toggle();
-		} else {
-			unp.jumpToLetter($(this), event);
+	
+	var azPicker = $(".bootcards-az-picker");
+	
+	console.log("init");
+	
+	if (azPicker.length > 0) {
+		
+		console.log("-picker");
+		
+		// Register the letter click events
+		$("a", azPicker).click( function(event) {
+			
+			var $this = $(this);
+
+			event.stopPropagation();
+			if ($this.hasClass("switchletterlist")) {
+				$(".atozpicker").toggle();
+				$(".numberpicker").toggle();
+			} else {
+				unp.jumpToLetter($this, event);
+			}
+			return false;
+		});
+		
+		//move the az picker to a different location so we can give it a fixed position
+		if ( azPicker.parents("#list").length > 0) {
+			
+		
+			//var listEl = $("#list")
+			
+			var colWidth = azPicker.parent("div").width();
+			var colClass = azPicker.parent("div").attr('class');
+			
+			alert('init to ' + colWidth + " and " + colClass);
+			
+			
+			//move the picker as a direct child of the #main el so we can give it fixed positioning
+			azPicker
+			    .appendTo( $('#main') )
+			    .css({position:'fixed', left: colWidth-15, width :'15px'});
+		
 		}
-		return false;
-	});
+		
+	}
 	
 	if(unp.isIOS){
 		bootcards.disableRubberBanding();
@@ -628,6 +661,7 @@ unp.initiscroll = function() {
 	}
 
 	if (unp.isIOS() || unp.isAndroid()) {
+		console.log('go');
 		$('#list')
 				.scroll(
 						function() {
@@ -635,11 +669,7 @@ unp.initiscroll = function() {
 									this).outerHeight()) {
 								unp.doflatviewscroll();
 							}
-							if ($(".bootcards-az-picker").length > 0){
-								var scrolltop = $(this).scrollTop() - 50;
-								$(".bootcards-az-picker").css("top", scrolltop);
-								$(".bootcards-az-picker").css("bottom", (scrolltop * -1));
-							}
+							
 						});
 	} else {
 		$(window).bind(
