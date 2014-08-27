@@ -13,6 +13,13 @@
 	<unp:UnpBootNavigator>
 		<unp:this.menuitems><![CDATA[#{javascript:[
 	{"label": "Dashboard", "icon": "fa-dashboard", "page": "/UnpMain.xsp"}, 
+	{"label": "Contacts", children: [
+		{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
+		{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "My Activities", "icon": "fa-tasks", "page": "/MyActivities.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "Activities By Contact", "icon": "fa-tasks", "page": "/ActivitiesByContact.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "Activities By Department", "icon": "fa-tasks", "page": "/ActivitiesByDepartment.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
+	]}, 
 	{"label": "UI Elements", children: [
 		{"label": "Accordion", "icon": "fa-th-list", "page": "/Accordion.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Calendar", "icon": "fa-calendar", "page": "/Calendar.xsp"},
@@ -37,13 +44,6 @@
 		{"label": "Video Player", "icon": "fa-play", "page": "/FontAwesome.xsp?filter=Video%20Player&", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Web App", "icon": "fa-asterisk", "page": "/FontAwesome.xsp?filter=Web%20App&", ajaxloadid: "main", ajaxtargetid: "main"} 
 	]}, 
-	{"label": "Contacts", children: [
-		{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "My Activities", "icon": "fa-tasks", "page": "/MyActivities.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Activities By Contact", "icon": "fa-tasks", "page": "/ActivitiesByContact.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Activities By Department", "icon": "fa-tasks", "page": "/ActivitiesByDepartment.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
-	]}, 
 	{"label": "Tools", children: [
 		{"label": "Debug Toolbar", "icon": "fa-bug", "page": "/DebugToolbar.xsp"}, 
 		{"label": "UPMark 4", "icon": "fa-bolt", "page": "/UPMark.xsp"}
@@ -53,10 +53,10 @@
 	<unp:UnpBootHeader>
 		<unp:this.navitems><![CDATA[#{javascript:[
         {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
+        {label: "Contacts", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-group"},
         {label: "UI Elements", hasSubMenu: false, page: "/DesktopNav.xsp?filter=UI%20Elements", icon: "fa-th-large"},
         {label: "Typography", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Typography", icon: "fa-edit"},
         {label: "Font Awesome", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Font%20Awesome", icon: "fa-flag"},
-        {label: "Contacts", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-group"},
         {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}      
 ]}]]></unp:this.navitems>
 		<unp:this.title><![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
