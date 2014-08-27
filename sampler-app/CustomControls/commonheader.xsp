@@ -12,7 +12,8 @@
 
 	<unp:UnpBootNavigator>
 		<unp:this.menuitems><![CDATA[#{javascript:[
-	{"label": "Dashboard", "icon": "fa-dashboard", "page": "/UnpMain.xsp"}, 
+	{"label": "Dashboard", "icon": "fa-dashboard", "page": "/UnpMain.xsp"},
+	{"label": "Base Cards", "icon": "fa-book", "page": "/BaseCards.xsp"},
 	{"label": "Contacts", children: [
 		{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
