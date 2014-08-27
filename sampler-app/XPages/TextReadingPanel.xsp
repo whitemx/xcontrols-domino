@@ -10,7 +10,7 @@
 
 					<unp:UnpBootTypographyRead title="Reading Panel">
 						<xp:this.facets>
-							<xp:panel xp:key="typographyfacet" styleClass="panel panel-default bootcards-summary">
+							<xp:panel xp:key="typographyfacet">
 								<h1>
 									h1. Bootstrap heading&#160; 
 									<small> Secondary text</small>
