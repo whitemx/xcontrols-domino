@@ -6,6 +6,7 @@ $(document).ready(function() {
 	if ($(".pagetitle").text() != ""){
 		$(".navbar-brand").text($(".pagetitle").text());
 	}
+	initRTButtons();
 })
 
 $(document).ajaxComplete(function(){
@@ -36,8 +37,21 @@ $(document).ajaxComplete(function(){
 	if ($(".pagetitle").text() != ""){
 		$(".navbar-brand").text($(".pagetitle").text());
 	}
-	
+	initRTButtons();
 })
+
+function initRTButtons(){
+	if (window.location.href.indexOf("TextEditingPanel") > -1){
+		$(".btn-danger").unbind();
+		$(".btn-danger").click(function(){
+			alert("The cancel button is disabled on this page");
+		});
+		$(".btn-success").unbind();
+		$(".btn-success").click(function(){
+			alert("The save button is disabled on this page");
+		})
+	}
+}
 
 function myCallBackFunction() {
 	alert("This is custom code called by the OK	button using the callback custom property");
