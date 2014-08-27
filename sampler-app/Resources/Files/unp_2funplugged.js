@@ -187,7 +187,8 @@ unp.initRichText = function() {
 			    'body': {
 					'font-size': '15px;', 
 					'padding': '12px;', 
-					'font-family': '"Helvetica Neue",Helvetica,Arial,sans-serif;'
+					'font-family': '"Helvetica Neue",Helvetica,Arial,sans-serif;', 
+					'line-height': '1.5'
 			    },
 			    'a': {
 			      'text-decoration': 'none'
