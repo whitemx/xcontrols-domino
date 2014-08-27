@@ -3,46 +3,60 @@
 	xmlns:xc="http://www.ibm.com/xsp/custom">
 
 	<unp:UnpBootFormViewer editxpagename="ActivityEdit.xsp"
-		editxpagewithajax="yes" formname="Activity" showbuttons="yes" title="Activity Details">
+		editxpagewithajax="yes" formname="Activity" showbuttons="yes"
+		title="Activity Details"
+		footertext="Built with Bootcards - Base Card">
 		<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
 		<xp:this.facets>
-			<xp:panel id="list-group" xp:key="facet_1" styleClass="panel">
+			<xp:panel id="list-group" xp:key="facet_1"
+				styleClass="panel">
 				<div class="list-group">
 					<div class="list-group-item">
 						<label>Contact</label>
-						<xp:text id="contact" tagName="h4" styleClass="list-group-item-heading">
+						<xp:text id="contact" tagName="h4"
+							styleClass="list-group-item-heading">
 							<xp:this.value><![CDATA[#{javascript:docview.getItemValueString("Contact")}]]></xp:this.value>
 						</xp:text>
 					</div>
 
 					<div class="list-group-item">
-						<xp:label value="Company" id="companylabel" for="company">
+						<xp:label value="Company" id="companylabel"
+							for="company">
 						</xp:label>
-						<xp:text tagName="h4" id="company" value="#{docview.Company}">
+						<xp:text tagName="h4" id="company"
+							value="#{docview.Company}">
 						</xp:text>
 					</div>
 					<div class="list-group-item">
-						<xp:label value="Date" id="datelabel" for="date">
+						<xp:label value="Date" id="datelabel"
+							for="date">
 						</xp:label>
-						<xp:text tagName="h4" id="date" value="#{docview.Date}">
+						<xp:text tagName="h4" id="date"
+							value="#{docview.Date}">
 						</xp:text>
 					</div>
 					<div class="list-group-item">
-						<xp:label value="Type" id="typelabel" for="type">
+						<xp:label value="Type" id="typelabel"
+							for="type">
 						</xp:label>
-						<xp:text tagName="h4" id="type" value="#{docview.Type}">
+						<xp:text tagName="h4" id="type"
+							value="#{docview.Type}">
 						</xp:text>
 					</div>
 					<div class="list-group-item">
-						<xp:label value="Assigned To" id="assignedtolabel" for="type">
+						<xp:label value="Assigned To"
+							id="assignedtolabel" for="type">
 						</xp:label>
-						<xp:text tagName="h4" id="assignedto" value="#{docview.AssignedTo}">
+						<xp:text tagName="h4" id="assignedto"
+							value="#{docview.AssignedTo}">
 						</xp:text>
 					</div>
 					<div class="list-group-item">
-						<xp:label value="Title" id="titlelabel" for="title">
+						<xp:label value="Title" id="titlelabel"
+							for="title">
 						</xp:label>
-						<xp:text tagName="h4" id="title" value="#{docview.Title}">
+						<xp:text tagName="h4" id="title"
+							value="#{docview.Title}">
 						</xp:text>
 					</div>
 

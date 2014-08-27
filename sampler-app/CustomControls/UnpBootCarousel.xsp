@@ -33,6 +33,9 @@
 			</div>
 		</div>
 		<div class="panel-footer">
+			<xp:text id="footertext" tagName="small" styleClass="pull-left"
+				value="#{javascript:compositeData.footertext}">
+			</xp:text>
 		</div>
 	</div>
 </xp:view>

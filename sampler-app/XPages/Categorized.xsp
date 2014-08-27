@@ -10,7 +10,8 @@
 				numberofrows="999" ajaxload="Yes" detailcolumn="Company"
 				xpagedoc="Categorized.xsp" categoryindex="1"
 				newlink="PersonEdit.xsp" searchview="Search" categoryfilter="UK"
-				enableazpicker="yes">
+				enableazpicker="yes"
+				footertext="Built with Bootcards - List Card">
 			</unp:UnpBootFlatView>
 			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
 				<xc:personviewer></xc:personviewer>

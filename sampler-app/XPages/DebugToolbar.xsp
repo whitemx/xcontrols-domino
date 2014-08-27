@@ -107,7 +107,7 @@ try {
 					</p>
 				</div>
 				<div class="panel-footer">
-					<small>Built with Bootcards - Base Card</small>
+					<small class="pull-left">Built with Bootcards - Base Card</small>
 				</div>
 			</div>
 		</div>

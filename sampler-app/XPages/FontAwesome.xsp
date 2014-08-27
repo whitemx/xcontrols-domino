@@ -605,6 +605,9 @@
 							</div>
 						</div>
 					</div>
+					<div class="panel-footer">
+						<small class="pull-left">Built with Bootcards - Summary Card</small>
+					</div>
 				</xp:panel>
 
 				<xp:panel styleClass="panel panel-default bootcards-summary">
@@ -638,6 +641,9 @@
 								<div class="col-xs-4 col-sm-2 col-lg-2"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-yen (alias)"></i>    <h4> fa-yen (alias)</h4>  </a></div>
 								
 							</div>
+						</div>
+						<div class="panel-footer">
+							<small class="pull-left">Built with Bootcards - Summary Card</small>
 						</div>
 					</xp:panel>
 					
@@ -704,6 +710,9 @@
 								
 							</div>
 						</div>
+						<div class="panel-footer">
+							<small class="pull-left">Built with Bootcards - Summary Card</small>
+						</div>
 					</xp:panel>
 					
 				<xp:panel styleClass="panel panel-default bootcards-summary">
@@ -728,6 +737,9 @@
 								
 							</div>
 						</div>
+						<div class="panel-footer">
+							<small class="pull-left">Built with Bootcards - Summary Card</small>
+						</div>
 					</xp:panel>
 					
 				<xp:panel styleClass="panel panel-default bootcards-summary">
@@ -748,6 +760,9 @@
 <div class="col-xs-4 col-sm-2 col-lg-2"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-wheelchair"></i>    <h4> fa-wheelchair</h4>  </a></div>
 								
 							</div>
+						</div>
+						<div class="panel-footer">
+							<small class="pull-left">Built with Bootcards - Summary Card</small>
 						</div>
 					</xp:panel>
 					
@@ -852,6 +867,9 @@
 								
 							</div>
 						</div>
+						<div class="panel-footer">
+							<small class="pull-left">Built with Bootcards - Summary Card</small>
+						</div>
 					</xp:panel>
 					
 				<xp:panel styleClass="panel panel-default bootcards-summary">
@@ -914,6 +932,9 @@
 								
 							</div>
 						</div>
+						<div class="panel-footer">
+							<small class="pull-left">Built with Bootcards - Summary Card</small>
+						</div>
 					</xp:panel>
 					
 				<xp:panel styleClass="panel panel-default bootcards-summary">
@@ -942,6 +963,9 @@
 <div class="col-xs-4 col-sm-2 col-lg-2"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-youtube-play"></i>    <h4> fa-youtube-play</h4>  </a></div>
 								
 							</div>
+						</div>
+						<div class="panel-footer">
+							<small class="pull-left">Built with Bootcards - Summary Card</small>
 						</div>
 					</xp:panel>
 					
@@ -1247,6 +1271,9 @@
 <div class="col-xs-4 col-sm-2 col-lg-2"><a class="bootcards-summary-item"><i class="fa fa-3x  fa-wrench"></i>    <h4> fa-wrench</h4>  </a></div>
 								
 							</div>
+						</div>
+						<div class="panel-footer">
+							<small class="pull-left">Built with Bootcards - Summary Card</small>
 						</div>
 					</xp:panel>
 				</div>

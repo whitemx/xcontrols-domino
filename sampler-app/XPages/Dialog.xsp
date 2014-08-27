@@ -20,7 +20,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Open Cases By Owner</h3>
+							<h3 class="panel-title">Dialog</h3>
 						</div>
 						<div class="panel-body">
 
@@ -34,6 +34,9 @@
 									class="btn btn-primary" value="Open Alert">
 								</input>
 							</p>
+						</div>
+						<div class="panel-footer">
+							<small class="pull-left">Built with Bootcards - Base Card</small>
 						</div>
 					</div>
 				</div>

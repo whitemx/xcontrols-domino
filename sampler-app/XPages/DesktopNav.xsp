@@ -7,7 +7,8 @@
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<xc:UnpBootWorkspace title="Workspace"
 						linkurlcol="UnpUrl" labelcol="Title" iconcol="ImgUrl"
-						badgecol="BadgeID">
+						badgecol="BadgeID"
+						footertext="Built with Bootcards - Summary Card">
 						<xc:this.workspaceview><![CDATA[#{javascript:"HomeLinks " + context.getUrlParameter("filter")}]]></xc:this.workspaceview>
 					</xc:UnpBootWorkspace>
 				</div>

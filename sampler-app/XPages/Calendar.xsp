@@ -23,7 +23,7 @@
 			viewxpage="CalendarEntry.xsp" headerbuttonsleft="prev,today,next"
 			defaultviewtablet="month" defaultviewphone="basicWeek"
 			headerbuttonsrighttablet="agendaDay,agendaWeek,month"
-			headerbuttonsrightphone="" title="Calendar">
+			headerbuttonsrightphone="" title="Calendar" footertext="Built with Bootcards - Base Card">
 		</unp:UnpBootCalendar>
 		<div class="pagetitle hidden">Calendar</div>
 	</div>

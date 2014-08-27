@@ -8,32 +8,34 @@
 			<div class="bootcards-cards fullheightrow">
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
-					<unp:UnpBootTypographyRead title="Reading Panel">
+					<unp:UnpBootTypographyRead title="Reading Panel"
+						footertext="Built with Bootcards - Rich Text Card">
+
 						<xp:this.facets>
 							<xp:panel xp:key="typographyfacet">
 								<h1>
-									h1. Bootstrap heading&#160; 
-									<small> Secondary text</small>
+									h1. Bootstrap heading&#160;
+									<small>Secondary text</small>
 								</h1>
 								<h2>
-									h2. Bootstrap heading&#160; 
-									<small> Secondary text</small>
+									h2. Bootstrap heading&#160;
+									<small>Secondary text</small>
 								</h2>
 								<h3>
 									h3. Bootstrap heading &#160;
-									<small> Secondary text</small>
+									<small>Secondary text</small>
 								</h3>
 								<h4>
 									h4. Bootstrap heading &#160;
-									<small> Secondary text</small>
+									<small>Secondary text</small>
 								</h4>
 								<h5>
 									h5. Bootstrap heading &#160;
-									<small> Secondary text</small>
+									<small>Secondary text</small>
 								</h5>
 								<h6>
 									h6. Bootstrap heading &#160;
-									<small> Secondary text</small>
+									<small>Secondary text</small>
 								</h6>
 
 
@@ -64,11 +66,9 @@
 										varius blandit sit amet non
 										magna. Donec id elit non mi
 										porta gravida at eget metus.
-										Duis
-										mollis, est non commodo
+										Duis mollis, est non commodo
 										luctus, nisi erat porttitor
-										ligula, eget
-										lacinia odio sem
+										ligula, eget lacinia odio sem
 										nec elit.
 									</p>
 								</div>
