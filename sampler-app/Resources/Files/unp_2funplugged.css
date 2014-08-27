@@ -186,3 +186,7 @@ div.dBar .content {
 	float: none;
     margin: 0 auto;
 }
+
+#list .list-group-item {
+	cursor: pointer;
+}
