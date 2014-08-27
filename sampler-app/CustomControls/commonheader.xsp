@@ -13,7 +13,6 @@
 	<unp:UnpBootNavigator>
 		<unp:this.menuitems><![CDATA[#{javascript:[
 	{"label": "Dashboard", "icon": "fa-dashboard", "page": "/UnpMain.xsp"},
-	{"label": "Base Cards", "icon": "fa-book", "page": "/BaseCards.xsp"},
 	{"label": "Contacts", children: [
 		{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
@@ -21,13 +20,16 @@
 		{"label": "Activities By Contact", "icon": "fa-tasks", "page": "/ActivitiesByContact.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Activities By Department", "icon": "fa-tasks", "page": "/ActivitiesByDepartment.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
-	{"label": "UI Elements", children: [
+	{"label": "Cards", children: [
+		{"label": "Base Cards", "icon": "fa-book", "page": "/BaseCards.xsp"},
 		{"label": "Accordion", "icon": "fa-th-list", "page": "/Accordion.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Calendar", "icon": "fa-calendar", "page": "/Calendar.xsp"},
-		{"label": "Cards", "icon": "fa-css3", "page": "/Cards.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Carousel", "icon": "fa-files-o", "page": "/Media.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Dialog", "icon": "fa-comment", "page": "/Dialog.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Flat View", "icon": "fa-list-alt", "page": "/FlatView.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "Flat View", "icon": "fa-list-alt", "page": "/FlatView.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
+	]}, 
+	{"label": "Other UI Controls", children: [
+		{"label": "Calendar", "icon": "fa-calendar", "page": "/Calendar.xsp"},
+		{"label": "Dialog", "icon": "fa-comment", "page": "/Dialog.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Flat View (Categorized)", "icon": "fa-list", "page": "/Categorized.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
 	{"label": "Typography", children: [
