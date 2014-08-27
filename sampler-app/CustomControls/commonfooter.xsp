@@ -3,6 +3,4 @@
 
 	<unp:UnpBootFooter synctype="currentdb">
 	</unp:UnpBootFooter>
-	
-	<script type="text/javascript" src="custom.js"></script>
 </xp:view>

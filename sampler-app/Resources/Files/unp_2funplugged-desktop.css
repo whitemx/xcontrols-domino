@@ -160,3 +160,6 @@ span.deleteicon span:after {
 .fc-header-left .fa {
 	padding-top: 9px;
 }
+.fc-header-title {
+	padding-top: 15px !important;
+}

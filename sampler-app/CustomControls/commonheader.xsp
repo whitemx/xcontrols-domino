@@ -77,4 +77,6 @@ for (var i=0; i<list.length; i++){
 out += "];";
 return out;}]]></xp:this.value>
 	</xp:text>
+	<script type="text/javascript" src="custom.js"></script>
+	
 </xp:view>

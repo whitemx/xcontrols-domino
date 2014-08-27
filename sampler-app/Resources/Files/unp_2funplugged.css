@@ -190,3 +190,6 @@ div.dBar .content {
 #list .list-group-item {
 	cursor: pointer;
 }
+.fc-event-title {
+	padding-left: 2px !important;
+}

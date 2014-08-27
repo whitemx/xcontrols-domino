@@ -3,6 +3,9 @@ $(document).ready(function() {
 		showFontAwesomeDetails(this);
 	})
 	buildCharts();
+	if ($(".pagetitle").text() != ""){
+		$(".navbar-brand").text($(".pagetitle").text());
+	}
 })
 
 $(document).ajaxComplete(function(){
