@@ -51,18 +51,23 @@
 							</xp:text>
 						</div>
 						<div class="panel-body">
-						<div id='calendar' class="fc fc-ltr"></div>
+							<div id='calendar' class="fc fc-ltr"></div>
+						</div>
+						<div class="panel-footer">
+							<xp:text id="footertext" tagName="small" styleClass="pull-left"
+								value="#{javascript:compositeData.footertext}">
+							</xp:text>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!--  Modals -->
-	<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
-		aria-labelledby="editModal" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content"></div>
+		<!--  Modals -->
+		<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+			aria-labelledby="editModal" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content"></div>
+			</div>
 		</div>
 	</div>
 

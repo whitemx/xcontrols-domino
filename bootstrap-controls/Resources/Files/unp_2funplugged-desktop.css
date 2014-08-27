@@ -152,3 +152,14 @@ span.deleteicon span:after {
 .bootcards-file .list-group-item:first-child {
 	padding-left: 0px;
 }
+
+.fc-header-left .btn, .fc-header-right .btn {
+	min-height: 34px;
+	margin-right: 2px;
+}
+.fc-header-left .fa {
+	padding-top: 9px;
+}
+.fc-header-title {
+	padding-top: 15px !important;
+}

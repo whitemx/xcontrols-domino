@@ -39,7 +39,7 @@
 								id="navitemlink" value="#{javascript:navitem.page}">
 								<xp:text id="navitemicon" tagName="i" value="">
 									<xp:this.styleClass><![CDATA[#{javascript:"fa " + navitem.icon}]]></xp:this.styleClass>
-								</xp:text>
+								</xp:text>&#160;
 							</xp:link>
 						</xp:panel>
 					</xp:repeat>

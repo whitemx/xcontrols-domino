@@ -193,8 +193,11 @@ return out;}]]></xp:this.styleClass>
 				</xp:repeat>
 			</xp:panel>
 			<div class="panel-footer">
+				<xp:text id="footertext" tagName="small" styleClass="pull-left"
+					value="#{javascript:compositeData.footertext}">
+				</xp:text>
 				<div class="summaryDataRow"></div>
-				<xp:div id="pullUpHolder" styleClass="pullupholder">
+				<xp:div id="pullUpHolder" styleClass="pullupholder pull-right">
 					<xp:this.rendered><![CDATA[#{javascript:viewScope.rowcount >= compositeData.numberofrows}]]></xp:this.rendered>
 					<div id="pullUp">
 						<span class="pullUpIcon"></span>
@@ -211,7 +214,7 @@ return out;}]]></xp:this.styleClass>
 	return "loadmorelink";
 }}]]></xp:this.styleClass>
 					<xp:button value="Load More..." id="loadmorebutton"
-						styleClass="loadmorebutton btn">
+						styleClass="loadmorebutton btn pull-right">
 						<xp:this.attrs>
 							<xp:attr name="onclick">
 								<xp:this.value><![CDATA[#{javascript:"unp.loadmore('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', 'doccontent')"}]]></xp:this.value>
@@ -220,7 +223,7 @@ return out;}]]></xp:this.styleClass>
 					</xp:button>
 				</xp:div>
 				<xp:button value="Clear Search" id="clearsearchbutton"
-					styleClass="clearsearchbutton btn" style="display: none;">
+					styleClass="clearsearchbutton btn pull-right" style="display: none;">
 					<xp:this.attrs>
 						<xp:attr name="onclick">
 							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', 'doccontent')"}]]></xp:this.value>

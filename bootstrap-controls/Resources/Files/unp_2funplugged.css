@@ -8,10 +8,6 @@
 	border-color: #428bca;
 }
 
-#editor-container {
-	
-}
-
 #editor-wrapper {
 	
 }
@@ -155,4 +151,41 @@ div.dBar .content {
   -o-transform: translate3d(18em, 0px, 0px);
   -ms-transform: translate3d(18em, 0px, 0px);
   transform: translate3d(18em, 0px, 0px);
+}
+
+.navbar-fixed-bottom .fa-2x {
+	font-size: 20px;
+}
+
+.modal-content {
+	height: auto !important;
+}
+
+#slideInMenu {
+	overflow: auto;
+	padding-bottom: 100px;
+}
+
+.btn:focus, .btn:focus {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+	-webkit-tap-highlight-color: transparent;
+	outline: 0;
+	border: none;
+	color: rgba(0, 0, 0, 0);	
+}
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);  
+} 
+
+#editor-wrapper {
+	max-width: 640px;
+	float: none;
+    margin: 0 auto;
+}
+
+#list .list-group-item {
+	cursor: pointer;
+}
+.fc-event-title {
+	padding-left: 2px !important;
 }

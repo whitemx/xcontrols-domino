@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D1E002A1358" version="9.0">
-<noteinfo noteid="812" sequence="8" unid="05E729A59F0417A380257D38003CD828">
-<created><datetime dst="true">20140818T120434,96+01</datetime></created>
-<modified><datetime dst="true">20140818T120449,69+01</datetime></modified>
-<revised><datetime dst="true">20140818T120449,68+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140818T120449,69+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140818T120434,99+01</datetime></addedtofile></noteinfo>
+<noteinfo noteid="8c2" sequence="8" unid="63C260B6B5A6319780257D4100535084">
+<created><datetime dst="true">20140827T161001,00+01</datetime></created>
+<modified><datetime dst="true">20140827T161040,99+01</datetime></modified>
+<revised><datetime dst="true">20140827T161040,98+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140827T161040,99+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140827T161001,02+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpBootDebugToolbar.xsp</text></item>
@@ -14,8 +14,7 @@
 <item name="$FileNames" sign="true"><text>UnpBootDebugToolbar.xsp</text></item>
 
 
-<item name="$DesignerVersion"><text>8.5.1</text></item>
-
+<item name="$DesignerVersion"><text>8.5</text></item>
 
 
 

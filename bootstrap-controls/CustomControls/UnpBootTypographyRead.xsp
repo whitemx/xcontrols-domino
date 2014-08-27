@@ -16,9 +16,14 @@
 			</xp:text>
 		</div>
 		<div class="panel-body typographyreadcontent">
-		
+
 			<xp:callback facetName="typographyfacet" id="typographycallback"></xp:callback>
-					
+
+		</div>
+		<div class="panel-footer">
+			<xp:text id="footertext" tagName="small" styleClass="pull-left"
+				value="#{javascript:compositeData.footertext}">
+			</xp:text>
 		</div>
 	</div>
 

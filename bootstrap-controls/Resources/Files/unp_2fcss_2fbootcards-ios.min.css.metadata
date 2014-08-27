@@ -1,8 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><fileresource designerversion="8.5.3" maintenanceversion="1.0" name="unp/css/bootcards-ios.min.css" publicaccess="false" replicaid="C1257D380041C1D7" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="3e2" sequence="4" unid="E552DA0A6A166C41C1257D3A003D7471">
-<created><datetime dst="true">20140820T131115,05+02</datetime></created>
-<modified><datetime dst="true">20140826T164935,35+02</datetime></modified>
-<revised><datetime dst="true">20140826T164935,34+02</datetime></revised>
-<lastaccessed><datetime dst="true">20140826T164935,34+02</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140820T131115,05+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mark Leusink/O=LinQed</name></updatedby></fileresource>
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D1E002A1358" version="9.0">
+<noteinfo noteid="18fa" sequence="1" unid="2E3C27FA07867A1780257D4100535A98">
+<created><datetime dst="true">20140827T161026,80+01</datetime></created>
+<modified><datetime dst="true">20140827T161026,94+01</datetime></modified>
+<revised><datetime dst="true">20140827T161026,93+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140827T161026,94+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140827T161026,94+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$TITLE" sign="true"><text>unp/css/bootcards-ios.min.css</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20140827T081001,61+01</datetime></item>
+<item name="$Flags"><text>g345QC</text></item>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>unp_2fcss_2fbootcards-ios.min.css</text></item></note>

@@ -187,7 +187,8 @@ unp.initRichText = function() {
 			    'body': {
 					'font-size': '15px;', 
 					'padding': '12px;', 
-					'font-family': '"Helvetica Neue",Helvetica,Arial,sans-serif;'
+					'font-family': '"Helvetica Neue",Helvetica,Arial,sans-serif;', 
+					'line-height': '1.5'
 			    },
 			    'a': {
 			      'text-decoration': 'none'
@@ -316,6 +317,10 @@ unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
 
 unp.openDocument = function(url, target, caller) {
 	var thisArea = $("#" + target);
+	$('#list .active').removeClass('active');
+	if (caller) {
+		$(caller).addClass('active');
+	}
 	thisArea.load(url.replace(" ", "%20") + "&min=true #" + target + ">div", function(
 			data, status, xhr) {
 		thisArea.show();
@@ -324,10 +329,6 @@ unp.openDocument = function(url, target, caller) {
 					+ "\n\n" + $(data).text());
 			return false;
 		} else {
-			$('#list .active').removeClass('active');
-			if (caller) {
-				$(caller).addClass('active');
-			}
 			if (firedrequests != null) {
 				firedrequests = new Array();
 			}
