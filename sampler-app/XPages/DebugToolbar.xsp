@@ -73,21 +73,21 @@ try {
 								<xp:this.action><![CDATA[#{javascript:unpDBar.info("I'm an info message");}]]></xp:this.action>
 							</xp:eventHandler>
 						</xp:button>
-
+						&#160;
 						<xp:button value="warning" id="button2" styleClass="btn btn-default">
 							<xp:eventHandler event="onclick" submit="true"
 								refreshMode="complete">
 								<xp:this.action><![CDATA[#{javascript:unpDBar.warn("I'm a warning message");}]]></xp:this.action>
 							</xp:eventHandler>
 						</xp:button>
-
+						&#160;
 						<xp:button value="debug" id="button3" styleClass="btn btn-default">
 							<xp:eventHandler event="onclick" submit="true"
 								refreshMode="complete">
 								<xp:this.action><![CDATA[#{javascript:unpDBar.debug("I'm a debug message");}]]></xp:this.action>
 							</xp:eventHandler>
 						</xp:button>
-
+						&#160;
 						<xp:button value="error" id="button4" styleClass="btn btn-default">
 							<xp:eventHandler event="onclick" submit="true"
 								refreshMode="complete">
