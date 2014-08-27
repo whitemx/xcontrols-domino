@@ -48,69 +48,69 @@ $(window).load( function() {
 	});
 	test("open flat view", 1, function(){
 		stop();
-		//console.log("open flat view");
-		$(".litop2 li a").eq(5).click();
+		$(".litop3 li a").eq(4).click();
+		console.log("open flat view");
 		ok(true);
 	});
 	test("open second doc", 1, function(){
 		stop();
-		//console.log("open first document");
 		$("#list .list-group a").eq(1).click();
+		console.log("open first document");
 		ok(true);
 	});
 	
 	test("edit document", 1, function(){
 		stop();
-		//console.log("edit document");
 		$("#doccontent .panel .btn-primary").first().click();
+		console.log("edit document");
 		ok(true);
 	});
 	test("open filtered view", 1, function(){
 		stop();
-		//console.log("open filtered view");
-		$(".litop2 li a").eq(5).click();
+		$(".litop4 li a").eq(2).click();
+		console.log("open filtered view");
 		ok(true);
 	});
 	test("open second doc", 1, function(){
 		stop();
-		//console.log("open first document");
 		$("#list .list-group a").eq(1).click();
+		console.log("open first document");
 		ok(true);
 	});
 	test("edit document", 1, function(){
 		stop();
-		//console.log("edit document");
 		$("#doccontent .panel .btn-primary").first().click();
+		console.log("edit document");
 		ok(true);
 	});
 	test("open typography read", 1, function(){
 		stop();
-		//console.log("open typography read");
-		$(".litop2 li a").eq(0).click();
+		$(".litop5 li a").eq(0).click();
+		console.log("open typography read");
 		ok(true);
 	});
 	test("open typography edit", 1, function(){
 		stop();
-		//console.log("open typography edit")
-		$(".litop3 li a").eq(1).click();
+		$(".litop5 li a").eq(1).click();
+		console.log("open typography edit")
 		ok(true);
 	});
 	test("open contacts", 1, function(){
 		stop();
-		//console.log("open contacts by company");
-		$(".litop5 li a").eq(0).click();
+		$(".litop2 li a").eq(0).click();
+		console.log("open contacts by company");
 		ok(true);
 	});
 	test("open departments", 1, function(){
 		stop();
-		//console.log("open contacts")
-		$(".litop5 li a").eq(1).click();
+		$(".litop2 li a").eq(1).click();
+		console.log("open contacts")
 		ok(true);
 	});
 	test("open my activities", 1, function(){
 		stop();
-		//console.log("open media");
-		$(".litop5 li a").eq(2).click();
+		$(".litop2 li a").eq(2).click();
+		console.log("open media");
 		ok(true);
 	});
 });
