@@ -9,7 +9,7 @@
 				summarycolumn="Title" viewname="Activities By Assignee"
 				numberofrows="20" ajaxload="Yes" detailcolumn="Detail"
 				xpagedoc="MyActivities.xsp" newlink="ActivityEdit.xsp"
-				categoryfilter="Current User">
+				categoryfilter="Current User" footertext="Built with Bootcards - List">
 			</unp:UnpBootFlatView>
 			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
 				<xc:activityviewer></xc:activityviewer>

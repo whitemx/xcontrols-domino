@@ -13,7 +13,7 @@
 				loaddocumenttarget="doccontent" detailcolumn="Company"
 				xpagedoc="Departments.xsp" newdatatarget="#editModal"
 				newlink="PersonEdit.xsp" searchview="Search"
-				photocolumn="Photo">
+				photocolumn="Photo" footertext="Built with Bootcards - List">
 			</unp:UnpBootAccordionView>
 			<div id="doccontent"
 				class="col-sm-7 bootcards-cards hidden-xs">

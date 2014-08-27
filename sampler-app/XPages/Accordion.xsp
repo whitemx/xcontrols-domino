@@ -7,9 +7,11 @@
 		<div class="row fullheightrow">
 			<unp:UnpBootAccordionView title="People By Country"
 				summarycolumn="FullName" viewname="People By Country"
-				expandfirstcategory="no" ajaxload="Yes" loaddocumenttarget="doccontent"
-				detailcolumn="Company" xpagedoc="Accordion.xsp" newdatatarget="#editModal"
-				newlink="PersonEdit.xsp" searchview="Search" photocolumn="Photo">
+				expandfirstcategory="no" ajaxload="Yes"
+				loaddocumenttarget="doccontent" detailcolumn="Company"
+				xpagedoc="Accordion.xsp" newdatatarget="#editModal"
+				newlink="PersonEdit.xsp" searchview="Search" photocolumn="Photo"
+				footertext="Built with Bootcards - List">
 			</unp:UnpBootAccordionView>
 			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs" style="display: none;">
 				<xc:personviewer>
