@@ -38,10 +38,6 @@ unp.storePageRequest = function(url) {
 
 }
 
-$(document).ready( function () {
-	unp.initAZPicker();
-});
-
 $(window).load( function() {
 	unp.initPage();
 	unp._firstLoad = false;
@@ -94,12 +90,13 @@ unp.initPage = function(){
 	unp.highlightCurrentPage();
 	unp.initCalendar();
 	unp.initNavigator();
+	unp.initAZPicker();
 	$(document).ajaxStop( function() {
 		unp.initRichText();
 		unp.initReaderButtons();
 		unp.highlightCurrentPage();
 		unp.initCalendar();
-		
+		unp.initAZPicker();
 	});
 	
 	//Open first item in flat view if necessary

@@ -20,7 +20,7 @@
 		{"label": "Accordion", "icon": "fa-th-list", "page": "/Accordion.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Dialog", "icon": "fa-comment", "page": "/Dialog.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Carousel", "icon": "fa-files-o", "page": "/Media.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Calendar", "icon": "fa-calendar", "page": "/Calendar.xsp"},
+		{"label": "Calendar", "icon": "fa-calendar", "page": "/Calendar.xsp"}
 	]}, 
 	{"label": "Contacts", children: [
 		{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
