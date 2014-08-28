@@ -397,32 +397,120 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
           </div>
 
 
-          <div id="doc-alert" class="bs-docs-section">
-            <h2>Alert</h2>
-            <p class="lead">A simple way to display a modal message to the user</p>
-            <p>To display a simple message to the user, this is the easiest control to use.</p>
+          <div id="doc-debugtoolbar" class="bs-docs-section">
+            <h2>Debug Toolbar</h2>
+            <p class="lead">For developers, the debug toolbar can help with development in all environments</p>
+            <p>Just drop the control onto your XPage and you can log messages, view variables and more.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Debug Toolbar iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Debug Toolbar Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Debug Toolbar Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-desktop.png" class="img-responsive">
+                </a>
+            </div>
             
             <dl class="dl-horizontal">
-              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
-
+              <dt>defaultCollapsed</dt><dd>true or false to define whether the toolbar should be collapsed when opening a page</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
-
+&lt;unp:UnpBootDebugToolbar defaultCollapsed=&quot;true&quot;&gt;&lt;/unp:UnpBootDebugToolbar&gt;
 </code></pre></div>
           </div>
 
 
-          <div id="doc-alert" class="bs-docs-section">
-            <h2>Alert</h2>
-            <p class="lead">A simple way to display a modal message to the user</p>
-            <p>To display a simple message to the user, this is the easiest control to use.</p>
-            
+          <div id="doc-dialog" class="bs-docs-section">
+            <h2>Dialog</h2>
+            <p class="lead">A control that allows you to load a dialog box that can also use client side callbacks for application logic.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/dialog-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Dialog iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/dialog-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/dialog-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Dialog Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/dialog-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/dialog-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Dialog Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/dialog-desktop.png" class="img-responsive">
+                </a>
+            </div>
             <dl class="dl-horizontal">
-              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
-
+              <dt>callback</dt><dd>The name of the JavaScript function to call when the user clicks the OK button.</dd>
+              <dt>title</dt><dd>The title for the dialog.</dd>
+              <dt>footertext</dt><dd>The footer text to display.</dd>
+              <dt>dialogid</dt><dd>The unique ID for the dialog.</dd>
             </dl>
+            <p>You can insert the content for the dialog by adding text or fields inside the editable area.</p>
 <div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+  &lt;xc:commonheader pagetitle=&quot;Dialog&quot;&gt;&lt;/xc:commonheader&gt;
+  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;bootcards-cards fullheightrow&quot;&gt;
+        &lt;div class=&quot;col-xs-12 col-sm-12 col-md-12&quot;&gt;
+          &lt;div class=&quot;panel panel-default&quot;&gt;
+            &lt;div class=&quot;panel-heading&quot;&gt;
+              &lt;h3 class=&quot;panel-title&quot;&gt;Dialog&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;panel-body&quot;&gt;
 
+              &lt;p style=&quot;padding: 40px;&quot;&gt;
+                &lt;input type=&quot;button&quot; href=&apos;#&apos; onclick=&quot;unp.openDialog(&apos;dialogPopup&apos;)&quot;
+                  class=&quot;btn btn-primary&quot; value=&quot;Open Dialog&quot;&gt;
+                &lt;/input&gt;
+              &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;panel-footer&quot;&gt;
+              &lt;small class=&quot;pull-left&quot;&gt;Built with Bootcards - Base Card&lt;/small&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;unp:UnpBootDialog callback=&quot;myCallBackFunction&quot;
+      title=&quot;Demo Dialog&quot; dialogid=&quot;dialogPopup&quot;&gt;
+      &lt;xp:this.facets&gt;
+        &lt;xp:panel xp:key=&quot;facet_1&quot;&gt;
+          Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Donec vitae sapien mauris, non
+          imperdiet purus.
+          Pellentesque in metus nec
+          sapien volutpat scelerisque ac vel
+          turpis.
+          Nunc
+          sed nulla ac orci lobortis commodo ut eget
+          justo.
+          Curabitur
+          tempor, risus vel congue
+          dignissim, nisi libero tincidunt
+          odio, id
+          pharetra libero purus ut risus. Ut rutrum
+          condimentum sem,
+          at
+          elementum nisi suscipit et.
+          Maecenas semper, lacus et varius
+          blandit,
+          odio
+          mauris sodales ligula, non congue leo neque nec
+          magna.
+          Etiam sed
+          dolor in felis condimentum
+          sodales eget a nisi.
+          Nunc dui
+          lectus,
+          viverra
+          non gravida eu, dictum ac neque.
+          &lt;/xp:panel&gt;
+      &lt;/xp:this.facets&gt;
+    &lt;/unp:UnpBootDialog&gt;
+  &lt;/div&gt;
+
+  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
+&lt;/xp:view&gt;
 </code></pre></div>
           </div>
 
