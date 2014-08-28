@@ -13,6 +13,7 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootcards-site.css">
+  <link rel="stylesheet" href="css/ekko-lightbox.css">
 
   <!--font awesome-->
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -58,13 +59,6 @@
 
     </div>
   </div>
-  	<script type="text/javascript">
-$(document).ready( function() {
-		$('body').scrollspy({ target: '.docs-menu', offset : 60})
-
-
-		});
-</script>
 
 	<div class="container">  
 	<div class="row">
@@ -131,6 +125,17 @@ $(document).ready( function() {
 					<div id="doc-accordionview" class="bs-docs-section">
 						<h2>Accordion View</h2>
 						<p class="lead">The Bootcards equivalent of a categorized view</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/accordion-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Accordion iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/accordion-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/accordion-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Accordion Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/accordion-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/accordion-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Accordion Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/accordion-desktop.png" class="img-responsive">
+                </a>
+            </div>
 						<p>You can specify the categorized view you want to acces, the columns that will get displayed and what happens when you open a document. We also support searching and composing new documents.</p>
             
             <dl class="dl-horizontal">
@@ -188,6 +193,17 @@ $(document).ready( function() {
             <h2>Alert</h2>
             <p class="lead">A simple way to display a modal message to the user</p>
             <p>To display a simple message to the user, this is the easiest control to use.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/alert-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Alert iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/alert-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/alert-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Alert Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/alert-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/alert-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Alert Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/alert-desktop.png" class="img-responsive">
+                </a>
+            </div>
             
             <dl class="dl-horizontal">
               <dt>title</dt><dd>The title for the modal window</dd>
@@ -236,6 +252,17 @@ $(document).ready( function() {
             <h2>Calendar</h2>
             <p class="lead">A basic calendar interface that allows you to display calendar items</p>
             <p>Gets data from a view, and formats it to be displayed on a calendar. The calendar will detect the device being used and best format itself for optimal viewing.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/calendar-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Calendar iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/calendar-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/calendar-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Calendar Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/calendar-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/calendar-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Calendar Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/calendar-desktop.png" class="img-responsive">
+                </a>
+            </div>
             
             <dl class="dl-horizontal">
               <dt>title</dt><dd>The title for the calendar</dd>
@@ -282,17 +309,90 @@ $(document).ready( function() {
           </div>
 
 
-          <div id="doc-alert" class="bs-docs-section">
-            <h2>Alert</h2>
-            <p class="lead">A simple way to display a modal message to the user</p>
-            <p>To display a simple message to the user, this is the easiest control to use.</p>
-            
+          <div id="doc-carousel" class="bs-docs-section">
+            <h2>Carousel</h2>
+            <p class="lead">A simple way to show a series of images in a carousel</p>
+            <p>You just need to provide an array of image objects with URL.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/carousel-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Carousel iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/carousel-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/carousel-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Carousel Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/carousel-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/carousel-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Carousel Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/carousel-desktop.png" class="img-responsive">
+                </a>
+            </div>
+            <p>If you're using a Form Viewer control on the same page then the carousel will be automatically populated, if not then you'll need to populate viewScope.images in the following way:</p>            
             <dl class="dl-horizontal">
-              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
-
+              <dt>footertext</dt><dd>A static string to go in the footer. Can be left blank.</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
-
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot;
+  xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+  &lt;xp:this.data&gt;
+    &lt;xp:dominoDocument var=&quot;docview&quot;
+      formName=&quot;RefData&quot;
+      action=&quot;openDocument&quot;&gt;
+      &lt;xp:this.documentId&gt;&lt;![CDATA[#{javascript:var vw:NotesView = database.getView(&quot;Reference Data&quot;);
+var docview:NotesDocument = vw.getDocumentByKey(&quot;SamplerSwipeView&quot;);
+return docview.getUniversalID();}]]&gt;&lt;/xp:this.documentId&gt;
+    &lt;/xp:dominoDocument&gt;
+  &lt;/xp:this.data&gt;
+  &lt;xp:this.beforePageLoad&gt;
+    &lt;xp:executeScript&gt;
+      &lt;xp:this.script&gt;&lt;![CDATA[#{javascript:
+viewScope.images = null;
+var images = new Array;
+var imageFile = &quot;&quot;;
+var attachmentList = null;
+var docviewdoc = docview;
+if (isUnpluggedServer()){
+  attachmentList = docview.getItemValueString(&quot;value&quot;).split(&quot;,&quot;);
+}else{
+  attachmentList = $A(session.evaluate(&quot;@AttachmentNames&quot;, docview));
+}
+var thisUNID = docviewdoc.getUniversalID();
+var dbPath = database.getFilePath();
+dbPath = @ReplaceSubstring(dbPath, &quot;\\&quot;, &quot;/&quot;);
+if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
+  for(var i=0; i&lt;attachmentList.length; i++){
+  
+    var imagename = attachmentList[i];
+    
+    imageFile = &quot;/&quot; + dbPath + &quot;/0/&quot; + docviewdoc.getUniversalID() + &quot;/$FILE/&quot; + imagename;
+    if (imagename != &quot;&quot;){
+      images.push({
+         url: imageFile,
+         filename: imagename
+      });
+    } 
+  }
+  
+  viewScope.put(&quot;images&quot;, images);
+}}]]&gt;&lt;/xp:this.script&gt;
+    &lt;/xp:executeScript&gt;
+  &lt;/xp:this.beforePageLoad&gt;
+  &lt;xp:this.resources&gt;
+    &lt;xp:script src=&quot;/unpCommon.jss&quot; clientSide=&quot;false&quot;&gt;&lt;/xp:script&gt;
+  &lt;/xp:this.resources&gt;
+  &lt;xc:commonheader pagetitle=&quot;Carousel&quot;&gt;&lt;/xc:commonheader&gt;
+  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row fullheightrow&quot;&gt;
+      &lt;div class=&quot;col-sm-12&quot;&gt;
+        &lt;unp:UnpBootCarousel
+          footertext=&quot;Built with Bootcards - Media Card&quot;&gt;
+          &lt;xc:this.carouselfileslist&gt;&lt;![CDATA[#{javascript:viewScope.images}]]&gt;&lt;/xc:this.carouselfileslist&gt;
+        &lt;/unp:UnpBootCarousel&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pagetitle hidden&quot;&gt;Carousel&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
+&lt;/xp:view&gt;
 </code></pre></div>
           </div>
 
@@ -423,10 +523,12 @@ $(document).ready( function() {
 		</div>
 	</div>
 </div>
-
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="./bower_components/raphael/raphael-min.js"></script>
-    <script src="./bower_components/morris.js/morris.min.js"></script>
+<script src="./bower_components/raphael/raphael-min.js"></script>
+<script src="./bower_components/morris.js/morris.min.js"></script>
+<script src="./javascript/ekko-lightbox.js"></script>
+
 
 <!--analytics tracking-->
 	<script type="text/javascript">
@@ -441,6 +543,18 @@ $(document).ready( function() {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
+</script>
+<script type="text/javascript">
+$(document).ready( function() {
+  $('body').scrollspy({ target: '.docs-menu', offset : 60})
+  // delegate calls to data-toggle="lightbox"
+  $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+    event.preventDefault();
+    return $(this).ekkoLightbox({
+      always_show_close: true
+    });
+  });
+});
 </script>
 
 </body>
