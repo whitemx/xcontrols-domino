@@ -515,63 +515,260 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
           </div>
 
 
-          <div id="doc-alert" class="bs-docs-section">
-            <h2>Alert</h2>
-            <p class="lead">A simple way to display a modal message to the user</p>
-            <p>To display a simple message to the user, this is the easiest control to use.</p>
+          <div id="doc-files" class="bs-docs-section">
+            <h2>Files</h2>
+            <p class="lead">Given a list of files will display them formatted nicely as a list.</p>
+            <p>If you're using the form viewer then the list will be automatically populated, if not then you'll need to build the list yourself.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/files-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Files iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/files-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/files-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Files Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/files-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/files-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Files Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/files-desktop.png" class="img-responsive">
+                </a>
+            </div>
             
             <dl class="dl-horizontal">
-              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
-
+              <dt>filestitle</dt><dd>The title for the list</dd>
+              <dt>fileslist</dt><dd>An array of file objects that contain filename and url for each file</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
-
+&lt;xc:UnpBootFiles filestitle=&quot;Files&quot;&gt;
+  &lt;xc:this.rendered&gt;&lt;![CDATA[#{javascript:viewScope.images != null &amp;&amp; viewScope.images.length &gt; 0;}]]&gt;&lt;/xc:this.rendered&gt;
+  &lt;xc:this.fileslist&gt;&lt;![CDATA[#{javascript:if (viewScope.images != null){
+  var out = [];
+  for (var i=0; i&lt;viewScope.images.length; i++){
+    var filetype = viewScope.images[i].filename.toLowerCase().split(&apos;.&apos;);
+    filetype = filetype[filetype.length - 1];
+    if (filetype != &apos;png&apos; &amp;&amp; filetype != &apos;gif&apos; &amp;&amp; filetype != &apos;jpg&apos;){
+      out.push(viewScope.images[i]);
+    }
+  }
+  return out;
+}else{
+  return null;
+}}]]&gt;&lt;/xc:this.fileslist&gt;
 </code></pre></div>
           </div>
 
 
 
-          <div id="doc-alert" class="bs-docs-section">
-            <h2>Alert</h2>
-            <p class="lead">A simple way to display a modal message to the user</p>
-            <p>To display a simple message to the user, this is the easiest control to use.</p>
-            
+          <div id="doc-flatview" class="bs-docs-section">
+            <h2>Flat View</h2>
+            <p class="lead">Display a view of data as a list.</p>
+            <p>Optionally add icons and other formatting.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Flat View iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Flat View Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Flat View Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" class="img-responsive">
+                </a>
+            </div>          
             <dl class="dl-horizontal">
               <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
-
+              <dt>newlink</dt><dd>The link to open when composing a new document, leave blank to hide new button</dd>
+              <dt>dbname</dt><dd>The database to load data from, leave blank if not required</dd>
+              <dt>viewname</dt><dd>The view to load data from</dd>
+              <dt>summarycolumn</dt><dd>The column title to load summary data from</dd>
+              <dt>detailcolumn</dt><dd>The column title to load detail data from</dd>
+              <dt>photocolumn</dt><dd>The column title to load photos from, leave blank if not required</dd>
+              <dt>xpagedoc</dt><dd>The xpage to load documents with, by default this would be the same as the current XPage</dd>
+              <dt>xpagedocdbname</dt><dd>The database that holds the xpage to load documents from, leave blank if not required</dd>
+              <dt>title</dt><dd>The title for the list</dd>
+              <dt>categoryfilter</dt><dd>A filter to apply to the view before loading data</dd>
+              <dt>numberofrows</dt><dd>The number of rows to display per page. Default is 20</dd>
+              <dt>enableazpicker</dt><dd>yes or no, enable the A-Z picker. If yes then it is best to load all documents in the view by setting number of rows to a large number</dd>
+              <dt>categoryindex</dt><dd>If you want to display categories, they will be non clickable but can effectively break up lists of data. This is the index number for the category column to use (counting from 0). Leave blank if not required.</dd>
+              <dt>ajaxload</dt><dd>Optionally load documents using a full page load, default is to use Ajax for performance reasons</dd>
+              <dt>searchlocal</dt><dd>If set to yes and searchview is blank then searching on the currently displayed list will be enabled</dd>
+              <dt>footertext</dt><dd>A footer text message to display. Leave blank if not required.</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
 
+  &lt;xc:commonheader pagetitle=&quot;Flat View&quot;&gt;&lt;/xc:commonheader&gt;
+
+  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row fullheightrow&quot;&gt;
+      &lt;unp:UnpBootFlatView title=&quot;People&quot; summarycolumn=&quot;FullName&quot;
+        viewname=&quot;People By Last Name&quot; numberofrows=&quot;20&quot; ajaxload=&quot;Yes&quot;
+        detailcolumn=&quot;Company&quot; xpagedoc=&quot;FlatView.xsp&quot;
+        newlink=&quot;PersonEdit.xsp&quot; searchview=&quot;Search&quot; photocolumn=&quot;Photo&quot; footertext=&quot;Built with Bootcards - List&quot;&gt;
+      &lt;/unp:UnpBootFlatView&gt;
+      &lt;div id=&quot;doccontent&quot; class=&quot;col-sm-7 bootcards-cards hidden-xs&quot;&gt;
+        &lt;xc:personviewer&gt;&lt;/xc:personviewer&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pagetitle hidden&quot;&gt;Flat View&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
+&lt;/xp:view&gt;
 </code></pre></div>
           </div>
 
 
-          <div id="doc-alert" class="bs-docs-section">
-            <h2>Alert</h2>
-            <p class="lead">A simple way to display a modal message to the user</p>
-            <p>To display a simple message to the user, this is the easiest control to use.</p>
+          <div id="doc-footer" class="bs-docs-section">
+            <h2>Footer</h2>
+            <p class="lead">Display a sync button for Unplugged devices and optionally a different navigation technique with footer tabs</p>
             
             <dl class="dl-horizontal">
-              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
-
+              <dt>synctype</dt><dd>Choose between alldbs, currentdb or none to enable a sync button when using Unplugged on a mobile device</dd>
+              <dt>tabs</dt><dd>An array of objects that describe the footer tabs you want to display, leave blank if not required</dd>
+              <dt>postSyncTarget</dt><dd>The page to open after syncing, leave blank if not required, or you're happy with the default which is to open the UnpMain XPage</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
-
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+  &lt;unp:UnpBootFooter synctype=&quot;currentdb&quot;&gt;
+  &lt;/unp:UnpBootFooter&gt;
+&lt;/xp:view&gt;
 </code></pre></div>
           </div>
 
 
-          <div id="doc-alert" class="bs-docs-section">
-            <h2>Alert</h2>
-            <p class="lead">A simple way to display a modal message to the user</p>
-            <p>To display a simple message to the user, this is the easiest control to use.</p>
+          <div id="doc-formeditor" class="bs-docs-section">
+            <h2>Form Editor</h2>
+            <p class="lead">A wrapper into which you can insert form fields for creating and editing documents</p>
+            <p>Form fields can include auto clearing, type ahead, date pickers, numbers, rich text and more!</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Editor iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Editor Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Editor Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-desktop.png" class="img-responsive">
+                </a>
+            </div>
             
             <dl class="dl-horizontal">
-              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
-
+              <dt>dbname</dt><dd>The name of the database that contains the document, leave blank for current database</dd>
+              <dt>formname</dt><dd>The form name of the document being edited</dd>
+              <dt>title</dt><dd>The title for the form card</dd>
+              <dt>showbuttons</dt><dd>yes or no to show or hide the save and cancel buttons</dd>
+              <dt>viewxpagename</dt><dd>The name of the XPage to open after saving the document, would normally be the same as the current XPage</dd>
             </dl>
+            <p>The fields supported require various extra settings. In the example below you can see:</p>
+            <ul>
+            <li>To make a field required add a class of "required"</li>
+            <li>To add a clear cross inside a field, add the bootcards-clearinput markup after the field</li>
+            <li>To make a field into a date picker use the example of the initialcontactdate field, add the datevalue attribute</li>
+            <li>To enable a mobile toggle use the markup of the mobileenabled field</li>
+            <li>To provide a typeahead list, add the jslist attribute to the field, the value of this attribute is the name of a JavaScript array that will be used to search for the typeahead list</li>
+            <li>Combo boxes can be used as normal</li>
+            </ul>
+            <p>As with previous versions of the Unplugged Controls, the field id is used to identify the field name to save data to.</p>
+            <p>You can prefix the field id with various settings to influence the data type:</p>
+            <ul>
+            <li>datetime_ will make the value be a date time</li>
+            <li>__ (two underscores) will make the field multivalue, use commas as a separator</li>
+            <li>int_ will make the field an integer (ie a number)</li>
+            <li>float_ will make the field a number with decimal points</li>
+            <li>All other fields will be assumed to be strings</li>
+            </ul>
 <div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+  &lt;unp:UnpBootFormEditor showbuttons=&quot;yes&quot;
+    viewxpagename=&quot;FlatView.xsp&quot; formname=&quot;Person&quot; title=&quot;Person&quot;
+    xp:key=&quot;facet_1&quot;&gt;
+    &lt;xp:this.facets&gt;
+      &lt;xp:panel id=&quot;list-group&quot; xp:key=&quot;facet_1&quot;&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label styleClass=&quot;col-xs-4 control-label&quot; for=&quot;name&quot;
+            value=&quot;First Name&quot;&gt;&lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;xp:inputText id=&quot;firstname&quot; value=&quot;#{docedit.firstname}&quot;
+              styleClass=&quot;form-control required&quot;&gt;
+              &lt;xp:this.attrs&gt;
+                &lt;xp:attr name=&quot;placeholder&quot; value=&quot;First Name&quot;&gt;&lt;/xp:attr&gt;
+              &lt;/xp:this.attrs&gt;
+            &lt;/xp:inputText&gt;
+            &lt;a href=&quot;&quot; class=&quot;bootcards-clearinput&quot;&gt;
+              &lt;i class=&quot;fa fa-lg fa-times-circle&quot;&gt;&lt;/i&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label value=&quot;Date&quot; id=&quot;initialcontactdatelabel&quot; for=&quot;initialcontactdate&quot;
+            styleClass=&quot;col-xs-4 control-label&quot;&gt;
+          &lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;xp:inputText id=&quot;initialcontactdate&quot; styleClass=&quot;form-control&quot;&gt;
+              &lt;xp:this.attrs&gt;
+                &lt;xp:attr name=&quot;datevalue&quot;&gt;
+                  &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:try{
+  var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime(&apos;date&apos;);
+  return date.toJavaDate().getTime();
+}catch(e){
+  return new Date().getTime();
+}}]]&gt;&lt;/xp:this.value&gt;
+                &lt;/xp:attr&gt;
+              &lt;/xp:this.attrs&gt;
+            &lt;/xp:inputText&gt;
 
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label value=&quot;Mobile Enabled?&quot; id=&quot;mobilelabel&quot; for=&quot;mobileenabled&quot;
+            styleClass=&quot;col-xs-4 control-label&quot;&gt;
+          &lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;xp:panel id=&quot;toggle&quot;&gt;
+              &lt;xp:this.styleClass&gt;&lt;![CDATA[#{javascript:var out = &quot;bootcards-toggle&quot;;
+if (docedit.getItemValueString(&apos;mobileenabled&apos;) == &quot;on&quot;){
+  out += &quot; active&quot;;
+}
+return out;}]]&gt;&lt;/xp:this.styleClass&gt;
+              &lt;div class=&quot;bootcards-toggle-handle&quot;&gt;&lt;/div&gt;
+            &lt;/xp:panel&gt;
+            &lt;xp:checkBox checkedValue=&quot;on&quot; uncheckedValue=&quot;off&quot;
+              style=&quot;display: none;&quot; value=&quot;#{docedit.mobileenabled}&quot; required=&quot;false&quot;
+              id=&quot;checkBox1&quot;&gt;&lt;/xp:checkBox&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label value=&quot;Company&quot; id=&quot;companylabel&quot; for=&quot;company&quot;
+            styleClass=&quot;col-xs-4 control-label&quot;&gt;
+          &lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;xp:inputText id=&quot;company&quot; value=&quot;#{docedit.Company}&quot;
+              styleClass=&quot;required form-control typeahead&quot; autocomplete=&quot;off&quot;&gt;
+              &lt;xp:this.attrs&gt;
+                &lt;xp:attr name=&quot;jslist&quot; value=&quot;companies&quot;&gt;
+                &lt;/xp:attr&gt;
+              &lt;/xp:this.attrs&gt;
+            &lt;/xp:inputText&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label styleClass=&quot;col-xs-4 control-label&quot; for=&quot;country&quot;
+            value=&quot;Country&quot;&gt;&lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;xp:comboBox id=&quot;country&quot; value=&quot;#{docedit.Country}&quot;
+              styleClass=&quot;form-control&quot;&gt;
+              &lt;xp:selectItems&gt;
+                &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:@Unique(@DbColumn(@DbName(), &quot;People By Country&quot;, 1))}]]&gt;&lt;/xp:this.value&gt;
+              &lt;/xp:selectItems&gt;
+            &lt;/xp:comboBox&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/xp:panel&gt;
+    &lt;/xp:this.facets&gt;
+  &lt;/unp:UnpBootFormEditor&gt;
+&lt;/xp:view&gt;
 </code></pre></div>
           </div>
 
