@@ -6,7 +6,7 @@
 			<xp:panel id="homenavitem" tagName="li" styleClass="unp-highlight">
 				<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
 				<xp:link escape="true" text="Unplugged Workspace" value="/unpws.unp/" id="homenavitemlink">
-					<i class="fa fa-lg fa-home unp-highlight"></i>
+					<i class="fa fa-lg fa-home unp-highlight"></i>&#160;
 				</xp:link>
 			</xp:panel>
 			
@@ -35,7 +35,7 @@
 							</xp:this.attrs>
 							<xp:panel id="panel2" tagName="i">
 								<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + menuitem.icon}]]></xp:this.styleClass>
-							</xp:panel>
+							</xp:panel>&#160;
 						</xp:link>
 					</xp:panel>
 					<xp:link text="#{javascript:menuitem.label}"
@@ -51,7 +51,7 @@
 						</xp:this.attrs>
 						<xp:panel id="toplevelicon" tagName="i"
 							styleClass="fa fa-lg fa-fw fa-chevron-circle-right">
-						</xp:panel>
+						</xp:panel>&#160;
 					</xp:link>
 					<xp:panel id="collapse" styleClass="collapse">
 						<xp:this.rendered><![CDATA[#{javascript:if (menuitem.children){
@@ -77,7 +77,7 @@
 										</xp:this.attrs>
 										<xp:panel id="childicon" tagName="i">
 											<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + child.icon}]]></xp:this.styleClass>
-										</xp:panel>
+										</xp:panel>&#160;
 									</xp:link>
 								</xp:panel>
 								<xp:panel id="accordion2" tagName="li"
@@ -89,7 +89,7 @@
 											</xp:attr>
 										</xp:this.attrs>
 										<xp:this.value><![CDATA[#{javascript:"#" + getClientId("accordion2")}]]></xp:this.value>
-										<i class="fa fa-lg fa-fw fa-chevron-circle-right">
+										<i class="fa fa-lg fa-fw fa-chevron-circle-right">&#160;
 										</i>
 									</xp:link>
 									<xp:panel id="collapse2" styleClass="collapse">
@@ -110,7 +110,7 @@
 														</xp:this.attrs>
 														<xp:panel id="grandchildicon" tagName="i">
 															<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + grandchild.icon}]]></xp:this.styleClass>
-														</xp:panel>
+														</xp:panel>&#160;
 													</xp:link>
 												</li>
 											</xp:repeat>
