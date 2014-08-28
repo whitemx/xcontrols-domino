@@ -773,32 +773,316 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
           </div>
 
 
-          <div id="doc-alert" class="bs-docs-section">
-            <h2>Alert</h2>
-            <p class="lead">A simple way to display a modal message to the user</p>
-            <p>To display a simple message to the user, this is the easiest control to use.</p>
-            
+          <div id="doc-formviewer" class="bs-docs-section">
+            <h2>Form Viewer</h2>
+            <p class="lead">A wrapper to allow you to display document data inside a card</p>
+            <p>You can also choose to display an Edit button.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Viewer iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Viewer Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Viewer Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" class="img-responsive">
+                </a>
+            </div>            
             <dl class="dl-horizontal">
-              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
-
+              <dt>dbname</dt><dd>the name of the database that contains the document, leave blank for the current database</dd>
+              <dt>formname</dt><dd>the name of the form for the document</dd>
+              <dt>titlefield</dt><dd>the name of the field from which to get the title (if this is set then the title property is ignored)</dd>
+              <dt>titleiconfield</dt><dd>the name of the field which contains a thumbnail to display in the title</dd>
+              <dt>title</dt><dd>An alternative static title</dd>
+              <dt>showbuttons</dt><dd>yes to display edit button and no to hide edit button</dd>
+              <dt>editxpagename</dt><dd>the xpage to use to edit the document with</dd>
+              <dt>editxpagewithajax</dt><dd>yes to edit the document with ajax or no to open the document in edit mode with a full page load</dd>
+              <dt>newresponsexpagename</dt><dd>the name of the xpage to open to compose a response</dd>
+              <dt>footertext</dt><dd>A static string to display in the footer of the card, leave blank if not required</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;
+  xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;&gt;
 
+  &lt;unp:UnpBootFormViewer editxpagename=&quot;PersonEdit.xsp&quot;
+    editxpagewithajax=&quot;yes&quot; formname=&quot;Person&quot; showbuttons=&quot;yes&quot; title=&quot;Contact Details&quot;
+    titleiconfield=&quot;thumbnail&quot; footertext=&quot;Built with Bootcards - Base Card&quot;&gt;
+    &lt;xp:this.rendered&gt;&lt;![CDATA[#{javascript:context.getUrlParameter(&quot;documentId&quot;) != &quot;&quot;}]]&gt;&lt;/xp:this.rendered&gt;
+    &lt;xp:this.facets&gt;
+      &lt;xp:panel id=&quot;list-group&quot; xp:key=&quot;facet_1&quot; styleClass=&quot;panel&quot;&gt;
+        &lt;div class=&quot;list-group&quot;&gt;
+          &lt;div class=&quot;list-group-item&quot;&gt;
+            &lt;label&gt;Name&lt;/label&gt;
+            &lt;xp:text id=&quot;fullname&quot; tagName=&quot;h4&quot; styleClass=&quot;list-group-item-heading&quot;&gt;
+              &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:docview.getItemValueString(&quot;FirstName&quot;) + &quot; &quot; + docview.getItemValueString(&quot;LastName&quot;)}]]&gt;&lt;/xp:this.value&gt;
+            &lt;/xp:text&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/xp:panel&gt;
+    &lt;/xp:this.facets&gt;
+  &lt;/unp:UnpBootFormViewer&gt;
+
+&lt;/xp:view&gt;
 </code></pre></div>
           </div>
 
 
-          <div id="doc-alert" class="bs-docs-section">
-            <h2>Alert</h2>
-            <p class="lead">A simple way to display a modal message to the user</p>
-            <p>To display a simple message to the user, this is the easiest control to use.</p>
+          <div id="doc-header" class="bs-docs-section">
+            <h2>Header</h2>
+            <p class="lead">The control to configuring the header bar</p>
+            <p>Used for the header bar navigation</p>
             
             <dl class="dl-horizontal">
-              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
+              <dt>title</dt><dd>title for the page</dd>
+              <dt>navitems</dt><dd>an array of objects that describe header menu items. These will only be displayed for desktop users. For sidebar navigation, use the Navigator control. Each item should have the following properties: label, page and icon. The label is what will be displayed in the header bar, the page is the URL to open when the link is clicked and icon is the Font Awesome icon to use for the menu item.</dd>
+            </dl>
+<div class="highlight"><pre><code class="html">
+&lt;unp:UnpBootHeader&gt;
+  &lt;unp:this.navitems&gt;&lt;![CDATA[#{javascript:[
+        {label: &quot;Dashboard&quot;, hasSubMenu: false, page: &quot;/UnpMain.xsp&quot;, icon: &quot;fa-dashboard&quot;},
+        {label: &quot;Contacts&quot;, hasSubMenu: false, page: &quot;/DesktopNav.xsp?filter=Contacts&quot;, icon: &quot;fa-group&quot;},
+        {label: &quot;UI Elements&quot;, hasSubMenu: false, page: &quot;/DesktopNav.xsp?filter=UI%20Elements&quot;, icon: &quot;fa-th-large&quot;},
+        {label: &quot;Typography&quot;, hasSubMenu: false, page: &quot;/DesktopNav.xsp?filter=Typography&quot;, icon: &quot;fa-edit&quot;},
+        {label: &quot;Font Awesome&quot;, hasSubMenu: false, page: &quot;/DesktopNav.xsp?filter=Font%20Awesome&quot;, icon: &quot;fa-flag&quot;},
+        {label: &quot;Tools&quot;, hasSubMenu: false, page: &quot;/DesktopNav.xsp?filter=Tools&quot;, icon: &quot;fa-cog&quot;}      
+]}]]&gt;&lt;/unp:this.navitems&gt;
+  &lt;unp:this.title&gt;&lt;![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
+  return &quot;Sampler&quot;;
+}else{
+  return compositeData.pagetitle;
+}}]]&gt;&lt;/unp:this.title&gt;
+&lt;/unp:UnpBootHeader&gt;
+</code></pre></div>
+          </div>
+
+          <div id="doc-imageviewer" class="bs-docs-section">
+            <h2>Image Viewer</h2>
+            <p class="lead">A simple way to display an image to the user</p>
+            <p>The image will be displayed inside a card with a link below to download the image</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Image Viewer iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Image Viewer Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Image Viewer Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-desktop.png" class="img-responsive">
+                </a>
+            </div>            
+
+            <dl class="dl-horizontal">
+              <dt>imageurl</dt><dd>the URL for the image</dd>
+              <dt>imagetitle</dt><dd>the title for the image</dd>
+            </dl>
+<div class="highlight"><pre><code class="html">
+&lt;xp:repeat var=&quot;imagefile&quot;&gt;
+  &lt;xc:this.rendered&gt;&lt;![CDATA[#{javascript:viewScope.images != null &amp;&amp; viewScope.images.length &gt; 0;}]]&gt;&lt;/xc:this.rendered&gt;
+  &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:if (viewScope.images != null){
+  var out = [];
+  for (var i=0; i&lt;viewScope.images.length; i++){
+    var filetype = viewScope.images[i].filename.toLowerCase().split(&apos;.&apos;);
+    filetype = filetype[filetype.length - 1];
+    if (filetype == &apos;png&apos; || filetype == &apos;gif&apos; || filetype == &apos;jpg&apos;){
+      out.push(viewScope.images[i]);
+    }
+  }
+  return out;
+}else{
+  return null;
+}}]]&gt;&lt;/xp:this.value&gt;
+  &lt;unp:UnpBootImageViewer imageurl=&quot;#{javascript:imagefile.url}&quot; imagetitle=&quot;#{javascript:imagefile.filename}&quot;&gt;
+  &lt;/unp:UnpBootImageViewer&gt;
+&lt;/xp:repeat&gt;
+</code></pre></div>
+          </div>
+
+          <div id="doc-navigator" class="bs-docs-section">
+            <h2>Navigator</h2>
+            <p class="lead">For use on mobile devices, the navigator will provide a slide in side menu with up to three levels of nesting</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/navigator-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Navigator iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/navigator-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/navigator-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Navigator Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/navigator-android.png" class="img-responsive">
+                </a>
+            </div>
+            <p>Menu items can open a page either with a full page reload or an Ajax request. Menu items can have icons. The navigator will not display on desktop browsers.</p>
+            <p>If the navigator is viewed with a mobile device using Unplugged, then a Home item will be inserted at the top of the navigator to take you back to the workspace</p>
+            
+            <dl class="dl-horizontal">
+              <dt>menuitems</dt><dd>an array of menu item objects. Each menu item will have the following settings:</dd>
+            </dl>
+            <ul>
+            <li><strong>label</strong>: the label for the menu item</li>
+            <li><strong>icon</strong>: the Font Awesome icon for the menu item. the icon will be ignored if there are children defined)</li>
+            <li><strong>page</strong>: the page to open when the menu item is clicked</li>
+            <li><strong>ajaxloadid</strong>: the element to load if using Ajax (leave blank for a full page reload)</li>
+            <li><strong>ajaxtargetid</strong>: the element to insert data into is using Ajax (leave blank for a full page reload)</li>
+            <li><strong>children</strong>: an array of menu items using the same format, but will be displayed as a sub menu</li>
+            </ul>
+<div class="highlight"><pre><code class="html">
+&lt;unp:UnpBootNavigator&gt;
+  &lt;unp:this.menuitems&gt;&lt;![CDATA[#{javascript:[
+  {&quot;label&quot;: &quot;Dashboard&quot;, &quot;icon&quot;: &quot;fa-dashboard&quot;, &quot;page&quot;: &quot;/UnpMain.xsp&quot;},
+  {&quot;label&quot;: &quot;Contacts&quot;, children: [
+    {&quot;label&quot;: &quot;Contacts&quot;, &quot;icon&quot;: &quot;fa-group&quot;, &quot;page&quot;: &quot;/Contacts.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;}, 
+    {&quot;label&quot;: &quot;Departments&quot;, &quot;icon&quot;: &quot;fa-building&quot;, &quot;page&quot;: &quot;/Departments.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
+    {&quot;label&quot;: &quot;My Activities&quot;, &quot;icon&quot;: &quot;fa-tasks&quot;, &quot;page&quot;: &quot;/MyActivities.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
+    {&quot;label&quot;: &quot;Activities By Contact&quot;, &quot;icon&quot;: &quot;fa-tasks&quot;, &quot;page&quot;: &quot;/ActivitiesByContact.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
+    {&quot;label&quot;: &quot;Activities By Department&quot;, &quot;icon&quot;: &quot;fa-tasks&quot;, &quot;page&quot;: &quot;/ActivitiesByDepartment.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;}
+  ]} 
+]}]]&gt;&lt;/unp:this.menuitems&gt;
+&lt;/unp:UnpBootNavigator&gt;
+</code></pre></div>
+          </div>
+
+          <div id="doc-resources" class="bs-docs-section">
+            <h2>Resources</h2>
+            <p class="lead">This control will load all of the required CSS and JavaScript files onto a page when it loads. It should be included in all XPages in your application.</p>            
+          </div>
+
+          <div id="doc-typographyedit" class="bs-docs-section">
+            <h2>Typography Edit</h2>
+            <p class="lead">An implementation of a Rich Text Editor</p>
+            <p>Used in conjunction with the Form Editor control, you can make use of the <a href="http://quilljs.com">Quill rich text editor</a> which will save HTML formatted text into the document.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Edit iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Edit Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Edit Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-desktop.png" class="img-responsive">
+                </a>
+            </div>
+            
+            <dl class="dl-horizontal">
+              <dt>fieldname</dt><dd>the name of the field to get get the initial content from. The data must be HTML formatted or plain text. Domino Rich Text will not work.</dd>
+            </dl>
+<div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+  &lt;unp:UnpBootFormEditor showbuttons=&quot;yes&quot;
+    viewxpagename=&quot;FlatView.xsp&quot; formname=&quot;Person&quot; title=&quot;Person&quot;
+    xp:key=&quot;facet_1&quot;&gt;
+    &lt;xp:this.facets&gt;
+      &lt;xp:panel id=&quot;list-group&quot; xp:key=&quot;facet_1&quot;&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label value=&quot;Details&quot; id=&quot;biolabel&quot; for=&quot;bio&quot;
+            styleClass=&quot;col-xs-4 control-label&quot;&gt;
+          &lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;unp:UnpBootTypographyEdit fieldname=&quot;bio&quot;&gt;
+            &lt;/unp:UnpBootTypographyEdit&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/xp:panel&gt;
+    &lt;/xp:this.facets&gt;
+  &lt;/unp:UnpBootFormEditor&gt;
+&lt;/xp:view&gt;
+</code></pre></div>
+          </div>
+
+          <div id="doc-typographyread" class="bs-docs-section">
+            <h2>Typography Read</h2>
+            <p class="lead">A wrapper for text content that includes resize buttons</p>
+            <p>Ideal for use with large blocks of text to make them easier to read.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Read iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Read Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Read Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-desktop.png" class="img-responsive">
+                </a>
+            </div>
+
+            <dl class="dl-horizontal">
+              <dt>title</dt><dd>the title for the card</dd>
+              <dt>footertext</dt><dd>the footer text for the card</dd>
 
             </dl>
 <div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+  &lt;xc:commonheader pagetitle=&quot;Reading Panel&quot;&gt;&lt;/xc:commonheader&gt;
+  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;bootcards-cards fullheightrow&quot;&gt;
+        &lt;div class=&quot;col-xs-12 col-sm-12 col-md-12&quot;&gt;
+          &lt;unp:UnpBootTypographyRead title=&quot;Reading Panel&quot;
+            footertext=&quot;Built with Bootcards - Rich Text Card&quot;&gt;
+            &lt;xp:this.facets&gt;
+              &lt;xp:panel xp:key=&quot;typographyfacet&quot;&gt;
+                &lt;h1&gt;
+                  h1. Bootstrap heading&amp;#160;
+                  &lt;small&gt;Secondary text&lt;/small&gt;
+                &lt;/h1&gt;
+              &lt;/xp:panel&gt;
+            &lt;/xp:this.facets&gt;
+          &lt;/unp:UnpBootTypographyRead&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
+&lt;/xp:view&gt;
+</code></pre></div>
+          </div>
 
+          <div id="doc-workspace" class="bs-docs-section">
+            <h2>Workspace</h2>
+            <p class="lead">Similar to the Notes workspace, this displays a list of icons</p>
+            <p>The icons come from a view, requiring a format similar to the Workspace used in the Sampler application</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/workspace-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Workspace iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/workspace-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/workspace-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Workspace Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/workspace-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/workspace-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Workspace Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/workspace-desktop.png" class="img-responsive">
+                </a>
+            </div>
+
+            <dl class="dl-horizontal">
+              <dt>title</dt><dd>the title for the workspace card</dd>
+              <dt>workspaceview</dt><dd>the view from which to load the workspace icons</dd>
+              <dt>labelcol</dt><dd>The title of the column in the view that contains the labels for each icon</dd>
+              <dt>iconcol</dt><dd>The title of the column in the view that contains the Font Awesome icon name for each icon in the workspace</dd>
+              <dt>linkurlcol</dt><dd>The title of the column in the view that contains the link to open when the icon is clicked</dd>
+              <dt>badgecol</dt><dd>If there is a badge to display on the icon, the title for the column to get this data</dd>
+              <dt>columndefinition</dt><dd>To override the default column layout, enter the number of columns using Bootstrap formatting</dd>
+              <dt>footertext</dt><dd>Static text to display in the footer of the card</dd>
+            </dl>
+<div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;&gt;
+  &lt;xc:commonheader&gt;&lt;/xc:commonheader&gt;
+  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;bootcards-cards fullheightrow&quot;&gt;
+        &lt;div class=&quot;col-xs-12 col-sm-12 col-md-12&quot;&gt;
+          &lt;xc:UnpBootWorkspace title=&quot;Workspace&quot;
+            linkurlcol=&quot;UnpUrl&quot; labelcol=&quot;Title&quot; iconcol=&quot;ImgUrl&quot;
+            badgecol=&quot;BadgeID&quot; workspaceview=&quot;HomeLinks&quot;
+            footertext=&quot;Built with Bootcards - Summary Card&quot;&gt;
+          &lt;/xc:UnpBootWorkspace&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
+&lt;/xp:view&gt;
 </code></pre></div>
           </div>
 
