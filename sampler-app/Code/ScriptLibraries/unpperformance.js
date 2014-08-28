@@ -48,7 +48,7 @@ $(window).load( function() {
 	});
 	test("open flat view", 1, function(){
 		stop();
-		$(".litop3 li a").eq(4).click();
+		$(".litop2 li a").eq(1).click();
 		console.log("open flat view");
 		ok(true);
 	});
@@ -67,7 +67,7 @@ $(window).load( function() {
 	});
 	test("open filtered view", 1, function(){
 		stop();
-		$(".litop4 li a").eq(2).click();
+		$(".litop2 li a").eq(2).click();
 		console.log("open filtered view");
 		ok(true);
 	});
@@ -85,31 +85,31 @@ $(window).load( function() {
 	});
 	test("open typography read", 1, function(){
 		stop();
-		$(".litop5 li a").eq(0).click();
+		$(".litop4 li a").eq(0).click();
 		console.log("open typography read");
 		ok(true);
 	});
 	test("open typography edit", 1, function(){
 		stop();
-		$(".litop5 li a").eq(1).click();
+		$(".litop4 li a").eq(1).click();
 		console.log("open typography edit")
 		ok(true);
 	});
 	test("open contacts", 1, function(){
 		stop();
-		$(".litop2 li a").eq(0).click();
+		$(".litop3 li a").eq(0).click();
 		console.log("open contacts by company");
 		ok(true);
 	});
 	test("open departments", 1, function(){
 		stop();
-		$(".litop2 li a").eq(1).click();
+		$(".litop3 li a").eq(1).click();
 		console.log("open contacts")
 		ok(true);
 	});
 	test("open my activities", 1, function(){
 		stop();
-		$(".litop2 li a").eq(2).click();
+		$(".litop3 li a").eq(2).click();
 		console.log("open media");
 		ok(true);
 	});
