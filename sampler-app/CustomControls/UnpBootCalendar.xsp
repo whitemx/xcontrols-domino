@@ -43,7 +43,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="bootcards-cards">
-				<div class="col-sm-12">
+				<div class="col-sm-12 fullheightrow">
 					<div class="panel panel-default bootcards-calendar">
 						<div class="panel-heading clearfix">
 							<xp:text id="caltitle" tagName="h3" styleClass="panel-title pull-left"
