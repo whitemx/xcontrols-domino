@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D1E002A1358" version="9.0">
-<noteinfo noteid="18f6" sequence="1" unid="D1E7283AC926860D80257D4100535A97">
-<created><datetime dst="true">20140827T161026,79+01</datetime></created>
-<modified><datetime dst="true">20140827T161026,92+01</datetime></modified>
-<revised><datetime dst="true">20140827T161026,91+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140827T161026,92+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140827T161026,92+01</datetime></addedtofile></noteinfo>
+<noteinfo noteid="19ca" sequence="1" unid="AAC70D1AA6291A4D80257D4800489C1C">
+<created><datetime dst="true">20140903T141305,56+01</datetime></created>
+<modified><datetime dst="true">20140903T141305,67+01</datetime></modified>
+<revised><datetime dst="true">20140903T141305,66+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140903T141305,67+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140903T141305,67+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE" sign="true"><text>unp/css/bootcards-ios.css</text></item>
 <item name="$MimeCharSet"><text>UTF-8</text></item>
-<item name="$FileModDT" sign="true"><datetime dst="true">20140827T081001,67+01</datetime></item>
-<item name="$Flags"><text>g345QC</text></item>
 <item name="$FlagsExt" sign="true"><text>D</text></item>
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
+<item name="$FileModDT" sign="true"><datetime dst="true">20140903T140736,00+01</datetime></item>
 
 
-<item name="$FileNames" sign="true"><text>unp_2fcss_2fbootcards-ios.css</text></item></note>
+<item name="$Flags"><text>g345QC</text></item>
+<item name="$FileNames" sign="true"><text>bootcards-ios.css</text></item></note>
