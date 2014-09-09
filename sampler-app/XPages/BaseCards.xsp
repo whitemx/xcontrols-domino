@@ -12,7 +12,7 @@
 
 	<div id="main" class="container">
 		<div class="row fullheightrow">
-			<unp:UnpBootFlatView title="Base Cards"
+			<unp:UnpBootFlatView title="Cards"
 				summarycolumn="Title" viewname="Base Cards" numberofrows="20"
 				ajaxload="Yes" xpagedoc="BaseCards.xsp"
 				footertext="Built with Bootcards - List">
@@ -24,7 +24,7 @@
 				</xp:text>
 			</div>
 		</div>
-		<div class="pagetitle hidden">Flat View</div>
+		<div class="pagetitle hidden">Cards</div>
 	</div>
 
 	<xc:commonfooter></xc:commonfooter>
