@@ -27,7 +27,7 @@
 		{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "My Activities", "icon": "fa-tasks", "page": "/MyActivities.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Activities By Contact", "icon": "fa-tasks", "page": "/ActivitiesByContact.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Activities By Department", "icon": "fa-tasks", "page": "/ActivitiesByDepartment.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
+		{"label": "Activities By Dept", "icon": "fa-tasks", "page": "/ActivitiesByDepartment.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
 	{"label": "Typography", children: [
 		{"label": "Reading Panel", "icon": "fa-search", "page": "/TextReadingPanel.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 

@@ -7,7 +7,7 @@
 
 	<div id="main" class="container">
 		<div class="row fullheightrow">
-			<unp:UnpBootAccordionView title="Activities By Department"
+			<unp:UnpBootAccordionView title="Activities By Dept"
 				summarycolumn="Title" viewname="Activities By Company"
 				expandfirstcategory="no" ajaxload="Yes"
 				loaddocumenttarget="doccontent" detailcolumn="Detail"
@@ -19,7 +19,7 @@
 				<xc:activityviewer></xc:activityviewer>
 			</div>
 		</div>
-		<div class="pagetitle hidden">Activities By Department</div>
+		<div class="pagetitle hidden">Activities By Dept</div>
 	</div>
 
 
