@@ -29,7 +29,7 @@
 		{"label": "Activities By Contact", "icon": "fa-tasks", "page": "/ActivitiesByContact.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Activities By Dept", "icon": "fa-tasks", "page": "/ActivitiesByDepartment.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
-	{"label": "Typography", children: [
+	{"label": "Text", children: [
 		{"label": "Reading Panel", "icon": "fa-search", "page": "/TextReadingPanel.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Editing Panel", "icon": "fa-edit", "page": "/TextEditingPanel.xsp?action=editDocument&documentId=CA3BC19DE184CF1380257CDD0024D68E&", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
@@ -55,7 +55,7 @@
         {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
         {label: "Contacts", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-group"},
         {label: "UI Elements", hasSubMenu: false, page: "/DesktopNav.xsp?filter=UI%20Elements", icon: "fa-th-large"},
-        {label: "Typography", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Typography", icon: "fa-edit"},
+        {label: "Text", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Typography", icon: "fa-edit"},
         {label: "Font Awesome", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Font%20Awesome", icon: "fa-flag"},
         {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}      
 ]}]]></unp:this.navitems>
