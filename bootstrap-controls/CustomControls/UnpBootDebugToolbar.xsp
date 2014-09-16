@@ -43,7 +43,14 @@ the specific language governing permissions and limitations under the License
 						dojo.style(dojo.byId('dBarLoad'), 'display', 'none');
 						
 						
-						dojo.style(dBarContents, "display", "block");
+						dojo.style(dBarContents, 'display', 'block');
+					}, 
+					
+					error : function(err) {
+						var dBarContents = dojo.byId('dBarContents');
+						dojo.html.set(dBarContents, "An error occurred: " + err);
+						dojo.style(dojo.byId('dBarLoad'), 'display', 'none');
+						dojo.style(dBarContents, 'display', 'block');
 					}
 				} );
 		

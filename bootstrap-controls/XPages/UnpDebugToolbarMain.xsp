@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<!--
+<!--
 		Copyright 2013,2014 Teamstudio Inc Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in
 		compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by
 		applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -8,6 +8,14 @@
 	-->
 
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	<xp:this.data>
+		<xp:dominoView
+			var="viewLogs"
+			viewName="ClientLogs"
+			databaseName="/UnpluggedLog.unp">
+		</xp:dominoView>
+	</xp:this.data>
 
 	<xp:this.beforePageLoad><![CDATA[#{javascript:unpDBar.init();}]]></xp:this.beforePageLoad>
 
@@ -25,10 +33,21 @@ switch (_type) {
 	case "time":
 		unpDBar.time(_msg);
 		break;
+	case "syncOne":
+		var _db = session.getCurrentDatabase();
+		_db.replicate("someserver");
+		break;
 	case "sync":
-		/*var _db = session.getCurrentDatabase();
-		_db.replicate("someserver");*/
 		@Command("[ReplicatorReplicateHigh]");	
+		break;
+	case "clearLog":
+		try {
+			var db = session.getDatabase("", "/UnpluggedLog.unp");
+			var dc = db.getAllDocuments();
+			dc.purgeAll();
+		} catch (e) {
+			unpDBar.error(e);
+		}
 		break;
 	case "clear":
 		unpDBar.clear();
@@ -58,6 +77,7 @@ switch (_type) {
 					value="Hide"
 					id="button1"
 					disableTheme="true"
+					style="padding: 1px 0 0 0 "
 					styleClass="btn btn-sm btn-default">
 					<xp:this.attrs>
 						<xp:attr name="onclick">
@@ -79,87 +99,110 @@ switch (_type) {
 
 			</div>
 
-			<h5>Unplugged Debug Toolbar</h5>
+			<h5 style="margin: 5px" id="dBarTitle">Unplugged Debug Toolbar</h5>
 
 		</div>
 
-		<xp:div
-			id="dBarContent">
+		<xp:div id="dBarContent">
 
 			<!-- actions -->
 			<div class="section">
 
 				<div class="content">
-				<div class="btn-group">
+					<div class="btn-group">
 
-					<xp:button
-						styleClass="btn btn-sm btn-default"
-						disableTheme="true"
-						value="Startpage">
-						<xp:this.attrs>
-							<xp:attr name="onclick">
-								<xp:this.value><![CDATA[
+						<xp:button
+							styleClass="btn btn-sm btn-default"
+							disableTheme="true"
+							value="Startpage">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[
 								window.location.href = 'UnpMain.xsp';
 								]]></xp:this.value>
-							</xp:attr>
-						</xp:this.attrs>
-					</xp:button>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:button>
 
-					<xp:button
-						styleClass="btn btn-sm btn-default"
-						disableTheme="true"
-						value="Back">
-						<xp:this.attrs>
-							<xp:attr name="onclick">
-								<xp:this.value><![CDATA[
+						<xp:button
+							styleClass="btn btn-sm btn-default"
+							disableTheme="true"
+							value="Back">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[
 								history.back();
 								]]></xp:this.value>
-							</xp:attr>
-						</xp:this.attrs>
-					</xp:button>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:button>
 
-					<xp:button
-						styleClass="btn btn-sm btn-default"
-						disableTheme="true"
-						value="Workspace">
-						<xp:this.attrs>
-							<xp:attr name="onclick">
-								<xp:this.value><![CDATA[
+						<xp:button
+							styleClass="btn btn-sm btn-default"
+							disableTheme="true"
+							value="Workspace">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[
 								window.location.href = '/unpws.unp/';
 								]]></xp:this.value>
-							</xp:attr>
-						</xp:this.attrs>
-					</xp:button>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:button>
 
-					<xp:button
-						disableTheme="true"
-						styleClass="btn btn-sm btn-default"
-						value="Sync">
-						<xp:this.attrs>
-							<xp:attr name="onclick">
-								<xp:this.value><![CDATA[
-								dojo.query('#dBarContents h5').forEach( function(h) { dojo.html.set(h, 'Syncing...'); } );
+						<xp:button
+							disableTheme="true"
+							styleClass="btn btn-sm btn-default"
+							value="Sync (all)">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[
+								dojo.html.set( dojo.byId('dBarTitle'), 'Syncing all apps...' );
 							dojo.xhrGet( {
 									url : 'UnpDebugToolbarMain.xsp?type=sync',
 									load : function() {
-										dojo.query('#dBarContents h5').forEach( function(h) { dojo.html.set(h, 'Syncing completed'); } );
+										dojo.html.set( dojo.byId('dBarTitle'), 'Sync all completed' );
 									}
 								} );
 							]]></xp:this.value>
-							</xp:attr>
-						</xp:this.attrs>
-					</xp:button>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:button>
+						
+						<xp:button
+							disableTheme="true"
+							styleClass="btn btn-sm btn-default"
+							value="Sync (this)">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[
+									dojo.html.set( dojo.byId('dBarTitle'), 'Syncing current app...' );
+								
+							dojo.xhrGet( {
+									url : 'UnpDebugToolbarMain.xsp?type=syncOne',
+									load : function() {
+										dojo.html.set( dojo.byId('dBarTitle'), 'Sync current app completed' );
+									},
+									error : function(err) {
+										dojo.html.set( dojo.byId('dBarTitle'), 'An error occurred: ' + err );
+									}
+								} );
+							]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:button>
 
-					<xp:button
-						value="Reload"
-						id="button7"
-						disableTheme="true"
-						styleClass="btn btn-sm btn-default">
-						<xp:this.attrs>
-							<xp:attr name="onclick">
-								<xp:this.value><![CDATA[
+						<xp:button
+							value="Reload"
+							id="button7"
+							disableTheme="true"
+							styleClass="btn btn-sm btn-default">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[
 							var dBarContents = dojo.byId('dBarContents');
-							dojo.query('#dBarContents h5').forEach( function(h) { dojo.html.set(h, 'Reloading toolbar...'); } );
+							
+							dojo.html.set( dojo.byId('dBarTitle'), 'Reloading toolbar...' );
 							
 							dojo.xhrGet( {
 								url : 'UnpDebugToolbarMain.xsp',
@@ -171,21 +214,28 @@ switch (_type) {
 								}
 							} );
 							]]></xp:this.value>
-							</xp:attr>
-						</xp:this.attrs>
-					</xp:button>
-					
-				</div>
-				
-				<div style="margin: 5px 0 0 5px">
-					Open a page:
-					<input type="text" id="unpdbar-goto" style="margin: 0 5px; border-bottom: 1px solid #eee;" />
-					<button type="button" class="btn btn-default btn-sm" onclick="var url = dojo.byId('unpdbar-goto').value;
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:button>
+						
+					</div>
+
+					<div style="margin: 5px 0 0 5px">
+						Open a page:
+						<input
+							type="text"
+							id="unpdbar-goto"
+							style="margin: 0 5px; border-bottom: 1px solid #eee;" />
+						<button
+							type="button"
+							class="btn btn-default btn-sm"
+							onclick="var url = dojo.byId('unpdbar-goto').value;
 					if (url=='') { alert('Enter the URL of the page to open'); return; }
 					window.location.href = url;">
-					Go</button>
-				
-				</div>
+							Go
+						</button>
+
+					</div>
 
 				</div>
 			</div>
@@ -195,15 +245,14 @@ switch (_type) {
 				id="dBarMessages"
 				class="section">
 				<div
-					class="title"
-					style="font-weight:bold">
-					Messages
-
+					class="title">
+					
 					<div class="pull-right btn-group">
 
 						<xp:button
 							styleClass="btn btn-sm btn-default"
 							disableTheme="true"
+							style="padding: 1px 10px 0 0"
 							value="Save">
 							<xp:this.attrs>
 								<xp:attr name="onclick">
@@ -222,14 +271,21 @@ switch (_type) {
 						<xp:button
 							styleClass="btn btn-sm btn-default"
 							disableTheme="true"
+							style="padding: 1px 0 0 0"
 							value="Clear">
 							<xp:this.attrs>
 								<xp:attr name="onclick">
 									<xp:this.value><![CDATA[
+									
+									dojo.query('#dBarMessages .content').forEach( function(node) { dojo.html.set(node, 'No messages found' ); } );
+									
 							dojo.xhrGet( {
 									url : 'UnpDebugToolbarMain.xsp?type=clear',
 									load : function() {
-										dojo.query('#dBarMessages .content').forEach( function(node) { dojo.html.set(node, 'No messages found' ); } );
+										
+									},
+									error : function(err) {
+										dojo.query('#dBarMessages .content').forEach( function(node) { dojo.html.set(node, 'An error occurred: ' + err); } );
 									}
 								} );
 							]]></xp:this.value>
@@ -238,7 +294,8 @@ switch (_type) {
 						</xp:button>
 					</div>
 
-					<br style="clear:both" />
+					<h5 style="font-weight:bold; margin: 5px">Messages</h5>
+
 
 				</div>
 
@@ -293,12 +350,135 @@ switch (_type) {
 
 			</div>
 
+			<!-- log -->
+			<div
+				id="dBarLog"
+				class="section">
+				<div
+					class="title"
+					style="font-weight:bold">
+					
+					
+					<div class="pull-right btn-group">
+
+						<xp:button
+							styleClass="btn btn-sm btn-default"
+							disableTheme="true"
+							style="padding: 1px 0 0 0"
+							value="Clear">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[
+									
+									dojo.query('#dBarLog .content').forEach( function(node) { dojo.html.set(node, 'No log messages found' ); } );
+									
+							dojo.xhrGet( {
+									url : 'UnpDebugToolbarMain.xsp?type=clearLog',
+									load : function() {
+										
+									},
+									error : function(err) {
+										dojo.query('#dBarLog .content').forEach( function(node) { dojo.html.set(node, 'An error occurred: ' + err ); } );
+									}
+								} );
+							]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:button>
+					</div>
+
+					<h5 style="font-weight:bold; margin: 5px">Unplugged Log
+						&#160;(level:&#160;
+						<xp:text
+										escape="true"
+										disableTheme="true"
+										value="#{javascript:var l = session.getEnvironmentString('unp.log.level', true);
+										
+										switch (l) {
+											case '0':
+												return 'debug';
+											case '1':
+												return 'info';
+											case '2':
+												return 'warnings';
+											case '3':
+												return 'errors';
+										}}">
+									</xp:text>)
+									
+					</h5>
+
+				</div>
+
+				<div class="content">
+						
+					<xp:text
+						rendered="#{javascript:viewLogs.getEntryCount()==0}"
+						value="No log messages found" />
+						
+					<table class="table table-condensed">
+						<tbody>
+							<xp:repeat
+								id="repeat2"
+								rows="250"
+								var="logEntry"
+								value="#{viewLogs}">
+
+								<xp:tr style="vertical-align:top">
+									<xp:this.styleClass><![CDATA[#{javascript:var img = logEntry.getColumnValue("Image")
+var t = img.substring(0, img.indexOf("."));
+
+switch (t) {
+	case 'error':
+		return 'danger';
+	case 'debug':
+		return 'warning';
+	default:
+		return '';
+}
+}]]></xp:this.styleClass>
+									<td class="first">
+
+										<xp:text
+											escape="false"
+											disableTheme="true">
+											<xp:this.value><![CDATA[#{javascript:var d = logEntry.getColumnValue('Time').toString();
+											return d.replace(' ', '<br />');
+											}]]></xp:this.value>
+										</xp:text>
+
+									</td>
+
+									<!-- message -->
+									<xp:td>
+										<xp:text
+											escape="true"
+											disableTheme="true"
+											value="#{logEntry.Message}">
+										</xp:text>
+									</xp:td>
+
+									<xp:td>
+										<xp:text
+											escape="true"
+											disableTheme="true"
+											value="#{logEntry.Database}">
+										</xp:text>
+									</xp:td>
+								</xp:tr>
+							</xp:repeat>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
 			<!-- environment -->
 			<div class="section">
 				<div
 					class="title"
 					style="font-weight:bold">
-					Environment
+					<h5 style="font-weight:bold; margin: 5px">Environment</h5>
 				</div>
 
 				<div class="content">
@@ -337,7 +517,29 @@ switch (_type) {
 									</xp:text>
 								</td>
 							</tr>
-
+							
+							<tr>
+								<td>home server</td>
+								<td>
+									<xp:text
+										escape="true"
+										disableTheme="true"
+										value="#{javascript:session.getEnvironmentString('home.server', true)}">
+									</xp:text>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>last sync</td>
+								<td>
+									<xp:text
+										escape="true"
+										disableTheme="true"
+										value="#{javascript:session.getEnvironmentString('ro.last.replicate', true)}">
+									</xp:text>
+								</td>
+							</tr>
+						
 							<tr>
 								<td>user</td>
 								<td>
@@ -372,7 +574,7 @@ noPort.substring( noPort.indexOf('/')  );}]]></xp:this.value>
 				<div
 					class="title"
 					style="font-weight:bold">
-					Scope variables
+					<h5 style="font-weight:bold; margin: 5px">Scope variables</h5>
 				</div>
 
 				<div class="content">
