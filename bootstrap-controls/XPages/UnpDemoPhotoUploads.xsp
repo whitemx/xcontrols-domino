@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view
+	xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<unp:UnpBootDebugToolbar
+		defaultCollapsed="false"></unp:UnpBootDebugToolbar>
+	<xc:commonheader></xc:commonheader>
+
+	<xp:this.data>
+		<xp:dominoView
+			var="view1"
+			viewName="Photos">
+		</xp:dominoView>
+	</xp:this.data>
+
+
+
+	<div
+		class="container">
+
+		<xp:button
+			styleClass="btn btn-primary"
+			value="Upload a photo"
+			id="button1">
+			<xp:eventHandler
+				event="onclick"
+				submit="true"
+				refreshMode="complete">
+				<xp:this.action>
+					<xp:openPage
+						name="/UnpDemoPhotoUpload.xsp"></xp:openPage>
+				</xp:this.action>
+			</xp:eventHandler>
+		</xp:button>
+
+		<table
+			class="table table-striped"
+			style="margin-top: 10px">
+			<thead>
+				<tr>
+					<th>Created</th>
+					<th>File</th>
+					<th>Photo size</th>
+					<th>Original size</th>
+					<th>&#160;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<xp:repeat
+					var="row"
+					id="repeat1"
+					rows="30"
+					value="#{view1}">
+
+					<tr>
+
+						<xp:text
+							escape="true"
+							tagName="td"
+							id="computedField1"
+							value="#{row.$0}">
+							<xp:this.converter>
+								<xp:convertDateTime
+									type="both"></xp:convertDateTime>
+							</xp:this.converter>
+						</xp:text>
+						<td>
+							<xp:link
+								escape="true"
+								text="#{row.$1}"
+								id="link1">
+
+
+
+								<xp:this.value><![CDATA[#{javascript:"UnpDemoPhotoUpload.xsp?action=openDocument&documentId=" + row.getUniversalID()}]]></xp:this.value>
+							</xp:link>
+						</td>
+						<td>
+							<!-- size -->
+							<xp:text
+								escape="true"
+								id="computedField2"
+								value="#{javascript:row.getColumnValue('$2')/1024}">
+								<xp:this.converter>
+									<xp:convertNumber
+										type="number"
+										integerOnly="true">
+									</xp:convertNumber>
+								</xp:this.converter>
+							</xp:text>
+							KB
+						</td>
+
+						<td>
+							<!-- size -->
+							<xp:text
+								escape="true"
+								id="computedField4"
+								value="#{javascript:row.getColumnValue('originalPhotoSize')/1024}">
+								<xp:this.converter>
+									<xp:convertNumber
+										type="number"
+										integerOnly="true">
+									</xp:convertNumber>
+								</xp:this.converter>
+							</xp:text>
+							KB
+						</td>
+
+						<!-- delete -->
+
+						<td>
+							<xp:button
+								value="delete"
+								styleClass="btn btn-primary"
+								style=" padding-top:0"
+								id="button2">
+								<xp:eventHandler
+									event="onclick"
+									submit="true"
+									refreshMode="complete">
+									<xp:this.action><![CDATA[#{javascript:var doc = row.getDocument();
+								doc.removePermanently(true);}]]></xp:this.action>
+								</xp:eventHandler>
+							</xp:button>
+						</td>
+
+					</tr>
+
+				</xp:repeat>
+			</tbody>
+		</table>
+
+
+
+	</div>
+
+
+	<xc:commonfooter></xc:commonfooter>
+
+</xp:view>
