@@ -48,7 +48,7 @@ $(window).load( function() {
 	});
 	test("open flat view", 1, function(){
 		stop();
-		$(".litop2 li a").eq(1).click();
+		$(".litop3 li a").eq(0).click();
 		console.log("open flat view");
 		ok(true);
 	});
@@ -67,7 +67,7 @@ $(window).load( function() {
 	});
 	test("open filtered view", 1, function(){
 		stop();
-		$(".litop2 li a").eq(2).click();
+		$(".litop3 li a").eq(1).click();
 		console.log("open filtered view");
 		ok(true);
 	});
@@ -83,33 +83,40 @@ $(window).load( function() {
 		console.log("edit document");
 		ok(true);
 	});
+	test("open cards", 1, function(){
+		stop();
+		unp.loadPage('/BootstrapSampler.nsf/BaseCards.xsp?rnd=' + Date.now()+ ' #main', 'main', null)
+		console.log("open cards");
+		ok(true);
+	});
 	test("open typography read", 1, function(){
 		stop();
-		$(".litop4 li a").eq(0).click();
-		console.log("open typography read");
+		console.log("about to open typography read")
+		$("#list .list-group a").eq(5).click();
+		console.log("open typography read")
 		ok(true);
 	});
 	test("open typography edit", 1, function(){
 		stop();
-		$(".litop4 li a").eq(1).click();
+		$("#list .list-group a").eq(6).click();
 		console.log("open typography edit")
 		ok(true);
 	});
 	test("open contacts", 1, function(){
 		stop();
-		$(".litop3 li a").eq(0).click();
+		$(".litop5 li a").eq(0).click();
 		console.log("open contacts by company");
 		ok(true);
 	});
 	test("open departments", 1, function(){
 		stop();
-		$(".litop3 li a").eq(1).click();
+		$(".litop5 li a").eq(1).click();
 		console.log("open contacts")
 		ok(true);
 	});
 	test("open my activities", 1, function(){
 		stop();
-		$(".litop3 li a").eq(2).click();
+		$(".litop5 li a").eq(2).click();
 		console.log("open media");
 		ok(true);
 	});

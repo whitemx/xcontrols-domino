@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div class="modal-content form-horizontal">
+	<xp:panel id="iframe" tagName="iframe" style="width: 100%; height: 270px; border: 0px;">
+		<xp:this.attrs>
+			<xp:attr name="src">
+				<xp:this.value><![CDATA[#{javascript:"PhotoUpload.xsp?action=editDocument&documentId=" + context.getUrlParameter("documentId")}]]></xp:this.value>
+			</xp:attr>
+		</xp:this.attrs>
+	</xp:panel>
+	</div>
+</xp:view>

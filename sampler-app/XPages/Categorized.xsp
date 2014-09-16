@@ -17,7 +17,7 @@
 				<xc:personviewer></xc:personviewer>
 			</div>
 		</div>
-		<div class="pagetitle hidden">Flat View (Categorized)</div>
+		<div class="pagetitle hidden">Categorized</div>
 	</div>
 	<xc:commonfooter></xc:commonfooter>
 </xp:view>

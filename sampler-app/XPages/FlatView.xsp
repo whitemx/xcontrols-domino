@@ -15,7 +15,7 @@
 				<xc:personviewer></xc:personviewer>
 			</div>
 		</div>
-		<div class="pagetitle hidden">Flat View</div>
+		<div class="pagetitle hidden">Flat</div>
 	</div>
 
 	<xc:commonfooter></xc:commonfooter>

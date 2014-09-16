@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
-	xmlns:xc="http://www.ibm.com/xsp/custom"
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 
 	<xp:this.data>
@@ -12,16 +11,154 @@
 
 	<div id="main" class="container">
 		<div class="row fullheightrow">
-			<unp:UnpBootFlatView title="Cards"
-				summarycolumn="Title" viewname="Base Cards" numberofrows="20"
-				ajaxload="Yes" xpagedoc="BaseCards.xsp"
+			<unp:UnpBootFlatView title="Cards" summarycolumn="Title"
+				viewname="Base Cards" numberofrows="20" ajaxload="Yes" xpagedoc="BaseCards.xsp"
 				footertext="Built with Bootcards - List">
 			</unp:UnpBootFlatView>
-			<div id="doccontent"
-				class="col-sm-7 bootcards-cards hidden-xs">
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
 				<xp:text escape="false" id="computedField1" tagName="div"
 					value="#{document1.HTML}">
+					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("HTML") != ""}]]></xp:this.rendered>
 				</xp:text>
+
+				<xp:panel id="readingpanel">
+					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Reading"}]]></xp:this.rendered>
+					<unp:UnpBootTypographyRead title="Reading Panel"
+						footertext="Built with Bootcards - Rich Text Card">
+						<xp:this.facets>
+							<xp:panel xp:key="typographyfacet">
+								<h1>
+									h1. Bootstrap heading&#160;
+									<small>Secondary text</small>
+								</h1>
+								<h2>
+									h2. Bootstrap heading&#160;
+									<small>Secondary text</small>
+								</h2>
+								<h3>
+									h3. Bootstrap heading &#160;
+									<small>Secondary text</small>
+								</h3>
+								<h4>
+									h4. Bootstrap heading &#160;
+									<small>Secondary text</small>
+								</h4>
+								<h5>
+									h5. Bootstrap heading &#160;
+									<small>Secondary text</small>
+								</h5>
+								<h6>
+									h6. Bootstrap heading &#160;
+									<small>Secondary text</small>
+								</h6>
+
+
+								<div class="bs-example" style="padding-top: 20px;">
+									<p>
+										Nullam quis risus eget urna
+										mollis ornare vel eu leo. Cum
+										sociis natoque penatibus et
+										magnis dis parturient montes,
+										nascetur ridiculus mus. Nullam
+										id dolor id nibh ultricies
+										vehicula.
+									</p>
+									<p>
+										Cum sociis natoque penatibus et
+										magnis dis parturient montes,
+										nascetur ridiculus mus. Donec
+										ullamcorper nulla non metus
+										auctor fringilla. Duis mollis,
+										est non commodo luctus, nisi
+										erat porttitor ligula, eget
+										lacinia odio sem nec elit. Donec
+										ullamcorper nulla non metus
+										auctor fringilla.
+									</p>
+									<p>
+										Maecenas sed diam eget risus
+										varius blandit sit amet non
+										magna. Donec id elit non mi
+										porta gravida at eget metus.
+										Duis
+										mollis, est non commodo
+										luctus, nisi erat porttitor
+										ligula, eget
+										lacinia odio sem
+										nec elit.
+									</p>
+								</div>
+							</xp:panel>
+						</xp:this.facets>
+					</unp:UnpBootTypographyRead>
+				</xp:panel>
+
+				<xp:panel id="editingpanel">
+					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Editing"}]]></xp:this.rendered>
+					<unp:UnpBootFormEditor showbuttons="no"
+						title="Edit" formname="BaseCard" viewxpagename="BaseCards.xsp">
+						<xp:this.facets>
+							<xp:panel xp:key="facet_1">
+								<xp:this.data>
+									<xp:dominoDocument var="docedit" formName="RefData"
+										action="editDocument">
+										<xp:this.documentId><![CDATA[#{javascript:var vw:NotesView = database.getView("Reference Data");
+var doc:NotesDocument = vw.getDocumentByKey("SamplerEditHTML");
+if (doc != null){
+	return doc.getUniversalID();
+}}]]></xp:this.documentId>
+									</xp:dominoDocument>
+								</xp:this.data>
+								<unp:UnpBootTypographyEdit fieldname="value">
+								</unp:UnpBootTypographyEdit>
+							</xp:panel>
+						</xp:this.facets>
+					</unp:UnpBootFormEditor>
+				</xp:panel>
+
+				<xp:panel id="photuploadpanel">
+					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Photo Upload"}]]></xp:this.rendered>
+					<unp:UnpBootFormViewer editxpagename="PhotoUploadIFrame.xsp"
+						editxpagewithajax="yes" formname="BaseCard" showbuttons="yes"
+						title="Photo Upload" footertext="Built with Bootcards - Base Card">
+						<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
+						<xp:this.facets>
+							<xp:panel id="list-group" xp:key="facet_1" styleClass="panel">
+								<div class="list-group">
+									<div class="list-group-item">
+										<label>File Name</label>
+										<xp:text id="contact" tagName="h4"
+											styleClass="list-group-item-heading">
+											<xp:this.value><![CDATA[#{javascript:docview.getItemValueString("FileName")}]]></xp:this.value>
+										</xp:text>
+									</div>
+								</div>
+							</xp:panel>
+						</xp:this.facets>
+					</unp:UnpBootFormViewer>
+
+					<xp:repeat var="imagefile">
+						
+						<xp:this.value><![CDATA[#{javascript:if (viewScope.images != null){
+	var out = [];
+	for (var i=0; i<viewScope.images.length; i++){
+		var filetype = viewScope.images[i].filename.toLowerCase().split('.');
+		filetype = filetype[filetype.length - 1];
+		if (filetype == 'png' || filetype == 'gif' || filetype == 'jpg'){
+			out.push(viewScope.images[i]);
+		}
+	}
+	return out;
+}else{
+	return null;
+}}]]></xp:this.value>
+						<unp:UnpBootImageViewer imageurl="#{javascript:imagefile.url}"
+							imagetitle="#{javascript:imagefile.filename}">
+						</unp:UnpBootImageViewer>
+					</xp:repeat>
+
+				</xp:panel>
+
 			</div>
 		</div>
 		<div class="pagetitle hidden">Cards</div>
@@ -30,5 +167,5 @@
 	<xc:commonfooter></xc:commonfooter>
 	<script src="unp/raphael.min.js" type="text/javascript"></script>
 	<script src="unp/morris.min.js" type="text/javascript"></script>
-	
+
 </xp:view>
