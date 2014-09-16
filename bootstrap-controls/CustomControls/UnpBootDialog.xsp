@@ -5,7 +5,7 @@
 			<xp:attr name="role" value="dialog"></xp:attr>
 		</xp:this.attrs>
 		<xp:this.styleClass><![CDATA[#{javascript:"modal fade in " + compositeData.dialogid}]]></xp:this.styleClass>
-		<div class="modal-dialog">
+		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
 				<div class="modal-header">
 					<div class="btn-group pull-left">

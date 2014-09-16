@@ -2,6 +2,22 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 	<div class="panel panel-default bootcards-media">
 		<div class="panel-heading">
+			<div class="pull-right">
+				<a href="#carousel-ios" data-slide="next">
+					<span class="fa fa-2x fa-chevron-right"></span>
+				</a>
+			</div>
+			<div class="pull-left">
+				<a href="#carousel-ios" data-slide="prev">
+					<span class="fa fa-2x fa-chevron-left"></span>
+				</a>
+			</div>
+			<xp:text id="workspacetitle" tagName="h3" styleClass="panel-title text-center"
+				value="#{javascript:compositeData.title}" >
+				<xp:this.style><![CDATA[#{javascript:if (isEmpty(compositeData.title)){
+	return "display: none;";
+}}]]></xp:this.style>
+			</xp:text>
 		</div>
 		<div class="panel-body">
 			<div class="carousel slide" id="carousel-ios" data-ride="carousel">
@@ -23,13 +39,13 @@
 	return "";
 }}]]></xp:this.value>
 				</xp:text>
-
 				<a class="left carousel-control" href="#carousel-ios" data-slide="prev">
 					<span class="fa fa-3x fa-chevron-left"></span>
 				</a>
 				<a class="right carousel-control" href="#carousel-ios" data-slide="next">
 					<span class="fa fa-3x fa-chevron-right"></span>
 				</a>
+				
 			</div>
 		</div>
 		<div class="panel-footer">

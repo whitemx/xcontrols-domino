@@ -43,23 +43,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="bootcards-cards">
-				<div class="col-sm-12">
-					<div class="panel panel-default bootcards-calendar">
-						<div class="panel-heading clearfix">
-							<xp:text id="caltitle" tagName="h3" styleClass="panel-title pull-left"
-								value="#{javascript:compositeData.title}">
-							</xp:text>
-						</div>
-						<div class="panel-body">
-							<div id='calendar' class="fc fc-ltr"></div>
-						</div>
-						<div class="panel-footer">
-							<xp:text id="footertext" tagName="small" styleClass="pull-left"
-								value="#{javascript:compositeData.footertext}">
-							</xp:text>
-						</div>
-					</div>
-				</div>
+				<div id='calendar' class="fc fc-ltr bootcards-calendar"></div>
 			</div>
 		</div>
 		<!--  Modals -->

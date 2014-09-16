@@ -38,10 +38,6 @@ unp.storePageRequest = function(url) {
 
 }
 
-$(document).ready( function () {
-	unp.initAZPicker();
-});
-
 $(window).load( function() {
 	unp.initPage();
 	unp._firstLoad = false;
@@ -94,12 +90,13 @@ unp.initPage = function(){
 	unp.highlightCurrentPage();
 	unp.initCalendar();
 	unp.initNavigator();
+	unp.initAZPicker();
 	$(document).ajaxStop( function() {
 		unp.initRichText();
 		unp.initReaderButtons();
 		unp.highlightCurrentPage();
 		unp.initCalendar();
-		
+		unp.initAZPicker();
 	});
 	
 	//Open first item in flat view if necessary
@@ -1015,13 +1012,13 @@ unp.initCalendar = function() {
 			}
 		});
 		$('.fc-button').each(function(){
-			$(this).removeClass();
-			$(this).addClass('btn btn-default');
+			//$(this).removeClass();
+			//$(this).addClass('btn btn-default');
 		})
-		$('.fc-icon-left-single-arrow').parent().addClass('fa fa-arrow-left');
-		$('.fc-icon-left-single-arrow').remove();
-		$('.fc-icon-right-single-arrow').parent().addClass('fa fa-arrow-right');
-		$('.fc-icon-right-single-arrow').remove();
+		//$('.fc-icon-left-single-arrow').parent().addClass('fa fa-arrow-left');
+		//$('.fc-icon-left-single-arrow').remove();
+		//$('.fc-icon-right-single-arrow').parent().addClass('fa fa-arrow-right');
+		//$('.fc-icon-right-single-arrow').remove();
 	} catch (e) {
 
 	}

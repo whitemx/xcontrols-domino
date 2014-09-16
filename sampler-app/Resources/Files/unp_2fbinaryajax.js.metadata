@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
+<noteinfo noteid="21ba" sequence="1" unid="889FF12F55A65F2180257D550055B2E6">
+<created><datetime dst="true">20140916T163603,58+01</datetime></created>
+<modified><datetime dst="true">20140916T163603,59+01</datetime></modified>
+<revised><datetime dst="true">20140916T163603,58+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140916T163603,59+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140916T163603,59+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$TITLE" sign="true"><text>unp/binaryajax.js</text></item>
+<item name="$Comment"><text>image resizer library</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20140916T163323,04+01</datetime></item>
+<item name="$Flags"><text>g345QC</text></item>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>unp_2fbinaryajax.js</text></item></note>

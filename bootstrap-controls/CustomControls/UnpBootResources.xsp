@@ -43,11 +43,11 @@
 			<xp:attr name="rel" value="stylesheet"></xp:attr>
 			<xp:attr name="href">
 				<xp:this.value><![CDATA[#{javascript:if (isIOS()){
-			return "unp/css/bootcards-ios.css";
+			return "unp/css/bootcards-ios.min.css";
 		}else if (isAndroid()){
-			return "unp/css/bootcards-android.css";
+			return "unp/css/bootcards-android.min.css";
 		}else {
-			return "unp/css/bootcards-desktop.css";
+			return "unp/css/bootcards-desktop.min.css";
 		}
 }]]></xp:this.value>
 			</xp:attr>

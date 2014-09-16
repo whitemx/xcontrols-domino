@@ -89,7 +89,7 @@ body.bootcards-nofooter > .container > .row {
 }
 
 
-/* OFFCANVAS MENU */
+/* MENU */
 
 .navmenu {
 	padding: 0;
@@ -116,7 +116,6 @@ body.bootcards-nofooter > .container > .row {
 
 .navmenu i {
 	width: 24px;
-	margin-right: 5px;
 	text-align: center;
 }
 
@@ -197,9 +196,13 @@ a.list-group-item.bootcards-list-subheading:hover {
 }
 
 
-/* FORMS */
+/* RICH TEXT CARD */
 
-
+.bootcards-richtext .fa-search-plus,
+.bootcards-richtext .fa-search-minus {
+	font-size: 23px;
+	line-height: 1;
+}
 
 
 

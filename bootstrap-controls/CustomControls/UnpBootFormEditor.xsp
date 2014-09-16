@@ -14,17 +14,18 @@
 		</xp:dominoDocument>
 	</xp:this.data>
 	<div class="modal-content form-horizontal">
-		<div class="modal-header">
-
-			<div class="btn-group pull-left">
-				<a href="#" class="btn btn-danger" data-dismiss="modal">
+		<xp:panel styleClass="modal-header">
+			<xp:this.rendered><![CDATA[#{javascript:compositeData.showbuttons != "no"}]]></xp:this.rendered>
+			<xp:panel styleClass="btn-group pull-left">
+				<a href="#" class="btn btn-danger"
+					data-dismiss="modal">
 					<i class="fa fa-times" />
 					&#160;Cancel
 				</a>
-			</div>
+			</xp:panel>
 
-			
-			<div class="btn-group pull-right">
+
+			<xp:panel styleClass="btn-group pull-right">
 				<xp:panel id="savebutton" tagName="a" styleClass="btn btn-success">
 					<i class="fa fa-check" />
 					&#160;Save
@@ -46,12 +47,12 @@ return out;}]]></xp:this.value>
 						</xp:attr>
 					</xp:this.attrs>
 				</xp:panel>
-			</div>
+			</xp:panel>
 			<xp:text id="title" tagName="h4" styleClass="modal-title"
 				value="#{javascript:compositeData.title}">
 			</xp:text>
 
-		</div>
+		</xp:panel>
 		<xp:panel id="modal-body" styleClass="modal-body">
 			<xp:callback facetName="facet_1" id="callback1"></xp:callback>
 			<br />
