@@ -1012,13 +1012,13 @@ unp.initCalendar = function() {
 			}
 		});
 		$('.fc-button').each(function(){
-			$(this).removeClass();
-			$(this).addClass('btn btn-default');
+			//$(this).removeClass();
+			//$(this).addClass('btn btn-default');
 		})
-		$('.fc-icon-left-single-arrow').parent().addClass('fa fa-arrow-left');
-		$('.fc-icon-left-single-arrow').remove();
-		$('.fc-icon-right-single-arrow').parent().addClass('fa fa-arrow-right');
-		$('.fc-icon-right-single-arrow').remove();
+		//$('.fc-icon-left-single-arrow').parent().addClass('fa fa-arrow-left');
+		//$('.fc-icon-left-single-arrow').remove();
+		//$('.fc-icon-right-single-arrow').parent().addClass('fa fa-arrow-right');
+		//$('.fc-icon-right-single-arrow').remove();
 	} catch (e) {
 
 	}

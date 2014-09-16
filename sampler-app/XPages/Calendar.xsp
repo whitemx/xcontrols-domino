@@ -20,7 +20,7 @@
 		<unp:UnpBootCalendar enddatefield="EndDate"
 			highlightfield="HighLight" catfield="Category" highlighttest="Yes"
 			startdatefield="StartDate" titlefield="Title" viewname="CalendarEntries"
-			viewxpage="CalendarEntry.xsp" headerbuttonsleft="prev,today,next"
+			viewxpage="CalendarEntry.xsp" headerbuttonsleft="prev,next,today"
 			defaultviewtablet="month" defaultviewphone="basicWeek"
 			headerbuttonsrighttablet="agendaDay,agendaWeek,month"
 			headerbuttonsrightphone="" title="Calendar" footertext="Built with Bootcards - Base Card">

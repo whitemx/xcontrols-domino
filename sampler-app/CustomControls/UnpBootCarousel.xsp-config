@@ -31,5 +31,9 @@
       <property-name>footertext</property-name>
       <property-class>string</property-class>
     </property>
+    <property>
+      <property-name>title</property-name>
+      <property-class>string</property-class>
+    </property>
   </composite-component>
 </faces-config>
