@@ -50,6 +50,24 @@
 	opacity: 1;
 }
 
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+	.carousel-control,.carousel-control:hover,.carousel-control:focus {
+		font-size: 8px !important;
+	}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+	.carousel-control,.carousel-control:hover,.carousel-control:focus {
+		font-size: 10px !important;
+	}
+}
+
+
 .carousel-control {
 	position: absolute;
 	top: 0;

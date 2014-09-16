@@ -32,7 +32,7 @@
 		}else{
 			out += "<div class=\"item\">";
 		}
-		out += "<img src=\"" + viewScope.images[i].url + "\" class=\"center-block\" /></div>";
+		out += "<img src=\"" + viewScope.images[i].url + "\" class=\"center-block img-responsive\" /></div>";
 	}
 	return out;
 }else{
