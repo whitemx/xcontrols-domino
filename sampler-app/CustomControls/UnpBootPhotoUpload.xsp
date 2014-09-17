@@ -4,7 +4,11 @@
 	<div class="js-photouploader">
 
 		<div class="photoUpload btn btn-primary">
-			<span>Select photo</span>
+			<xp:text
+				escape="true"
+				id="computedField1">
+				<xp:this.value><![CDATA[#{javascript:return (!isEmpty(compositeData.selectPhotoText) ? compositeData.selectPhotoText : "Select photo" );}]]></xp:this.value>
+			</xp:text>
 			<xp:fileUpload
 				id="fileUpload2"
 				value="#{compositeData.targetDoc[compositeData.itemName]}"
@@ -14,16 +18,40 @@
 						name="accept"
 						value="image/*">
 					</xp:attr>
+					<xp:attr name="onchange">
+						<xp:this.value><![CDATA[unp.photoUploader.targetWidth = #{compositeData.targetWidth};
+        				unp.photoUploader.targetHeight = #{compositeData.targetHeight};
+         				unp.photoUploader.doCrop = #{compositeData.crop};
+    	
+        var file = event.target.files[0];
+        
+        //no rotation when a new photo is loaded
+        unp.photoUploader._imageResizeRotate = 0;	
+        
+        //clean up
+         $('.js-photouploader-preview img, .js-photouploader canvas').remove();
+        
+        unp.photoUploader.loadImage(file, unp.photoUploader._imageResizeRotate);]]></xp:this.value>
+					</xp:attr>
 				</xp:this.attrs>
 			</xp:fileUpload>
 		</div>
 
 		<!-- target location for the loaded image -->
-		<div class="js-photouploader-preview"></div>
+		<div class="js-photouploader-preview">
+		<xp:text
+			escape="true"
+			id="computedField2"
+			style="font-size: 100px; color: #bbb;"
+			rendered="#{javascript:!isEmpty(compositeData.placeHolderIcon)}">
+			<xp:this.styleClass><![CDATA[#{javascript:"fa fa-2x " + compositeData.placeHolderIcon}]]></xp:this.styleClass>
+		</xp:text>
+
+		</div>
 
 		<!-- buttons to rotate the image -->
 		<xp:div
-			rendered="#{javascript:compositeData.allowRotation}"
+			rendered="#{javascript:compositeData.showRotationControls}"
 			styleClass="hidden js-photouploader-rotate">
 
 			<button
@@ -46,80 +74,5 @@
 		</xp:div>
 
 	</div>
-
-
-	<xp:scriptBlock id="scriptBlock1">
-		<xp:this.value><![CDATA[ 
-		
-		unp.photoUploader = {
-			_imageResizeRotate : 0
-		};
-		
-$(document).ready(function() {
-    
-    $('.js-photouploader-upload').change(function(e) {
-        var file = e.target.files[0];
-        
-        //no rotation when a new photo is loaded
-        unp.photoUploader._imageResizeRotate = 0;	
-        
-        //clean up
-         $('.js-photouploader-preview img, .js-photouploader canvas').remove();
-        
-        unp.photoUploader.loadImage(file, unp.photoUploader._imageResizeRotate);
-       
-     });
-
-} );
-
-unp.photoUploader.loadImage = function( file, rotate) {
-            
-	canvasResize(file, {
-          width: #{compositeData.targetWidth},
-          height: #{compositeData.targetHeight},
-          crop: #{compositeData.crop},
-          quality: 80,
-          rotate: rotate,
-          callback: function(data, width, height) {
-          
-          	 $('.js-photouploader-preview img, .js-photouploader canvas').remove();
-        
-        	//show thumbnail
-        	var img = new Image();
-        	img.onload = function() {
-
-            $(this).css({
-                'width': '200px',
-                'height': 'auto'
-            }).appendTo('.js-photouploader-preview');
-           
-        };
-        $(img).attr('src', data);
-        $('.js-photouploader-rotate').removeClass('hidden');
-    	}
-	});
-
-}
-	
-unp.photoUploader.rotateImage = function(clockWise) {
-	var $resizeFileUpload = $('.js-photouploader-upload');
-	var file = $resizeFileUpload[0].files[0];
-
-	this._imageResizeRotate += (clockWise ? 90 : -90);
-	
-	if (this._imageResizeRotate === 360) {
-		this._imageResizeRotate = 0;
-	} else if (this._imageResizeRotate === -90) {
-		this._imageResizeRotate = 270;
-	}
-	
-	this.loadImage(file, this._imageResizeRotate);
-}
-]]></xp:this.value>
-	</xp:scriptBlock>
-
-	<script src="unp/binaryajax.js"></script>
-	<script src="unp/exif.js"></script>
-	<script src="unp/canvasResize.js"></script>
 
 </xp:view>

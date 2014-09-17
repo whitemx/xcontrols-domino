@@ -1031,3 +1031,62 @@ unp.refreshCalendar = function(){
 		
 	}
 }
+
+/* photo uploader */
+
+unp.photoUploader = {
+	_imageResizeRotate : 0,
+	targetWidth : 0,
+	targetHeight : 0,
+	doCrop : false
+};
+	
+unp.photoUploader.loadImage = function( file, rotate) {
+
+	canvasResize(file, {
+		 width: unp.photoUploader.targetWidth,
+         height: unp.photoUploader.targetHeight,
+         crop: unp.photoUploader.doCrop,
+          quality: 80,
+          rotate: rotate,
+          callback: function(data, width, height) {
+          	 $('.js-photouploader-preview img, .js-photouploader canvas').remove();
+        
+        	//show thumbnail
+        	var img = new Image();
+        	img.onload = function() {
+        	
+   	            $(this).css({
+	                'width': '200px',
+	                'height': 'auto'
+	            }).appendTo('.js-photouploader-preview');
+           
+       		 };
+	        $(img).attr('src', data);
+	        $('.js-photouploader-rotate').removeClass('hidden');
+	         $('.js-photouploader-preview .fa').addClass('hidden');
+    	}
+	});
+
+}
+	
+unp.photoUploader.rotateImage = function(clockWise) {
+	var $resizeFileUpload = $('.js-photouploader-upload');
+	
+	if ( $resizeFileUpload[0].files.length === 0) {
+		return;
+	}
+	var file = $resizeFileUpload[0].files[0];
+
+	this._imageResizeRotate += (clockWise ? 90 : -90);
+	
+	if (this._imageResizeRotate === 360) {
+		this._imageResizeRotate = 0;
+	} else if (this._imageResizeRotate === -90) {
+		this._imageResizeRotate = 270;
+	}
+	
+	this.loadImage(file, this._imageResizeRotate);
+}
+
+/* end photo uploader */

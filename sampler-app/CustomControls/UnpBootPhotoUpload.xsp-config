@@ -49,7 +49,7 @@
       </property-extension>
     </property>
     <property>
-      <property-name>allowRotation</property-name>
+      <property-name>showRotationControls</property-name>
       <property-class>boolean</property-class>
       <property-extension>
         <required>true</required>
@@ -64,6 +64,7 @@
       <property-extension>
         <required>true</required>
       </property-extension>
+      <description>Document to which the photo should be uploaded.</description>
     </property>
     <property>
       <property-name>itemName</property-name>
@@ -71,6 +72,16 @@
       <property-extension>
         <required>true</required>
       </property-extension>
+      <description>Name of the item on the target document in which the photo is stored.</description>
+    </property>
+    <property>
+      <property-name>selectPhotoText</property-name>
+      <property-class>string</property-class>
+      <description>Label shown to the user to select/ take a photo.</description>
+    </property>
+    <property>
+      <property-name>placeHolderIcon</property-name>
+      <property-class>string</property-class>
     </property>
   </composite-component>
 </faces-config>

@@ -285,3 +285,80 @@ function showFontAwesomeDetails(element) {
 	// <a class="bootcards-summary-item"><i class="fa fa-3x fa-adn"></i><h4
 	// class="hidden">fa-adn</h4></a>
 }
+
+//save the photo selected in the photo uploader
+unp.photoUploader.savePhoto = function(button, saveButtonId) {
+	
+	//get the file input
+	var $resizeFileUpload = $('.js-photouploader-upload');
+	var files = $resizeFileUpload[0].files;
+	if (typeof files == 'unidefined' || files.length === 0 ) {
+		return;
+	}
+	
+	//disable all buttons
+	$('button').attr('disabled', true);
+	
+	var $target = $(button);
+	var $icon;
+	
+	if ($target.prop('tagName') == "I") {
+		$icon = $target;
+	} else {
+		$icon = $target.children("i");
+	}
+	
+	if ($icon.length>0) {
+		$icon.data( 'orig-class', $icon.attr('class') );
+		$icon
+			.removeClass()
+			.addClass("fa fa-spinner fa-spin");
+	}
+	
+	var _resizedFile = files[0];
+                        
+	//set the submit id to the current button (so the server knows what to do)
+	$('input[name="$$xspsubmitid"]').val(saveButtonId);
+                    
+	//create FormData object to send all form data to Unplugged
+	var fd = new FormData();
+                            
+	//get all inputs and add them to the formData object
+	var $inputs = $('form :input');
+                           	
+	$inputs.each( function() { 
+              	
+		var $this = $(this);
+		var name = $this.prop('name');
+		var clazz = $this.prop('class');
+		var type = $this.prop('type');
+              		
+		//add all file inputs, except the resized image and any buttons
+		if ( clazz.indexOf('js-photouploader-upload') == -1 && type != 'button' ) {
+			fd.append( name, $this.val() );
+		}
+              	
+	});
+                        
+	//now add the resized image to the FormData object
+	var _resizedImg = $(".js-photouploader-preview img");
+	var f = canvasResize('dataURLtoBlob', _resizedImg.prop("src") );
+	f.name = _resizedFile.name;
+               
+ 	fd.append( $resizeFileUpload.prop('id') , f , "photo.jpg");
+               
+	//make the ajax request to send all data to the server             
+	$.ajax({
+	  url: window.location.pathname,
+	  type: 'POST',
+	  data: fd,
+	  processData: false,
+	  contentType: false,
+	  
+	  success: function(data) {
+		window.location.reload(true);
+	  }
+	});
+
+};
+ 

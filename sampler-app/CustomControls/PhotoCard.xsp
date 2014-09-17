@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view
+	xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xp:this.data>
+		<xp:dominoDocument
+			var="docPhoto"
+			formName="Photo"
+			action="editDocument"
+			ignoreRequestParams="true">
+		</xp:dominoDocument>
+	</xp:this.data>
+
+	<xp:inputHidden
+		id="inputHidden1"
+		value="#{docPhoto.originalPhotoSize}">
+		<xp:this.converter>
+			<xp:convertNumber
+				type="number"></xp:convertNumber>
+		</xp:this.converter>
+		<xp:this.attrs>
+			<xp:attr
+				name="class">
+				<xp:this.value><![CDATA[origSize]]></xp:this.value>
+			</xp:attr>
+		</xp:this.attrs>
+	</xp:inputHidden>
+
+	<!-- photo card -->
+	<div
+		class="panel panel-default bootcards-media">
+		<div
+			class="panel-heading">
+			<h3
+				class="panel-title">Photo Upload</h3>
+		</div>
+		<div
+			class="panel-body">
+			Tap 'Add photo' to take a new photo or select from Photo library, then tap on Upload.
+  		
+	  		<!-- show selected image -->
+	  		<unp:UnpBootPhotoUpload
+				rendered="#{javascript:docPhoto.isEditable()}"
+				targetWidth="1024"
+				targetHeight="768"
+				targetDoc="#{docPhoto}"
+				itemName="photo"
+				showRotationControls="false"
+				placeHolderIcon="fa-camera"
+				selectPhotoText="Add photo"
+				crop="false">
+			</unp:UnpBootPhotoUpload>
+			
+		</div>
+
+		<!-- display the uploaded photo in read mode -->
+		<!--<xp:div
+			rendered="#{javascript:!docPhoto.isEditable()}">
+
+			<xp:image
+				id="image1"
+				style="width: 200px">
+				<xp:this.url><![CDATA[#{javascript:"0/" + docPhoto.getDocument().getUniversalID() + "/$file/photo.jpg"}]]></xp:this.url>
+			</xp:image>
+
+		</xp:div>
+  		
+  		
+		<img
+			src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg"
+			class="img-responsive" />
+		--><div
+			class="panel-footer">
+			<xp:div
+				rendered="#{javascript:docPhoto.isEditable()}"
+				styleClass="btn-group btn-group-justified">
+				
+				<div class="btn-group">
+					<button
+						type="button"
+						class="btn btn-default"
+						onclick="unp.photoUploader.rotateImage(true)">
+						<i
+							class="fa fa-rotate-right"></i>
+						Rotate
+					</button>
+				</div>
+
+				
+				<div class="btn-group">
+				
+					<xp:button
+						value="save"
+						style="display:none"
+						id="button1">
+						<xp:eventHandler
+							event="onclick"
+							submit="true"
+							refreshMode="complete"
+							immediate="false"
+							save="true">
+						</xp:eventHandler>
+					</xp:button>
+					
+					<xp:text escape="false">
+						<xp:this.value><![CDATA[#{javascript:"<button type=\"button\" onClick=\"unp.photoUploader.savePhoto(this, \'" + getComponent("button1").getClientId() + "\')\" class=\"btn btn-default\">" +
+						"<i class=\"fa fa-upload\"></i>Upload</button>"}]]></xp:this.value>
+					</xp:text>
+
+				</div>
+				
+				<div class="btn-group">		
+					<button
+						type="button"
+						class="btn btn-default"
+						onclick="$('.js-photocard').fadeOut(250, function() { $('.js-photos-list').fadeIn(250);  });">
+						Cancel
+					</button>
+				</div>
+		
+			</xp:div>
+				
+				
+			</div><!-- panel footer -->
+		</div><!-- panel -->
+
+</xp:view>

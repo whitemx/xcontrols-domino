@@ -80,7 +80,7 @@
 							targetHeight="768"
 							targetDoc="#{document1}"
 							itemName="photo"
-							allowRotation="true"
+							showRotationControls="true"
 							crop="false">
 						</unp:UnpBootPhotoUpload>
 

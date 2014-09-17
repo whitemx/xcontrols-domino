@@ -49,7 +49,7 @@
       </property-extension>
     </property>
     <property>
-      <property-name>allowRotation</property-name>
+      <property-name>showRotationControls</property-name>
       <property-class>boolean</property-class>
       <property-extension>
         <required>true</required>
@@ -71,6 +71,14 @@
       <property-extension>
         <required>true</required>
       </property-extension>
+    </property>
+    <property>
+      <property-name>selectPhotoText</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>placeHolderIcon</property-name>
+      <property-class>string</property-class>
     </property>
   </composite-component>
 </faces-config>

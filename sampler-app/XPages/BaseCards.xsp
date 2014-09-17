@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
-
+	
 	<xp:this.data>
 		<xp:dominoDocument var="document1" formName="BaseCard"
 			action="openDocument">
@@ -118,46 +118,92 @@ if (doc != null){
 
 				<xp:panel id="photuploadpanel">
 					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Photo Upload"}]]></xp:this.rendered>
-					<unp:UnpBootFormViewer editxpagename="PhotoUploadIFrame.xsp"
-						editxpagewithajax="yes" formname="BaseCard" showbuttons="yes"
-						title="Photo Upload" footertext="Built with Bootcards - Base Card">
-						<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
-						<xp:this.facets>
-							<xp:panel id="list-group" xp:key="facet_1" styleClass="panel">
-								<div class="list-group">
-									<div class="list-group-item">
-										<label>File Name</label>
-										<xp:text id="contact" tagName="h4"
-											styleClass="list-group-item-heading">
-											<xp:this.value><![CDATA[#{javascript:docview.getItemValueString("FileName")}]]></xp:this.value>
-										</xp:text>
-									</div>
-								</div>
-							</xp:panel>
-						</xp:this.facets>
-					</unp:UnpBootFormViewer>
-
-					<xp:repeat var="imagefile">
+				
+							<!-- button to upload a new photo -->
+							<div class="js-photocard" style="display:none">
+								<xc:PhotoCard></xc:PhotoCard>
+							</div>
 						
-						<xp:this.value><![CDATA[#{javascript:if (viewScope.images != null){
-	var out = [];
-	for (var i=0; i<viewScope.images.length; i++){
-		var filetype = viewScope.images[i].filename.toLowerCase().split('.');
-		filetype = filetype[filetype.length - 1];
-		if (filetype == 'png' || filetype == 'gif' || filetype == 'jpg'){
-			out.push(viewScope.images[i]);
-		}
-	}
-	return out;
-}else{
-	return null;
-}}]]></xp:this.value>
-						<unp:UnpBootImageViewer imageurl="#{javascript:imagefile.url}"
-							imagetitle="#{javascript:imagefile.filename}">
-						</unp:UnpBootImageViewer>
-					</xp:repeat>
-
-				</xp:panel>
+							<!-- list of uploaded photos -->
+							<xp:panel styleClass="js-photos-list">
+							
+								<div>
+									<button
+										class="btn btn-primary"
+										type="button"
+										onclick="$('.js-photos-list').fadeOut(250, function() { $('.js-photocard').fadeIn(250) });">
+										Upload photo
+									</button>
+								</div>
+							
+								<xp:text value="No photos have been uploaded" rendered="#{javascript:viewPhotos.getEntryCount() == 0}" />
+							
+								<xp:this.data>
+									<xp:dominoView
+										var="viewPhotos"
+										viewName="Photos">
+									</xp:dominoView>
+								</xp:this.data>
+								
+								<xp:repeat
+									var="row"
+									id="repeat1"
+									rows="30"
+									value="#{viewPhotos}">
+									
+									<unp:UnpBootImageViewer imagetitle="#{row.$1}">
+										<xp:this.imageurl><![CDATA[#{javascript:"0/" + row.getUniversalID() + "/$file/photo.jpg"}]]></xp:this.imageurl>
+									</unp:UnpBootImageViewer>
+			
+									<!-- current size, orig size & delete -->
+									<!--<xp:text
+										escape="true"
+										id="computedField2"
+										value="#{javascript:row.getColumnValue('$2')/1024}">
+										<xp:this.converter>
+											<xp:convertNumber
+												type="number"
+												integerOnly="true">
+											</xp:convertNumber>
+										</xp:this.converter>
+									</xp:text>
+									KB
+								
+									<xp:text
+										escape="true"
+										id="computedField4"
+										value="#{javascript:row.getColumnValue('originalPhotoSize')/1024}">
+										<xp:this.converter>
+											<xp:convertNumber
+												type="number"
+												integerOnly="true">
+											</xp:convertNumber>
+										</xp:this.converter>
+									</xp:text>
+									KB
+			
+									<xp:button
+										value="delete"
+										styleClass="btn btn-primary"
+										style=" padding-top:0"
+										id="button2">
+										<xp:eventHandler
+											event="onclick"
+											submit="true"
+											refreshMode="complete">
+											<xp:this.action><![CDATA[#{javascript:var doc = row.getDocument();
+										doc.removePermanently(true);}]]></xp:this.action>
+										</xp:eventHandler>
+									</xp:button>
+									
+								--></xp:repeat>
+													
+							
+							</xp:panel>
+							
+						</xp:panel>
+						
+		
 
 			</div>
 		</div>
