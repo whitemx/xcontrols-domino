@@ -53,7 +53,7 @@ try {
 
 	<xc:commonheader></xc:commonheader>
  
-	<unp:UnpBootDebugToolbar defaultCollapsed="true"></unp:UnpBootDebugToolbar>
+	<unp:UnpBootDebugToolbar></unp:UnpBootDebugToolbar>
 
 	<xc:commonfooter></xc:commonfooter>
 

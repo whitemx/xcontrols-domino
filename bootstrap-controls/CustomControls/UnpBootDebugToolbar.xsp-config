@@ -19,18 +19,6 @@
         <category>Unplugged</category>
       </designer-extension>
     </composite-extension>
-    <property>
-      <property-name>defaultCollapsed</property-name>
-      <property-class>boolean</property-class>
-      <property-extension>
-        <designer-extension>
-          <editor>com.ibm.std.Boolean</editor>
-          <default-value>false</default-value>
-        </designer-extension>
-        <required>true</required>
-      </property-extension>
-      <description>Indicates if the toolbar will be opened in a collapsed or expanded state (by default)</description>
-    </property>
     <icon>
       <small-icon/>
       <large-icon/>

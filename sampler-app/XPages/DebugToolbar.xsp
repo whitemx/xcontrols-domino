@@ -58,7 +58,7 @@ try {
 
 	<div id="main" class="container">
 		<div class="row fullheightrow">
-			<unp:UnpBootDebugToolbar defaultCollapsed="true"></unp:UnpBootDebugToolbar>
+			<unp:UnpBootDebugToolbar></unp:UnpBootDebugToolbar>
 
 			<div class="panel panel-default">
 				<div class="panel-heading clearfix">
