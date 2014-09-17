@@ -116,7 +116,7 @@ and (max-device-width : 1024px) {
 }
 
 #dBarContents {
-	width: 400px;
+	width: 500px;
 	display: none;
 	padding: 0;
 	border: 1px solid #444444;
