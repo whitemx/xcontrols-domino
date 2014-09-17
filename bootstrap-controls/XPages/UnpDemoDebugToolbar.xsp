@@ -57,7 +57,7 @@ try {
 
 	<xc:commonfooter></xc:commonfooter>
 
-	<p>Add a sample message to the Unplugged Degbug Toolbar:</p>
+	<p>Add sample messages to the Unplugged Debug Toolbar:</p>
 	
 	<p>
 		<xp:button
