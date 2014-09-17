@@ -172,7 +172,7 @@
                     $('.origSize').val( _resizedFile.size);
                             
                     //set the submit id to the current button (so the server knows what to do)
-                    $('input[name="$$xspsubmitid"]').val("view:_id1:button1");
+                    $('input[name="$$xspsubmitid"]').val("#{id:button1}");
                             
                     //create FormData object to send all form data to Unplugged
                    var fd = new FormData();
