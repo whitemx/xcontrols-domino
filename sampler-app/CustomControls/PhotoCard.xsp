@@ -105,7 +105,7 @@
 					</xp:button>
 					
 					<xp:text escape="false">
-						<xp:this.value><![CDATA[#{javascript:"<button type=\"button\" onClick=\"unp.photoUploader.savePhoto(this, \'" + getComponent("button1").getClientId() + "\')\" class=\"btn btn-default\">" +
+						<xp:this.value><![CDATA[#{javascript:"<button type=\"button\" onClick=\"unp.photoUploader.savePhoto(this, \'" + getClientId("button1") + "\')\" class=\"btn btn-default\">" +
 						"<i class=\"fa fa-upload\"></i>Upload</button>"}]]></xp:this.value>
 					</xp:text>
 

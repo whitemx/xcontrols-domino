@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257D3B0073D1A0" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="1482" sequence="9" unid="5C3B93CDFCD25002C1257D560032F32B">
-<created><datetime dst="true">20140917T111630,51+02</datetime></created>
-<modified><datetime dst="true">20140917T112057,67+02</datetime></modified>
-<revised><datetime dst="true">20140917T112057,65+02</datetime></revised>
-<lastaccessed><datetime dst="true">20140917T112057,65+02</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140917T111630,51+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mark Leusink/O=LinQed</name></updatedby>
-<wassignedby><name>CN=Mark Leusink/O=LinQed</name></wassignedby>
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
+<noteinfo noteid="21da" sequence="14" unid="4DBDA3A634944BA680257D570025024B">
+<created><datetime dst="true">20140918T074414,19+01</datetime></created>
+<modified><datetime dst="true">20140918T080238,37+01</datetime></modified>
+<revised><datetime dst="true">20140918T080238,36+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140918T080238,37+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140918T074414,22+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$Flags"><text>gC~4;</text></item>
 <item name="$TITLE"><text>PhotoCard.xsp</text></item>
 
 
+
+
+
+
+
 <item name="$FileNames" sign="true"><text>PhotoCard.xsp</text></item>
-
-
 <item name="$DesignerVersion"><text>8.5.3</text></item>
-
-
-
 
 </note>
