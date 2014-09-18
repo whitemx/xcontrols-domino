@@ -101,3 +101,13 @@ body {
 .container.content {
 	padding-top: 20px;
 }
+
+/* Fix Scrollspy */
+.nav>li>a {
+	padding: 2px 15px;	
+}
+.nav-stacked>li {
+	height: 20px;
+}
+}
+}
