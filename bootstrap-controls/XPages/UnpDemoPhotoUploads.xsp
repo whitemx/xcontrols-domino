@@ -4,8 +4,7 @@
 	xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 
-	<unp:UnpBootDebugToolbar
-		defaultCollapsed="false"></unp:UnpBootDebugToolbar>
+	<unp:UnpBootDebugToolbar></unp:UnpBootDebugToolbar>
 	<xc:commonheader></xc:commonheader>
 
 	<xp:this.data>
