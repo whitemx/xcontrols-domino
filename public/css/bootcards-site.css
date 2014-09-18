@@ -104,10 +104,8 @@ body {
 
 /* Fix Scrollspy */
 .nav>li>a {
-	padding: 2px 15px;	
+	padding: 5px 15px;	
 }
 .nav-stacked>li {
-	height: 20px;
-}
-}
+	height: 30px;
 }
