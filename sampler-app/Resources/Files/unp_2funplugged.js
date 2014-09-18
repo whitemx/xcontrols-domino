@@ -996,7 +996,7 @@ unp.initCalendar = function() {
 			events: url,
 			timezone: 'local', 
 			titleFormat: {
-			    month: 'MMMM YYYY',
+			    month: 'MMM YYYY',
 			    week: "MMM D",
 			    day: 'MMM DD'
 			}, 
