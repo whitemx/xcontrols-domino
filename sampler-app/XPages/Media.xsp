@@ -50,7 +50,7 @@ if (attachmentList != null && attachmentList.length > 0){
 	</xp:this.resources>
 	<xc:commonheader pagetitle="Carousel"></xc:commonheader>
 	<div id="main" class="container">
-		<div class="row fullheightrow">
+		<div class="row fullheightrow" style="padding-top: 10px; overflow: auto;">
 			<div class="col-sm-12">
 				<unp:UnpBootCarousel
 					footertext="Built with Bootcards - Media Card"
