@@ -4,12 +4,12 @@
 		<div class="panel-heading">
 			<div class="pull-right">
 				<a href="#carousel-ios" data-slide="next">
-					<span class="fa fa-2x fa-chevron-right"></span>
+					<i class="fa fa-2x fa-chevron-right" style="padding-top: 5px;"></i>
 				</a>
 			</div>
 			<div class="pull-left">
 				<a href="#carousel-ios" data-slide="prev">
-					<span class="fa fa-2x fa-chevron-left"></span>
+					<span class="fa fa-2x fa-chevron-left" style="padding-top: 5px;"></span>
 				</a>
 			</div>
 			<xp:text id="workspacetitle" tagName="h3" styleClass="panel-title text-center"
@@ -38,14 +38,7 @@
 }else{
 	return "";
 }}]]></xp:this.value>
-				</xp:text>
-				<a class="left carousel-control" href="#carousel-ios" data-slide="prev">
-					<span class="fa fa-3x fa-chevron-left"></span>
-				</a>
-				<a class="right carousel-control" href="#carousel-ios" data-slide="next">
-					<span class="fa fa-3x fa-chevron-right"></span>
-				</a>
-				
+				</xp:text>				
 			</div>
 		</div>
 		<div class="panel-footer">

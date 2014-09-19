@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
-	<div class="panel panel-default">
+	<div class="panel panel-default bootcards-media">
 		<div class="panel-heading">
 			<div class="pull-right">
 				<a href="#carousel-ios" data-slide="next">
@@ -38,14 +38,7 @@
 }else{
 	return "";
 }}]]></xp:this.value>
-				</xp:text>
-				<a class="left carousel-control" href="#carousel-ios" data-slide="prev">
-					<span class="fa fa-3x fa-chevron-left"></span>
-				</a>
-				<a class="right carousel-control" href="#carousel-ios" data-slide="next">
-					<span class="fa fa-3x fa-chevron-right"></span>
-				</a>
-				
+				</xp:text>				
 			</div>
 		</div>
 		<div class="panel-footer">
