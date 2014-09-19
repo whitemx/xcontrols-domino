@@ -1,30 +1,39 @@
 <?xml version='1.0' encoding='utf-8'?>
-<view name='Reference Data' xmlns='http://www.lotus.com/dxl' version='9.0'
- maintenanceversion='1.0' replicaid='80257D3A003BCC3B' showinmenu='false'
- publicaccess='false' designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened'
- onrefresh='displayindicator' headers='beveled' opencollapsed='false' showresponsehierarchy='true'
- showmargin='true' shrinkrows='false' extendlastcolumn='false' showhierarchies='false'
- unreadcolor='black' rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white'
- totalscolor='black' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
- allownewdocuments='false' allowcustomizations='true' hidemarginborder='false'
- marginwidth='0px' marginbgcolor='white' uniquekeys='false'>
-<noteinfo noteid='14e' unid='6DB1FCEFE06E062180257CD8002C3123' sequence='8'>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
+ replicaid='80257D2D003F8F5C'>
+<noteinfo noteid='53e' unid='6DB1FCEFE06E062180257CD8002C3123' sequence='10'>
 <created><datetime dst='true'>20140514T090241,63+01</datetime></created>
-<modified><datetime dst='true'>20140820T120826,34+01</datetime></modified>
-<revised><datetime dst='true'>20140820T120826,33+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140820T140451,51+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140820T115311,31+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst='true'>20140828T160409,67+01</datetime></modified>
+<revised><datetime dst='true'>20140828T160409,66+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20140828T160409,67+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20140815T121857,93+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
-<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby><code event='selection'><formula
->SELECT ((Form = "RefData"))</formula></code>
-<column sort='ascending' hidedetailrows='false' itemname='Key' width='10'
- resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
- showaslinks='false'><columnheader title='Key'><font size='9pt' style='bold'/></columnheader></column>
-<column sort='ascending' hidedetailrows='false' itemname='Value' width='73.2500'
- resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
- showaslinks='false'><columnheader title='Value'><font size='9pt' style='bold'/></columnheader></column>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='$TITLE' sign='true'><text>Reference Data</text></item>
+<item name='$Index' sign='true'><text/></item>
+<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
+WgAFACYAIQAEAAMABQAJAAQAS2V5VmFsdWUkQ29uZmxpY3QkUkVGAAQABAAAACAABQAEAEZvcm0B
+AAcAUmVmRGF0YQAKAgQABAADAAcADgAIAAlMMVM0UzVT
+</formula></item>
+<item name='$Collation' summary='true'>
+<rawitemdata type='2'>
+HAACAABEAGYAAAADAIBmAAMABQBLZXlWYWx1ZQ==
+</rawitemdata></item>
+<item name='$ViewFormat' summary='true' sign='true'>
+<rawitemdata type='5'>
+AQACAAAACAAAAFZDAQADAAMAAAAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMBAAUABQAAAAAASgIB
+AAAKAAAAAAAAAAAAAgIAAABLZXlLZXlWYWx1ZVZhbHVlJgABAAAAAQEACQEAAAoBAQAKAAABAK0r
+AQABAAEAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAA
+AAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAEIAAAAAAAEA
+////AAUA////AAEAAAAAAAAAAAAAAAAAAQD///8AAQD///8AAAABAAAAAAABAAAAAAABAAAAAAAA
+AAgAAAAAAAEA
+</rawitemdata></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
 <item name='$SelQuery' sign='true'>
 <rawitemdata type='f'>
 gQYAAAAAif8TAAAAAAABAAcAUmVmRGF0YQA=
-</rawitemdata></item></view>
+</rawitemdata></item>
+<item name='$Flags'><text>Y</text></item></note>
 

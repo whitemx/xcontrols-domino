@@ -12,8 +12,10 @@
 	<div id="main" class="container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="Cards" summarycolumn="Title"
-				viewname="Base Cards" numberofrows="20" ajaxload="Yes" xpagedoc="BaseCards.xsp"
-				footertext="Built with Bootcards - List">
+				viewname="Base Cards" numberofrows="20" ajaxload="Yes"
+				xpagedoc="BaseCards.xsp"
+				footertext="Built with Bootcards - Flat List" photocolumn="Photo"
+				detailcolumn="Detail">
 			</unp:UnpBootFlatView>
 			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
 				<xp:text escape="false" id="computedField1" tagName="div"

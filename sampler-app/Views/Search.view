@@ -1,94 +1,90 @@
 <?xml version='1.0' encoding='utf-8'?>
-<view name='Search' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
- replicaid='80257D3A003BCC3B' showinmenu='false' publicaccess='false' designerversion='8.5.3'
- unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
- opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
- extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
- headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
- boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
- allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
- uniquekeys='false'>
-<noteinfo noteid='1c6' unid='9243909AF88362DC80257CD8002C3120' sequence='9'>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
+ replicaid='80257D2D003F8F5C'>
+<noteinfo noteid='5e2' unid='9243909AF88362DC80257CD8002C3120' sequence='11'>
 <created><datetime dst='true'>20140514T090241,60+01</datetime></created>
-<modified><datetime dst='true'>20140820T120826,30+01</datetime></modified>
-<revised><datetime dst='true'>20140820T120826,29+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140820T120826,30+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140820T115314,56+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst='true'>20140828T160409,62+01</datetime></modified>
+<revised><datetime dst='true'>20140828T160409,61+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20140828T160409,62+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20140815T121858,84+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
-<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby><code event='selection'><formula
->SELECT ((Form = "Person"))</formula></code>
-<actionbar bgcolor='#f0f0f0' bordercolor='black'>
-<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
- width='0px 0px 1px' color='system'/>
-<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
-<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
-<action title='_Send Document' showinbar='false' systemcommand='send'/>
-<action title='_Forward' showinbar='false' systemcommand='forward'/>
-<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
-<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
-<action title='_Read' showinbar='false' systemcommand='markread'/>
-<action title='_Unread' showinbar='false' systemcommand='markunread'/>
-<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
-<action title='_Print...' showinbar='false' systemcommand='print'/>
-<action title='_Delete' showinbar='false' systemcommand='delete'/>
-<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
-<action title='C_ut' showinbar='false' systemcommand='cut'/>
-<action title='_Copy' showinbar='false' systemcommand='copy'/>
-<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
-<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
-<action title='P_aste' showinbar='false' systemcommand='paste'/>
-<action title='_Open' showinbar='false' systemcommand='open'/>
-<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
-<column sort='ascending' hidedetailrows='false' itemname='$12' width='10'
- resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
- showaslinks='false' categorized='true'><columnheader title='Key'><font size='9pt'
- style='bold'/></columnheader><code event='value'><formula>@LowerCase(FirstName : LastName : Country : Company)</formula></code></column>
-<column sort='ascending' hidedetailrows='false' itemname='LastName' width='10'
- resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
- showaslinks='false'><columnheader title='LastName'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='FirstName' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
- title='FirstName'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='$13' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='FullName'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
->FirstName + " " + LastName</formula></code></column>
-<column hidedetailrows='false' itemname='$0' width='40.6250' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='Photo'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
->@If(@AttachmentNames=""; ""; "0/" + @Text(@DocumentUniqueID) + "/$FILE/" + @Subset(@AttachmentNames; 1))</formula></code></column>
-<column hidedetailrows='false' itemname='Company' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='Company'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='StreetAddress' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='StreetAddress'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='City' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='City'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='ZipCode' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='ZipCode'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='Country' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='Country'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='Phone' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='Phone'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='Email' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='Email'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='InitialContactDate' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='InitialContactDate'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='THUMBNAILFILENAME' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='ThumbnailFileName'><font size='9pt' style='bold'/></columnheader></column>
-<column hidedetailrows='false' itemname='SEX' width='10' resizable='true'
- separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
- title='Sex'><font size='9pt' style='bold'/></columnheader></column>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='$V5ACTIONS' sign='true'>
+<rawitemdata type='1'>
+vRw/AAAAAQABAAAAAQAAAAAAAAABAAAJAAAAAHn/bAABAPDw8AABAAAAAAAJAAAAAAABAPDw8AAA
+AB8AAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPz/OgAAAAAAAQAAAAAAAQAAAAAAAAAAAAwAAAAAAAAAAAAA
+AAAAAAAAAAkAAAAAAAAAAAAAAAAAAAC+/yYAAAAFAAAAnQEAAAsAAAAAAAAAQ2F0ZWdvcmlfemUA
+AQBOfL7/KAAAAAUAAACdAQAADgAAAAAAAABfRWRpdCBEb2N1bWVudAIAAgq+/ygAAAAFAAAAnQEA
+AA4AAAAAAAAAX1NlbmQgRG9jdW1lbnQDAAMKvv8iAAAABQAAAJ0BAAAIAAAAAAAAAF9Gb3J3YXJk
+BAAECr7/LAAAAAUAAACdAQAAEgAAAAAAAABfTW92ZSBUbyBGb2xkZXIuLi4FAD18vv8uAAAABQAA
+AJ0BAAATAAAAAAAAAF9SZW1vdmUgRnJvbSBGb2xkZXIABgA+fL7/IAAAAAQAAACdAQBABQAAAAAA
+AABfUmVhZAAHAF58vv8iAAAABAAAAJ0BAEAHAAAAAAAAAF9VbnJlYWQACABufL7/LgAAAAQAAACd
+AQBAEwAAAAAAAABfT3BlbiBpbiBOZXcgV2luZG93AAkAfny+/yQAAAAEAAAAnQEAQAkAAAAAAAAA
+X1ByaW50Li4uAAoAjny+/yIAAAAEAAAAnQEAQAcAAAAAAAAAX0RlbGV0ZQALAJ58vv8uAAAABAAA
+AJ0BAEAUAAAAAAAAAF9Eb2N1bWVudCBQcm9wZXJ0aWVzDACufL7/HgAAAAQAAACdAQBABAAAAAAA
+AABDX3V0DQC+fL7/IAAAAAQAAACdAQBABQAAAAAAAABfQ29weQAOAM58vv8wAAAABAAAAJ0BAEAW
+AAAAAAAAAENvcHkgYXMgRG9jdW1lbnQgX0xpbmsPAN58vv8oAAAABAAAAJ0BAEAOAAAAAAAAAENv
+cHkgYXMgX1RhYmxlEADufL7/IAAAAAQAAACdAQBABgAAAAAAAABQX2FzdGURAP58vv8gAAAABAAA
+AJ0BAEAFAAAAAAAAAF9PcGVuABIADn2+/yIAAAAEAAAAnQEAQAgAAAAAAAAAQm9va21hcmsTAB59
+</rawitemdata></item>
+<item name='$TITLE' sign='true'><text>Search</text></item>
+<item name='$Index' sign='true'><text/></item>
+<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
+ngECAEYAAwAkMTIABQAJAEZpcnN0TmFtZQAFAAgATGFzdE5hbWUfAgUABwBDb3VudHJ5AB8CBQAH
+AENvbXBhbnkAHwJhAQMAAgAwAAMAJDEzAAUACQBGaXJzdE5hbWUAAQABACAAIgIFAAgATGFzdE5h
+bWUiAgMAAgBQAAIAJDBzAAEAAAAKAq8APAAKAAEAAACuADIAAQACADAvkABWASICAQAHAC8kRklM
+RS8AIgJzAAAAAAAAAAAA8D9rAiICrgAEALUDAwAFAKYAogARAAMACAAJAAMAAgAHAA0ABAAHAAcA
+BQAFABIAEQADAAkABAAkMTJMYXN0TmFtZUZpcnN0TmFtZSQxMyQwQ29tcGFueVN0cmVldEFkZHJl
+c3NDaXR5WmlwQ29kZUNvdW50cnlQaG9uZUVtYWlsSW5pdGlhbENvbnRhY3REYXRlVEhVTUJOQUlM
+RklMRU5BTUVTRVgkQ29uZmxpY3QkUkVGBAAEAAAAHgAFAAQARm9ybQEABgBQZXJzb24KAgQABAAD
+AAcADgAIAAlMMVM0UzVT
+</formula></item>
+<item name='$Collation' summary='true'>
+<rawitemdata type='2'>
+HwACAABECGYHAAADAIBmAAMACAAkMTJMYXN0TmFtZQ==
+</rawitemdata></item>
+<item name='$ViewFormat' sign='true'>
+<rawitemdata type='5'>
+AQAPAAAACAAAAFZDAwADAAMAXAAAAFAAAQAACgABAAAAAAAAAAICAAAAVkMBAAgACAAAAAAAUAAB
+AAAKAAAAAAAAAAAAAgIAAABWQwAACQAJAAAAAABQAAEAAAoAAAAAAAAAAAACAgAAAFZDAAADAAgA
+QgAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMAAAIABQByAAAARQEBAAAKAAAAAAAAAAAAAgIAAABW
+QwAABwAHAAAAAABQAAEAAAoAAAAAAAAAAAACAgAAAFZDAAANAA0AAAAAAFAAAQAACgAAAAAAAAAA
+AAICAAAAVkMAAAQABAAAAAAAUAABAAAKAAAAAAAAAAAAAgIAAABWQwAABwAHAAAAAABQAAEAAAoA
+AAAAAAAAAAACAgAAAFZDAAAHAAcAAAAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMAAAUABQAAAAAA
+UAABAAAKAAAAAAAAAAAAAgIAAABWQwAABQAFAAAAAABQAAEAAAoAAAAAAAAAAAACAgAAAFZDAAAS
+ABIAAAAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMAABEAEQAAAAAAUAABAAAKAAAAAAAAAAAAAgIA
+AABWQwAAAwADAAAAAABQAAEAAAoAAAAAAAAAAAACAgAAACQxMktleVwAAgBGAAMAJDEyAAUACQBG
+aXJzdE5hbWUABQAIAExhc3ROYW1lHwIFAAcAQ291bnRyeQAfAgUABwBDb21wYW55AB8CYQEDAAcA
+FAANAAkzUzRTNVM2UzdTOFMATGFzdE5hbWVMYXN0TmFtZUZpcnN0TmFtZUZpcnN0TmFtZSQxM0Z1
+bGxOYW1lQgACADAAAwAkMTMABQAJAEZpcnN0TmFtZQABAAEAIAAiAgUACABMYXN0TmFtZSICAwAH
+ABAACQAJMVMyUzNTNFMAJDBQaG90b3IAAgBQAAIAJDBzAAEAAAAKAq8APAAKAAEAAACuADIAAQAC
+ADAvkABWASICAQAHAC8kRklMRS8AIgJzAAAAAAAAAAAA8D9rAiICrgAEALUDAwAHACAAGQAJNlM4
+UzlTMTBTMTRTMTVTMTZTMTdTMjFTAENvbXBhbnlDb21wYW55U3RyZWV0QWRkcmVzc1N0cmVldEFk
+ZHJlc3NDaXR5Q2l0eVppcENvZGVaaXBDb2RlQ291bnRyeUNvdW50cnlQaG9uZVBob25lRW1haWxF
+bWFpbEluaXRpYWxDb250YWN0RGF0ZUluaXRpYWxDb250YWN0RGF0ZVRIVU1CTkFJTEZJTEVOQU1F
+VGh1bWJuYWlsRmlsZU5hbWVTRVhTZXgmAAEAAAABAQAJAQAACgEBAAoAAAEArSsBAAEAAQAAAAAA
+AAAAAFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEBAAkA
+AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA
+AP//AAAAAAAAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAA
+AAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQEA
+CQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAA
+AAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAA
+AAAA//8AAAAAAAAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAA
+AAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MB
+AQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQEACQAAAAAAAAAA
+AAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAE
+AAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAA
+AAAAAAAAAAAAAEIAEAAAAAEA////AAUA////AAEAAAAAAAAAAAAAAAAAAQD///8AAQD///8AAAAB
+AAAAAAABAAAAAAABAAAAAAAAAAgAAAAAAAEA
+</rawitemdata></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
 <item name='$SelQuery' sign='true'>
 <rawitemdata type='f'>
 gQYAAAAAif8SAAAAAAABAAYAUGVyc29u
-</rawitemdata></item></view>
+</rawitemdata></item>
+<item name='$Flags'><text>Y</text></item></note>
 
