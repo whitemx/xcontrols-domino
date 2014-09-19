@@ -2,7 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
 	xmlns:xc="http://www.ibm.com/xsp/custom">
 
-	<unp:UnpBootFormEditor viewxpagename="UnpDemoCalendar.xsp"
+	<unp:UnpBootFormEditor viewxpagename="UnpDemoCalendar.xsp" footertext="Built with Bootcards - Form Editor Card"
 		formname="CalendarEntry" showbuttons="yes" title="Calendar Entry">
 		<xp:this.facets>
 			<xp:panel id="list-group" xp:key="facet_1">

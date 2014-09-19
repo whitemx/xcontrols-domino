@@ -12,7 +12,7 @@
 				expandfirstcategory="no" ajaxload="Yes"
 				loaddocumenttarget="doccontent" detailcolumn="Detail"
 				xpagedoc="ActivitiesByContact.xsp" newdatatarget="#editModal"
-				newlink="ActivityEdit.xsp" footertext="Built with Bootcards - List">
+				newlink="ActivityEdit.xsp" footertext="Built with Bootcards - Flat List">
 			</unp:UnpBootAccordionView>
 			<div id="doccontent"
 				class="col-sm-7 bootcards-cards hidden-xs" style="display: none;">

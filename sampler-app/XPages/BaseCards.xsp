@@ -97,7 +97,7 @@
 
 				<xp:panel id="editingpanel">
 					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Editing"}]]></xp:this.rendered>
-					<unp:UnpBootFormEditor showbuttons="no"
+					<unp:UnpBootFormEditor showbuttons="no" footertext="Built with Bootcards - Rich Text Card"
 						title="Edit" formname="BaseCard" viewxpagename="BaseCards.xsp">
 						<xp:this.facets>
 							<xp:panel xp:key="facet_1">
@@ -115,6 +115,7 @@ if (doc != null){
 								</unp:UnpBootTypographyEdit>
 							</xp:panel>
 						</xp:this.facets>
+						
 					</unp:UnpBootFormEditor>
 				</xp:panel>
 

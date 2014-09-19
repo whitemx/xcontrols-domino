@@ -29,7 +29,7 @@
 							</div>
 						</div>
 						<div class="panel-footer">
-							<small class="pull-left">Randomly generated data!</small>
+							<small class="pull-left">Built with Bootcards - Chart Card</small>
 						</div>
 					</div>
 					<div class="panel panel-default bootcards-table" style="display: none;">
@@ -55,7 +55,7 @@
 						</div>
 						<div class="panel-footer">
 							<div class="panel-footer">
-								<small>Randomly generated data!</small>
+								<small class="pull-left">Built with Bootcards - Chart Card</small>
 							</div>
 						</div>
 					</div>

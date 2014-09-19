@@ -58,7 +58,9 @@ return out;}]]></xp:this.value>
 			<br />
 		</xp:panel>
 		<xp:panel id="modal-footer" styleClass="modal-footer">
-
+			<xp:text id="footertext" tagName="small" styleClass="pull-left"
+				value="#{javascript:compositeData.footertext}">
+			</xp:text>
 		</xp:panel>
 	</div>
 </xp:view>

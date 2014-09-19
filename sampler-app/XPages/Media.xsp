@@ -53,7 +53,7 @@ if (attachmentList != null && attachmentList.length > 0){
 		<div class="row fullheightrow" style="padding-top: 10px; overflow: auto;">
 			<div class="col-sm-12">
 				<unp:UnpBootCarousel
-					footertext="Built with Bootcards - Media Card"
+					footertext="Built with Bootcards - Accordion List"
 					title="Carousel">
 					<xc:this.carouselfileslist><![CDATA[#{javascript:viewScope.images}]]></xc:this.carouselfileslist>
 				</unp:UnpBootCarousel>
