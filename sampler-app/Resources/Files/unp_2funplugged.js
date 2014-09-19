@@ -70,9 +70,9 @@ unp.initPage = function(){
 		}
 	}
 
-	$('.offcanvas-toggle').on('click', function() {
-		$("#slideInMenu").toggleClass("active");
-	})
+	//$('.offcanvas-toggle').on('click', function() {
+	//	$("#slideInMenu").toggleClass("active");
+	//})
 	unp.initiscroll();
 	try {
 		$(".opendialoglink").click( function(event) {
@@ -91,12 +91,28 @@ unp.initPage = function(){
 	unp.initCalendar();
 	unp.initNavigator();
 	unp.initAZPicker();
+	bootcards.init( {
+        offCanvasHideOnMainClick : true,
+        enableTabletPortraitMode : true,
+        disableRubberBanding : true
+    });
 	$(document).ajaxStop( function() {
+		if (bootcards.offCanvasToggleEl) { bootcards.offCanvasToggleEl.unbind( "click" ); }
+		$(window).unbind("resize");
 		unp.initRichText();
 		unp.initReaderButtons();
 		unp.highlightCurrentPage();
 		unp.initCalendar();
 		unp.initAZPicker();
+		bootcards.init( {
+	        offCanvasHideOnMainClick : true,
+	        enableTabletPortraitMode : true,
+	        disableRubberBanding : true
+	    });
+	    if (bootcards.offCanvasMenuEl) { bootcards.offCanvasMenuEl.removeClass("active"); }
+	    if (bootcards.offCanvasMenuTitleEl) { bootcards.offCanvasMenuTitleEl.removeClass("active"); }
+	    if (bootcards.mainContentEl) { bootcards.mainContentEl.removeClass("active active-left"); }
+	    
 	});
 	
 	//Open first item in flat view if necessary
@@ -536,10 +552,10 @@ unp.loadPage = function(url, target, menuitem, pushState) {
 					+ "\n\n" + $(data).text());
 			return false;
 		} else {
-			$("#slideInMenu").removeClass("active");
-			$('.offcanvas-toggle').on('click', function() {
-				$("#slideInMenu").toggleClass("active");
-			})
+			//$("#slideInMenu").removeClass("active");
+			//$('.offcanvas-toggle').on('click', function() {
+			//	$("#slideInMenu").toggleClass("active");
+			//})
 			unp.initPage();
 			if (_pushState) {
 				unp.storePageRequest(url);

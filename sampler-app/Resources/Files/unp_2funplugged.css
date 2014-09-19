@@ -50,23 +50,20 @@
 	opacity: 1;
 }
 
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width
+	: 480px) {
 	.carousel-control,.carousel-control:hover,.carousel-control:focus {
 		font-size: 8px !important;
 	}
 }
 
 /* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
+@media only screen and (min-device-width : 768px) and (max-device-width
+	: 1024px) {
 	.carousel-control,.carousel-control:hover,.carousel-control:focus {
 		font-size: 10px !important;
 	}
 }
-
 
 .carousel-control {
 	position: absolute;
@@ -74,8 +71,8 @@ and (max-device-width : 1024px) {
 	left: 0;
 	bottom: 0;
 	width: 15%;
-	opacity: 1; 
-	font-size:20px;
+	opacity: 1;
+	font-size: 20px;
 	color: #fff;
 	text-align: center;
 	text-shadow: 0 2px 2px rgba(0, 0, 0, .6);
@@ -84,6 +81,7 @@ and (max-device-width : 1024px) {
 .carousel-control .fa-chevron-left {
 	left: 0px !important;
 }
+
 .carousel-control .fa-chevron-right {
 	right: 0px !important;
 }
@@ -251,6 +249,7 @@ div.dBar .content {
 	margin: 10px;
 	padding-left: 12px !important;
 }
+
 .photoUpload input {
 	position: absolute;
 	top: 0;
@@ -260,12 +259,29 @@ div.dBar .content {
 	font-size: 20px;
 	cursor: pointer;
 	opacity: 0;
-	filter: alpha(opacity=0);
+	filter: alpha(opacity = 0);
 }
+
 .photoUpload input img {
 	border: 0;
 	display: block;
 	margin: 10px 0;
 	width: 300px;
 }
+
 /* end photo uploader */
+.offcanvas-left {
+	left: -300px !important;
+}
+
+.offcanvas-left.active {
+	-webkit-transform: translate3d(300px, 0, 0) !important;
+	-moz-transform: translate3d(300px, 0, 0) !important;
+	-o-transform: translate3d(300px, 0, 0) !important;
+	-ms-transform: translate3d(300px, 0, 0) !important;
+	transform: translate3d(300px, 0, 0) !important;
+}
+
+.offcanvas,.offcanvas-list {
+	width: 300px !important;
+}
