@@ -23,6 +23,57 @@
 					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("HTML") != ""}]]></xp:this.rendered>
 				</xp:text>
 
+				<xp:panel id="chartpanel">
+					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Chart Card"}]]></xp:this.rendered>
+					<div class="panel panel-default bootcards-chart">
+						<div class="panel-heading">
+							<h3 class="panel-title">Closed sales by team member - $000s (December)</h3>
+						</div>
+						<div class="">
+							<div id="div2" class="chartpanelelement">
+								<div id="pie1">
+								</div>
+							</div>
+							<div class="panel-footer">
+								<a href="" class="btn btn-default btn-block" onclick="toggleChartData(); return false;">
+									<i class="fa fa-table"></i>
+									&#160;Show Data
+								</a>
+							</div>
+						</div>
+						<div class="panel-footer">
+							<small class="pull-left">Built with Bootcards - Chart Card</small>
+						</div>
+					</div>
+					<div class="panel panel-default bootcards-table" style="display: none;">
+						<div class="panel-heading">
+							<h3 class="panel-title">Closed sales by team member - $000s (December)
+						</h3>
+						</div>
+						<table class="table table-hover">
+							<thead>
+								<tr class="active">
+									<th>Name</th>
+									<th class="text-right">Sales Value</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<div class="panel-footer">
+							<a href="" class="btn btn-default btn-block" onclick="toggleChartData(); return false;">
+								<i class="fa fa-bar-chart-o"></i>
+								&#160;Show Chart
+							</a>
+						</div>
+						<div class="panel-footer">
+							<div class="panel-footer">
+								<small class="pull-left">Built with Bootcards - Chart Card</small>
+							</div>
+						</div>
+					</div>
+				</xp:panel>
+
 				<xp:panel id="readingpanel">
 					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Reading"}]]></xp:this.rendered>
 					<unp:UnpBootTypographyRead title="Reading Panel"
