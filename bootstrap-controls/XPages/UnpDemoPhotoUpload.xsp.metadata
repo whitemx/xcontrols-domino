@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257D380041C1D7" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="426" sequence="70" unid="9F2789DFB6411BE4C1257D48004A1F41">
-<created><datetime dst="true">20140903T152936,65+02</datetime></created>
-<modified><datetime dst="true">20140916T165626,15+02</datetime></modified>
-<revised><datetime dst="true">20140916T165626,13+02</datetime></revised>
-<lastaccessed><datetime dst="true">20140916T165626,13+02</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140903T152936,67+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mark Leusink/O=LinQed</name></updatedby>
-<wassignedby><name>CN=Mark Leusink/O=LinQed</name></wassignedby>
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D1E002A1358" version="9.0">
+<noteinfo noteid="19d6" sequence="16" unid="4152B60B3E3CDAC780257D550055741F">
+<created><datetime dst="true">20140916T163322,87+01</datetime></created>
+<modified><datetime dst="true">20140922T155035,33+01</datetime></modified>
+<revised><datetime dst="true">20140922T155035,32+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140922T155035,33+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140916T163322,91+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$Flags"><text>gC~4K</text></item>
 <item name="$TITLE" sign="true"><text>UnpDemoPhotoUpload.xsp</text></item>
+
+
+
+
+
+<item name="$FileNames" sign="true"><text>UnpDemoPhotoUpload.xsp</text></item>
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
-
-
-
-
-
-
-<item name="$FileNames" sign="true"><text>UnpDemoPhotoUpload.xsp</text></item></note>
+</note>

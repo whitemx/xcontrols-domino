@@ -16,7 +16,7 @@
 
 	<xc:commonheader pagetitle="Calendar"></xc:commonheader>
 
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<unp:UnpBootCalendar enddatefield="EndDate"
 			highlightfield="HighLight" catfield="Category" highlighttest="Yes"
 			startdatefield="StartDate" titlefield="Title" viewname="CalendarEntries"

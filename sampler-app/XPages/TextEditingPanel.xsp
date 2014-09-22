@@ -14,7 +14,7 @@
 }}]]></xc:this.pagetitle>
 	</xc:commonheader>
 
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row">
 			<div class="bootcards-cards fullheightrow">
 				<div class="col-xs-12 col-sm-12 col-md-12">

@@ -3,7 +3,7 @@
 	xmlns:unp="http://unplugged.teamstudio.com">
 
 	<xc:commonheader pagetitle="Contacts"></xc:commonheader>
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="People" summarycolumn="FullName"
 				viewname="People By Last Name" numberofrows="20"

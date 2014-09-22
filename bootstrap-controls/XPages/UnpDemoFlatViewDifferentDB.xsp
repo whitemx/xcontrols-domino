@@ -4,7 +4,7 @@
 
 	<xc:commonheader></xc:commonheader>
 
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="Teamroom By Date"
 				summarycolumn="Topic" viewname="(UnpDocumentsByDate)" numberofrows="20"

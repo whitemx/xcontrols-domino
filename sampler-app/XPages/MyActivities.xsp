@@ -3,7 +3,7 @@
 	xmlns:unp="http://unplugged.teamstudio.com">
 
 	<xc:commonheader pagetitle="My Activities"></xc:commonheader>
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="My Activities"
 				summarycolumn="Title" viewname="Activities By Assignee"

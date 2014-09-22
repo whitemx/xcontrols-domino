@@ -56,7 +56,7 @@ try {
 
 	<xc:commonheader></xc:commonheader>
 
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootDebugToolbar></unp:UnpBootDebugToolbar>
 

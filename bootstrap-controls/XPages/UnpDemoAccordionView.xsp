@@ -4,7 +4,7 @@
 
 	<xc:commonheader>
 	</xc:commonheader>
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootAccordionView title="Employees By Department" summarycolumn="Name"
 				viewname="EmployessCatByDept" expandfirstcategory="yes"

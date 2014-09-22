@@ -39,6 +39,12 @@ unp.storePageRequest = function(url) {
 }
 
 $(window).load( function() {
+	bootcards.init( {
+        offCanvasHideOnMainClick : true,
+        enableTabletPortraitMode : true,
+        disableRubberBanding : true, 
+        mainContentEl: $('#doccontent')
+    });
 	unp.initPage();
 	unp._firstLoad = false;
 });
@@ -91,28 +97,32 @@ unp.initPage = function(){
 	unp.initCalendar();
 	unp.initNavigator();
 	unp.initAZPicker();
-	bootcards.init( {
-        offCanvasHideOnMainClick : true,
-        enableTabletPortraitMode : true,
-        disableRubberBanding : true
-    });
+
 	$(document).ajaxStop( function() {
-		if (bootcards.offCanvasToggleEl) { bootcards.offCanvasToggleEl.unbind( "click" ); }
-		$(window).unbind("resize");
-		unp.initRichText();
+		$(".offcanvas-left").removeClass("active");
+		//do some cleaning up first
+        if (bootcards.listOffcanvasToggle) {
+            bootcards.listOffcanvasToggle.remove();
+            bootcards.listTitleEl.remove();
+            bootcards.offCanvasMenuTitleEl.remove();
+        }
+        bootcards.mainContentEl = $('#doccontent');
+        bootcards.listOffcanvasToggle = null;
+        bootcards.listTitleEl = null;
+        bootcards.offCanvasMenuTitleEl = null;
+        bootcards.listEl = null;
+        bootcards.cardsEl = null;
+		bootcards._setOrientation(true);
+		if (bootcards.listTitleEl) {
+			bootcards.listTitleEl.find('button').show();
+		}
+
+	    unp.initRichText();
 		unp.initReaderButtons();
 		unp.highlightCurrentPage();
 		unp.initCalendar();
 		unp.initAZPicker();
-		bootcards.init( {
-	        offCanvasHideOnMainClick : true,
-	        enableTabletPortraitMode : true,
-	        disableRubberBanding : true
-	    });
-	    if (bootcards.offCanvasMenuEl) { bootcards.offCanvasMenuEl.removeClass("active"); }
-	    if (bootcards.offCanvasMenuTitleEl) { bootcards.offCanvasMenuTitleEl.removeClass("active"); }
-	    if (bootcards.mainContentEl) { bootcards.mainContentEl.removeClass("active active-left"); }
-	    
+		console.log("post1" + $("#hackmenu").css("display"));
 	});
 	
 	//Open first item in flat view if necessary

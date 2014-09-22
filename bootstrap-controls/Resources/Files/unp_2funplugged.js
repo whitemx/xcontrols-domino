@@ -39,6 +39,12 @@ unp.storePageRequest = function(url) {
 }
 
 $(window).load( function() {
+	bootcards.init( {
+        offCanvasHideOnMainClick : true,
+        enableTabletPortraitMode : true,
+        disableRubberBanding : true, 
+        mainContentEl: $('#doccontent')
+    });
 	unp.initPage();
 	unp._firstLoad = false;
 });
@@ -70,9 +76,9 @@ unp.initPage = function(){
 		}
 	}
 
-	$('.offcanvas-toggle').on('click', function() {
-		$("#slideInMenu").toggleClass("active");
-	})
+	//$('.offcanvas-toggle').on('click', function() {
+	//	$("#slideInMenu").toggleClass("active");
+	//})
 	unp.initiscroll();
 	try {
 		$(".opendialoglink").click( function(event) {
@@ -91,12 +97,32 @@ unp.initPage = function(){
 	unp.initCalendar();
 	unp.initNavigator();
 	unp.initAZPicker();
+
 	$(document).ajaxStop( function() {
-		unp.initRichText();
+		$(".offcanvas-left").removeClass("active");
+		//do some cleaning up first
+        if (bootcards.listOffcanvasToggle) {
+            bootcards.listOffcanvasToggle.remove();
+            bootcards.listTitleEl.remove();
+            bootcards.offCanvasMenuTitleEl.remove();
+        }
+        bootcards.mainContentEl = $('#doccontent');
+        bootcards.listOffcanvasToggle = null;
+        bootcards.listTitleEl = null;
+        bootcards.offCanvasMenuTitleEl = null;
+        bootcards.listEl = null;
+        bootcards.cardsEl = null;
+		bootcards._setOrientation(true);
+		if (bootcards.listTitleEl) {
+			bootcards.listTitleEl.find('button').show();
+		}
+
+	    unp.initRichText();
 		unp.initReaderButtons();
 		unp.highlightCurrentPage();
 		unp.initCalendar();
 		unp.initAZPicker();
+		console.log("post1" + $("#hackmenu").css("display"));
 	});
 	
 	//Open first item in flat view if necessary
@@ -536,10 +562,10 @@ unp.loadPage = function(url, target, menuitem, pushState) {
 					+ "\n\n" + $(data).text());
 			return false;
 		} else {
-			$("#slideInMenu").removeClass("active");
-			$('.offcanvas-toggle').on('click', function() {
-				$("#slideInMenu").toggleClass("active");
-			})
+			//$("#slideInMenu").removeClass("active");
+			//$('.offcanvas-toggle').on('click', function() {
+			//	$("#slideInMenu").toggleClass("active");
+			//})
 			unp.initPage();
 			if (_pushState) {
 				unp.storePageRequest(url);

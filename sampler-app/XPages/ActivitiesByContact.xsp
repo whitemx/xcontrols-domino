@@ -5,7 +5,7 @@
 
 	<xc:commonheader pagetitle="Activities By Contact"></xc:commonheader>
 
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootAccordionView title="Activities By Contact"
 				summarycolumn="Title" viewname="Activities By Contact"

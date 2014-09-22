@@ -3,7 +3,7 @@
 	xmlns:xc="http://www.ibm.com/xsp/custom" xmlns:unp="http://unplugged.teamstudio.com">
 
 	<xc:widgetsheader></xc:widgetsheader>
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="Employees By Department" summarycolumn="Name"
 				viewname="EmployessCatByDept" numberofrows="20"

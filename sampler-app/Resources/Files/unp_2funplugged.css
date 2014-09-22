@@ -284,4 +284,13 @@ div.dBar .content {
 
 .offcanvas,.offcanvas-list {
 	width: 300px !important;
+
+}
+
+.bootcards-container.active-left {
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    -moz-transform: translate3d(0, 0, 0) !important;
+    -o-transform: translate3d(0, 0, 0) !important;
+    -ms-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
 }

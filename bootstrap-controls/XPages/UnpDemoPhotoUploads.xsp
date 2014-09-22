@@ -17,7 +17,7 @@
 
 
 	<div
-		class="container">
+		class="container bootcards-container">
 
 		<xp:button
 			styleClass="btn btn-primary"

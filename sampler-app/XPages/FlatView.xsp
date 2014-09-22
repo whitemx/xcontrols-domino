@@ -4,7 +4,7 @@
 
 	<xc:commonheader pagetitle="Flat View"></xc:commonheader>
 
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="People" summarycolumn="FullName"
 				viewname="People By Last Name" numberofrows="20" ajaxload="Yes"

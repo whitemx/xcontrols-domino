@@ -9,7 +9,7 @@
 	</xp:this.data>
 	<xc:commonheader pagetitle="Sampler"></xc:commonheader>
 
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="Cards" summarycolumn="Title"
 				viewname="Base Cards" numberofrows="20" ajaxload="Yes"

@@ -9,6 +9,14 @@
 
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 
+	<xp:this.data>
+		<xp:dominoView
+			var="viewLogs"
+			viewName="ClientLogs"
+			databaseName="/UnpluggedLog.unp">
+		</xp:dominoView>
+	</xp:this.data>
+
 	<xp:this.beforePageLoad><![CDATA[#{javascript:unpDBar.init();}]]></xp:this.beforePageLoad>
 
 	<xp:this.afterPageLoad><![CDATA[#{javascript:
@@ -34,7 +42,7 @@ switch (_type) {
 		break;
 	case "clearLog":
 		try {
-			var db = session.getDatabase("", "UnpluggedLog.nsf");
+			var db = session.getDatabase("", "/UnpluggedLog.unp");
 			var dc = db.getAllDocuments();
 			dc.purgeAll();
 		} catch (e) {
@@ -342,22 +350,10 @@ switch (_type) {
 
 			</div>
 
-			<!-- Unplugged log: show only in Unplugged -->
-			<xp:panel
-				styleClass="section js-dbar-log">
-				<xp:this.loaded><![CDATA[${javascript:typeof UnpluggedLib != 'undefined' && null != UnpluggedLib 
-	}]]></xp:this.loaded>
-				<xp:this.rendered><![CDATA[#{javascript:typeof UnpluggedLib != 'undefined' && null != UnpluggedLib 
-	}]]></xp:this.rendered>
-				
-					<xp:this.data>
-						<xp:dominoView
-							var="viewLogs"
-							viewName="ClientLogs"
-							databaseName="/UnpluggedLog.nsf">
-						</xp:dominoView>
-					</xp:this.data>
-				
+			<!-- log -->
+			<div
+				id="dBarLog"
+				class="section">
 				<div
 					class="title"
 					style="font-weight:bold">
@@ -374,7 +370,7 @@ switch (_type) {
 								<xp:attr name="onclick">
 									<xp:this.value><![CDATA[
 									
-									dojo.query('.js-dbar-log .content').forEach( function(node) { dojo.html.set(node, 'No log messages found' ); } );
+									dojo.query('#dBarLog .content').forEach( function(node) { dojo.html.set(node, 'No log messages found' ); } );
 									
 							dojo.xhrGet( {
 									url : 'UnpDebugToolbarMain.xsp?type=clearLog',
@@ -382,7 +378,7 @@ switch (_type) {
 										
 									},
 									error : function(err) {
-										dojo.query('.js-dbar-log .content').forEach( function(node) { dojo.html.set(node, 'An error occurred: ' + err ); } );
+										dojo.query('#dBarLog .content').forEach( function(node) { dojo.html.set(node, 'An error occurred: ' + err ); } );
 									}
 								} );
 							]]></xp:this.value>
@@ -429,7 +425,7 @@ switch (_type) {
 								value="#{viewLogs}">
 
 								<xp:tr style="vertical-align:top">
-									<xp:this.styleClass><![CDATA[#{javascript:var img = logEntry.getColumnValue("Image");
+									<xp:this.styleClass><![CDATA[#{javascript:var img = logEntry.getColumnValue("Image")
 var t = img.substring(0, img.indexOf("."));
 
 switch (t) {
@@ -475,7 +471,7 @@ switch (t) {
 					</table>
 				</div>
 
-			</xp:panel>
+			</div>
 
 			<!-- environment -->
 			<div class="section">

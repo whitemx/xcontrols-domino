@@ -18,7 +18,7 @@
 				<span>Back</span>
 			</button>
 			<button type="button"
-				class="btn btn-default btn-menu pull-left offcanvas-toggle">
+				class="btn btn-default btn-menu pull-left offcanvas-toggle" data-toggle="offcanvas">
 				<i class="fa fa-lg fa-bars"></i>
 				<span>&#160;Menu</span>
 			</button>

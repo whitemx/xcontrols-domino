@@ -2,7 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
 	xmlns:xc="http://www.ibm.com/xsp/custom">
 	<xc:commonheader pagetitle="UPMark 4.0"></xc:commonheader>
-	<div id="main" class="container">
+	<div id="main" class="container bootcards-container">
 		<div class="row">
 			<div class="bootcards-cards fullheightrow">
 				<div id="intro" class="col-xs-12 col-sm-12 col-md-6">
