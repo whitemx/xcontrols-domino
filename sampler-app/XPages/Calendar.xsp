@@ -20,10 +20,10 @@
 		<unp:UnpBootCalendar enddatefield="EndDate"
 			highlightfield="HighLight" catfield="Category" highlighttest="Yes"
 			startdatefield="StartDate" titlefield="Title" viewname="CalendarEntries"
-			viewxpage="CalendarEntry.xsp" headerbuttonsleft="prev,next,today"
+			viewxpage="CalendarEntry.xsp" headerbuttonsleft="prev,today,next"
 			defaultviewtablet="month" defaultviewphone="basicWeek"
 			headerbuttonsrighttablet="agendaDay,agendaWeek,month"
-			headerbuttonsrightphone="" title="Calendar" footertext="Built with Bootcards - Base Card">
+			headerbuttonsrightphone="title" title="Calendar" footertext="Built with Bootcards - Base Card">
 		</unp:UnpBootCalendar>
 		<div class="pagetitle hidden">Calendar</div>
 	</div>

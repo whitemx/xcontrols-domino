@@ -997,9 +997,11 @@ unp.initCalendar = function() {
 		var calendaroptions = jQuery.parseJSON("{" + $('.calendarconfig').val() + "}");
 		var buttons = calendaroptions.headerbuttonsrighttablet;
 		var defaultView = calendaroptions.defaultviewtablet;
+		var title = 'title';
 		if ($(window).width() < 400){
 			buttons = calendaroptions.headerbuttonsrightphone;
 			defaultView = calendaroptions.defaultviewphone;
+			title = '';
 		}
 
 		var url = 'UnpCalendarData.xsp?viewname=' + calendaroptions.viewname;
@@ -1015,7 +1017,7 @@ unp.initCalendar = function() {
 		$('#calendar').fullCalendar( {
 			header : {
 				left : calendaroptions.headerbuttonsleft,
-				center : 'title',
+				center : title,
 				right : buttons
 			}, 
 			defaultView: defaultView, 
