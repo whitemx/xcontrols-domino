@@ -98,6 +98,8 @@ unp.initPage = function(){
 	unp.initNavigator();
 	unp.initAZPicker();
 
+	unp.photoUploader.init();
+	
 	$(document).ajaxStop( function() {
 		$(".offcanvas-left").removeClass("active");
 		//do some cleaning up first
@@ -122,6 +124,9 @@ unp.initPage = function(){
 		unp.highlightCurrentPage();
 		unp.initCalendar();
 		unp.initAZPicker();
+		
+		unp.photoUploader.init();
+		
 		console.log("post1" + $("#hackmenu").css("display"));
 	});
 	
@@ -1066,8 +1071,30 @@ unp.photoUploader = {
 	_imageResizeRotate : 0,
 	targetWidth : 0,
 	targetHeight : 0,
-	doCrop : false
+	doCrop : false,
+	customSelect : null
 };
+
+unp.photoUploader.init = function() {
+	
+	this.customSelect = $('.js-custom-select-var').text();
+	
+	if (this.customSelect != null && this.customSelect.length>0) {
+	
+		//move the 'photo select' button to a custom location
+		var move = $('.js-photouploader-upload');
+		var to = $(this.customSelect);
+		
+		if (move.length==1 && to.length==1) {
+			move.appendTo(to);
+			
+			//hide the default photo select
+			$('.js-photouploader .photoUpload').hide();
+
+		}
+	}
+	
+}
 	
 unp.photoUploader.loadImage = function( file, rotate) {
 
@@ -1084,10 +1111,7 @@ unp.photoUploader.loadImage = function( file, rotate) {
         	var img = new Image();
         	img.onload = function() {
         	
-   	            $(this).css({
-	                'width': '200px',
-	                'height': 'auto'
-	            }).appendTo('.js-photouploader-preview');
+   	            $(this).appendTo('.js-photouploader-preview');
            
        		 };
 	        $(img).attr('src', data);
@@ -1118,3 +1142,32 @@ unp.photoUploader.rotateImage = function(clockWise) {
 }
 
 /* end photo uploader */
+
+//hide / show a spinner icon in a button
+unp.showSpinner = function(targetEl) {
+	
+	var $target = $(targetEl);
+	var $icon = ($target.prop('tagName') == "I" ? $target : $target.children("i") );
+	
+	if ($icon.length>0) {
+		$icon.data( 'orig-class', $icon.attr('class') );
+		$icon
+			.removeClass()
+			.addClass("fa fa-spinner fa-spin");
+	}
+	
+}
+
+unp.hideSpinner = function(targetEl) {
+	
+	var $target = $(target);
+	var $icon = ($target.prop('tagName') == "I" ? $target : $target.children("i") );
+	var origClass = $icon.data('orig-class');
+	
+	if ($icon.length>0 && origClass) {
+		$icon
+			.removeClass()
+			.addClass(origClass);
+	}
+}
+

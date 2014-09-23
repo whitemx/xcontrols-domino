@@ -269,6 +269,11 @@ div.dBar .content {
 	width: 300px;
 }
 
+.js-photouploader-preview img {
+	height : auto;
+	width : 300px;	
+}
+
 /* end photo uploader */
 .offcanvas-left {
 	left: -300px !important;

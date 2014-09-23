@@ -292,28 +292,15 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
 	//get the file input
 	var $resizeFileUpload = $('.js-photouploader-upload');
 	var files = $resizeFileUpload[0].files;
-	if (typeof files == 'unidefined' || files.length === 0 ) {
+	if (typeof files == 'undefined' || files.length === 0 ) {
 		return;
 	}
 	
 	//disable all buttons
 	$('button').attr('disabled', true);
 	
-	var $target = $(button);
-	var $icon;
-	
-	if ($target.prop('tagName') == "I") {
-		$icon = $target;
-	} else {
-		$icon = $target.children("i");
-	}
-	
-	if ($icon.length>0) {
-		$icon.data( 'orig-class', $icon.attr('class') );
-		$icon
-			.removeClass()
-			.addClass("fa fa-spinner fa-spin");
-	}
+	//show a spinner icon in the upload button
+	unp.showSpinner(button);
 	
 	var _resizedFile = files[0];
                         
@@ -356,7 +343,24 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
 	  contentType: false,
 	  
 	  success: function(data) {
-		window.location.reload(true);
+
+			if (typeof unpluggedserver != 'undefined' && unpluggedserver) {
+				
+				$.get("UnpSyncAll.xsp")
+					.done( function() {
+						alert('Photo Saved and Synced');
+					})
+					.fail( function() {
+						alert('Photo Saved but not yet Synced');
+					})
+					.always( function() {
+						unp.openDocument(window.location.href, 'doccontent');
+					});
+				
+			} else {
+				alert('Photo Saved');
+			}
+		
 	  }
 	});
 

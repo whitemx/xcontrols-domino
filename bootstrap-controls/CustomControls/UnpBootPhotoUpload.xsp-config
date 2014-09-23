@@ -82,6 +82,12 @@
     <property>
       <property-name>placeHolderIcon</property-name>
       <property-class>string</property-class>
+      <description>Placeholder icon shown when no photo is selected.</description>
+    </property>
+    <property>
+      <property-name>customSelectElement</property-name>
+      <property-class>string</property-class>
+      <description>jQuery selector that can be used to specify a custom location for the 'photo select' control</description>
     </property>
   </composite-component>
 </faces-config>

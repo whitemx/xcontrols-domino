@@ -3,12 +3,15 @@
 
 	<div class="js-photouploader">
 
-		<div class="photoUpload btn btn-primary">
+		<xp:div
+			styleClass="photoUpload btn btn-primary">
+
 			<xp:text
 				escape="true"
 				id="computedField1">
 				<xp:this.value><![CDATA[#{javascript:return (!isEmpty(compositeData.selectPhotoText) ? compositeData.selectPhotoText : "Select photo" );}]]></xp:this.value>
 			</xp:text>
+
 			<xp:fileUpload
 				id="fileUpload2"
 				value="#{compositeData.targetDoc[compositeData.itemName]}"
@@ -35,14 +38,14 @@
 					</xp:attr>
 				</xp:this.attrs>
 			</xp:fileUpload>
-		</div>
+		</xp:div>
 
 		<!-- target location for the loaded image -->
 		<div class="js-photouploader-preview">
 		<xp:text
 			escape="true"
 			id="computedField2"
-			style="font-size: 100px; color: #bbb;"
+			style="font-size: 200px; color: #bbb;"
 			rendered="#{javascript:!isEmpty(compositeData.placeHolderIcon)}">
 			<xp:this.styleClass><![CDATA[#{javascript:"fa fa-2x " + compositeData.placeHolderIcon}]]></xp:this.styleClass>
 		</xp:text>
@@ -74,5 +77,9 @@
 		</xp:div>
 
 	</div>
+	
+	<xp:text styleClass="js-custom-select-var hidden">
+		<xp:this.value><![CDATA[#{compositeData.customSelectElement}]]></xp:this.value>
+	</xp:text>
 
 </xp:view>

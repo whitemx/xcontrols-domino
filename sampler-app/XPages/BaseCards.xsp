@@ -170,95 +170,12 @@ if (doc != null){
 					</unp:UnpBootFormEditor>
 				</xp:panel>
 
-				<xp:panel id="photuploadpanel">
-					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Photo Upload Card"}]]></xp:this.rendered>
-				
-							<!-- button to upload a new photo -->
-							<div class="js-photocard" style="display:none">
-								<xc:PhotoCard></xc:PhotoCard>
-							</div>
-						
-							<!-- list of uploaded photos -->
-							<xp:panel styleClass="js-photos-list">
-							
-								<div>
-									<button
-										class="btn btn-primary"
-										type="button"
-										onclick="$('.js-photos-list').fadeOut(250, function() { $('.js-photocard').fadeIn(250) });">
-										Upload photo
-									</button>
-								</div>
-							
-								<xp:text value="No photos have been uploaded" rendered="#{javascript:viewPhotos.getEntryCount() == 0}" />
-							
-								<xp:this.data>
-									<xp:dominoView
-										var="viewPhotos"
-										viewName="Photos">
-									</xp:dominoView>
-								</xp:this.data>
-								
-								<xp:repeat
-									var="row"
-									id="repeat1"
-									rows="30"
-									value="#{viewPhotos}">
-									
-									<unp:UnpBootImageViewer imagetitle="#{row.$1}">
-										<xp:this.imageurl><![CDATA[#{javascript:"0/" + row.getUniversalID() + "/$file/photo.jpg"}]]></xp:this.imageurl>
-									</unp:UnpBootImageViewer>
+                <xp:panel id="photuploadpanel">
+					<xc:PhotoCard>
+						<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Photo Upload Card"}]]></xp:this.rendered>
+					</xc:PhotoCard>
+				</xp:panel>
 			
-									<!-- current size, orig size & delete -->
-									<!--<xp:text
-										escape="true"
-										id="computedField2"
-										value="#{javascript:row.getColumnValue('$2')/1024}">
-										<xp:this.converter>
-											<xp:convertNumber
-												type="number"
-												integerOnly="true">
-											</xp:convertNumber>
-										</xp:this.converter>
-									</xp:text>
-									KB
-								
-									<xp:text
-										escape="true"
-										id="computedField4"
-										value="#{javascript:row.getColumnValue('originalPhotoSize')/1024}">
-										<xp:this.converter>
-											<xp:convertNumber
-												type="number"
-												integerOnly="true">
-											</xp:convertNumber>
-										</xp:this.converter>
-									</xp:text>
-									KB
-			
-									<xp:button
-										value="delete"
-										styleClass="btn btn-primary"
-										style=" padding-top:0"
-										id="button2">
-										<xp:eventHandler
-											event="onclick"
-											submit="true"
-											refreshMode="complete">
-											<xp:this.action><![CDATA[#{javascript:var doc = row.getDocument();
-										doc.removePermanently(true);}]]></xp:this.action>
-										</xp:eventHandler>
-									</xp:button>
-									
-								--></xp:repeat>
-													
-							
-							</xp:panel>
-							
-						</xp:panel>
-						
-		
-
 			</div>
 		</div>
 		<div class="pagetitle hidden">Cards</div>
