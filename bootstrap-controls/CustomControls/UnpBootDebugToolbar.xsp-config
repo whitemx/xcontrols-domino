@@ -14,7 +14,7 @@
         <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#xd;
 &lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&#xd;
   xmlns:xc="http://www.ibm.com/xsp/custom"&gt;&#xd;
-&lt;xp:div style="background-color:#555555; border: 1px solid #000000; color: #ffffff; padding:2px;"&gt;&lt;b&gt;Unplugged Debug Toolbar - v4&lt;/b&gt; (by Mark Leusink)&lt;/xp:div&gt;&#xd;
+&lt;xp:div style="background-color:#555555; border: 1px solid #000000; color: #ffffff; padding:2px;"&gt;&lt;b&gt;Unplugged Debug Toolbar&lt;/b&gt;&lt;/xp:div&gt;&#xd;
 &lt;/xp:view&gt;</render-markup>
         <category>Unplugged</category>
       </designer-extension>
