@@ -1,4 +1,4 @@
-/* bootcards 0.2.0 2014-09-16 */
+/* bootcards 1.0.0 2014-09-23 7:22 */
 /* NAVBAR */
 
 /* OFFCANVAS MENU */
@@ -78,7 +78,7 @@
   transition: 0.25s ease;	
 }
 
-.bootcards-container {
+.push-right {
   -webkit-transform: translate3d(0px, 0px, 0px);
   -moz-transform: translate3d(0px, 0px, 0px);
   -o-transform: translate3d(0px, 0px, 0px);
@@ -89,14 +89,14 @@
   -o-transition: 0.25s ease;
   transition: 0.25s ease;  
 }
-.bootcards-container.active-left {
+.push-right.active-left {
   -webkit-transform: translate3d(200px, 0px, 0px);
   -moz-transform: translate3d(200px, 0px, 0px);
   -o-transform: translate3d(200px, 0px, 0px);
   -ms-transform: translate3d(200px, 0px, 0px);
   transform: translate3d(200px, 0px, 0px);
 }
-.bootcards-container.active-right {
+.push-right.active-right {
   -webkit-transform: translate3d(-200px, 0px, 0px);
   -moz-transform: translate3d(-200px, 0px, 0px);
   -o-transform: translate3d(-200px, 0px, 0px);
@@ -659,7 +659,7 @@ a.list-group-item.bootcards-list-subheading.collapsed:before {
 }
 
 .bootcards-summary .panel-body .bootcards-summary-item h4 {
-	margin: 0 10px;
+	margin: 0 auto;
 }
 
 
@@ -995,7 +995,12 @@ html, body {
 .btn:hover,
 .btn:active,
 .btn:focus,
-.btn-group.open .dropdown-toggle {
+.btn-group.open .dropdown-toggle,
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active, 
+.open>.dropdown-toggle.btn-primary {
 	background-color: transparent;
 	border-color: transparent;
 	box-shadow: none;
@@ -1133,6 +1138,7 @@ html, body {
 	.navbar-default .navbar-brand,
 	.navbar-default .navbar-brand:hover {
 		line-height: 32px;
+		height: 32px;
 	}
 	.navbar-fixed-top .btn,
 	.navbar-fixed-top .btn:hover {

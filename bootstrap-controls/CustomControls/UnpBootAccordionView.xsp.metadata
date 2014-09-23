@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D1E002A1358" version="9.0">
-<noteinfo noteid="1be2" sequence="8" unid="13F03475FBC11B3980257D5B00514BF9">
-<created><datetime dst="true">20140922T154758,65+01</datetime></created>
-<modified><datetime dst="true">20140922T155033,11+01</datetime></modified>
-<revised><datetime dst="true">20140922T155033,10+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140922T155033,11+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140922T154758,66+01</datetime></addedtofile></noteinfo>
+<noteinfo noteid="1c52" sequence="4" unid="749832CDA3BCAEBD80257D5C0023728F">
+<created><datetime dst="true">20140923T072710,87+01</datetime></created>
+<modified><datetime dst="true">20140923T072711,13+01</datetime></modified>
+<revised><datetime dst="true">20140923T072711,12+01</datetime></revised>
+<lastaccessed><datetime dst="true">20140923T072711,13+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140923T072710,88+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpBootAccordionView.xsp</text></item>
@@ -12,11 +12,5 @@
 
 
 <item name="$FileNames" sign="true"><text>UnpBootAccordionView.xsp</text></item>
-
-
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-
-
-
 
 </note>

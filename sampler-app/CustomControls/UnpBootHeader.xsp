@@ -4,6 +4,14 @@
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
+				<xp:panel id="title" tagName="a" styleClass="navbar-brand">
+					<xp:this.attrs>
+						<xp:attr name="title" value="#{javascript:compositeData.title}">
+						</xp:attr>
+						<xp:attr name="href" value="UnpMain.xsp"></xp:attr>
+					</xp:this.attrs>
+					<xp:text value="#{javascript:compositeData.title}"></xp:text>
+				</xp:panel>
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target=".navbar-collapse">
 					<span class="sr-only">Toggle navigation</span>
@@ -22,14 +30,6 @@
 				<i class="fa fa-lg fa-bars"></i>
 				<span>&#160;Menu</span>
 			</button>
-			<xp:panel id="title" tagName="a" styleClass="navbar-brand">
-				<xp:this.attrs>
-					<xp:attr name="title" value="#{javascript:compositeData.title}">
-					</xp:attr>
-					<xp:attr name="href" value="UnpMain.xsp"></xp:attr>
-				</xp:this.attrs>
-				<xp:text value="#{javascript:compositeData.title}"></xp:text>
-			</xp:panel>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<xp:repeat id="headernavitems" value="#{javascript:compositeData.navitems}"
