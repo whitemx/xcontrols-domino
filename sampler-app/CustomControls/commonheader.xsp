@@ -54,8 +54,8 @@
         {label: "Cards", hasSubMenu: false, page: "/BaseCards.xsp", icon: "fa-book"},
         {label: "Lists", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Lists", icon: "fa-list"},
         {label: "Other Controls", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Other%20Controls", icon: "fa-th-large"},
-        {label: "Example Patterns", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-edit"},
-        {label: "Font Awesome", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Font%20Awesome", icon: "fa-flag"},
+        {label: "Patterns", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-edit"},
+        {label: "Icons", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Font%20Awesome", icon: "fa-flag"},
         {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}      
 ]}]]></unp:this.navitems>
 		<unp:this.title><![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
