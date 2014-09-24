@@ -1068,11 +1068,11 @@ unp.refreshCalendar = function(){
 /* photo uploader */
 
 unp.photoUploader = {
-	_imageResizeRotate : 0,
 	targetWidth : 0,
 	targetHeight : 0,
 	doCrop : false,
-	customSelect : null
+	customSelect : null,
+	orientation : 0
 };
 
 unp.photoUploader.init = function() {
@@ -1096,33 +1096,34 @@ unp.photoUploader.init = function() {
 	
 }
 	
-unp.photoUploader.loadImage = function( file, rotate) {
-
-	canvasResize(file, {
-		 width: unp.photoUploader.targetWidth,
-         height: unp.photoUploader.targetHeight,
-         crop: unp.photoUploader.doCrop,
-          quality: 80,
-          rotate: rotate,
-          callback: function(data, width, height) {
-          	 $('.js-photouploader-preview img, .js-photouploader canvas').remove();
-        
-        	//show thumbnail
-        	var img = new Image();
-        	img.onload = function() {
-        	
-   	            $(this).appendTo('.js-photouploader-preview');
-           
-       		 };
-	        $(img).attr('src', data);
-	        $('.js-photouploader-rotate').removeClass('hidden');
-	         $('.js-photouploader-preview .fa').addClass('hidden');
-    	}
-	});
+unp.photoUploader.loadImage = function( file) {
+	
+	loadImage(
+	        file,
+	        function (canvas) {
+	        	
+	        	//clean up
+	            $('.js-photouploader-preview img, .js-photouploader canvas').remove();
+	            
+	            canvas.id = 'photoUploadCanvas';
+	        	
+	        	$('.js-photouploader-preview').append(canvas);
+	        	$('.js-photouploader-rotate').removeClass('hidden');
+	        	$('.js-photouploader-preview .fa').addClass('hidden');
+	        },
+	        {
+	        	maxWidth : unp.photoUploader.targetWidth,
+	        	maxHeight : unp.photoUploader.targetHeight,
+	        	crop : unp.photoUploader.doCrop,
+	        	canvas : true,
+	        	orientation : unp.photoUploader.orientation
+	        }
+	);
 
 }
 	
 unp.photoUploader.rotateImage = function(clockWise) {
+	
 	var $resizeFileUpload = $('.js-photouploader-upload');
 	
 	if ( $resizeFileUpload[0].files.length === 0) {
@@ -1130,15 +1131,17 @@ unp.photoUploader.rotateImage = function(clockWise) {
 	}
 	var file = $resizeFileUpload[0].files[0];
 
-	this._imageResizeRotate += (clockWise ? 90 : -90);
-	
-	if (this._imageResizeRotate === 360) {
-		this._imageResizeRotate = 0;
-	} else if (this._imageResizeRotate === -90) {
-		this._imageResizeRotate = 270;
+	if (this.orientation == 0) {
+		this.orientation = (clockWise ? 6 : 8);
+	} else if (this.orientation == 6) {
+		this.orientation = (clockWise ? 3 : 0);
+	} else if (this.orientation == 3) {
+		this.orientation = (clockWise ? 8 : 6);
+	} else if (this.orientation == 8) {
+		this.orientation = (clockWise ? 0 : 3);
 	}
 	
-	this.loadImage(file, this._imageResizeRotate);
+	this.loadImage(file);
 }
 
 /* end photo uploader */

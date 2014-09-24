@@ -26,12 +26,9 @@
         var file = event.target.files[0];
         
         //no rotation when a new photo is loaded
-        unp.photoUploader._imageResizeRotate = 0;	
-        
-        //clean up
-         $('.js-photouploader-preview img, .js-photouploader canvas').remove();
-        
-        unp.photoUploader.loadImage(file, unp.photoUploader._imageResizeRotate);]]></xp:this.value>
+        unp.photoUploader.orientation = 0;	
+       
+        unp.photoUploader.loadImage(file);]]></xp:this.value>
 					</xp:attr>
 				</xp:this.attrs>
 			</xp:fileUpload>

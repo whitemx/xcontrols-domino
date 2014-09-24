@@ -3,15 +3,12 @@
 
 	<div class="js-photouploader">
 
-		<xp:div
-			styleClass="photoUpload btn btn-primary">
-
+		<xp:div styleClass="photoUpload btn btn-primary">
 			<xp:text
 				escape="true"
 				id="computedField1">
 				<xp:this.value><![CDATA[#{javascript:return (!isEmpty(compositeData.selectPhotoText) ? compositeData.selectPhotoText : "Select photo" );}]]></xp:this.value>
 			</xp:text>
-
 			<xp:fileUpload
 				id="fileUpload2"
 				value="#{compositeData.targetDoc[compositeData.itemName]}"
@@ -29,12 +26,9 @@
         var file = event.target.files[0];
         
         //no rotation when a new photo is loaded
-        unp.photoUploader._imageResizeRotate = 0;	
-        
-        //clean up
-         $('.js-photouploader-preview img, .js-photouploader canvas').remove();
-        
-        unp.photoUploader.loadImage(file, unp.photoUploader._imageResizeRotate);]]></xp:this.value>
+        unp.photoUploader.orientation = 0;	
+       
+        unp.photoUploader.loadImage(file);]]></xp:this.value>
 					</xp:attr>
 				</xp:this.attrs>
 			</xp:fileUpload>

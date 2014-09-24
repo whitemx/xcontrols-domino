@@ -246,7 +246,6 @@ div.dBar .content {
 .photoUpload {
 	position: relative;
 	overflow: hidden;
-	margin: 10px;
 	padding-left: 12px !important;
 }
 
@@ -269,7 +268,8 @@ div.dBar .content {
 	width: 300px;
 }
 
-.js-photouploader-preview img {
+.js-photouploader-preview img,
+.js-photouploader-preview canvas {
 	height : auto;
 	width : 300px;	
 }

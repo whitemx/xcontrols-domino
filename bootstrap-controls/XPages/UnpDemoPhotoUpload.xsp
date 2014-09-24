@@ -4,8 +4,7 @@
 	xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 
-	<xc:commonheader>
-	</xc:commonheader>
+	<xc:commonheader></xc:commonheader>
 
 	<xp:this.data>
 		<xp:dominoDocument
@@ -18,135 +17,121 @@
 		id="inputHidden1"
 		value="#{document1.originalPhotoSize}">
 		<xp:this.converter>
-			<xp:convertNumber
-				type="number"></xp:convertNumber>
+			<xp:convertNumber type="number"></xp:convertNumber>
 		</xp:this.converter>
 		<xp:this.attrs>
-			<xp:attr
-				name="class">
+			<xp:attr name="class">
 				<xp:this.value><![CDATA[origSize]]></xp:this.value>
 			</xp:attr>
 		</xp:this.attrs>
 	</xp:inputHidden>
 
-	<div
-		class="container bootcards-container">
-		
-		<div
-			class="row">
+	<div class="container bootcards-container">
 
-			<div
-				class="bootcards-cards">
-				
+		<div class="row">
+
+			<div class="bootcards-cards">
+
 				<div class="form-horizontal col-sm-12 panel panel-default">
-				
-				<div class="panel-body">
-					<div
-					class="form-group">
 
-					<div
-						class="col-xs-4">
-						<label>Name:</label>
-					</div>
-					<div
-						class="col-xs-8">
-						<xp:inputText
-							id="inputText1"
-							value="#{document1.name}"
-							styleClass="form-control">
-						<xp:this.attrs>
-							<xp:attr
-								name="placeholder"
-								value="Enter your name">
-							</xp:attr>
-						</xp:this.attrs></xp:inputText>
+					<div class="panel-body">
+						<div class="form-group">
 
-					</div>
-				</div>
+							<div class="col-xs-4">
+								<label>JQ Edition - Name:</label>
+							</div>
+							<div class="col-xs-8">
+								<xp:inputText
+									id="inputText1"
+									value="#{document1.name}"
+									styleClass="form-control">
+									<xp:this.attrs>
+										<xp:attr
+											name="placeholder"
+											value="Enter your name">
+										</xp:attr>									</xp:this.attrs>
+								</xp:inputText>
 
-				<div
-					class="form-group">
+							</div>
+						</div>
 
-					<div
-						class="col-xs-4">
-						<label>Photo:</label>
-					</div>
-					<div
-						class="col-xs-8">
+						<div class="form-group">
 
-						<unp:UnpBootPhotoUpload
-							rendered="#{javascript:document1.isEditable()}"
-							targetWidth="1024"
-							targetHeight="768"
-							targetDoc="#{document1}"
-							itemName="photo"
-							showRotationControls="true"
-							crop="false">
-						</unp:UnpBootPhotoUpload>
+							<div class="col-xs-4">
+								<label>Photo:</label>
+							</div>
+							<div class="col-xs-8">
+								<unp:UnpBootPhotoUpload
+									rendered="#{javascript:document1.isEditable()}"
+									targetWidth="1024"
+									targetHeight="768"
+									targetDoc="#{document1}"
+									itemName="photo"
+									showRotationControls="true"
+									crop="false">
+								</unp:UnpBootPhotoUpload>
 
-						<!-- display the uploaded photo in read mode -->
-						<xp:div
-							rendered="#{javascript:!document1.isEditable()}">
+								<!-- display the uploaded photo in read mode -->
+								<xp:div rendered="#{javascript:!document1.isEditable()}">
 
-							<xp:image
-								id="image1"
-								style="width: 200px">
-								<xp:this.url><![CDATA[#{javascript:"0/" + document1.getDocument().getUniversalID() + "/$file/photo.jpg"}]]></xp:this.url>
-							</xp:image>
+									<xp:image
+										id="image1"
+										style="width: 200px">
+										<xp:this.url><![CDATA[#{javascript:"0/" + document1.getDocument().getUniversalID() + "/$file/photo.jpg"}]]></xp:this.url>
+									</xp:image>
+
+								</xp:div>
+							</div>
+						</div>
+
+
+						<!-- form edit actions -->
+						<xp:div rendered="#{javascript:document1.isEditable()}">
+
+							<xp:button
+								value="save"
+								style="display:none"
+								id="button1">
+								<xp:eventHandler
+									event="onclick"
+									submit="true"
+									refreshMode="complete"
+									immediate="false"
+									save="true">
+								</xp:eventHandler>
+							</xp:button>
+
+							<button
+								type="button"
+								class="btn btn-primary"
+								onClick="saveIt();">
+								Save
+							</button>
+							<button
+								type="button"
+								class="btn btn-default"
+								onClick="window.location.href ='UnpDemoPhotoUploads.xsp';">
+								Cancel
+							</button>
 
 						</xp:div>
-					</div>
-				</div>
 
-		
-				<!-- form edit actions -->
-				<xp:div
-					rendered="#{javascript:document1.isEditable()}">
-	
-					<xp:button
-						value="save"
-						style="display:none"
-						id="button1">
-						<xp:eventHandler
-							event="onclick"
-							submit="true"
-							refreshMode="complete"
-							immediate="false"
-							save="true">
-						</xp:eventHandler>
-					</xp:button>
-	
-					<button
-						type="button"
-						class="btn btn-primary"
-						onClick="saveIt();">
-						Save
-				</button>
-					<button
-						type="button"
-						class="btn btn-default"
-						onClick="window.location.href ='UnpDemoPhotoUploads.xsp';">
-						Cancel
-				</button>
-	
-				</xp:div>
-	
-				<!--	read actions-->
-				<xp:div
-					style="margin-top:10px"
-					rendered="#{javascript:!document1.isEditable()}">
-	
-					<button
-						type="button"
-						class="btn btn-default"
-						onClick="window.location.href ='UnpDemoPhotoUploads.xsp';">
-						Back
-					</button>
-	
-				</xp:div>
-				
-				</div><!-- panel -->
-				
+						<!--	read actions-->
+						<xp:div
+							style="margin-top:10px"
+							rendered="#{javascript:!document1.isEditable()}">
+
+							<button
+								type="button"
+								class="btn btn-default"
+								onClick="window.location.href ='UnpDemoPhotoUploads.xsp';">
+								Back
+							</button>
+
+						</xp:div>
+
+					</div><!-- panel -->
+
 				</div><!-- form-horizontal -->
 			</div><!-- cards -->
 
@@ -156,17 +141,17 @@
 
 	<xc:commonfooter></xc:commonfooter>
 
-	<xp:scriptBlock
-		id="scriptBlock1">
-		<xp:this.value><![CDATA[ 
-	function saveIt() {
-	
-		//disable all buttons
-		$('button').attr('disabled', true);
-		
-		//get the file input
-		var $resizeFileUpload = $('.js-photouploader-upload');
-		var _resizedFile = $resizeFileUpload[0].files[0];
+	    <xp:scriptBlock
+        id="scriptBlock1">
+        <xp:this.value><![CDATA[ 
+    function saveIt() {
+    
+        //disable all buttons
+        $('button').attr('disabled', true);
+        
+        //get the file input
+        var $resizeFileUpload = $('.js-photouploader-upload');
+        var _resizedFile = $resizeFileUpload[0].files[0];
                             
                     //store the original size (just as a reference)
                     $('.origSize').val( _resizedFile.size);
@@ -177,47 +162,54 @@
                     //create FormData object to send all form data to Unplugged
                    var fd = new FormData();
                                     
-		//get all inputs and add them to the formData object
-                 var $inputs = $('form :input');
-                                   	
-                      	$inputs.each( function() { 
-                      	
-                      		var $this = $(this);
-                      		var name = $this.prop('name');
-                      		var clazz = $this.prop('class');
-                      		var type = $this.prop('type');
-                      		
-                      		//add all file inputs, except the resized image and any buttons
-                      		if ( clazz.indexOf('js-photouploader-upload') == -1 && type != 'button' ) {
-                      			fd.append( name, $this.val() );
-                      		}
-                      	
-                      	});
+        			//get all inputs and add them to the formData object
+                 	var $inputs = $('form :input');
+                                       
+                          $inputs.each( function() { 
+                          
+                              var $this = $(this);
+                              var name = $this.prop('name');
+                              var clazz = $this.prop('class');
+                              var type = $this.prop('type');
+                              
+                              //add all file inputs, except the resized image and any buttons
+                              if ( clazz.indexOf('js-photouploader-upload') == -1 && type != 'button' ) {
+                                  fd.append( name, $this.val() );
+                              }
+                          
+                          });
                                 
-                       //now add the resized image to the FormData object
-                       var _resizedImg = $(".js-photouploader-preview img");
-                       var f = canvasResize('dataURLtoBlob', _resizedImg.prop("src") );
-                       f.name = _resizedFile.name;
+                       var canvas = document.getElementById('photoUploadCanvas');
                        
-                       fd.append( $resizeFileUpload.prop('id') , f , "photo.jpg");
-                       
-                       //now make the ajax request to send all data to the server             
-                       $.ajax({
-			  url: window.location.pathname,
-			  type: 'POST',
-			  data: fd,
-			  processData: false,
-			  contentType: false,
-			  
-			  success: function(data) {
-			  	//redir to list of uploads...
-                            window.location.href = 'UnpDemoPhotoUploads.xsp';
-			  }
-			});
-			
-		
-         }		//saveIt
+                       if (canvas.toBlob) {
+						    canvas.toBlob(
+						        function (blob) {
+						            
+						           	blob.name = _resizedFile.name;
+						            fd.append( $resizeFileUpload.prop('id'), blob, 'photo.jpg' );
+						            
+						            //now make the ajax request to send all data to the server             
+							        $.ajax({
+							              url: window.location.pathname,
+							              type: 'POST',
+							              data: fd,
+							              processData: false,
+							              contentType: false,
+							              
+							              success: function(data) {
+							                  //redir to list of uploads...
+							                  window.location.href = 'UnpDemoPhotoUploads.xsp';
+							              }
+							        });
+						        
+						        },
+						        'image/jpeg'
+						    );
+						}
+    
+         }        //saveIt
          ]]></xp:this.value>
-	</xp:scriptBlock>
+    </xp:scriptBlock>
+	
 
 </xp:view>

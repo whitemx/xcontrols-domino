@@ -326,43 +326,52 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
 		}
               	
 	});
-                        
-	//now add the resized image to the FormData object
-	var _resizedImg = $(".js-photouploader-preview img");
-	var f = canvasResize('dataURLtoBlob', _resizedImg.prop("src") );
-	f.name = _resizedFile.name;
-               
- 	fd.append( $resizeFileUpload.prop('id') , f , "photo.jpg");
-               
-	//make the ajax request to send all data to the server             
-	$.ajax({
-	  url: window.location.pathname,
-	  type: 'POST',
-	  data: fd,
-	  processData: false,
-	  contentType: false,
-	  
-	  success: function(data) {
+	                    
+	//now add the resized image to the FormData object and send it
+	
+	 var canvas = document.getElementById('photoUploadCanvas');
+     
+     if (canvas.toBlob) {
+	    canvas.toBlob(
+	        function (blob) {
+	            
+	           	blob.name = _resizedFile.name;
+	            fd.append( $resizeFileUpload.prop('id'), blob, 'photo.jpg' );
+	            
+	            //make the ajax request to send all data to the server             
+	        	$.ajax({
+	        	  url: window.location.pathname,
+	        	  type: 'POST',
+	        	  data: fd,
+	        	  processData: false,
+	        	  contentType: false,
+	        	  
+	        	  success: function(data) {
 
-			if (typeof unpluggedserver != 'undefined' && unpluggedserver) {
-				
-				$.get("UnpSyncAll.xsp")
-					.done( function() {
-						alert('Photo Saved and Synced');
-					})
-					.fail( function() {
-						alert('Photo Saved but not yet Synced');
-					})
-					.always( function() {
-						unp.openDocument(window.location.href, 'doccontent');
-					});
-				
-			} else {
-				alert('Photo Saved');
-			}
-		
-	  }
-	});
-
+	        			if (typeof unpluggedserver != 'undefined' && unpluggedserver) {
+	        				
+	        				$.get("UnpSyncAll.xsp")
+	        					.done( function() {
+	        						alert('Photo Saved and Synced');
+	        					})
+	        					.fail( function() {
+	        						alert('Photo Saved but not yet Synced');
+	        					})
+	        					.always( function() {
+	        						unp.openDocument(window.location.href, 'doccontent');
+	        					});
+	        				
+	        			} else {
+	        				alert('Photo Saved');
+	        			}
+	        		
+	        	  }
+	        	});
+	        
+	        },
+	        'image/jpeg'
+	    );
+	}
+	
 };
  

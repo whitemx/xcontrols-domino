@@ -17,9 +17,8 @@
 		<xp:script src="/unp/quill.min.js" clientSide="true"></xp:script>
 		
 		<!-- libraries for the photo upload -->
-		<xp:script src="/unp/binaryajax.js" clientSide="true"></xp:script>
-		<xp:script src="/unp/exif.js" clientSide="true"></xp:script>
-		<xp:script src="/unp/canvasResize.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/load-image.all.min.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/canvas-to-blob.min.js" clientSide="true"></xp:script>
 		
 		<xp:script src="/unp/jquery.autocomplete.js" clientSide="true"></xp:script>
 		<xp:script src="/unpCommon.jss" clientSide="false"></xp:script>
