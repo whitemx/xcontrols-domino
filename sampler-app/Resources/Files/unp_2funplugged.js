@@ -14,18 +14,12 @@ var unp = {
 	_oldiscrollbottom : ""
 }
 
-$(window).bind(
-		"popstate",
-		function() {
-			if (!unp._firstLoad) {
-				$(window).unbind('popstate');
-				try{
-					window.location.href = history.getState().url;
-				}catch(e){
-					
-				}
-			}
-		});
+window.onpopstate = function(event) {
+	if (event.state){
+		window.location.href = document.location;
+	}
+};
+
 unp.storePageRequest = function(url) {
 
 	this._firstLoad = false;
@@ -37,7 +31,7 @@ unp.storePageRequest = function(url) {
 		url += "?";
 	}
 	url += "&history=true";
-	history.pushState(null, "", url);
+	history.replaceState({unp: true}, "", url);
 	// console.log("pushed " + url);
 
 }
