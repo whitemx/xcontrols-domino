@@ -71,7 +71,7 @@ $(window).load( function() {
 		console.log("open filtered view");
 		ok(true);
 	});
-	test("open second doc", 1, function(){
+	test("second doc", 1, function(){
 		stop();
 		$("#list .list-group a").eq(1).click();
 		console.log("open first document");
@@ -89,14 +89,14 @@ $(window).load( function() {
 		console.log("open cards");
 		ok(true);
 	});
-	test("open typography read", 1, function(){
+	test("text read", 1, function(){
 		stop();
 		console.log("about to open typography read")
 		$("#list .list-group a").eq(5).click();
 		console.log("open typography read")
 		ok(true);
 	});
-	test("open typography edit", 1, function(){
+	test("rich text edit", 1, function(){
 		stop();
 		$("#list .list-group a").eq(6).click();
 		console.log("open typography edit")
@@ -114,7 +114,7 @@ $(window).load( function() {
 		console.log("open contacts")
 		ok(true);
 	});
-	test("open my activities", 1, function(){
+	test("my activities", 1, function(){
 		stop();
 		$(".litop5 li a").eq(2).click();
 		console.log("open media");
