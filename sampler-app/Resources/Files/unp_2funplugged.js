@@ -419,7 +419,19 @@ unp.editDocument = function(xpage, unid){
 			//$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
 		}
 	});
-	return false;
+	if (!unp.isIE()){
+		return false;
+	}
+}
+
+unp.isIE = function(){
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))
+        return true;
+    else
+        return false;
 }
 
 unp.newDocument = function(xpage){
