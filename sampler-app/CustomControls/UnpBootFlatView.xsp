@@ -39,17 +39,29 @@
 		<div class="panel panel-default">
 			<xp:panel tagName="div" id="title" styleClass="panel-heading">
 				<div class="row">
-					<div class="col-xs-8">
-						<xp:text id="workspacetitle" tagName="h3" styleClass="panel-title"
+					<xp:div>
+						<xp:this.styleClass><![CDATA[#{javascript:if (compositeData.enableazpicker=="yes" && (isIOS() || isAndroid())){
+	return "col-xs-7";
+}else{
+	return "col-xs-8";
+}}]]></xp:this.styleClass>
+						<xp:text id="workspacetitle" tagName="h3"
+							styleClass="panel-title"
 							value="#{javascript:compositeData.title}">
 							<xp:this.style><![CDATA[#{javascript:if (isEmpty(compositeData.title)){
 	return "display: none;";
 }}]]></xp:this.style>
 						</xp:text>
-					</div>
-					<div class="col-xs-4">
+					</xp:div>
+					<xp:div>
+						<xp:this.styleClass><![CDATA[#{javascript:if (compositeData.enableazpicker=="yes" && (isIOS() || isAndroid())){
+	return "col-xs-5";
+}else{
+	return "col-xs-4";
+}}]]></xp:this.styleClass>
 						<xp:panel id="addlink" tagName="a"
-							styleClass="btn btn-primary btn-block" rendered="#{javascript:!isEmpty(compositeData.newlink)}">
+							styleClass="btn btn-primary btn-block"
+							rendered="#{javascript:!isEmpty(compositeData.newlink)}">
 							<xp:this.attrs>
 								<xp:attr name="onclick">
 									<xp:this.value><![CDATA[#{javascript:"unp.newDocument('" + compositeData.newlink + "')"}]]></xp:this.value>
@@ -58,7 +70,7 @@
 							<i class="fa fa-plus"></i>
 							<span>&#160;Add</span>
 						</xp:panel>
-					</div>
+					</xp:div>
 				</div>
 			</xp:panel>
 			<xp:panel id="searchpanel" styleClass="panel-body"
