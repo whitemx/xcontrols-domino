@@ -447,8 +447,14 @@ unp.newDocument = function(xpage){
 		unp.initAutoComplete();
 		unp.initRichText();
 		unp.initToggle();
-		unp.initDate();
-		$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
+		unp.initDates();
+		if (unpluggedserver){
+			setTimeout(function(){
+				$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
+			}, 1000);
+		}else{
+			//$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
+		}
 	});
 }
 

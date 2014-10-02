@@ -68,7 +68,8 @@
 						styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="initialcontactdate" styleClass="form-control">
+						<xp:inputText id="initialcontactdate"
+							styleClass="form-control">
 							<xp:this.attrs>
 								<xp:attr name="datevalue">
 									<xp:this.value><![CDATA[#{javascript:try{
