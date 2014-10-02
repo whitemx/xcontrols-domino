@@ -1197,7 +1197,7 @@ unp.showSpinner = function(targetEl) {
 
 unp.hideSpinner = function(targetEl) {
 	
-	var $target = $(target);
+	var $target = $(targetEl);
 	var $icon = ($target.prop('tagName') == "I" ? $target : $target.children("i") );
 	var origClass = $icon.data('orig-class');
 	
