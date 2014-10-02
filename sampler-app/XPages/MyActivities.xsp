@@ -15,7 +15,7 @@
 				<xc:activityviewer></xc:activityviewer>
 			</div>
 		</div>
-		<div class="pagetitle hidden">My Activities</div>
+		<div class="pagetitle hidden">Activities</div>
 	</div>
 	<xc:commonfooter></xc:commonfooter>
 </xp:view>
