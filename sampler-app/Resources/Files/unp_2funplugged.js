@@ -18,10 +18,14 @@ $(window).bind(
 		"popstate",
 		function() {
 			if (!unp._firstLoad) {
-				
+				$(window).unbind('popstate');
+				try{
+					window.location.href = history.getState().url;
+				}catch(e){
+					
+				}
 			}
 		});
-
 unp.storePageRequest = function(url) {
 
 	this._firstLoad = false;
@@ -127,7 +131,6 @@ unp.initPage = function(){
 		
 		unp.photoUploader.init();
 		
-		console.log("post1" + $("#hackmenu").css("display"));
 	});
 	
 	//Open first item in flat view if necessary
