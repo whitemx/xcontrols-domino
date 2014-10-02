@@ -633,6 +633,7 @@ unp.initDeleteable = function() {
 		$(this).blur();
 		$(this).prev().val('');
 		$(this).prev().focus();
+		return false
 	})
 }
 
