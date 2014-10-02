@@ -608,9 +608,9 @@ unp.initDeleteable = function() {
 unp.initToggle = function(){
 	$('.bootcards-toggle').click(function(){
 		$(this).toggleClass('active');
-		var checkboxes = $(this).parent().find('input [type="checkbox"]');
+		var checkboxes = $(this).parent().find('input');
 		if (checkboxes.length > 0){
-			checkboxes[0].prop("checked", !checkboxes[0].prop("checked"));
+			$(checkboxes[0]).prop("checked", $(this).hasClass("active"));
 		}
 	})
 }
