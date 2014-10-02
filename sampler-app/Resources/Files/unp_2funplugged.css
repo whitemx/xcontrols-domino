@@ -299,3 +299,5 @@ div.dBar .content {
     -ms-transform: translate3d(0, 0, 0) !important;
     transform: translate3d(0, 0, 0) !important;
 }
+
+.form-control::-ms-clear {display: none; width:0; height:0;}
