@@ -289,7 +289,7 @@ div.dBar .content {
 
 .offcanvas,.offcanvas-list {
 	width: 300px !important;
-
+	padding-bottom: 60px !important;
 }
 
 .bootcards-container.active-left {
