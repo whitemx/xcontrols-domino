@@ -223,7 +223,11 @@ unp.initRichText = function() {
 			    }
 			  }
 		});
-		editor.on('selection-change', function(range) {});
+		editor.on('selection-change', function(range) {
+			if (!range){
+				$("#editor-container").blur();
+			}
+		});
 		editor.on('text-change', function(delta, source) {
 			$(".richtextsourcefield").val(editor.getHTML());
 		});
@@ -558,11 +562,29 @@ unp.validate = function() {
 			$(this).closest(".form-group").addClass('has-error');
 		}
 	})
+	$("[datevalue]").each(function(){
+		if ($(this).val() != "" && !moment($(this).val()).isValid() && !unp.isDate($(this).val())){
+			var label = $("label[for='" + $(this).attr('id') + "']");
+			msg += "Enter valid date for " + label.text() + "\n";
+			if (valid){
+				$(this).focus();
+			}
+			valid = false;
+			$(this).closest(".form-group").addClass('has-error');
+		}
+	})
 	if (!valid){
 		//alert(msg);
 	}
 	return valid;
 }
+
+unp.isDate = function(txtDate)
+{
+    var reg = /^(0[1-9]|1[012])([\/-])(0[1-9]|[12][0-9]|3[01])\2(\d{4})$/;
+    return reg.test(txtDate);
+}
+
 
 var firedrequests;
 unp.loadPage = function(url, target, menuitem, pushState) {

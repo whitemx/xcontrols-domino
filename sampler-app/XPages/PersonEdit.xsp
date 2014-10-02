@@ -64,7 +64,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label value="Date" id="initialcontactdatelabel" for="initialcontactdate"
+					<xp:label value="Date" id="datetime_initialcontactdatelabel" for="initialcontactdate"
 						styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
