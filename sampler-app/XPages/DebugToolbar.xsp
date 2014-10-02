@@ -58,7 +58,9 @@ try {
 
 	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
-			<unp:UnpBootDebugToolbar></unp:UnpBootDebugToolbar>
+			<unp:UnpBootDebugToolbar
+				rendered="#{javascript:isUnpluggedServer()}">
+			</unp:UnpBootDebugToolbar>
 
 			<div class="panel panel-default">
 				<div class="panel-heading clearfix">
@@ -66,7 +68,12 @@ try {
 					</h3>
 				</div>
 				<div class="panel-body">
-					<p>
+					<xp:text escape="true" id="desktopmessage"
+						styleClass="alert alert-warning"
+						rendered="#{javascript:!isUnpluggedServer()}">
+						<xp:this.value><![CDATA[#{javascript:"The Debug Toolbar is designed to work when running inside Unplugged only"}]]></xp:this.value>
+					</xp:text>
+					<xp:panel rendered="#{javascript:isUnpluggedServer()}">
 						<xp:button value="info" id="button1" styleClass="btn btn-default">
 							<xp:eventHandler event="onclick" submit="true"
 								refreshMode="complete">
@@ -104,7 +111,7 @@ try {
 			};}]]></xp:this.action>
 							</xp:eventHandler>
 						</xp:button>
-					</p>
+					</xp:panel>
 				</div>
 				<div class="panel-footer">
 					<small class="pull-left">Built with Bootcards - Base Card</small>
