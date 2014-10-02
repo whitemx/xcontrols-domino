@@ -75,10 +75,10 @@ return date.toJavaDate().getTime();}catch(e){return new Date()}}]]></xp:this.val
 						for="type" value="Type">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:comboBox id="comboBox1"
+						<xp:comboBox id="type"
 							value="#{docedit.Type}" styleClass="form-control">
 							<xp:selectItems>
-								<xp:this.value><![CDATA[#{javascript:["Call Report", "To-Do", "Reminder", "Note"]}]]></xp:this.value>
+								<xp:this.value><![CDATA[#{javascript:["Discussion", "Call Report", "To-Do", "Reminder", "Note"]}]]></xp:this.value>
 							</xp:selectItems>
 						</xp:comboBox>
 					</div>
