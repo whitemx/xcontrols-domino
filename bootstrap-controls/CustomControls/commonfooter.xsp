@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com">
-
-	<unp:UnpBootFooter synctype="currentdb">
-		<unp:this.tabs><![CDATA[#{javascript:[
-  {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"}
-]}]]></unp:this.tabs>
-	</unp:UnpBootFooter>
-</xp:view>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
+<noteinfo noteid="312" sequence="18" unid="4D26698465A7ECDF80257D39003C2830">
+<created><datetime dst="true">20140819T115704,48+01</datetime></created>
+<modified><datetime dst="true">20141003T125627,80+01</datetime></modified>
+<revised><datetime dst="true">20141002T170706,74+01</datetime></revised>
+<lastaccessed><datetime dst="true">20141003T125627,80+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20141003T125627,80+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$MimeType" sign="true"><text>text/css</text></item>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$MimeCharSet" sign="true"><text>UTF-8</text></item>
+<item name="$TITLE" sign="true"><text>unp/unplugged-desktop.css</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>unp_2funplugged-desktop.css</text></item></note>

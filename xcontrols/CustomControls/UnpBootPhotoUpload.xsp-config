@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://unplugged.teamstudio.com</namespace-uri>
+    <default-prefix>unp</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <component-type>UnpBootPhotoUpload</component-type>
+    <composite-name>UnpBootPhotoUpload</composite-name>
+    <composite-file>/UnpBootPhotoUpload.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <category>Unplugged</category>
+        <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &#xd;
+&lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt; &#xd;
+ &lt;button&gt;Select a photo&lt;/button&gt;&#xd;
+&lt;/xp:view&gt;</render-markup>
+      </designer-extension>
+    </composite-extension>
+    <property>
+      <property-name>targetWidth</property-name>
+      <property-class>int</property-class>
+      <property-extension>
+        <required>true</required>
+        <designer-extension>
+          <default-value>1024</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>targetHeight</property-name>
+      <property-class>int</property-class>
+      <property-extension>
+        <required>true</required>
+        <designer-extension>
+          <default-value>768</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>crop</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>false</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>showRotationControls</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <required>true</required>
+        <designer-extension>
+          <default-value>false</default-value>
+        </designer-extension>
+      </property-extension>
+      <description>Show or hide the standard rotation controls.</description>
+    </property>
+    <property>
+      <property-name>targetDoc</property-name>
+      <property-class>com.ibm.xsp.model.domino.DominoDocumentData</property-class>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Document to which the photo should be uploaded.</description>
+    </property>
+    <property>
+      <property-name>itemName</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Name of the item on the target document in which the photo is stored.</description>
+    </property>
+    <property>
+      <property-name>selectPhotoText</property-name>
+      <property-class>string</property-class>
+      <description>Label shown to the user to select/ take a photo.</description>
+    </property>
+    <property>
+      <property-name>placeHolderIcon</property-name>
+      <property-class>string</property-class>
+      <description>Placeholder icon shown when no photo is selected.</description>
+    </property>
+    <property>
+      <property-name>customSelectElement</property-name>
+      <property-class>string</property-class>
+      <description>jQuery selector that can be used to specify a custom location for the 'photo select' control</description>
+    </property>
+  </composite-component>
+</faces-config>

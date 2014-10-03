@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
+<noteinfo noteid="1fe" sequence="98" unid="8C9C5D3D2D4EB4FF80257D2E003B5D80">
+<created><datetime dst="true">20140808T114825,60+01</datetime></created>
+<modified><datetime dst="true">20141003T125626,42+01</datetime></modified>
+<revised><datetime dst="true">20141002T170752,56+01</datetime></revised>
+<lastaccessed><datetime dst="true">20141003T125626,42+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20141003T125626,42+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$TITLE"><text>UnpBootCarousel.xsp</text></item>
+<item name="$Flags"><text>gC~4;</text></item>
+
+
+
+
+<item name="$FileNames" sign="true"><text>UnpBootCarousel.xsp</text></item>
+<item name="$DesignerVersion"><text>8.5.2</text></item>
+
+
+
+
+</note>

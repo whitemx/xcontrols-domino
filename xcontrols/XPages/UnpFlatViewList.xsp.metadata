@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
+<noteinfo noteid="26a" sequence="13" unid="C8B500EE7388EDFF80257D2D00402273">
+<created><datetime dst="true">20140807T124031,23+01</datetime></created>
+<modified><datetime dst="true">20141003T125626,96+01</datetime></modified>
+<revised><datetime dst="true">20140813T154240,30+01</datetime></revised>
+<lastaccessed><datetime dst="true">20141003T125626,96+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20141003T125626,96+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$TITLE"><text>UnpFlatViewList.xsp</text></item>
+<item name="$Flags"><text>gC~4K</text></item>
+
+
+<item name="$FileNames" sign="true"><text>UnpFlatViewList.xsp</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+
+
+</note>
