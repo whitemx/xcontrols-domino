@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
 	xmlns:xc="http://www.ibm.com/xsp/custom">
-	<xc:commonheader pagetitle="UPMark 4.0"></xc:commonheader>
+	<xc:commonheader pagetitle="XMark 1.0"></xc:commonheader>
 	<div id="main" class="container bootcards-container">
 		<div class="row">
 			<div class="bootcards-cards fullheightrow">
@@ -9,7 +9,7 @@
 					<div id="contentwrapper" class="left-aligned">
 						<div class="panel panel-default bootcards-chart">
 							<div class="panel-heading">
-								<h3 class="panel-title">UPMark 4.0</h3>
+								<h3 class="panel-title">XMark 1.0</h3>
 							</div>
 							<div class="panel-body">
 								<p>This page runs a standardised suite of tests which
@@ -23,7 +23,7 @@
 									be
 									faster than your iPad for example.</p>
 								<p>
-									For more information on UPMark, refer to the relevant section
+									For more information on XMark, refer to the relevant section
 									of the Bootstrap Controls documentation.
 										</p>
 							</div>
@@ -58,7 +58,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="pagetitle hidden">UPMark 4.0</div>
+		<div class="pagetitle hidden">XMark 1.0</div>
 	</div>
 
 	<xc:commonfooter></xc:commonfooter>
