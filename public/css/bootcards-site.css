@@ -109,3 +109,19 @@ body {
 .nav-stacked>li {
 	height: 30px;
 }
+
+.bs-docs-section {
+	margin-bottom: 50px;
+}
+
+.panel-body {
+	padding-top: 60px;
+}
+.row {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+p {
+	padding-top: 3px;
+	line-height: 1.7;
+}

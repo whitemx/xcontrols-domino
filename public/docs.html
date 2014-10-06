@@ -67,6 +67,7 @@
 			<div class="docs-menu affix">
 				<ul class="nav nav-pills nav-stacked">	
 					<li class="active"><a href="#getting-started">Getting started</a></li>
+          <li><a href="#doc-icons">Font Awesome Icons</a></li>
 					<li><a href="#doc-accordionview">Accordion View</a></li>
 					<li><a href="#doc-alert">Alert</a></li>
 					<li><a href="#doc-calendar">Calendar</a></li>
@@ -97,10 +98,13 @@
 					<div id="getting-started" class="bs-docs-section">
 						<h2>Getting started</h2>
 						<p class="lead">Using the controls in XPages is a simple process</p>
-						<p>Bootcards makes use of the increasingly popular <a href="http://insideintercom.io/why-cards-are-the-future-of-the-web/"></a>cards design pattern</a> 
-						that is used in lots of modern web development. 
-						As XPages developers we can think of two main types of controls: cards and lists. Cards are the equivalent of forms, so they display the data from a 
-						single document, whereas lists are analagous to views, they display list of summary data.</p>
+						<p>XControls is built on top of <a href="http://getbootstrap.com">Bootstrap 3</a> and the <a href="http://bootcards.org">Bootcards project</a>. It enables XPage developers to create controls that are responsive, optimizing to the device whether it be a smartphone, a tablet or a PC.  XControls was designed with three key goals in mind:</p>
+            <ol>
+            <li>Enable faster design and assembly of modern user interfaces, using Card & List objects (analagous to Forms and Views in traditional Notes development)</li>
+            <li>Make it easy to write an XPages app which auto-optimizes to smartphones, tablets and PCs.</li>
+            <li>Make it easy to create XPages apps which work offline on mobile devices (via the Teamstudio Unplugged XPages engine for iOS and Android) </li>
+            </ol>
+						<p>As XPages developers we can think of two main types of controls: cards and lists. Cards are the equivalent of forms, so they display the data from a single document, whereas lists are analagous to views, they display list of summary data.</p>
 						<p>When you're creating an application you'll need a header and footer custom control to make your life easiest. They will define the structure of your application.</p>
 						<p>The header will include resources, navigation etc. The footer will include the footer bar and any custom JS files you want to download.</p>
 
@@ -114,7 +118,7 @@
 
 	&lt;unp:UnpBootNavigator&gt;
 		&lt;unp:this.menuitems&gt;&lt;![CDATA[#{javascript:[
-	...Sidebar nag goes here...
+	...Sidebar nav goes here...
 ]}]]&gt;&lt;/unp:this.menuitems&gt;
 	&lt;/unp:UnpBootNavigator&gt;
 	&lt;unp:UnpBootHeader title=&quot;Sampler&quot;&gt;
@@ -126,9 +130,23 @@
 &lt;/xp:view&gt;
 </code></pre></div>
 						<p>Then in between the header and footer you can insert one or more cards to create your application. The rest of this page shows the different options. 
-						If you need some help to get going then have a look at how we built the Sampler application for inspiration.</p>
+						If you need some help to get going then have a look at how we built the <a href="http://unp.londc.com/bootstrapsampler.nsf/UnpMain.xsp">Sampler application</a> for inspiration.</p>
+            <p>To install the Sampler application onto your devices, copy and sign the XControls Sampler nsf file onto your Domino server. You can then access it using a desktop or mobile browser. If you want to test Teamstudio Unplugged, then you'll need to add the Unplugged.nsf admin database to your server, add the Sampler application as an app inside the configuration and then sync Unplugged on your mobile device to your server. For more details on this process, you can visit the <a href="https://teamstudio.jira.com/wiki/display/UNPDOC/Preparing+the+Development+Environment">Teamstudio Unplugged Documentation</a>.</p>
 					</div>						
 						
+          <div id="doc-icons" class="bs-docs-section">
+            <h2>Font Awesome Icons</h2>
+            <p class="lead">We support Font Awesome Icons everywhere</p>
+            <p>To add icons to your application you can use the very simple <a href="http://fontawesome.io/icons/">Font Awesome</a> css classes in your code.</p>
+            <div class="highlight">
+            <pre>
+            <code>
+            &lt;i class="fa fa-camera-retro"&gt;&lt;/i&gt;
+            </code>
+            </pre>
+            </div>
+          </div>
+
 					<div id="doc-accordionview" class="bs-docs-section">
 						<h2>Accordion View</h2>
 						<p class="lead">The Bootcards equivalent of a categorized view</p>
