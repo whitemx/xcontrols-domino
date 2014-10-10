@@ -965,15 +965,15 @@ unp.decreaseFontSize = function(button) {
 unp.initSearch = function() {
 	$('.searchbox').keypress( function(e) {
 		if (e.keyCode == 13) {
-			event.preventDefault();
 			unp.dosearch();
 			e.stopPropagation();
+			e.preventDefault();
 			return false;
 		}
 	});
 	$('.localsearchbox').keypress( function(e) {
 		if (e.keyCode == 13) {
-			event.preventDefault();
+			e.preventDefault();
 			unp.dolocalsearch();
 			e.stopPropagation();
 			return false;
