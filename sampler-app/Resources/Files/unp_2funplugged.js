@@ -97,6 +97,7 @@ unp.initPage = function(){
 	unp.initAZPicker();
 	
 	unp.photoUploader.init();
+	unp.fixPortrait();
 
 	$(document).ajaxStop( function() {
 		$(".offcanvas-left").removeClass("active");
@@ -252,6 +253,15 @@ window.addEventListener('orientationchange', function() {
 unp.changeorientation = function() {
 	unp.initiscroll();
 	unp.initCalendar();
+}
+
+unp.fixPortrait = function(){
+	var isPortrait = ($(window).width() > $(window).height())? false : true;
+	if (isPortrait){
+		//$("#list").css("top", "40px");
+	}else{
+		//$("#list").css("top", "0px");
+	}
 }
 
 unp.allowFormsInIscroll = function() {

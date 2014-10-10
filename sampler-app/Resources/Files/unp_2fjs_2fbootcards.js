@@ -4,12 +4,15 @@ var bootcards = bootcards || {
     offCanvasMenuEl : null,
     mainContentEl : null,
     portraitModeEnabled : false,
-    _isXS : null
+    _isXS : null,
+    isFullScreen : false
 
 };
 
 
 bootcards.init = function( options ) {
+
+    this.isFullScreen = ('standalone' in navigator && navigator.standalone);
 
     $(document).ready( function() {
 
@@ -34,8 +37,7 @@ bootcards.init = function( options ) {
 
     } );
 
-    if ('standalone' in navigator && 
-        navigator.standalone && 
+    if (this.isFullScreen && 
         options.disableBreakoutSelector ) {
 
         /*
@@ -263,7 +265,7 @@ bootcards._setOrientation = function(init) {
                         //on click: show the list & title
                         bootcards.listEl.toggleClass("active");
                         bootcards.listTitleEl.toggleClass("active");
-                
+                        $("#list").show();
                     });
 
             //create the title element of the list offcanvas
@@ -284,6 +286,7 @@ bootcards._setOrientation = function(init) {
                     .on("click", function() {
                         bootcards.offCanvasMenuEl.toggleClass("active");
                         bootcards.offCanvasMenuTitleEl.toggleClass("active");
+                        $("#list").hide();
                     })
                     .children("i")
                         .removeClass('fa-bars')
@@ -301,7 +304,7 @@ bootcards._setOrientation = function(init) {
                 bootcards.listEl.removeClass('active');
                 bootcards.listTitleEl.removeClass('active'); 
                 bootcards.offCanvasMenuTitleEl.removeClass('active');
-
+                $("#list").show();
             });
             
             bootcards.listEl.on("click", function() {
@@ -535,3 +538,4 @@ bootcards._jumpToLetter = function(letterelement, event) {
     }
     
 };
+
