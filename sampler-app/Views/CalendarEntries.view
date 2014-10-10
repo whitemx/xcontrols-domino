@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='55e' unid='81BF96F7183992F680257CE800273326' sequence='9'>
+<noteinfo noteid='55e' unid='81BF96F7183992F680257CE800273326' sequence='18'>
 <created><datetime dst='true'>20140530T080809,98+01</datetime></created>
-<modified><datetime dst='true'>20140828T160410,32+01</datetime></modified>
-<revised><datetime dst='true'>20140828T160410,31+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140828T160410,32+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140815T121858,11+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst='true'>20141003T132335,53+01</datetime></modified>
+<revised><datetime dst='true'>20141003T132335,52+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20141003T132335,53+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20141003T125847,60+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name='$FormulaClass' sign='true'><text>1</text></item>
@@ -43,5 +43,5 @@ BAAAAAAA//8AAAAAAAAAAAAAAAAAAEIAAAAAAAEA////AAUA////AAEAAAAAAAAAAAAAAAAAAQD/
 <rawitemdata type='f'>
 gQYAAAAAif8ZAAAAAAABAA0AQ2FsZW5kYXJFbnRyeQA=
 </rawitemdata></item>
-<item name='$Flags'><text>PY</text></item></note>
+<item name='$Flags'><text>Y</text></item></note>
 

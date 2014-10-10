@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='215a' unid='DE3045CCE9CCA24780257D410046A560' sequence='13'>
+<noteinfo noteid='215a' unid='DE3045CCE9CCA24780257D410046A560' sequence='22'>
 <created><datetime dst='true'>20140827T135138,56+01</datetime></created>
-<modified><datetime dst='true'>20140919T134118,09+01</datetime></modified>
-<revised><datetime dst='true'>20140919T134118,08+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140919T134118,09+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140827T135138,57+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst='true'>20141003T132335,51+01</datetime></modified>
+<revised><datetime dst='true'>20141003T132335,50+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20141003T133710,36+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20141003T125847,67+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name='$FormatNote' summary='true'>
@@ -40,7 +40,6 @@ AAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAEIAEAAAAAEA////AAUA////AAEA
 AAAAAAAAAAAAAAAAAQD///8AAQD///8AAAABAAAAAAABAAAAAAABAAAAAAAAAAgAAAAAAAEA
 </rawitemdata></item>
 <item name='$Comment' sign='true'><text/></item>
-<item name='$Flags'><text>PY</text></item>
 <item name='$DesignerVersion'><text>8.5.3</text></item>
 <item name='$SelQuery' sign='true'>
 <rawitemdata type='f'>
@@ -64,5 +63,6 @@ AABDX3V0DQC+fL7/IAAAAAQAAACdAQBABQAAAAAAAABfQ29weQAOAM58vv8wAAAABAAAAJ0BAEAW
 AAAAAAAAAENvcHkgYXMgRG9jdW1lbnQgX0xpbmsPAN58vv8oAAAABAAAAJ0BAEAOAAAAAAAAAENv
 cHkgYXMgX1RhYmxlEADufL7/IAAAAAQAAACdAQBABgAAAAAAAABQX2FzdGURAP58vv8gAAAABAAA
 AJ0BAEAFAAAAAAAAAF9PcGVuABIADn2+/yIAAAAEAAAAnQEAQAgAAAAAAAAAQm9va21hcmsTAB59
-</rawitemdata></item></note>
+</rawitemdata></item>
+<item name='$Flags'><text>Y</text></item></note>
 

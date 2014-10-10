@@ -15,7 +15,7 @@
 	<!-- photo card -->
 	<div class="panel panel-default bootcards-media">
 		<div class="panel-heading">
-			<h3 class="panel-title">Photo Upload</h3>
+			<h3 class="panel-title">Upload Card</h3>
 		</div>
 		<div class="panel-body">
 			 Tap 'Select' to take a new photo or select from your Photos library, then tap 'Upload'.
