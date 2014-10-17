@@ -1,4 +1,4 @@
-/* bootcards 1.0.0 2014-09-23 7:22 */
+/* bootcards 1.0.0 2014-10-17 11:44 */
 /* NAVBAR */
 
 /* OFFCANVAS MENU */
@@ -131,6 +131,7 @@ a.list-group-item.active:focus {
 .list-group-item-text {
 	line-height: 18px;
 	margin-bottom: 5px;
+	overflow: hidden;
 }
 
 .list-group-item-heading:last-child,
@@ -148,14 +149,7 @@ a.list-group-item.active:focus {
 	margin-bottom: 0;
 }
 
-/*@media (max-width:768px) {
-	.bootcards-list .list-group-item-heading,
-	.bootcards-list .list-group-item-text {
-		padding-left: 55px;
-	}
-}*/
-
-.list-group-item > img {
+.list-group-item img {
 	height: 40px;
 	width: 40px;
 }
@@ -173,6 +167,12 @@ a.list-group-item.active:focus {
 
 .panel > .list-group .list-group-item:last-child {
 	border-bottom: 0;
+}
+
+/* List Images */
+
+.bootcards-list-group-item-content {
+	overflow: hidden;
 }
 
 /* Disclosure Indicators */
@@ -242,6 +242,8 @@ a.list-group-item.bootcards-list-subheading.collapsed:before {
 	bottom: 0;
 	height: 100%;
 	background: #ffffff;
+	padding-bottom: 50px;
+	padding-top:5px;
 }
 
 .bootcards-az-picker li {
@@ -250,20 +252,44 @@ a.list-group-item.bootcards-list-subheading.collapsed:before {
 	text-align: center;
 	padding: 0;
 	background: #ffffff;
+	height: 3.846%; /* 100% / 26 */
 }
 .bootcards-az-picker li a {
-	height: 3.4%; /* 100% / 27 */
-	display: block;
-	padding: 0.35em 5px;
-}
-.bootcards-az-picker li:first-child a {
-	padding-top:10px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	height:100%;
 }
 
 .bootcards-az-picker li a:hover {
 	text-decoration: none;
 } 
 
+@media only screen and (min-device-width: 480px) 
+				   and (max-device-width: 767px)
+                   and (orientation: landscape)  {
+
+    /*hide every other letter on smartphones/ landscape*/
+	.bootcards-az-picker li:nth-child(even) {
+		display:none;
+	}
+	.bootcards-az-picker li {
+		height: 7.692%; /* 100% / 13 */
+	}
+
+}
 
 /* List - Search Form */
 
@@ -1035,7 +1061,8 @@ html, body {
 
 .btn-xs,
 .btn-xs:hover,
-.btn-xs:active {
+.btn-xs:active,
+.btn-xs:focus {
 	font-size: 10px;
 	line-height: 20px;
 }
@@ -1586,6 +1613,9 @@ form .btn label {
 		line-height: 44px;
 	}
 	.bootcards-wrapper, body > .container > .row {
+		padding-bottom: 44px;
+	}
+	.bootcards-az-picker {
 		padding-bottom: 44px;
 	}
 }

@@ -265,7 +265,7 @@ bootcards._setOrientation = function(init) {
                         //on click: show the list & title
                         bootcards.listEl.toggleClass("active");
                         bootcards.listTitleEl.toggleClass("active");
-                        $("#list").show();
+                
                     });
 
             //create the title element of the list offcanvas
@@ -286,7 +286,6 @@ bootcards._setOrientation = function(init) {
                     .on("click", function() {
                         bootcards.offCanvasMenuEl.toggleClass("active");
                         bootcards.offCanvasMenuTitleEl.toggleClass("active");
-                        $("#list").hide();
                     })
                     .children("i")
                         .removeClass('fa-bars')
@@ -304,7 +303,7 @@ bootcards._setOrientation = function(init) {
                 bootcards.listEl.removeClass('active');
                 bootcards.listTitleEl.removeClass('active'); 
                 bootcards.offCanvasMenuTitleEl.removeClass('active');
-                $("#list").show();
+
             });
             
             bootcards.listEl.on("click", function() {
@@ -538,4 +537,3 @@ bootcards._jumpToLetter = function(letterelement, event) {
     }
     
 };
-

@@ -172,21 +172,12 @@ return out;}]]></xp:this.styleClass>
 	viewScope.rowcount = viewScope.rowcount + 1;
 }
 !thisRowData.isCategory()}]]></xp:this.rendered>
-						<xp:image styleClass="img-rounded pull-left"
-							url="#{javascript:thisRowData.getColumnValue(compositeData.photocolumn)}">
-							<xp:this.rendered><![CDATA[#{javascript:if (compositeData.photocolumn != null && compositeData.photocolumn != ""){
-	try{
-		if (thisRowData.getColumnValue(compositeData.photocolumn) != ""){
-			return true;
-		}else{
-			return false;
-		}
-	}catch(e){
-		return false;
-	}
+						<xp:image styleClass="img-rounded pull-left">
+							<xp:this.url><![CDATA[#{javascript:if (compositeData.photocolumn != null && compositeData.photocolumn != "" && thisRowData.getColumnValue(compositeData.photocolumn) != ""){
+	return thisRowData.getColumnValue(compositeData.photocolumn);
 }else{
-	return false;
-}}]]></xp:this.rendered>
+	return "unp/ecblank.gif";
+}}]]></xp:this.url>
 						</xp:image>
 
 						<xp:text id="label" tagName="h4"
@@ -201,6 +192,7 @@ return out;}]]></xp:this.styleClass>
   return thisRowData.getColumnValue(compositeData.detailcolumn);
 }}]]></xp:this.value>
 						</xp:text>
+						
 					</xp:panel>
 				</xp:repeat>
 			</xp:panel>
