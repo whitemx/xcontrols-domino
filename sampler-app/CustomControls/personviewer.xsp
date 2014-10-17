@@ -3,7 +3,7 @@
 	xmlns:xc="http://www.ibm.com/xsp/custom">
 
 	<unp:UnpBootFormViewer editxpagename="PersonEdit.xsp"
-		editxpagewithajax="yes" formname="Person" showbuttons="yes" title="Contact Details"
+		editxpagewithajax="yes" formname="Person" showbuttons="true" title="Contact Details"
 		titleiconfield="thumbnail" footertext="Built with Bootcards - Base Card">
 		<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
 		<xp:this.facets>

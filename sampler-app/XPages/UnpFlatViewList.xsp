@@ -75,16 +75,13 @@ if (start == ""){
 				</xp:this.attrs>
 
 				<xp:image styleClass="img-rounded pull-left">
-					<xp:this.rendered><![CDATA[#{javascript:if (context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && context.getUrlParameter("photocol") != "null"){
-	if (thisRowData.getColumnValue(context.getUrlParameter("photocol")) != ""){
-		return true;
-	}else{
-		return false;
-	}
+					<xp:this.url><![CDATA[#{javascript:if (context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && 
+	context.getUrlParameter("photocol") != "null" && 
+	thisRowData.getColumnValue(context.getUrlParameter("photocol")) != ""){
+	return thisRowData.getColumnValue(context.getUrlParameter("photocol"));
 }else{
-	return false;
-}}]]></xp:this.rendered>
-					<xp:this.url><![CDATA[#{javascript:thisRowData.getColumnValue(context.getUrlParameter("photocol"))}]]></xp:this.url>
+	return "unp/ecblank.gif";
+}}]]></xp:this.url>
 				</xp:image>
 
 				<xp:text id="label" tagName="h4" styleClass="list-group-item-heading">

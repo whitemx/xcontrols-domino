@@ -63,7 +63,7 @@ if (attachmentList != null && attachmentList.length > 0){
 			
 			<xp:link id="editbutton" value="#"
 				styleClass="btn btn-primary pull-right"
-				rendered="#{javascript:compositeData.showbuttons == 'yes'}">
+				rendered="#{javascript:compositeData.showbuttons == true}">
 				<xp:this.attrs>
 					<xp:attr name="onclick">
 						<xp:this.value><![CDATA[#{javascript:return "unp.editDocument('" + compositeData.editxpagename + "', '" + docview.getDocument().getUniversalID() + "'); return false;"}]]></xp:this.value>

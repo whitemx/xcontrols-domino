@@ -3,7 +3,7 @@
 	xmlns:xc="http://www.ibm.com/xsp/custom">
 
 	<unp:UnpBootFormViewer editxpagename="ActivityEdit.xsp"
-		editxpagewithajax="yes" formname="Activity" showbuttons="yes"
+		editxpagewithajax="yes" formname="Activity" showbuttons="true"
 		title="Activity Details"
 		footertext="Built with Bootcards - Base Card">
 		<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>

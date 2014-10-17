@@ -3,7 +3,7 @@
 	xmlns:xc="http://www.ibm.com/xsp/custom">
 
 	<unp:UnpBootFormEditor viewxpagename="UnpDemoCalendar.xsp" footertext="Built with Bootcards - Form Editor Card"
-		formname="CalendarEntry" showbuttons="yes" title="Calendar Entry">
+		formname="CalendarEntry" showbuttons="true" title="Calendar Entry">
 		<xp:this.facets>
 			<xp:panel id="list-group" xp:key="facet_1">
 				<div class="form-group">

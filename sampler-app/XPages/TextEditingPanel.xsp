@@ -18,7 +18,7 @@
 		<div class="row">
 			<div class="bootcards-cards fullheightrow">
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					<unp:UnpBootFormEditor showbuttons="yes" footertext="Built with Bootcards - Form Editor Card"
+					<unp:UnpBootFormEditor showbuttons="true" footertext="Built with Bootcards - Form Editor Card"
 						formname="RefData" viewxpagename="/TextEditingPanel.xsp">
 						<unp:this.title><![CDATA[#{javascript:"Edit"}]]></unp:this.title>
 						<xp:this.facets>

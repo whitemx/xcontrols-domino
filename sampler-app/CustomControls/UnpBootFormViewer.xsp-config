@@ -46,13 +46,12 @@
     </property>
     <property>
       <property-name>showbuttons</property-name>
-      <property-class>string</property-class>
+      <property-class>boolean</property-class>
       <property-extension>
         <designer-extension>
-          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
-          <editor-parameter>yes&#xd;
-no</editor-parameter>
-          <default-value>yes</default-value>
+          <editor>com.ibm.std.Boolean</editor>
+          <editor-parameter/>
+          <default-value>true</default-value>
         </designer-extension>
       </property-extension>
     </property>
