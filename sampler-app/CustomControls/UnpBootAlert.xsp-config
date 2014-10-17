@@ -38,5 +38,14 @@
         <required>true</required>
       </property-extension>
     </property>
+    <property>
+      <property-name>okbuttonlabel</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>OK</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
   </composite-component>
 </faces-config>
