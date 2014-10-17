@@ -33,9 +33,9 @@ if (doc != null){
 }}]]></xp:this.documentId>
 									</xp:dominoDocument>
 								</xp:this.data>
-								<unp:UnpBootTypographyEdit
+								<unp:UnpBootRichTextEditor
 									fieldname="value">
-								</unp:UnpBootTypographyEdit>
+								</unp:UnpBootRichTextEditor>
 							</xp:panel>
 						</xp:this.facets>
 					</unp:UnpBootFormEditor>

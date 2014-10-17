@@ -8,7 +8,7 @@
 			<div class="bootcards-cards fullheightrow">
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
-					<unp:UnpBootTypographyRead title="Reading Panel"
+					<unp:UnpBootRichTextReader title="Reading Panel"
 						footertext="Built with Bootcards - Rich Text Card">
 
 						<xp:this.facets>
@@ -74,7 +74,7 @@
 								</div>
 							</xp:panel>
 						</xp:this.facets>
-					</unp:UnpBootTypographyRead>
+					</unp:UnpBootRichTextReader>
 				</div>
 			</div>
 		</div>

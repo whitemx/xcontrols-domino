@@ -5,9 +5,9 @@
     <default-prefix>unp</default-prefix>
   </faces-config-extension>
   <composite-component>
-    <component-type>UnpBootTypographyEdit</component-type>
-    <composite-name>UnpBootTypographyEdit</composite-name>
-    <composite-file>/UnpBootTypographyEdit.xsp</composite-file>
+    <component-type>UnpBootRichTextReader</component-type>
+    <composite-name>UnpBootRichTextReader</composite-name>
+    <composite-file>/UnpBootRichTextReader.xsp</composite-file>
     <composite-extension>
       <designer-extension>
         <in-palette>true</in-palette>
@@ -15,16 +15,21 @@
         <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &#xd;
 &lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt; &#xd;
 	&lt;div style="border: 2px solid #A9A9A9; padding: 3px; margin: 5px;"&gt;&#xd;
-	&lt;h1&gt;UnpBootTypographyEdit&lt;/h1&gt;&#xd;
+	&lt;h1&gt;UnpBootTypographyRead&lt;/h1&gt;&#xd;
 	&lt;div&gt;&#xd;
 		To use this custom control make sure you have set the Custom Properties.&#xd;
 	&lt;/div&gt;&#xd;
+	&lt;xp:callback facetName="typographyfacet" id="typographycallback"&gt;&lt;/xp:callback&gt;&#xd;
 &lt;/div&gt;&#xd;
 &lt;/xp:view&gt;</render-markup>
       </designer-extension>
     </composite-extension>
     <property>
-      <property-name>fieldname</property-name>
+      <property-name>title</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>footertext</property-name>
       <property-class>string</property-class>
     </property>
   </composite-component>

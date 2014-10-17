@@ -76,7 +76,7 @@
 
 				<xp:panel id="readingpanel">
 					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Reading Card"}]]></xp:this.rendered>
-					<unp:UnpBootTypographyRead title="Reading Card"
+					<unp:UnpBootRichTextReader title="Reading Card"
 						footertext="Built with Bootcards - Rich Text Card">
 						<xp:this.facets>
 							<xp:panel xp:key="typographyfacet">
@@ -143,7 +143,7 @@
 								</div>
 							</xp:panel>
 						</xp:this.facets>
-					</unp:UnpBootTypographyRead>
+					</unp:UnpBootRichTextReader>
 				</xp:panel>
 
 				<xp:panel id="editingpanel">
@@ -162,8 +162,8 @@ if (doc != null){
 }}]]></xp:this.documentId>
 									</xp:dominoDocument>
 								</xp:this.data>
-								<unp:UnpBootTypographyEdit fieldname="value">
-								</unp:UnpBootTypographyEdit>
+								<unp:UnpBootRichTextEditor fieldname="value">
+								</unp:UnpBootRichTextEditor>
 							</xp:panel>
 						</xp:this.facets>
 						

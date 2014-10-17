@@ -193,8 +193,8 @@ return out;}]]></xp:this.styleClass>
 						styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
-						<unp:UnpBootTypographyEdit fieldname="bio">
-						</unp:UnpBootTypographyEdit>
+						<unp:UnpBootRichTextEditor fieldname="bio">
+						</unp:UnpBootRichTextEditor>
 					</div>
 				</div>
 			</xp:panel>

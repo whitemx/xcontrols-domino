@@ -57,9 +57,9 @@ return date.toJavaDate().getTime();}]]></xp:this.value>
 						styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
-						<unp:UnpBootTypographyEdit fieldname="details">
+						<unp:UnpBootRichTextEditor fieldname="details">
 
-						</unp:UnpBootTypographyEdit>
+						</unp:UnpBootRichTextEditor>
 					</div>
 				</div>
 			</xp:panel>
