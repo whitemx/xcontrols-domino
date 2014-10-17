@@ -13,18 +13,18 @@
 	<unp:UnpBootNavigator>
 		<unp:this.menuitems><![CDATA[#{javascript:[
 	{"label": "Home", "icon": "fa-dashboard", "page": "/UnpMain.xsp"},
-	{"label": "Cards", "icon": "fa-book", "page": "/BaseCards.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-	{"label": "Lists", children: [
+	{"label": "Views", children: [
 		{"label": "Flat", "icon": "fa-list-alt", "page": "/FlatView.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Categorized", "icon": "fa-list", "page": "/Categorized.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Accordion", "icon": "fa-th-list", "page": "/Accordion.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Carousel", "icon": "fa-files-o", "page": "/Media.xsp", ajaxloadid: "main", ajaxtargetid: "main"} 
+		{"label": "Accordion", "icon": "fa-th-list", "page": "/Accordion.xsp", ajaxloadid: "main", ajaxtargetid: "main"} 
 	]}, 
+	{"label": "Cards", "icon": "fa-book", "page": "/BaseCards.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 	{"label": "Other Controls", children: [		 
 		{"label": "Calendar", "icon": "fa-calendar", "page": "/Calendar.xsp"}, 
+		{"label": "Carousel", "icon": "fa-files-o", "page": "/Media.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Dialogs", "icon": "fa-comment", "page": "/Dialog.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
 	]}, 
-	{"label": "Example Patterns", children: [
+	{"label": "Examples", children: [
 		{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
 		{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "My Activities", "icon": "fa-tasks", "page": "/MyActivities.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
@@ -51,10 +51,10 @@
 	<unp:UnpBootHeader>
 		<unp:this.navitems><![CDATA[#{javascript:[
         {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
+        {label: "Views", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Lists", icon: "fa-list"},
         {label: "Cards", hasSubMenu: false, page: "/BaseCards.xsp", icon: "fa-book"},
-        {label: "Lists", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Lists", icon: "fa-list"},
         {label: "Other Controls", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Other%20Controls", icon: "fa-th-large"},
-        {label: "Patterns", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-edit"},
+        {label: "Examples", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-edit"},
         {label: "Icons", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Font%20Awesome", icon: "fa-flag"},
         {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}      
 ]}]]></unp:this.navitems>

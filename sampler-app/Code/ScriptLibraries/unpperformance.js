@@ -48,7 +48,7 @@ $(window).load( function() {
 	});
 	test("open flat view", 1, function(){
 		stop();
-		$(".litop3 li a").eq(0).click();
+		$(".litop2 li a").eq(0).click();
 		console.log("open flat view");
 		ok(true);
 	});
@@ -67,7 +67,7 @@ $(window).load( function() {
 	});
 	test("open filtered view", 1, function(){
 		stop();
-		$(".litop3 li a").eq(1).click();
+		$(".litop2 li a").eq(1).click();
 		console.log("open filtered view");
 		ok(true);
 	});
