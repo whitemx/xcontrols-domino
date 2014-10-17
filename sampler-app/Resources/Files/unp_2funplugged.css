@@ -301,3 +301,7 @@ div.dBar .content {
 }
 
 .form-control::-ms-clear {display: none; width:0; height:0;}
+
+.bootcards-az-picker {
+	padding-top: 44px !important;
+}
