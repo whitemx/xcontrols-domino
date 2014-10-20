@@ -386,6 +386,7 @@ unp.openDocument = function(url, target, caller) {
 					$("#list").addClass("hidden-xs");
 					$('.btn-menu').addClass('hidden');
 					$('.btn-back').removeClass('hidden');
+					$(".bootcards-az-picker").hide();
 					try{
 						$('#list').animate( {
 							scrollTop : 0
@@ -485,6 +486,9 @@ unp.goback = function() {
 				scrollTop : 0
 			}, '500', 'easeOutExpo');
 		}
+		$(".bootcards-az-picker").show();
+		$(".bootcards-az-picker a").unbind();
+		unp.initAZPicker();
 	} else {
 		history.back()
 	}
@@ -682,11 +686,13 @@ unp.initAZPicker = function() {
 	if (azPicker.length > 0) {
 	
 		// Register the letter click events
+		//$("a", azPicker).unbind();
 		$("a", azPicker).off().on('click', function(event) {
 			
 			var $this = $(this);
-	
+			
 			event.stopPropagation();
+			event.preventDefault();
 			if ($this.hasClass("switchletterlist")) {
 				$(".atozpicker").toggle();
 				$(".numberpicker").toggle();
@@ -789,9 +795,7 @@ unp.jumpToLetter = function(letterelement, event) {
 	
 	var $list = $('#list');
 	
-	$list.animate( {
-		scrollTop : 0
-	}, 0);
+	$list.scrollTop(0);
 	
 	var letter = letterelement.text().toLowerCase();
 	var sel = "#list .list-group a";
@@ -813,21 +817,23 @@ unp.jumpToLetter = function(letterelement, event) {
 		}
 		var firstletter = summary.substring(0, 1).toLowerCase();
 		
-		
 		if (firstletter == letter) {
 			var scrollTop = $entry.offset().top - 60;
-			
-			$list.animate( {
-				scrollTop : scrollTop
-			}, 0);
+			if (scrollTop < 0){
+				$list.scrollTop(0);
+			}else{
+				$list.scrollTop(scrollTop);
+			}
 			scrolled = true;
 			return false;
 		} else if (firstletter > letter) {
-			var scrollTop = $entry.offset().top - 120;
-			
-			$list.animate( {
-				scrollTop : scrollTop
-			}, 0);
+			var scrollTop = $entry.offset().top - 60;
+			if (scrollTop < 0){
+				$list.scrollTop(0);
+				scrollTop = $entry.offset().top - 60;
+			}else{
+				$list.scrollTop(scrollTop);
+			}
 			scrolled = true;
 			return false;
 		}

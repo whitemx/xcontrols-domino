@@ -27,7 +27,7 @@
 				<li>
 					<xp:text id="letter" tagName="a" value="#{javascript:letter}">
 						<xp:this.attrs>
-							<xp:attr name="href" value=""></xp:attr>
+							<xp:attr name="href" value="#"></xp:attr>
 						</xp:this.attrs>
 					</xp:text>
 				</li>
