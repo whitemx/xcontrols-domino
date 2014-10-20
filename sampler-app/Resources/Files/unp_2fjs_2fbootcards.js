@@ -383,6 +383,12 @@ bootcards._setOrientation = function(init) {
                 .removeClass('col-xs-12')
                 .addClass( bootcards.cardsColClass );
         }
+        
+        //show the card again
+        if ($("#list").length > 0){
+	        $("#list").addClass("col-sm-5 col-xs-4");
+	        $(".bootcards-cards").addClass("col-sm-7");
+        }
 
         $('.bootcards-az-picker').show();
 
@@ -393,9 +399,9 @@ bootcards._setOrientation = function(init) {
 //get the list element and it's classes
 bootcards._initListEl = function() {
 
-    if (bootcards.listEl != null) {
-        return bootcards.listEl;
-    }
+    //if (bootcards.listEl != null) {
+    //    return bootcards.listEl;
+    //}
             
     bootcards.listEl = $('.bootcards-list');
     bootcards.listColClass = '';
@@ -416,9 +422,9 @@ bootcards._initListEl = function() {
 
 bootcards._initCardsEl = function() {
 
-    if (bootcards.cardsEl != null) {
-        return bootcards.cardsEl;
-    }
+    //if (bootcards.cardsEl != null) {
+    //    return bootcards.cardsEl;
+    //}
 
     bootcards.cardsEl = $('.bootcards-cards');
     bootcards.cardsColClass = '';
