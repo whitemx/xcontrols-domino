@@ -40,7 +40,7 @@ if (context.getUrlParameter("parentunid") != ""){
 	out += ", 'null'";
 }
 if (compositeData.dbname != null){
-	out += ", '" + compositeData.dbName + "'";
+	out += ", '" + compositeData.dbname + "'";
 }
 out += "); return false;"
 return out;}]]></xp:this.value>
