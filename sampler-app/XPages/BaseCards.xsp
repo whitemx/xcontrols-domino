@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
-	
+
 	<xp:this.data>
-		<xp:dominoDocument var="document1" formName="BaseCard"
+		<xp:dominoDocument var="document2" formName="BaseCard"
 			action="openDocument">
 		</xp:dominoDocument>
 	</xp:this.data>
@@ -12,19 +12,18 @@
 	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="Cards" summarycolumn="Title"
-				viewname="Base Cards" numberofrows="20" ajaxload="Yes"
-				xpagedoc="BaseCards.xsp"
+				viewname="Base Cards" numberofrows="20" ajaxload="Yes" xpagedoc="BaseCards.xsp"
 				footertext="Built with Bootcards - Flat List" photocolumn="Photo"
 				detailcolumn="Detail">
 			</unp:UnpBootFlatView>
 			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
 				<xp:text escape="false" id="computedField1" tagName="div"
-					value="#{document1.HTML}">
-					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("HTML") != ""}]]></xp:this.rendered>
+					value="#{document2.HTML}">
+					<xp:this.rendered><![CDATA[#{javascript:document2.getItemValueString("HTML") != ""}]]></xp:this.rendered>
 				</xp:text>
 
 				<xp:panel id="chartpanel">
-					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Chart Card"}]]></xp:this.rendered>
+					<xp:this.rendered><![CDATA[#{javascript:document2.getItemValueString("Title") == "Chart Card"}]]></xp:this.rendered>
 					<div class="panel panel-default bootcards-chart">
 						<div class="panel-heading">
 							<h3 class="panel-title">Chart Card</h3>
@@ -68,14 +67,15 @@
 						</div>
 						<div class="panel-footer">
 							<div class="panel-footer">
-								<small class="pull-left">Built with Bootcards - Chart Card</small>
+								<small class="pull-left">Built with Bootcards - Chart Card
+								</small>
 							</div>
 						</div>
 					</div>
 				</xp:panel>
 
 				<xp:panel id="readingpanel">
-					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Reading Card"}]]></xp:this.rendered>
+					<xp:this.rendered><![CDATA[#{javascript:document2.getItemValueString("Title") == "Reading Card"}]]></xp:this.rendered>
 					<unp:UnpBootRichTextReader title="Reading Card"
 						footertext="Built with Bootcards - Rich Text Card">
 						<xp:this.facets>
@@ -147,9 +147,10 @@
 				</xp:panel>
 
 				<xp:panel id="editingpanel">
-					<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Editing Card"}]]></xp:this.rendered>
-					<unp:UnpBootFormEditor showbuttons="false" footertext="Built with Bootcards - Rich Text Card"
-						title="Edit" formname="BaseCard" viewxpagename="BaseCards.xsp">
+					<xp:this.rendered><![CDATA[#{javascript:document2.getItemValueString("Title") == "Editing Card"}]]></xp:this.rendered>
+					<unp:UnpBootFormEditor showbuttons="false"
+						footertext="Built with Bootcards - Rich Text Card" title="Edit"
+						formname="BaseCard" viewxpagename="BaseCards.xsp">
 						<xp:this.facets>
 							<xp:panel xp:key="facet_1">
 								<xp:this.data>
@@ -166,16 +167,103 @@ if (doc != null){
 								</unp:UnpBootRichTextEditor>
 							</xp:panel>
 						</xp:this.facets>
-						
+
 					</unp:UnpBootFormEditor>
 				</xp:panel>
 
-                <xp:panel id="photuploadpanel">
+				<xp:panel id="photuploadpanel">
 					<xc:PhotoCard>
-						<xp:this.rendered><![CDATA[#{javascript:document1.getItemValueString("Title") == "Upload Card"}]]></xp:this.rendered>
+						<xp:this.rendered><![CDATA[#{javascript:document2.getItemValueString("Title") == "Upload Card"}]]></xp:this.rendered>
 					</xc:PhotoCard>
 				</xp:panel>
-			
+
+				<xp:panel id="formpanel">
+					<xp:this.rendered><![CDATA[#{javascript:document2.getItemValueString("Title") == "Form Card"}]]></xp:this.rendered>
+					<unp:UnpBootFormViewer editxpagename="PersonEdit.xsp"
+						editxpagewithajax="yes" formname="BaseCard" showbuttons="true"
+						title="Form Card"
+						footertext="Built with Bootcards - Base Card">
+						<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
+						<xp:this.facets>
+							<xp:panel id="list-group" xp:key="facet_1" styleClass="panel">
+								<div class="list-group">
+									<div class="list-group-item">
+										<label>Name</label>
+										<xp:text id="fullname" tagName="h4"
+											styleClass="list-group-item-heading">
+											<xp:this.value><![CDATA[#{javascript:docview.getItemValueString("FirstName") + " " + docview.getItemValueString("LastName")}]]></xp:this.value>
+										</xp:text>
+									</div>
+
+									<div class="list-group-item">
+										<xp:label value="Title" id="titlelabel" for="title">
+										</xp:label>
+										<xp:text tagName="h4" id="title" value="#{docview.Title}"
+											styleClass="list-group-item-heading">
+										</xp:text>
+									</div>
+									<div class="list-group-item">
+										<xp:label value="Date" id="datelabel" for="date">
+										</xp:label>
+										<xp:text tagName="h4" id="date"
+											value="#{docview.InitialContactDate}" styleClass="list-group-item-heading">
+										</xp:text>
+									</div>
+									<div class="list-group-item">
+										<xp:label value="Email" id="emaillabel" for="email">
+										</xp:label>
+										<h4 class="list-group-item-heading">
+											<xp:link escape="true" text="#{docview.Email}" id="email">
+												<xp:this.value><![CDATA[#{javascript:"mailto:" + docview.getItemValueString("Email")}]]></xp:this.value>
+											</xp:link>
+										</h4>
+									</div>
+									<div class="list-group-item">
+										<xp:label value="Mobile Enabled" id="mobilenabledlabel"
+											for="mobileenabled">
+										</xp:label>
+										<xp:text id="mobileenabled" tagName="h4"
+											styleClass="list-group-item-heading">
+											<xp:this.value><![CDATA[#{javascript:if (docview.getItemValueString("mobileenabled") == "on"){
+	return "Yes";
+}else{
+	return "No";
+}}]]></xp:this.value>
+										</xp:text>
+									</div>
+									<div class="list-group-item">
+										<xp:label value="Company" id="companylabel" for="company">
+										</xp:label>
+										<xp:text tagName="h4" id="company" value="#{docview.Company}"
+											styleClass="list-group-item-heading">
+										</xp:text>
+									</div>
+									<div class="list-group-item">
+										<xp:label value="Address" id="addresslabel" for="address">
+										</xp:label>
+										<xp:text tagName="h4" id="address" escape="false"
+											styleClass="list-group-item-heading">
+
+											<xp:this.value><![CDATA[#{javascript:var out = docview.getItemValueString("StreetAddress");
+out += "<br />" + docview.getItemValueString("City");
+out += "<br />" + docview.getItemValueString("Country");
+return out;}]]></xp:this.value>
+										</xp:text>
+									</div>
+									<div class="list-group-item">
+										<xp:label value="Details" id="detailslabel" for="bio">
+										</xp:label>
+										<xp:text id="bio" tagName="h4" styleClass="list-group-item-heading"
+											value="#{docview.Bio}" escape="false">
+										</xp:text>
+									</div>
+
+								</div>
+							</xp:panel>
+						</xp:this.facets>
+					</unp:UnpBootFormViewer>
+				</xp:panel>
+
 			</div>
 		</div>
 		<div class="pagetitle hidden">Cards</div>
