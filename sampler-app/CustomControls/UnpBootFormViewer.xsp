@@ -44,12 +44,11 @@ if (attachmentList != null && attachmentList.length > 0){
 	  imageFile = "/" + dbPath + "/0/" + docview.getDocument().getUniversalID() + "/$FILE/" + imagename;
 	  if (imagename != ""){
 		  images.push({
-		     url: imageFile,
-		     filename: imagename
+		      url: imageFile,
+		      filename: imagename
 		  });
 	  } 
 	}
-	
 	viewScope.put("images", images);
 }}]]></xp:this.script>
 		</xp:executeScript>
