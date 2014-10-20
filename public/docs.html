@@ -543,7 +543,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
           <div id="doc-files" class="bs-docs-section">
             <h2>Files</h2>
             <p class="lead">Given a list of files will display them formatted nicely as a list.</p>
-            <p>If you're using the form viewer then the list will be automatically populated, if not then you'll need to build the list yourself.</p>
+            <p>If you're using the form viewer then the list will be automatically populated, you just need to pass in viewScope.images to fileslist, if not then you'll need to build the list yourself.</p>
             <div class="row">
                 <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/files-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Files iOS" class="col-sm-4">
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/files-ios.png" class="img-responsive">
@@ -558,7 +558,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
             
             <dl class="dl-horizontal">
               <dt>filestitle</dt><dd>The title for the list</dd>
-              <dt>fileslist</dt><dd>An array of file objects that contain filename and url for each file</dd>
+              <dt>fileslist</dt><dd>An array of file objects that contain filename and url for each file. If you're using a FormViewer, then pass in viewScope.images</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
 &lt;xc:UnpBootFiles filestitle=&quot;Files&quot;&gt;
