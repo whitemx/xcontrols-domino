@@ -16,8 +16,10 @@
 				photocolumn="Photo" footertext="Built with Bootcards - Accordion List">
 			</unp:UnpBootAccordionView>
 			<div id="doccontent"
-				class="col-sm-7 bootcards-cards hidden-xs">
-				<xc:personviewer></xc:personviewer>
+				class="col-sm-7 bootcards-cards hidden-xs" style="display: none;">
+				<xc:personviewer>
+					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
+				</xc:personviewer>
 			</div>
 		</div>
 		<div class="pagetitle hidden">Departments</div>
