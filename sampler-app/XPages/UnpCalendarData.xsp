@@ -69,7 +69,7 @@ try{
 					entry += "\"color\": \"" + categories[itemcat] + "\", ";
 				}
 			}
-			entry += "\"url\": \"javascript:unp.editDocument('" + context.getUrlParameter('viewxpage') + "', '" + doc.getUniversalID() + "')\"";
+			entry += "\"url\": \"javascript:unp.editDocument('" + context.getUrlParameter('viewxpage') + "', '" + doc.getUniversalID() + "');\"";
 			entry += "}";
 			if (out != ""){
 				out += ", \n";

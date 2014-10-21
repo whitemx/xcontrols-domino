@@ -431,7 +431,7 @@ unp.editDocument = function(xpage, unid){
 			//$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
 		}
 	});
-	if (!unp.isIE()){
+	if (!unp.isIE() && !unp.isFF()){
 		return false;
 	}
 }
@@ -444,6 +444,14 @@ unp.isIE = function(){
         return true;
     else
         return false;
+}
+
+unp.isFF = function() {
+	if (window.navigator.userAgent.indexOf("Firefox") > 1){
+		return true;
+	}else{
+		return false;
+	}
 }
 
 unp.newDocument = function(xpage){
