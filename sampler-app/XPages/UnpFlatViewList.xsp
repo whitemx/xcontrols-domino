@@ -82,6 +82,7 @@ if (start == ""){
 }else{
 	return "unp/ecblank.gif";
 }}]]></xp:this.url>
+					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && context.getUrlParameter("photocol") != "null"}]]></xp:this.rendered>
 				</xp:image>
 
 				<xp:text id="label" tagName="h4" styleClass="list-group-item-heading">

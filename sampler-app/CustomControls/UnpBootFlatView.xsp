@@ -169,8 +169,8 @@ return out;}]]></xp:this.styleClass>
 }
 !thisRowData.isCategory()}]]></xp:this.rendered>
 						
-						<xp:panel styleClass="img-rounded pull-left" tagName="img"
-							id="viewimage">
+						<xp:panel styleClass="img-rounded pull-left"
+							tagName="img" id="viewimage">
 							<xp:this.attrs>
 								<xp:attr name="src">
 									<xp:this.value><![CDATA[#{javascript:if (compositeData.photocolumn != null && compositeData.photocolumn != "" && thisRowData.getColumnValue(compositeData.photocolumn) != ""){
@@ -180,6 +180,7 @@ return out;}]]></xp:this.styleClass>
 }}]]></xp:this.value>
 								</xp:attr>
 							</xp:this.attrs>
+							<xp:this.rendered><![CDATA[#{javascript:compositeData.photocolumn != null && compositeData.photocolumn != ""}]]></xp:this.rendered>
 						</xp:panel>
 
 						<xp:text id="label" tagName="h4" styleClass="list-group-item-heading"
