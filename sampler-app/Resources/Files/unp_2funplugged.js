@@ -106,12 +106,12 @@ unp.initPage = function(){
         if (bootcards.listOffcanvasToggle) {
             bootcards.listOffcanvasToggle.remove();
             bootcards.listTitleEl.remove();
-            bootcards.offCanvasMenuTitleEl.remove();
+            Bootcards.OffCanvas.$menuTitleEl.remove();
         }
         bootcards.mainContentEl = $('#doccontent');
         bootcards.listOffcanvasToggle = null;
         bootcards.listTitleEl = null;
-        bootcards.offCanvasMenuTitleEl = null;
+        Bootcards.OffCanvas.$menuTitleEl = null;
         bootcards.listEl = null;
         bootcards.cardsEl = null;
 		bootcards._setOrientation(true);

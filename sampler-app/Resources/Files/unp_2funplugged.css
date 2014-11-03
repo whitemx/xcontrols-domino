@@ -275,6 +275,11 @@ div.dBar .content {
 }
 
 /* end photo uploader */
+
+/*fix for offcanvas slide in menu appearing below list navigator in portrait mode*/
+.navmenu.offcanvas-left {
+	z-index: 1051;
+}              
 .offcanvas-left {
 	left: -300px !important;
 }
