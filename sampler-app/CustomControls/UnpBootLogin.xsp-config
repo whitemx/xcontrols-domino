@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://unplugged.openntf.org</namespace-uri>
+    <default-prefix>unp</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <component-type>UnpBootLogin</component-type>
+    <composite-name>UnpBootLogin</composite-name>
+    <composite-file>/UnpBootLogin.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <category>XControls</category>
+      </designer-extension>
+    </composite-extension>
+    <property>
+      <property-name>footertext</property-name>
+      <property-class>string</property-class>
+    </property>
+  </composite-component>
+</faces-config>
