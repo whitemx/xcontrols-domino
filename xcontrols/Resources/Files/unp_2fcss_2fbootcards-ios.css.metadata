@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
-<noteinfo noteid="332" sequence="15" unid="261685EDD576555980257D4100277D0F">
-<created><datetime dst="true">20140827T081119,19+01</datetime></created>
-<modified><datetime dst="true">20141003T125627,96+01</datetime></modified>
-<revised><datetime dst="true">20141002T170709,39+01</datetime></revised>
-<lastaccessed><datetime dst="true">20141003T125627,96+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20141003T125627,96+01</datetime></addedtofile></noteinfo>
+<noteinfo noteid="3da" sequence="3" unid="A4C218F52C7604AD80257D850032707B">
+<created><datetime>20141103T091055,95+00</datetime></created>
+<modified><datetime>20141103T091120,64+00</datetime></modified>
+<revised><datetime>20141103T091120,63+00</datetime></revised>
+<lastaccessed><datetime>20141103T091120,64+00</datetime></lastaccessed>
+<addedtofile><datetime>20141103T091055,99+00</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
-<item name="$TITLE" sign="true"><text>unp/css/bootcards-ios.css</text></item>
-<item name="$MimeCharSet"><text>UTF-8</text></item>
+<item name="$Flags"><text>345CgQ</text></item>
 <item name="$FlagsExt" sign="true"><text>D</text></item>
-<item name="$FileModDT" sign="true"><datetime dst="true">20140923T072235,00+01</datetime></item>
-<item name="$Flags"><text>g345QC</text></item>
-<item name="$DesignerVersion"><text>8.5.3</text></item>
 
+<item name="$FileModDT" sign="true"><datetime>20141103T072311,00+00</datetime></item>
 
-
-<item name="$FileNames" sign="true"><text>unp_2fcss_2fbootcards-ios.css</text></item></note>
+<item name="$FileNames" sign="true"><text>bootcards-ios.css</text></item>
+<item name="$TITLE" sign="true"><text>unp/css/bootcards-ios.css</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>

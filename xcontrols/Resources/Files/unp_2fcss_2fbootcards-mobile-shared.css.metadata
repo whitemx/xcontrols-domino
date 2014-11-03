@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
-<noteinfo noteid="29e" sequence="11" unid="A357479939A8211680257D39003C280F">
-<created><datetime dst="true">20140819T115704,15+01</datetime></created>
-<modified><datetime dst="true">20141003T125627,22+01</datetime></modified>
-<revised><datetime dst="true">20141002T170708,99+01</datetime></revised>
-<lastaccessed><datetime dst="true">20141003T125627,22+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20141003T125627,22+01</datetime></addedtofile></noteinfo>
+<noteinfo noteid="3de" sequence="3" unid="270A9456FD3C40BE80257D850032707C">
+<created><datetime>20141103T091055,96+00</datetime></created>
+<modified><datetime>20141103T091124,28+00</datetime></modified>
+<revised><datetime>20141103T091124,27+00</datetime></revised>
+<lastaccessed><datetime>20141103T091124,28+00</datetime></lastaccessed>
+<addedtofile><datetime>20141103T091056,01+00</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
-<item name="$FlagsExt"><text>D</text></item>
-<item name="$TITLE" sign="true"><text>unp/css/bootcards-mobile-shared.css</text></item>
-<item name="$MimeCharSet"><text>UTF-8</text></item>
-<item name="$FileModDT" sign="true"><datetime dst="true">20140916T143747,00+01</datetime></item>
 <item name="$Flags"><text>345CgQ</text></item>
-<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
 
+<item name="$FileModDT" sign="true"><datetime>20141103T072311,00+00</datetime></item>
 
-<item name="$FileNames" sign="true"><text>unp_2fcss_2fbootcards-mobile-shared.css</text></item></note>
+<item name="$FileNames" sign="true"><text>bootcards-mobile-shared.css</text></item>
+<item name="$TITLE" sign="true"><text>unp/css/bootcards-mobile-shared.css</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>
