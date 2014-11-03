@@ -40,6 +40,7 @@ $(window).load( function() {
 	bootcards.init( {
         offCanvasHideOnMainClick : true,
         enableTabletPortraitMode : true,
+        offCanvasBackdrop : true, 
         disableRubberBanding : true, 
         mainContentEl: $('#doccontent')
     });
