@@ -348,6 +348,79 @@ unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
 	}
 }
 
+unp.loadmoredetailed = function(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category,
+		xpage, refreshmethod, photocol, ajaxload, target) {
+	if (($('.searchbox').val() == "" || $('.localsearchbox').val() == ""  || ($('.searchbox').length == 0 && $('.localsearchbox').length == 0)) && !loadmoreloading) {
+		loadmoreloading == true;
+		// try {
+		$(".loadmorelink").hide();
+		$("#loadmorespinner").show();
+		setTimeout("unp.stopViewSpinner()", 5000);
+		var itemlist = $("#list .list-group .list-group-item");
+		var pos = itemlist.length;
+		// console.log('Pos = ' + pos);
+		var thisArea = $(".summaryDataRow");
+		var url = "UnpDetailedViewList.xsp?chosenView="
+				+ encodeURIComponent(viewName) + "&summarycol="
+				+ encodeURIComponent(summarycol) + 
+				"&detailcol1=" + encodeURIComponent(detailcol1) + 
+				"&detailcol2=" + encodeURIComponent(detailcol2) + 
+				"&detailcol3=" + encodeURIComponent(detailcol3) +
+				"&photocol=" + encodeURIComponent(photocol) + "&category="
+				+ encodeURIComponent(category) + "&xpage=" + xpage + "&dbName="
+				+ dbName + "&refreshmethod=" + refreshmethod + "&start=" + pos
+				+ "&ajaxload=" + ajaxload + "&target=" + target;
+		if (loadedurls.indexOf(url) == -1) {
+			loadedurls.push(url);
+			// console.log('Loading ' + url);
+			thisArea.load(url + " #results",
+					function() {
+						var firsturl = $(".summaryDataRow a").first().prop(
+								'onclick');
+						if ($("#list .panel .list-group a[onclick='" + firsturl
+								+ "']").length > 0) {
+							// console.log("We've already loaded " + firsturl);
+				} else {
+					// console.log('Adding ' + $('.summaryDataRow a').length + '
+					// items to list');
+					$("#list .panel .list-group ").append(
+							$(".summaryDataRow .list-group-item"));
+				}
+				if ($(".summaryDataRow").text().indexOf("NOMORERECORDS") > -1) {
+					// console.log('Reached end of view with ' + $("#list
+					// .list-group a").length + ' elements');
+					$("#pullUp").hide();
+					$(".loadmorelink").hide();
+					$("#loadmorespinner").hide();
+				} else {
+					$("#pullUp").show();
+					$(".loadmorelink").show();
+					$("#loadmorespinner").hide();
+				}
+				$(".summaryDataRow").empty();
+				try {
+					scrollContent.refresh();
+				} catch (e) {
+				}
+
+				if ($("#pullUp").hasClass('loading')) {
+					$("#pullUp").removeClass("loading");
+				}
+				loadmoreloading = false;
+				return false;
+			});
+		} else {
+			// console.log('We already loaded ' + url);
+		}
+
+	} else {
+		// Don't load more when search is active
+		if (loadmoreloading) {
+			// console.log('Load More is loading...');
+		}
+	}
+}
+
 unp.openDocument = function(url, target, caller) {
 	var thisArea = $("#" + target);
 	$('#list .active').removeClass('active');
@@ -1036,6 +1109,27 @@ unp.clearsearch = function(dbName, viewName, summarycol, detailcol, category,
 		});
 	}else{
 		unp.loadmore(dbName, viewName, summarycol, detailcol, category, xpage,
+				refreshmethod, photocol, ajaxload, target);
+	}
+}
+
+unp.clearsearchdetailed = function(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category,
+		xpage, refreshmethod, photocol, ajaxload, target) {
+	$('#list .list-group').empty();
+	$('.loadmorelink').hide();
+	$('.pullupholder').hide();
+	$('.clearsearchbutton').hide();
+	$('.searchbox').val('');
+	$('.localsearchbox').val('');
+	$("#pullUp").removeClass("loading");
+	loadedurls = [];
+	loadmoreloading = false;
+	if ($('.accordion-list-group').length > 0){
+		$('#list').load(window.location.href + ' #list>div', function(){
+			unp.initSearch();
+		});
+	}else{
+		unp.loadmoredetailed(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category, xpage,
 				refreshmethod, photocol, ajaxload, target);
 	}
 }

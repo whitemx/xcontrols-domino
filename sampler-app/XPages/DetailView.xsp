@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xc:commonheader pagetitle="Flat View"></xc:commonheader>
+
+	<div id="main" class="container bootcards-container">
+		<div class="row fullheightrow">
+			<unp:UnpBootDetailedView title="People" summarycolumn="FullName"
+				viewname="People By Last Name" numberofrows="20" ajaxload="Yes"
+				detailcolumn1="Company" detailcolumn2="City" detailcolumn3="Country" xpagedoc="DetailView.xsp"
+				newlink="PersonEdit.xsp" searchview="Search"
+				footertext="Built with Bootcards - Flat List">
+			</unp:UnpBootDetailedView>
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
+				<xc:personviewer></xc:personviewer>
+			</div>
+		</div>
+		<div class="pagetitle hidden">Flat</div>
+	</div>
+
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>
