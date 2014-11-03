@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
-<noteinfo noteid="2136" sequence="21" unid="545A083F5BA5181E80257D4100277D13">
-<created><datetime dst="true">20140827T081119,23+01</datetime></created>
-<modified><datetime dst="true">20141017T115214,44+01</datetime></modified>
-<revised><datetime dst="true">20141017T115214,43+01</datetime></revised>
-<lastaccessed><datetime dst="true">20141017T115214,44+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20140827T081119,38+01</datetime></addedtofile></noteinfo>
+<noteinfo noteid="231a" sequence="1" unid="8BDF2A9580C696E580257D8500344C3B">
+<created><datetime>20141103T093113,87+00</datetime></created>
+<modified><datetime>20141103T093113,91+00</datetime></modified>
+<revised><datetime>20141103T093113,90+00</datetime></revised>
+<lastaccessed><datetime>20141103T093113,91+00</datetime></lastaccessed>
+<addedtofile><datetime>20141103T093113,91+00</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
-<item name="$TITLE" sign="true"><text>unp/css/bootcards-android.css</text></item>
-<item name="$MimeCharSet"><text>UTF-8</text></item>
+<item name="$Flags"><text>345CgQ</text></item>
 <item name="$FlagsExt" sign="true"><text>D</text></item>
-<item name="$DesignerVersion"><text>8.5.3</text></item>
 
-<item name="$FileModDT" sign="true"><datetime dst="true">20141017T114459,00+01</datetime></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20140922T143056,00+01</datetime></item>
 
-
-<item name="$Flags"><text>g345QC</text></item>
-<item name="$FileNames" sign="true"><text>bootcards-android.css</text></item></note>
+<item name="$FileNames" sign="true"><text>bootcards-android.css</text></item>
+<item name="$TITLE" sign="true"><text>unp/css/bootcards-android.css</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>

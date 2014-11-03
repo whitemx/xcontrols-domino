@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
  maintenanceversion='1.0' replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='122' unid='B580C2EFB63966E380257CD8002C299E' sequence='10'>
+<noteinfo noteid='122' unid='B580C2EFB63966E380257CD8002C299E' sequence='12'>
 <created><datetime dst='true'>20140514T090222,38+01</datetime></created>
-<modified><datetime dst='true'>20141020T160612,38+01</datetime></modified>
-<revised><datetime dst='true'>20141020T160612,37+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20141020T160612,38+01</datetime></lastaccessed>
+<modified><datetime>20141101T211458,25+00</datetime></modified>
+<revised><datetime>20141101T211458,24+00</datetime></revised>
+<lastaccessed><datetime>20141101T211458,25+00</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20140815T121816,91+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
@@ -27,6 +27,6 @@ AAAAUEECICABAAD/////+A4DgA==
 <item name='$Flags'><text>J</text></item>
 <item name='$FlagsNoRefresh'><text>rv</text></item>
 <item name='$Daos'><text>0</text></item>
-<item name='$TITLE'><text>XControls 1.1 Sampler
+<item name='$TITLE'><text>XControls 1.2 Sampler
 </text></item></note>
 
