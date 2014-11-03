@@ -43,5 +43,23 @@
         <required>true</required>
       </property-extension>
     </property>
+    <property>
+      <property-name>showok</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>true</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>showcancel</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>true</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
   </composite-component>
 </faces-config>

@@ -9,12 +9,21 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<div class="btn-group pull-left">
-						<button class="btn btn-danger" data-dismiss="modal">
+						<xp:panel tagName="button"
+							styleClass="btn btn-danger"
+							rendered="#{javascript:compositeData.showcancel != false}">
 							Cancel
-					</button>
+							<xp:this.attrs>
+								<xp:attr name="data-dismiss"
+									value="modal">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:panel>
 					</div>
 					<div class="btn-group pull-right">
-						<xp:panel id="okbutton" tagName="a" styleClass="btn btn-success">
+						<xp:panel id="okbutton" tagName="a"
+							styleClass="btn btn-success"
+							rendered="#{javascript:compositeData.showok != false}">
 							<xp:this.attrs>
 								<xp:attr name="onclick">
 									<xp:this.value><![CDATA[#{javascript:var out = "";
@@ -23,7 +32,8 @@ if (compositeData.callback){
 }
 return out;}]]></xp:this.value>
 								</xp:attr>
-								<xp:attr name="data-dismiss" value="modal">
+								<xp:attr name="data-dismiss"
+									value="modal">
 								</xp:attr>
 								<xp:attr name="href" value="#">
 								</xp:attr>
