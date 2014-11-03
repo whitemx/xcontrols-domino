@@ -88,6 +88,7 @@ var drawCharts = function() {
 
 function myCallBackFunction() {
 	alert("This is custom code called by the OK	button using the callback custom property");
+	unp.closeDialog('dialogPopup');
 }
 
 function switchCSS(obj, newcss) {
@@ -259,10 +260,6 @@ function toggleChartData() {
 			$data.siblings('.bootcards-chart').fadeIn('fast');
 		});
 	}
-}
-
-function myCallBackFunction() {
-	alert("This is custom code called by the OK	button using the callback custom property");
 }
 
 function showFontAwesomeDetails(element) {

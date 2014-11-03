@@ -863,6 +863,12 @@ unp.openDialog = function(id) {
 	}
 }
 
+unp.closeDialog = function(id) {
+	if (id != null && id != "#") {
+		$("." + id).modal('hide');
+	}
+}
+
 unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
 		photocol) {
 	

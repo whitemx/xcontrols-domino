@@ -48,7 +48,7 @@
 		</unp:UnpBootAlert>
 		<unp:UnpBootDialog callback="myCallBackFunction"
 			title="Demo Dialog" dialogid="dialogPopup" showcancel="true"
-			showok="true">
+			showok="true" dismissonok="false">
 			<xp:this.facets>
 				<xp:panel xp:key="facet_1">
 					Lorem ipsum dolor sit amet, consectetur adipiscing
