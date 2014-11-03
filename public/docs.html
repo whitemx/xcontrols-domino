@@ -640,6 +640,20 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
   &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
 &lt;/xp:view&gt;
 </code></pre></div>
+<p>As of version 1.2, custom buttons can be added to your form by populating the Editable Area "viewerbuttons". The only caveat to remember is that if you're using server side actions on your custom buttons that the page will need to be loaded with a full refresh, not an Ajax request.</p>
+<div><pre><code>
+&lt;xp:panel xp:key="viewerbuttons"&gt;
+    &lt;xp:link id="custombutton" value="#" styleClass="btn btn-danger pull-right"
+        rendered="#{javascript:compositeData.showbuttons == true}"&gt;
+        &lt;i class="fa fa-folder"&gt;&lt;/i&gt;
+        &#160;Custom
+        &lt;xp:eventHandler event="onclick" submit="true"
+            refreshMode="complete"&gt;
+            &lt;xp:this.action&gt;&lt;![CDATA[#{javascript:print("Hello World");}]]&gt;&lt;/xp:this.action&gt;
+        &lt;/xp:eventHandler&gt;
+    &lt;/xp:link&gt;
+&lt;/xp:panel&gt;
+</code></pre></div>
           </div>
 
 
