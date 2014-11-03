@@ -19,6 +19,7 @@
 	&lt;div&gt;&#xd;
 		To use this custom control make sure you have set the Custom Properties.&#xd;
 	&lt;/div&gt;&#xd;
+	&lt;xp:callback facetName="viewerbuttons" id="viewerbuttons"&gt;&lt;/xp:callback&gt;&#xd;
 	&lt;xp:callback facetName="facet_1" id="callback1"&gt;&lt;/xp:callback&gt;&#xd;
 &lt;/div&gt;&#xd;
 &lt;/xp:view&gt;</render-markup>

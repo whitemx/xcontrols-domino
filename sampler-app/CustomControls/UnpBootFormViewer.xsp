@@ -71,6 +71,7 @@ if (attachmentList != null && attachmentList.length > 0){
 				<i class="fa fa-pencil"></i>
 				&#160;Edit
 			</xp:link>
+			<xp:callback facetName="viewerbuttons" id="viewerbuttons"></xp:callback>
 		</div>
 		<xp:callback facetName="facet_1" id="callback1"></xp:callback>
 		<div class="panel-footer">
