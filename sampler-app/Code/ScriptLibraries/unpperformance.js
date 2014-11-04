@@ -92,13 +92,13 @@ $(window).load( function() {
 	test("text read", 1, function(){
 		stop();
 		console.log("about to open typography read")
-		$("#list .list-group a").eq(5).click();
+		$("#list .list-group a").eq(6).click();
 		console.log("open typography read")
 		ok(true);
 	});
 	test("rich text edit", 1, function(){
 		stop();
-		$("#list .list-group a").eq(6).click();
+		$("#list .list-group a").eq(2).click();
 		console.log("open typography edit")
 		ok(true);
 	});
