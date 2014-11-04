@@ -96,3 +96,7 @@ and (max-device-width : 1024px)
 and (orientation : portrait) {
 	#list { top: 40px; }
 }
+
+.list-group-item .col-sm-6 {
+	min-height: 0;
+}

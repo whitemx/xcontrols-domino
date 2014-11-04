@@ -15,6 +15,7 @@
 	{"label": "Home", "icon": "fa-dashboard", "page": "/UnpMain.xsp"},
 	{"label": "Views", children: [
 		{"label": "Flat", "icon": "fa-list-alt", "page": "/FlatView.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
+		{"label": "Detailed", "icon": "fa-list-alt", "page": "/DetailView.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Categorized", "icon": "fa-list", "page": "/Categorized.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
 		{"label": "Accordion", "icon": "fa-th-list", "page": "/Accordion.xsp", ajaxloadid: "main", ajaxtargetid: "main"} 
 	]}, 
