@@ -33,12 +33,20 @@ if (attachmentList != null && attachmentList.length > 0){
 	  var imagename = attachmentList[i];
 	  
 	  imageFile = "/" + dbPath + "/0/" + docviewdoc.getUniversalID() + "/$FILE/" + imagename;
-	  if (imagename != ""){
+	  if (imagename != "" && i % 2){
 		  images.push({
 		     url: imageFile,
-		     filename: imagename
+		     filename: imagename, 
+		     pageurl: "UnpMain.xsp", 
+		     title: imagename, 
+		     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in dignissim erat. Nulla condimentum lectus orci, et dignissim augue suscipit ac. Sed mollis porttitor ornare. Fusce vel efficitur est. Praesent eros lectus, imperdiet id vestibulum laoreet, malesuada ac elit. Quisque egestas dolor sit amet mi euismod, at sodales elit auctor. Vivamus mattis nisl lacus, vitae tincidunt quam auctor a. Quisque enim lacus, condimentum at aliquam vitae, consectetur sit amet augue. Sed a dolor sed erat cursus congue. Etiam feugiat nibh sed metus laoreet, in consequat lectus ullamcorper."
 		  });
-	  } 
+	  }else{
+		  images.push({
+		     url: imageFile,
+		     filename: imagename 
+		  });
+	  }
 	}
 	
 	viewScope.put("images", images);
