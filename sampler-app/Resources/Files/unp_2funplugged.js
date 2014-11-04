@@ -623,6 +623,26 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 				unp.initiscroll();
 				$('#editModal').modal('hide');
 				unp.refreshCalendar();
+				if ($('.flatview').length > 0){
+					var obj = $.parseJSON($('.flatview').attr('refreshdetails'));
+					var url = 'UnpFlatViewRefreshItem.xsp?chosenView=' + obj.viewname;
+					url += '&summarycol=' + obj.summarycolumn + '&detailcol=' + obj.detailcolumn;
+					url += '&photocol=' + obj.photocolumn + '&category=' + obj.categoryfilter;
+					url += '&xpage=' + obj.xpagedoc + '&dbName=' + obj.dbname;
+					url += '&refreshmethod=pull&ajaxload=' + obj.ajaxload + '&target=doccontent';
+					var el = $('[unid="' + response + '"]');
+					var pos = $(".flatview a").index(el);
+					url += '&start=' + pos;
+					$.ajax({
+						type: 'GET', 
+						url: url,
+						cache: false, 
+						encoding: 'UTF-8'
+					}).done(function(response2){
+						$('[unid="' + response + '"]').replaceWith(response2);
+						$('[unid="' + response + '"]').addClass('active');
+					})
+				}
 			} else {
 				alert(response);
 			}

@@ -108,13 +108,26 @@
 				</div>
 			</xp:panel>
 			<xp:panel>
-				<xp:this.styleClass><![CDATA[#{javascript:var out = "list-group";
+				<xp:this.styleClass><![CDATA[#{javascript:var out = "list-group flatview";
 if (compositeData.enableazpicker && (isIOS() || isAndroid())){
 	out += " bootcards-no-indicators";
 }
 return out;}]]></xp:this.styleClass>
-				<xp:repeat id="repeat4" var="thisRowData" value="#{viewList}"
-					disableOutputTag="true" indexVar="thisRowIndex">
+				<xp:this.attrs>
+					<xp:attr name="refreshdetails">
+						<xp:this.value><![CDATA[#{javascript:"{\"dbname\": \"" + compositeData.dbname + 
+"\", \"viewname\": \"" + compositeData.viewname + 
+"\", \"summarycolumn\": \"" + compositeData.summarycolumn + 
+"\", \"detailcolumn\": \"" + compositeData.detailcolumn + 
+"\", \"categoryfilter\": \"" + compositeData.categoryfilter + 
+"\", \"xpagedoc\": \"" + compositeData.xpagedoc + 
+"\", \"photocolumn\": \"" + compositeData.photocolumn + 
+"\", \"ajaxload\": \"" + compositeData.ajaxload + "\"}"}]]></xp:this.value>
+					</xp:attr>
+				</xp:this.attrs>
+				<xp:repeat id="repeat4" var="thisRowData"
+					value="#{viewList}" disableOutputTag="true"
+					indexVar="thisRowIndex">
 					<xp:this.rows><![CDATA[${javascript:sessionScope.rowcount = compositeData.numberofrows;
 if (compositeData.enableAZPicker == "yes"){
 	return "5000";
@@ -129,7 +142,8 @@ if (compositeData.enableAZPicker == "yes"){
 
 					<xp:text tagName="div" id="datarowcategory"
 						styleClass="list-group-item bootcards-list-subheading"
-						disableTheme="true" rendered="#{javascript:thisRowData.isCategory()}">
+						disableTheme="true"
+						rendered="#{javascript:thisRowData.isCategory()}">
 						<xp:this.value><![CDATA[#{javascript:var index = 0;
 if (!isEmpty(compositeData.categoryindex)){
 	index = parseInt(compositeData.categoryindex, 10);
@@ -156,6 +170,9 @@ if (compositeData.ajaxload != "No"){
 }]]></xp:this.value>
 							</xp:attr>
 							<xp:attr name="href" value="#"></xp:attr>
+							<xp:attr name="unid"
+								value="#{javascript:thisRowData.getUniversalID()}">
+							</xp:attr>
 						</xp:this.attrs>
 						<xp:this.styleClass><![CDATA[#{javascript:var out = "list-group-item";
 if (context.getUrlParameter("documentId") == thisRowData.getUniversalID()){
@@ -168,7 +185,7 @@ return out;}]]></xp:this.styleClass>
 	viewScope.rowcount = viewScope.rowcount + 1;
 }
 !thisRowData.isCategory()}]]></xp:this.rendered>
-						
+
 						<xp:panel styleClass="img-rounded pull-left"
 							tagName="img" id="viewimage">
 							<xp:this.attrs>
@@ -183,7 +200,8 @@ return out;}]]></xp:this.styleClass>
 							<xp:this.rendered><![CDATA[#{javascript:compositeData.photocolumn != null && compositeData.photocolumn != ""}]]></xp:this.rendered>
 						</xp:panel>
 
-						<xp:text id="label" tagName="h4" styleClass="list-group-item-heading"
+						<xp:text id="label" tagName="h4"
+							styleClass="list-group-item-heading"
 							value="#{javascript:thisRowData.getColumnValue(compositeData.summarycolumn);}">
 						</xp:text>
 						<xp:text tagName="p" id="label1">

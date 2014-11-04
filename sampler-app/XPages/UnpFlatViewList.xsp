@@ -72,6 +72,9 @@ if (start == ""){
 	}
 }catch(e){}}]]></xp:this.value>
 					</xp:attr>
+					<xp:attr name="unid"
+						value="#{javascript:thisRowData.getDocument().getUniversalID()}">
+					</xp:attr>
 				</xp:this.attrs>
 
 				<xp:image styleClass="img-rounded pull-left">
@@ -85,7 +88,8 @@ if (start == ""){
 					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && context.getUrlParameter("photocol") != "null"}]]></xp:this.rendered>
 				</xp:image>
 
-				<xp:text id="label" tagName="h4" styleClass="list-group-item-heading">
+				<xp:text id="label" tagName="h4"
+					styleClass="list-group-item-heading">
 					<xp:this.value><![CDATA[#{javascript:thisRowData.getColumnValue(context.getUrlParameter("summarycol"));}]]></xp:this.value>
 				</xp:text>
 				<xp:text tagName="p" id="label1">
