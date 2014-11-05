@@ -44,7 +44,7 @@
 
            <ul class="nav navbar-nav">
             <li>
-             <a href="/xcontrols-domino/index.html"><span class="fa fa-home"></span> Home</a>
+             <a href="../index.html"><span class="fa fa-home"></span> Home</a>
            </li>
            <li class="active">
             <a href="docs.html"><span class="fa fa-book"></span> Documentation</a>
@@ -73,6 +73,7 @@
 					<li><a href="#doc-calendar">Calendar</a></li>
 					<li><a href="#doc-carousel">Carousel</a></li>
 					<li><a href="#doc-debugtoolbar">Debug Toolbar</a></li>
+          <li><a href="#doc-detailedview">Detailed View</a></li>
 					<li><a href="#doc-dialog">Dialog</a></li>
 					<li><a href="#doc-files">Files</a></li>
 					<li><a href="#doc-flatview">Flat View</a></li>
@@ -81,6 +82,7 @@
 					<li><a href="#doc-formviewer">Form Viewer</a></li>
 					<li><a href="#doc-header">Header</a></li>
 					<li><a href="#doc-imageviewer">Image Viewer</a></li>
+          <li><a href="#doc-login">Login</a></li>
 					<li><a href="#doc-navigator">Navigator</a></li>
 					<li><a href="#doc-photoupload">Photo Upload</a></li>
 					<li><a href="#doc-resources">Resources</a></li>
@@ -235,9 +237,6 @@
               <dt>title</dt><dd>The title for the modal window</dd>
               <dt>content</dt><dd>The message to display</dd>
               <dt>dialogid</dt><dd>The unique id for the modal</dd>
-              <dt>showok (v1.2)</dt><dd>A boolean to allow your to show or hide the OK button (default is true)</dd>
-              <dt>showcancel (v1.2)</dt><dd>A boolean to allow your to show or hide the Cancel button (default is true)</dd>
-              <dt>dismissonok (v1.2)</dt><dd>A boolean that when false means clicking the OK button will not hide the dialog. You can do this in your callback function using unp.closeDialog('mydialog')</dd>
             </dl>
             <p>To launch the modal, in JavaScript use the unp.openDialog() function and pass in the dialogid to open</p>
 <div class="highlight"><pre><code class="html">
@@ -353,7 +352,8 @@
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/carousel-desktop.png" class="img-responsive">
                 </a>
             </div>
-            <p>If you're using a Form Viewer control on the same page then the carousel will be automatically populated, if not then you'll need to populate viewScope.images in the following way:</p>            
+            <p>If you're using a Form Viewer control on the same page then the carousel will be automatically populated, if not then you'll need to populate viewScope.images in the following way.</p>
+            <p>As of version 1.2, you can optionally add three more properties to each image in the array: pageurl, title and description. If these are added then they will be displayed in a panel to the right of the image.</p>
             <dl class="dl-horizontal">
               <dt>footertext</dt><dd>A static string to go in the footer. Can be left blank.</dd>
             </dl>
@@ -396,7 +396,10 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
     if (imagename != &quot;&quot;){
       images.push({
          url: imageFile,
-         filename: imagename
+         filename: imagename, 
+         pageurl: 'UnpMain.xsp', 
+         title: 'Caption Title', 
+         description: 'This is a block of text that will appear to the right of the image'
       });
     } 
   }
@@ -450,6 +453,57 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
 </code></pre></div>
           </div>
 
+          <div id="doc-detailedview" class="bs-docs-section">
+            <h2>Detailed View</h2>
+            <p class="lead">Very similar to the Flat View, but displays more columns of data. Available from v1.2 onwards.</p>
+            <p>Optionally add icons and other formatting.</p>
+            <dl class="dl-horizontal">
+              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
+              <dt>newlink</dt><dd>The link to open when composing a new document, leave blank to hide new button</dd>
+              <dt>dbname</dt><dd>The database to load data from, leave blank if not required</dd>
+              <dt>viewname</dt><dd>The view to load data from</dd>
+              <dt>summarycolumn</dt><dd>The column title to load summary data from</dd>
+              <dt>detailcolumn1</dt><dd>The column title to load detail data from</dd>
+              <dt>detailcolumn2</dt><dd>The column title to load detail data from</dd>
+              <dt>detailcolumn3</dt><dd>The column title to load detail data from</dd>
+              <dt>photocolumn</dt><dd>The column title to load photos from, leave blank if not required</dd>
+              <dt>xpagedoc</dt><dd>The xpage to load documents with, by default this would be the same as the current XPage</dd>
+              <dt>xpagedocdbname</dt><dd>The database that holds the xpage to load documents from, leave blank if not required</dd>
+              <dt>title</dt><dd>The title for the list</dd>
+              <dt>categoryfilter</dt><dd>A filter to apply to the view before loading data</dd>
+              <dt>numberofrows</dt><dd>The number of rows to display per page. Default is 20</dd>
+              <dt>enableazpicker</dt><dd>yes or no, enable the A-Z picker. If yes then it is best to load all documents in the view by setting number of rows to a large number</dd>
+              <dt>categoryindex</dt><dd>If you want to display categories, they will be non clickable but can effectively break up lists of data. This is the index number for the category column to use (counting from 0). Leave blank if not required.</dd>
+              <dt>ajaxload</dt><dd>Optionally load documents using a full page load, default is to use Ajax for performance reasons</dd>
+              <dt>searchlocal</dt><dd>If set to yes and searchview is blank then searching on the currently displayed list will be enabled</dd>
+              <dt>footertext</dt><dd>A footer text message to display. Leave blank if not required.</dd>
+            </dl>
+<div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+
+  &lt;xc:commonheader pagetitle=&quot;Detailed View&quot;&gt;&lt;/xc:commonheader&gt;
+
+  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row fullheightrow&quot;&gt;
+      &lt;unp:UnpBootDetailedView title=&quot;People&quot; summarycolumn=&quot;FullName&quot;
+        viewname=&quot;People By Last Name&quot; numberofrows=&quot;20&quot; ajaxload=&quot;Yes&quot;
+        detailcolumn1=&quot;Company&quot; detailcolumn2=&quot;Country&quot; detailcolumn3=&quot;City&quot; xpagedoc=&quot;DetailedView.xsp&quot;
+        newlink=&quot;PersonEdit.xsp&quot; searchview=&quot;Search&quot; photocolumn=&quot;Photo&quot; footertext=&quot;Built with Bootcards - List&quot;&gt;
+      &lt;/unp:UnpBootDetailedView&gt;
+      &lt;div id=&quot;doccontent&quot; class=&quot;col-sm-7 bootcards-cards hidden-xs&quot;&gt;
+        &lt;xc:personviewer&gt;&lt;/xc:personviewer&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pagetitle hidden&quot;&gt;Detailed View&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
+&lt;/xp:view&gt;
+</code></pre></div>
+
+          </div>
 
           <div id="doc-dialog" class="bs-docs-section">
             <h2>Dialog</h2>
@@ -470,6 +524,9 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
               <dt>title</dt><dd>The title for the dialog.</dd>
               <dt>footertext</dt><dd>The footer text to display.</dd>
               <dt>dialogid</dt><dd>The unique ID for the dialog.</dd>
+              <dt>showok (v1.2)</dt><dd>A boolean to allow your to show or hide the OK button (default is true)</dd>
+              <dt>showcancel (v1.2)</dt><dd>A boolean to allow your to show or hide the Cancel button (default is true)</dd>
+              <dt>dismissonok (v1.2)</dt><dd>A boolean that when false means clicking the OK button will not hide the dialog. You can do this in your callback function using unp.closeDialog('mydialog')</dd>
             </dl>
             <p>You can insert the content for the dialog by adding text or fields inside the editable area.</p>
 <div class="highlight"><pre><code class="html">
@@ -643,20 +700,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
   &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
 &lt;/xp:view&gt;
 </code></pre></div>
-<p>As of version 1.2, custom buttons can be added to your form by populating the Editable Area "viewerbuttons". The only caveat to remember is that if you're using server side actions on your custom buttons that the page will need to be loaded with a full refresh, not an Ajax request.</p>
-<div><pre><code>
-&lt;xp:panel xp:key="viewerbuttons"&gt;
-    &lt;xp:link id="custombutton" value="#" styleClass="btn btn-danger pull-right"
-        rendered="#{javascript:compositeData.showbuttons == true}"&gt;
-        &lt;i class="fa fa-folder"&gt;&lt;/i&gt;
-        &#160;Custom
-        &lt;xp:eventHandler event="onclick" submit="true"
-            refreshMode="complete"&gt;
-            &lt;xp:this.action&gt;&lt;![CDATA[#{javascript:print("Hello World");}]]&gt;&lt;/xp:this.action&gt;
-        &lt;/xp:eventHandler&gt;
-    &lt;/xp:link&gt;
-&lt;/xp:panel&gt;
-</code></pre></div>
+
           </div>
 
 
@@ -843,6 +887,7 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
               <dt>newresponsexpagename</dt><dd>the name of the xpage to open to compose a response</dd>
               <dt>footertext</dt><dd>A static string to display in the footer of the card, leave blank if not required</dd>
             </dl>
+            <p>In the example below we see the markup required for the FirstName field. Note that it's being displayed using an H4 tag with the class list-group-item-heading applied to it.</p>
 <div class="highlight"><pre><code class="html">
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;
@@ -867,6 +912,20 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
   &lt;/unp:UnpBootFormViewer&gt;
 
 &lt;/xp:view&gt;
+</code></pre></div>
+<p>As of version 1.2, custom buttons can be added to your form by populating the Editable Area "viewerbuttons". The only caveat to remember is that if you're using server side actions on your custom buttons that the page will need to be loaded with a full refresh, not an Ajax request.</p>
+<div><pre><code>
+&lt;xp:panel xp:key="viewerbuttons"&gt;
+    &lt;xp:link id="custombutton" value="#" styleClass="btn btn-danger pull-right"
+        rendered="#{javascript:compositeData.showbuttons == true}"&gt;
+        &lt;i class="fa fa-folder"&gt;&lt;/i&gt;
+        &#160;Custom
+        &lt;xp:eventHandler event="onclick" submit="true"
+            refreshMode="complete"&gt;
+            &lt;xp:this.action&gt;&lt;![CDATA[#{javascript:print("Hello World");}]]&gt;&lt;/xp:this.action&gt;
+        &lt;/xp:eventHandler&gt;
+    &lt;/xp:link&gt;
+&lt;/xp:panel&gt;
 </code></pre></div>
           </div>
 
@@ -939,6 +998,13 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
   &lt;/unp:UnpBootImageViewer&gt;
 &lt;/xp:repeat&gt;
 </code></pre></div>
+          </div>
+
+                    <div id="doc-login" class="bs-docs-section">
+            <h2>Login</h2>
+            <p class="lead">A login control that will authenticate the user. Available from v1.2 onwards.</p>
+            <p>The login control should be added to all XPages where you want the user to be authenticated. Hide it if the current user is not Anonymous.</p>
+            <p>You must have enabled session authentication on your server and allow anonymous access to the page that is going to perform the authentication.</p>
           </div>
 
           <div id="doc-navigator" class="bs-docs-section">
