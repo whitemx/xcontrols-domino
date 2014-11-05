@@ -5,7 +5,7 @@
 	<unp:UnpBootFormViewer editxpagename="ActivityEdit.xsp"
 		editxpagewithajax="yes" formname="Activity" showbuttons="true"
 		title="Activity Details"
-		footertext="Built with Bootcards - Base Card">
+		footertext="Built with Bootcards - Form Card">
 		<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
 		<xp:this.facets>
 			<xp:panel id="list-group" xp:key="facet_1"
