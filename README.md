@@ -1,5 +1,7 @@
 # XControls
 
+Full documentation is available at [xcontrols.org]{http://xcontrols.org}.
+
 Teamstudio XControls is a new set of Controls for IBM Domino XPage developers working on new XPages apps and on app modernisation projects. It is effectively a re-write of the Teamstudio Unplugged Controls project, but adding full support for PC browser-based user interfaces as well as mobile interfaces.
 
 XControls is built with [Bootstrap 3.x](http://getbootstrap.com) and the [Bootcards project](http://bootcards.org). It enables XPage developers to create controls that are responsive, optimizing to the device whether it be a smartphone, a tablet or a PC. There are three key design goals for XControls:
