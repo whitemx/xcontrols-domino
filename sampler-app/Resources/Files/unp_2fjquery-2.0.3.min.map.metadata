@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
-<noteinfo noteid="18be" sequence="1" unid="4FD242ABFDC7EFA880257D39003C2823">
+<noteinfo noteid="18be" sequence="20" unid="4FD242ABFDC7EFA880257D39003C2823">
 <created><datetime dst="true">20140819T115704,35+01</datetime></created>
-<modified><datetime dst="true">20140819T115704,69+01</datetime></modified>
-<revised><datetime dst="true">20140819T115704,68+01</datetime></revised>
-<lastaccessed><datetime dst="true">20140819T115704,69+01</datetime></lastaccessed>
+<modified><datetime>20141110T074424,48+00</datetime></modified>
+<revised><datetime>20141110T074424,47+00</datetime></revised>
+<lastaccessed><datetime>20141110T074424,48+00</datetime></lastaccessed>
 <addedtofile><datetime dst="true">20140819T115704,69+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$Flags"><text>345CgQ</text></item>
+
+
+<item name="$FileNames" sign="true"><text>unp_2fjquery-2.0.3.min.map</text></item>
 <item name="$TITLE" sign="true"><text>unp/jquery-2.0.3.min.map</text></item>
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-
-
-<item name="$FileNames" sign="true"><text>unp_2fjquery-2.0.3.min.map</text></item></note>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>
