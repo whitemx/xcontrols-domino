@@ -85,7 +85,7 @@ $(window).load( function() {
 	});
 	test("open cards", 1, function(){
 		stop();
-		unp.loadPage('/BootstrapSampler.nsf/BaseCards.xsp?rnd=' + Date.now()+ ' #main', 'main', null)
+		unp.loadPage('BaseCards.xsp?rnd=' + Date.now()+ ' #main', 'main', null)
 		console.log("open cards");
 		ok(true);
 	});

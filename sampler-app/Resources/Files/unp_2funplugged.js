@@ -894,7 +894,9 @@ unp.jumpToLetter = function(letterelement, event) {
 	
 	var $list = $('#list');
 	
-	$list.scrollTop(0);
+	$list.animate( {
+        scrollTop : 0
+    }, 0);
 	
 	var letter = letterelement.text().toLowerCase();
 	var sel = "#list .list-group a";
@@ -904,6 +906,8 @@ unp.jumpToLetter = function(letterelement, event) {
 	
 	var $sel = $(sel);
 	
+	var scrollTop = null;
+
 	var scrolled = false;	
 	$sel.each( function(idx, entry) {
 		var $entry = $(entry);
@@ -915,27 +919,21 @@ unp.jumpToLetter = function(letterelement, event) {
 			summary = $entry.text();
 		}
 		var firstletter = summary.substring(0, 1).toLowerCase();
-		
-		if (firstletter == letter) {
-			var scrollTop = $entry.offset().top - 60;
-			if (scrollTop < 0){
-				$list.scrollTop(0);
-			}else{
-				$list.scrollTop(scrollTop);
-			}
-			scrolled = true;
-			return false;
-		} else if (firstletter > letter) {
-			var scrollTop = $entry.offset().top - 60;
-			if (scrollTop < 0){
-				$list.scrollTop(0);
-				scrollTop = $entry.offset().top - 60;
-			}else{
-				$list.scrollTop(scrollTop);
-			}
-			scrolled = true;
-			return false;
-		}
+		scrollTop = null;
+        
+        if (firstletter == letter) {
+            scrollTop = $entry.offset().top - 60;
+        } else if (firstletter > letter) {
+            scrollTop = $entry.offset().top - 120;
+        }
+
+        if (scrollTop !== null) {
+            $list.animate( {
+                scrollTop : scrollTop
+            }, 0);
+            scrolled = true;
+            return false; 
+        }
 	});
 	
 	if (!scrolled) {
