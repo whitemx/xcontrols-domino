@@ -781,7 +781,6 @@ unp.initAZPicker = function() {
 	var azPicker = $(".bootcards-az-picker");
 	
 	if (azPicker.length > 0) {
-	
 		// Register the letter click events
 		// $("a", azPicker).unbind();
 		$("a", azPicker).off().on('click', function(event) {
