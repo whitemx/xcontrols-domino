@@ -16,6 +16,8 @@
 * Update XControls website to [xcontrols.org](http://xcontrols.org)
 * Add support for runtime optimized CSS and JS which dramatically reduces page sizes for web applications, thanks [Mark Leusink](https://github.com/markleusink)
 
+We do have one known issue with the A-Z Picker when using it in iOS and Unplugged (not Safari), there are situations where the list will disappear until the user touches their screen again. We're still investigating a solution to this issue.
+
 ## v1.1.1 / 2014-10-21
 
 * UnpBootFlatView - white space on left of data in view when no icon is used
