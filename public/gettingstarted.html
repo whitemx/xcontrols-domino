@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="XControls - A cards-based UI for mobile and desktop apps, built on top of Bootcards and Bootstrap">
+  <meta name="author" content="XControls">
+  <!--<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">-->
+
+  <title>XControls - XPages Cards-based UI built with Bootcards and Bootstrap</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootcards-site.css">
+  <link rel="stylesheet" href="css/ekko-lightbox.css">
+
+  <!--font awesome-->
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+
+    </head>
+
+    <body>
+
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">XControls</a>
+          </div>
+
+          <div class="navbar-collapse collapse">
+
+           <ul class="nav navbar-nav">
+            <li>
+             <a href="../index.html"><span class="fa fa-home"></span> Home</a>
+           </li>
+           <li class="active">
+            <a href="docs.html"><span class="fa fa-book"></span> Documentation</a>
+          </li>
+          <li>
+            <a href="about.html"><span class="fa fa-info-circle"></span> About</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">  
+  <div class="row">
+
+    <div class="col-sm-3 hidden-xs">
+      <div class="docs-menu affix">
+        <ul class="nav nav-pills nav-stacked">  
+          <li><a href="docs.html"><i class="fa fa-arrow-left"></i> Back to Documentation</a></li>
+          <li class="active"><a href="#getting-started">Getting started</a></li>
+          <li><a href="#doc-download">Download files</a></li>
+          <li><a href="#doc-header">Common Header</a></li>
+          <li><a href="#doc-footer">Common Footer</a></li>
+          <li><a href="#doc-home">Home Page</a></li>
+          <li><a href="#doc-editperson">Edit Person</a></li>
+          <li><a href="#doc-accordion">Accordion View</a></li>
+          <li><a href="#doc-mobileversion">Mobile Version</a></li>
+          <li><a href="#doc-advanced">Advanced</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-9 bootcards-cards bootcards-documentation-cards">
+
+      <div class="panel panel-default bootcards-richtext">
+        <div class="panel-body">
+
+          <div id="getting-started" class="bs-docs-section">
+            <h2>Getting started</h2>
+            <p class="lead">In this page we'll walk through creating a new application using XControls</p>
+            <p><a href="http://teamstudio.s3.amazonaws.com/documentation/XControlsDemo.nsf.zip">You can download the sample application used in this tutorial here</a>.
+          </div>            
+            
+          <div id="doc-download" class="bs-docs-section">
+            <h2>Download Files</h2>
+            <p class="lead">Get the source code from <a href="https://github.com/teamstudio/xcontrols-domino">Github</a> or <a href="http://www.openntf.org/main.nsf/project.xsp?r=project/XControls">OpenNTF</a></p>
+            <ul>
+              <li>Download the controls from <a href="http://www.openntf.org/main.nsf/project.xsp?r=project/XControls">OpenNTF</a></li>
+              <li>Create a new application in Domino Designer</li>
+              <li>From the downloaded template, copy across design elements:
+                <ul>
+                  <li>Copy across Resources\Files</li>
+                  <li>Copy across all UnpBoot... Custom Controls</li>
+                  <li>Copy across "blank" theme and enable in DB Properties</li>
+                  <li>Copy across Unp... XPages</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div id="doc-header" class="bs-docs-section">
+            <h2>Common Header</h2>
+            <p class="lead">We can create our standard application layout with a Common Header and Common Footer Custom Control included on most XPages</p>
+            <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/commonheader.png"></img>
+            <p>Every page we load needs the UnpBootResources custom control added. This adds CSS, JavaScript and Server Side JavaScript to your application. Don't forget to also enable the "Use runtime optimized JavaScript and CSS resources", this will drastically reduce the size of pages being loaded.</p>
+            <p>We want the app to work on Mobile and Desktop so we add a UnpBootNavigator <u>and</u> define the navitems in UnpBootHeader. The former will be used for mobile and the latter will be used for desktop.</p>
+            <p>Each menu item is an element in an array, we define the label, the icon to display and the page to open. Optionally you can also choose to load the page using Ajax rather than a full page refresh, this will be faster in most situations, so define the ajaxloadid and the ajaxtargetid for each menu item.</p>
+            <p>Save your commonheader custom control</p>
+          </div>
+
+          <div id="doc-footer" class="bs-docs-section">
+            <h2>Common Footer</h2>
+            <p class="lead">The common footer will usually be much simpler than the header.</p>
+            <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/common-footer.png"></img>
+            <p>We add the UnpBootFooter to the common footer control. And then define the sync type (for when running on Unplugged) and footer tabs if required.</p>
+          </div>
+
+          <div id="doc-home" class="bs-docs-section">
+          <h2>Home Page</h2>
+          <p class="lead">Now we can create our first XPage</p>
+          <p>As ever with Unplugged applications, our home page will be called UnpMain.xsp. Then we can add our commonheader and commonfooter custom controls.</p>
+          <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/unpmain-1.png"></img>
+          </div>
+          <p>Now we need a list to display our view of data and a card to display documents. We'll add the list first using the UnpBootFlatView control:</p>
+          <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/unpmain-2.png"></img>
+          <p>All we need to specify the view to load data from, the columns to display, and what to do when a user clicks on a document.</p>
+          <p>The Document card will be easiest to re-use as a custom control, "personviewer" which we'll add a UnpBootFormViewer control to.</p>
+          <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/personviewer.png"></img>
+          <p>For each field in the form, we add a list-group-item div. Within that will be a label and then a computed field to show the data. The computed field will need to be set to output a tagname of H4 and a class of list-group-item-heading.</p>
+          <p>If we save and preview UnpMain now then we see some immediate progress:</p>
+          <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/unpmain-3.png"></img>
+        </div>
+
+        <div id="doc-editperson" class="bs-docs-section">
+          <h2>Edit Person</h2>
+          <p class="lead">We can view the person documents, but now we need to be able to edit them.</p>
+          <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/personeditor.png"></img>
+          <p>The PersonEdit.xsp XPage has a UnpBootFormEditor control added. Again, for each field we add a div and inside the div we'll add a label and a field. There are many options for extending fields to support mandatory field, date pickers, clearing inputs and so on. Full documentation can be found in the <a href="http://xcontrols.org/public/docs.html#doc-formeditor">Form Editor documentation</a>.</p>
+          <p>It's time to save the XPage and test editing from UnpMain</p>
+          <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/personeditor1.png"></img>
+        </div>
+
+        <div id="doc-accordion" class="bs-docs-section">
+          <h2>Accordion View</h2>
+          <p class="lead">So far we have a view of people by last name, but now we want to add another view of people by Company, the XPage will be called ByCompany.xsp.</p>
+          <p>It's much the same as the FlatView and we can re-use the personviewer custom control.</p>
+          <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/accordionview.png"></img>
+          <p>We can decide whether to auto-open the first category when loading the view.</p>
+          <p>If we preview ByCompany.xsp then we see this:</p>
+          <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/bycompany.png"></img>
+        </div>
+
+        <div id="doc-mobileversion" class="bs-docs-section">
+        <h2>Mobile Version</h2>
+        <p class="lead">Everything we have created so far is going to work equally well on desktop and mobile browsers as well as Teamstudio Unplugged.</p>
+        <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/mobile.png"></img>
+        </div>
+
+        <div id="doc-advanced" class="bs-docs-section">
+        <h2>Advanced</h2>
+        <p class="lead">This simple tutorial shows how to create a basic application. There are a lot of options that you can play with.</p>
+        <ul>
+        <li>Rich Text editing can be implemented using the <a href="http://xcontrols.org/public/docs.html#doc-typographyedit">TypographyEdit control</a>.</li>
+        <li>File Uploads are now supported including photo rotation and resizing using the <a href="http://xcontrols.org/public/docs.html#doc-photoupload">Photo Upload control</a>.</li>
+        </ul>
+        <p>It's worth playing around with the Sampler application that you download when getting the controls from OpenNTF.</p>
+        
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="./bower_components/raphael/raphael-min.js"></script>
+<script src="./bower_components/morris.js/morris.min.js"></script>
+<script src="./javascript/ekko-lightbox.js"></script>
+
+
+<!--analytics tracking-->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-47025460-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript">
+$(document).ready( function() {
+  $('body').scrollspy({ target: '.docs-menu', offset : 60})
+  // delegate calls to data-toggle="lightbox"
+  $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+    event.preventDefault();
+    return $(this).ekkoLightbox({
+      always_show_close: true
+    });
+  });
+});
+</script>
+
+</body>
+
+</html>
