@@ -40,6 +40,7 @@ $(window).load( function() {
 	bootcards.init( {
         offCanvasHideOnMainClick : true,
         enableTabletPortraitMode : true,
+        offCanvasBackdrop : true, 
         disableRubberBanding : true, 
         mainContentEl: $('#doccontent')
     });
@@ -74,9 +75,9 @@ unp.initPage = function(){
 		}
 	}
 
-	//$('.offcanvas-toggle').on('click', function() {
-	//	$("#slideInMenu").toggleClass("active");
-	//})
+	// $('.offcanvas-toggle').on('click', function() {
+	// $("#slideInMenu").toggleClass("active");
+	// })
 	unp.initiscroll();
 	try {
 		$(".opendialoglink").click( function(event) {
@@ -97,19 +98,20 @@ unp.initPage = function(){
 	unp.initAZPicker();
 	
 	unp.photoUploader.init();
+	unp.fixPortrait();
 
 	$(document).ajaxStop( function() {
 		$(".offcanvas-left").removeClass("active");
-		//do some cleaning up first
+		// do some cleaning up first
         if (bootcards.listOffcanvasToggle) {
             bootcards.listOffcanvasToggle.remove();
             bootcards.listTitleEl.remove();
-            bootcards.offCanvasMenuTitleEl.remove();
+            Bootcards.OffCanvas.$menuTitleEl.remove();
         }
         bootcards.mainContentEl = $('#doccontent');
         bootcards.listOffcanvasToggle = null;
         bootcards.listTitleEl = null;
-        bootcards.offCanvasMenuTitleEl = null;
+        Bootcards.OffCanvas.$menuTitleEl = null;
         bootcards.listEl = null;
         bootcards.cardsEl = null;
 		bootcards._setOrientation(true);
@@ -127,8 +129,8 @@ unp.initPage = function(){
 		
 	});
 	
-	//Open first item in flat view if necessary
-	//highlight first list group option (if non active yet)
+	// Open first item in flat view if necessary
+	// highlight first list group option (if non active yet)
 	if ($('[expand-first]').length == 0 || $('[expand-first="yes"]').length > 0){
 		if ( $('.list-group a.active').length == 0 ) {
 			if (!bootcards.isXS()){
@@ -143,13 +145,13 @@ unp.highlightCurrentPage = function(){
 	if (unpluggedserver){
 		href = href.replace('.nsf', '.unp');
 	}
-	//Deal with footer links
+	// Deal with footer links
 	$(".navbar-fixed-bottom a").each(function(){
 		if (href.indexOf($(this).attr('href')) > -1){
 			$(this).addClass('active')
 		}
 	})
-	//Deal with header links
+	// Deal with header links
 	$(".navbar-fixed-top .navbar-nav a").each(function(){
 		if (href.indexOf($(this).attr('href')) > -1){
 			$(this).parent().addClass('active')
@@ -175,21 +177,14 @@ unp.initReaderButtons = function() {
 
 unp.initHideFooter = function() {
 	/*
-	try {
-		$(':input, textarea, select').on('focus', function() {
-			$(".footer").hide();
-			_oldiscrollbottom = $(".iscrollcontent").css("bottom");
-			$(".iscrollcontent").css("bottom", "0px");
-		});
-		$(':input, textarea, select').on('blur', function() {
-			$(".footer").show();
-			$("iscrollbottom").css("bottom", _oldiscrollbottom);
-			window.scrollTo(0, 1);
-		});
-	} catch (e) {
-
-	}
-	*/
+	 * try { $(':input, textarea, select').on('focus', function() {
+	 * $(".footer").hide(); _oldiscrollbottom =
+	 * $(".iscrollcontent").css("bottom"); $(".iscrollcontent").css("bottom",
+	 * "0px"); }); $(':input, textarea, select').on('blur', function() {
+	 * $(".footer").show(); $("iscrollbottom").css("bottom", _oldiscrollbottom);
+	 * window.scrollTo(0, 1); }); } catch (e) {
+	 *  }
+	 */
 }
 
 unp.isAndroid = function() {
@@ -252,6 +247,15 @@ window.addEventListener('orientationchange', function() {
 unp.changeorientation = function() {
 	unp.initiscroll();
 	unp.initCalendar();
+}
+
+unp.fixPortrait = function(){
+	var isPortrait = ($(window).width() > $(window).height())? false : true;
+	if (isPortrait){
+		// $("#list").css("top", "40px");
+	}else{
+		// $("#list").css("top", "0px");
+	}
 }
 
 unp.allowFormsInIscroll = function() {
@@ -344,6 +348,79 @@ unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
 	}
 }
 
+unp.loadmoredetailed = function(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category,
+		xpage, refreshmethod, photocol, ajaxload, target) {
+	if (($('.searchbox').val() == "" || $('.localsearchbox').val() == ""  || ($('.searchbox').length == 0 && $('.localsearchbox').length == 0)) && !loadmoreloading) {
+		loadmoreloading == true;
+		// try {
+		$(".loadmorelink").hide();
+		$("#loadmorespinner").show();
+		setTimeout("unp.stopViewSpinner()", 5000);
+		var itemlist = $("#list .list-group .list-group-item");
+		var pos = itemlist.length;
+		// console.log('Pos = ' + pos);
+		var thisArea = $(".summaryDataRow");
+		var url = "UnpDetailedViewList.xsp?chosenView="
+				+ encodeURIComponent(viewName) + "&summarycol="
+				+ encodeURIComponent(summarycol) + 
+				"&detailcol1=" + encodeURIComponent(detailcol1) + 
+				"&detailcol2=" + encodeURIComponent(detailcol2) + 
+				"&detailcol3=" + encodeURIComponent(detailcol3) +
+				"&photocol=" + encodeURIComponent(photocol) + "&category="
+				+ encodeURIComponent(category) + "&xpage=" + xpage + "&dbName="
+				+ dbName + "&refreshmethod=" + refreshmethod + "&start=" + pos
+				+ "&ajaxload=" + ajaxload + "&target=" + target;
+		if (loadedurls.indexOf(url) == -1) {
+			loadedurls.push(url);
+			// console.log('Loading ' + url);
+			thisArea.load(url + " #results",
+					function() {
+						var firsturl = $(".summaryDataRow a").first().prop(
+								'onclick');
+						if ($("#list .panel .list-group a[onclick='" + firsturl
+								+ "']").length > 0) {
+							// console.log("We've already loaded " + firsturl);
+				} else {
+					// console.log('Adding ' + $('.summaryDataRow a').length + '
+					// items to list');
+					$("#list .panel .list-group ").append(
+							$(".summaryDataRow .list-group-item"));
+				}
+				if ($(".summaryDataRow").text().indexOf("NOMORERECORDS") > -1) {
+					// console.log('Reached end of view with ' + $("#list
+					// .list-group a").length + ' elements');
+					$("#pullUp").hide();
+					$(".loadmorelink").hide();
+					$("#loadmorespinner").hide();
+				} else {
+					$("#pullUp").show();
+					$(".loadmorelink").show();
+					$("#loadmorespinner").hide();
+				}
+				$(".summaryDataRow").empty();
+				try {
+					scrollContent.refresh();
+				} catch (e) {
+				}
+
+				if ($("#pullUp").hasClass('loading')) {
+					$("#pullUp").removeClass("loading");
+				}
+				loadmoreloading = false;
+				return false;
+			});
+		} else {
+			// console.log('We already loaded ' + url);
+		}
+
+	} else {
+		// Don't load more when search is active
+		if (loadmoreloading) {
+			// console.log('Load More is loading...');
+		}
+	}
+}
+
 unp.openDocument = function(url, target, caller) {
 	var thisArea = $("#" + target);
 	$('#list .active').removeClass('active');
@@ -376,6 +453,7 @@ unp.openDocument = function(url, target, caller) {
 					$("#list").addClass("hidden-xs");
 					$('.btn-menu').addClass('hidden');
 					$('.btn-back').removeClass('hidden');
+					$(".bootcards-az-picker").hide();
 					try{
 						$('#list').animate( {
 							scrollTop : 0
@@ -405,7 +483,7 @@ unp.editDocument = function(xpage, unid){
 	
 	var url = xpage + '?action=editDocument&documentId=' + unid + ' .modal-content';
 	$('#editModal .modal-dialog').load(url, function(response, status, xhr){
-		//console.log(status);
+		// console.log(status);
 		$('#editModal').modal();
 		unp.initDeleteable();
 		unp.initAutoComplete();
@@ -417,10 +495,11 @@ unp.editDocument = function(xpage, unid){
 				$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
 			}, 1000);
 		}else{
-			//$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
+			// $("#editModal .modal-dialog").height($("#editModal
+			// .modal-body").height());
 		}
 	});
-	if (!unp.isIE()){
+	if (!unp.isIE() && !unp.isFF()){
 		return false;
 	}
 }
@@ -433,6 +512,14 @@ unp.isIE = function(){
         return true;
     else
         return false;
+}
+
+unp.isFF = function() {
+	if (window.navigator.userAgent.indexOf("Firefox") > 1){
+		return true;
+	}else{
+		return false;
+	}
 }
 
 unp.newDocument = function(xpage){
@@ -450,7 +537,8 @@ unp.newDocument = function(xpage){
 				$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
 			}, 1000);
 		}else{
-			//$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
+			// $("#editModal .modal-dialog").height($("#editModal
+			// .modal-body").height());
 		}
 	});
 }
@@ -475,6 +563,9 @@ unp.goback = function() {
 				scrollTop : 0
 			}, '500', 'easeOutExpo');
 		}
+		$(".bootcards-az-picker").show();
+		$(".bootcards-az-picker a").unbind();
+		unp.initAZPicker();
 	} else {
 		history.back()
 	}
@@ -532,6 +623,26 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 				unp.initiscroll();
 				$('#editModal').modal('hide');
 				unp.refreshCalendar();
+				if ($('.flatview').length > 0){
+					var obj = $.parseJSON($('.flatview').attr('refreshdetails'));
+					var url = 'UnpFlatViewRefreshItem.xsp?chosenView=' + obj.viewname;
+					url += '&summarycol=' + obj.summarycolumn + '&detailcol=' + obj.detailcolumn;
+					url += '&photocol=' + obj.photocolumn + '&category=' + obj.categoryfilter;
+					url += '&xpage=' + obj.xpagedoc + '&dbName=' + obj.dbname;
+					url += '&refreshmethod=pull&ajaxload=' + obj.ajaxload + '&target=doccontent';
+					var el = $('[unid="' + response + '"]');
+					var pos = $(".flatview a").index(el);
+					url += '&start=' + pos;
+					$.ajax({
+						type: 'GET', 
+						url: url,
+						cache: false, 
+						encoding: 'UTF-8'
+					}).done(function(response2){
+						$('[unid="' + response + '"]').replaceWith(response2);
+						$('[unid="' + response + '"]').addClass('active');
+					})
+				}
 			} else {
 				alert(response);
 			}
@@ -577,7 +688,7 @@ unp.validate = function() {
 		}
 	})
 	if (!valid){
-		//alert(msg);
+		// alert(msg);
 	}
 	return valid;
 }
@@ -604,10 +715,10 @@ unp.loadPage = function(url, target, menuitem, pushState) {
 					+ "\n\n" + $(data).text());
 			return false;
 		} else {
-			//$("#slideInMenu").removeClass("active");
-			//$('.offcanvas-toggle').on('click', function() {
-			//	$("#slideInMenu").toggleClass("active");
-			//})
+			// $("#slideInMenu").removeClass("active");
+			// $('.offcanvas-toggle').on('click', function() {
+			// $("#slideInMenu").toggleClass("active");
+			// })
 			unp.initPage();
 			if (_pushState) {
 				unp.storePageRequest(url);
@@ -642,7 +753,7 @@ unp.initToggle = function(){
 }
 
 unp.initDates = function(){
-	//Now init datetime-local fields bloody Domino won't output correct format!
+	// Now init datetime-local fields bloody Domino won't output correct format!
 	$('[datetimevalue]').each(function(){
 		var newval = moment(parseInt($(this).attr('datetimevalue'), 10)).format().substr(0, 16);
 		$(this).attr('value', newval);
@@ -670,13 +781,14 @@ unp.initAZPicker = function() {
 	var azPicker = $(".bootcards-az-picker");
 	
 	if (azPicker.length > 0) {
-	
 		// Register the letter click events
+		// $("a", azPicker).unbind();
 		$("a", azPicker).off().on('click', function(event) {
 			
 			var $this = $(this);
-	
+			
 			event.stopPropagation();
+			event.preventDefault();
 			if ($this.hasClass("switchletterlist")) {
 				$(".atozpicker").toggle();
 				$(".numberpicker").toggle();
@@ -687,10 +799,11 @@ unp.initAZPicker = function() {
 			
 		});
 		
-		//move the az picker to a different location so we can give it a fixed position
+		// move the az picker to a different location so we can give it a fixed
+		// position
 		if ( azPicker.parents("#list").length > 0) {
 			
-			//determine the width of the list column
+			// determine the width of the list column
 			var $list = $("#list");
 			var classList = $list.attr('class').split(/\s+/);
 			var colClass = "";
@@ -702,11 +815,12 @@ unp.initAZPicker = function() {
 				
 			});
 			
-			//translate the column name to one of the 'push' classes
+			// translate the column name to one of the 'push' classes
 			var colSize = colClass.substring( colClass.lastIndexOf('-') + 1 );
 			var colPushClass = colClass.substring( 0, colClass.lastIndexOf('-')) + "-push-" + colSize;
 			
-			//move the picker as a direct child of the #main el so we can give it fixed positioning
+			// move the picker as a direct child of the #main el so we can give
+			// it fixed positioning
 			azPicker
 			    .appendTo( $('#main') )
 			    .addClass(colPushClass)
@@ -780,8 +894,8 @@ unp.jumpToLetter = function(letterelement, event) {
 	var $list = $('#list');
 	
 	$list.animate( {
-		scrollTop : 0
-	}, 0);
+        scrollTop : 0
+    }, 0);
 	
 	var letter = letterelement.text().toLowerCase();
 	var sel = "#list .list-group a";
@@ -791,6 +905,8 @@ unp.jumpToLetter = function(letterelement, event) {
 	
 	var $sel = $(sel);
 	
+	var scrollTop = null;
+
 	var scrolled = false;	
 	$sel.each( function(idx, entry) {
 		var $entry = $(entry);
@@ -802,25 +918,21 @@ unp.jumpToLetter = function(letterelement, event) {
 			summary = $entry.text();
 		}
 		var firstletter = summary.substring(0, 1).toLowerCase();
-		
-		
-		if (firstletter == letter) {
-			var scrollTop = $entry.offset().top - 60;
-			
-			$list.animate( {
-				scrollTop : scrollTop
-			}, 0);
-			scrolled = true;
-			return false;
-		} else if (firstletter > letter) {
-			var scrollTop = $entry.offset().top - 120;
-			
-			$list.animate( {
-				scrollTop : scrollTop
-			}, 0);
-			scrolled = true;
-			return false;
-		}
+		scrollTop = null;
+        
+        if (firstletter == letter) {
+            scrollTop = $entry.offset().top - 60;
+        } else if (firstletter > letter) {
+            scrollTop = $entry.offset().top - 120;
+        }
+
+        if (scrollTop !== null) {
+            $list.animate( {
+                scrollTop : scrollTop
+            }, 0);
+            scrolled = true;
+            return false; 
+        }
 	});
 	
 	if (!scrolled) {
@@ -836,6 +948,12 @@ unp.jumpToLetter = function(letterelement, event) {
 unp.openDialog = function(id) {
 	if (id != null && id != "#") {
 		$("." + id).modal('show');
+	}
+}
+
+unp.closeDialog = function(id) {
+	if (id != null && id != "#") {
+		$("." + id).modal('hide');
 	}
 }
 
@@ -856,7 +974,7 @@ unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
 				if ($(obj).hasClass('load-more')){
 					$(obj).remove();
 				}else{
-					//$(obj).addClass('active');
+					// $(obj).addClass('active');
 				}
 			});
 
@@ -872,16 +990,16 @@ unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
 
 unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol) {
 	if (!$(obj).hasClass("collapsed")) {
-		//We want to collapse the current category
+		// We want to collapse the current category
 		console.log('Collapsing rows...');
 		$(obj).addClass("collapsed");
 		$('.data-row').remove();
 		$('.load-more').remove();
-		//Scroll to the top of the object
+		// Scroll to the top of the object
 		$('#list').scrollTop($('#list').scrollTop() + $(obj).position().top);
 	} else {
-		//We want to get a new category
-		//First make sure that all other categories are closed
+		// We want to get a new category
+		// First make sure that all other categories are closed
 		$('#list .list-group-item').addClass('collapsed');
 		$("#list .active").removeClass('active');
 		$('.data-row').remove();
@@ -955,15 +1073,15 @@ unp.decreaseFontSize = function(button) {
 unp.initSearch = function() {
 	$('.searchbox').keypress( function(e) {
 		if (e.keyCode == 13) {
-			event.preventDefault();
 			unp.dosearch();
 			e.stopPropagation();
+			e.preventDefault();
 			return false;
 		}
 	});
 	$('.localsearchbox').keypress( function(e) {
 		if (e.keyCode == 13) {
-			event.preventDefault();
+			e.preventDefault();
 			unp.dolocalsearch();
 			e.stopPropagation();
 			return false;
@@ -1008,6 +1126,27 @@ unp.clearsearch = function(dbName, viewName, summarycol, detailcol, category,
 		});
 	}else{
 		unp.loadmore(dbName, viewName, summarycol, detailcol, category, xpage,
+				refreshmethod, photocol, ajaxload, target);
+	}
+}
+
+unp.clearsearchdetailed = function(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category,
+		xpage, refreshmethod, photocol, ajaxload, target) {
+	$('#list .list-group').empty();
+	$('.loadmorelink').hide();
+	$('.pullupholder').hide();
+	$('.clearsearchbutton').hide();
+	$('.searchbox').val('');
+	$('.localsearchbox').val('');
+	$("#pullUp").removeClass("loading");
+	loadedurls = [];
+	loadmoreloading = false;
+	if ($('.accordion-list-group').length > 0){
+		$('#list').load(window.location.href + ' #list>div', function(){
+			unp.initSearch();
+		});
+	}else{
+		unp.loadmoredetailed(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category, xpage,
 				refreshmethod, photocol, ajaxload, target);
 	}
 }
@@ -1078,18 +1217,20 @@ unp.initCalendar = function() {
 				}else{
 					h = $(window).height() - 50;
 				}
-				//console.log("Setting height to: " + h);
+				// console.log("Setting height to: " + h);
 				$('#calendar').fullCalendar('option', 'height', h);
 			}
 		});
 		$('.fc-button').each(function(){
-			//$(this).removeClass();
-			//$(this).addClass('btn btn-default');
+			// $(this).removeClass();
+			// $(this).addClass('btn btn-default');
 		})
-		//$('.fc-icon-left-single-arrow').parent().addClass('fa fa-arrow-left');
-		//$('.fc-icon-left-single-arrow').remove();
-		//$('.fc-icon-right-single-arrow').parent().addClass('fa fa-arrow-right');
-		//$('.fc-icon-right-single-arrow').remove();
+		// $('.fc-icon-left-single-arrow').parent().addClass('fa
+		// fa-arrow-left');
+		// $('.fc-icon-left-single-arrow').remove();
+		// $('.fc-icon-right-single-arrow').parent().addClass('fa
+		// fa-arrow-right');
+		// $('.fc-icon-right-single-arrow').remove();
 	} catch (e) {
 
 	}
@@ -1119,14 +1260,14 @@ unp.photoUploader.init = function() {
 	
 	if (this.customSelect != null && this.customSelect.length>0) {
 	
-		//move the 'photo select' button to a custom location
+		// move the 'photo select' button to a custom location
 		var move = $('.js-photouploader-upload');
 		var to = $(this.customSelect);
 		
 		if (move.length==1 && to.length==1) {
 			move.appendTo(to);
 			
-			//hide the default photo select
+			// hide the default photo select
 			$('.js-photouploader .photoUpload').hide();
 
 		}
@@ -1140,7 +1281,7 @@ unp.photoUploader.loadImage = function( file) {
 	        file,
 	        function (canvas) {
 	        	
-	        	//clean up
+	        	// clean up
 	            $('.js-photouploader-preview img, .js-photouploader canvas').remove();
 	            
 	            canvas.id = 'photoUploadCanvas';
@@ -1184,7 +1325,7 @@ unp.photoUploader.rotateImage = function(clockWise) {
 
 /* end photo uploader */
 
-//hide / show a spinner icon in a button
+// hide / show a spinner icon in a button
 unp.showSpinner = function(targetEl) {
 	
 	var $target = $(targetEl);
@@ -1212,3 +1353,88 @@ unp.hideSpinner = function(targetEl) {
 	}
 }
 
+/**
+ * Code for login taken from openntf.org under the Apache license
+ */
+unp.config = {};
+unp.config.loggedInMessage = "Login successful, redirecting...";
+unp.config.loginFailMessage = "Username / password incorrect, please try again";
+unp.config.loginFailReason2Message = "Username / password incorrect, please try again.";
+unp.config.loginFailReason3Message = "Session has expired. You must log in again.";
+unp.config.loginFailReason4Message = "Session out of sync, server clocks may be out of sync.";
+unp.config.loginFailReason5Message = "Your account has been locked out.";
+unp.config.urlAfterLogin = "/";
+unp.config.urlLoginNSF = "names.nsf";
+unp.login = function() {
+	var config = unp.config;
+	var un = $("#username").val();
+	var p = $("#password").val();
+	if (un == "") {
+		alert('Username is mandatory');
+		return false;
+	} else if (p == "") {
+		alert('Password is mandatory');
+		return false;
+	};
+
+	var loginurl = config.urlLoginNSF.split('.nsf')[0] + '.nsf?Login';
+	$.ajax( {
+		type : 'POST',
+		url : loginurl,
+		data : {
+			"username": un,
+			"password": p
+		},
+		cache : false,
+		encoding : "UTF-8",
+		beforeSend : function() {
+	}
+	}).done( function(response) {
+		var responseLogin = response;
+		responseLogin.toLowerCase();
+
+		if (getCookie('DomAuthSessId') != null || getCookie('LtpaToken') != null) {
+			$("#divLoginMessage").show();
+			dojo.byId("divLoginMessage").innerHTML = config.loggedInMessage;
+			dojo.byId("divLoginMessage").className = "alert alert-success";
+			if (config.urlAfterLogin == "" || config.urlAfterLogin == "/") {
+				window.location.reload()
+			} else {
+				window.location.href = config.urlAfterLogin;
+			};
+
+		} else {
+			$("#divLoginMessage").show();
+			dojo.byId("divLoginMessage").className = "alert alert-danger";
+			if (responseLogin.toLowerCase().indexOf('input name' + '=\"reasontype\"') == -1) {
+				dojo.byId("divLoginMessage").innerHTML = config.loginFailMessage;
+			} else {
+				var reasonFail = responseLogin.toLowerCase().substring(
+					responseLogin.toLowerCase().indexOf('input name' +
+						'=\"reasontype\"'), (responseLogin.toLowerCase().indexOf(
+						'input name' + '=\"reasontype\"') + 80));
+				var reasonNr = reasonFail.substring(reasonFail.indexOf('value') + 7, (reasonFail.indexOf('value') + 8));
+				if (reasonNr == "2") {
+					dojo.byId("divLoginMessage").innerHTML = config.loginFailReason2Message;
+				}
+				if (reasonNr == "3") {
+					dojo.byId("divLoginMessage").innerHTML = config.loginFailReason3Message;
+				}
+				if (reasonNr == "4") {
+					dojo.byId("divLoginMessage").innerHTML = config.loginFailReason4Message;
+				}
+				if (reasonNr == "5") {
+					dojo.byId("divLoginMessage").innerHTML = config.loginFailReason5Message;
+				}
+			}
+
+		}
+	});
+
+};
+
+function getCookie(name) {
+	var value = "; " + document.cookie;
+	var parts = value.split("; " + name + "=");
+	if (parts.length == 2) return parts.pop().split(";").shift();
+}

@@ -11,7 +11,7 @@
     <composite-extension>
       <designer-extension>
         <in-palette>true</in-palette>
-        <category>Unplugged</category>
+        <category>XControls</category>
         <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &#xd;
 &lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt; &#xd;
 	&lt;div style="border: 2px solid #A9A9A9; padding: 3px; margin: 5px;"&gt;&#xd;
@@ -41,6 +41,33 @@
       <property-class>string</property-class>
       <property-extension>
         <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>showok</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>true</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>showcancel</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>true</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>dismissonok</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>true</default-value>
+        </designer-extension>
       </property-extension>
     </property>
   </composite-component>

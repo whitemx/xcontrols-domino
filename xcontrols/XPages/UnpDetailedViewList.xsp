@@ -46,9 +46,9 @@ if (start == ""){
 }else{
 	return 20;
 }}]]></xp:this.rows>
-			<xp:text escape="false" tagName="div" styleClass="list-group-item bootcards-list-subheading"
-				disableTheme="true" rendered="#{javascript:thisRowData.isCategory()}"
-				value="#{javascript:thisRowData.getColumnValues().elementAt(0)}">
+			<xp:text escape="false" tagName="div"
+				styleClass="list-group-item bootcards-list-subheading" disableTheme="true"
+				rendered="#{javascript:thisRowData.isCategory()}" value="#{javascript:thisRowData.getColumnValues().elementAt(0)}">
 			</xp:text>
 
 			<xp:panel tagName="a" styleClass="list-group-item"
@@ -72,37 +72,51 @@ if (start == ""){
 	}
 }catch(e){}}]]></xp:this.value>
 					</xp:attr>
-					<xp:attr name="unid"
-						value="#{javascript:thisRowData.getDocument().getUniversalID()}">
-					</xp:attr>
 				</xp:this.attrs>
-
-				<xp:image styleClass="img-rounded pull-left">
-					<xp:this.url><![CDATA[#{javascript:if (context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && 
+				<div class="row">
+					<div class="col-sm-6">
+						<xp:image styleClass="img-rounded pull-left">
+							<xp:this.url><![CDATA[#{javascript:if (context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && 
 	context.getUrlParameter("photocol") != "null" && 
 	thisRowData.getColumnValue(context.getUrlParameter("photocol")) != ""){
 	return thisRowData.getColumnValue(context.getUrlParameter("photocol"));
 }else{
 	return "unp/ecblank.gif";
 }}]]></xp:this.url>
-					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && context.getUrlParameter("photocol") != "null"}]]></xp:this.rendered>
-				</xp:image>
+							<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && context.getUrlParameter("photocol") != "null"}]]></xp:this.rendered>
+						</xp:image>
 
-				<xp:text id="label" tagName="h4"
-					styleClass="list-group-item-heading">
-					<xp:this.value><![CDATA[#{javascript:thisRowData.getColumnValue(context.getUrlParameter("summarycol"));}]]></xp:this.value>
-				</xp:text>
-				<xp:text tagName="p" id="label1">
-					<xp:this.styleClass><![CDATA[#{javascript:"list-group-item-text"}]]></xp:this.styleClass>
-					<xp:this.value><![CDATA[#{javascript:if(context.getUrlParameter("detailcol") == "undefined" || context.getUrlParameter("detailcol") == "null"){
+						<xp:text id="label" tagName="h4" styleClass="list-group-item-heading">
+							<xp:this.value><![CDATA[#{javascript:thisRowData.getColumnValue(context.getUrlParameter("summarycol"));}]]></xp:this.value>
+						</xp:text>
+						<xp:text tagName="p" id="label1">
+							<xp:this.styleClass><![CDATA[#{javascript:"list-group-item-text"}]]></xp:this.styleClass>
+							<xp:this.value><![CDATA[#{javascript:if(context.getUrlParameter("detailcol1") == "undefined" || context.getUrlParameter("detailcol1") == "null"){
 	return "";
 }else{
-  return thisRowData.getColumnValue(context.getUrlParameter("detailcol"));
+  return thisRowData.getColumnValue(context.getUrlParameter("detailcol1"));
 }}]]></xp:this.value>
-				</xp:text>
-
-
-
+						</xp:text>
+					</div>
+					<div class="col-sm-6">
+						<xp:text tagName="p" id="label2">
+							<xp:this.styleClass><![CDATA[#{javascript:"list-group-item-text"}]]></xp:this.styleClass>
+							<xp:this.value><![CDATA[#{javascript:if(context.getUrlParameter("detailcol2") == "undefined" || context.getUrlParameter("detailcol2") == "null"){
+	return "";
+}else{
+  return thisRowData.getColumnValue(context.getUrlParameter("detailcol2"));
+}}]]></xp:this.value>
+						</xp:text>
+						<xp:text tagName="p" id="label3">
+							<xp:this.styleClass><![CDATA[#{javascript:"list-group-item-text"}]]></xp:this.styleClass>
+							<xp:this.value><![CDATA[#{javascript:if(context.getUrlParameter("detailcol3") == "undefined" || context.getUrlParameter("detailcol3") == "null"){
+	return "";
+}else{
+  return thisRowData.getColumnValue(context.getUrlParameter("detailcol3"));
+}}]]></xp:this.value>
+						</xp:text>
+					</div>
+				</div>
 			</xp:panel>
 		</xp:repeat>
 		<xp:panel>

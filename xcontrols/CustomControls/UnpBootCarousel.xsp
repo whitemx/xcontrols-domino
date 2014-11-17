@@ -12,8 +12,8 @@
 					<span class="fa fa-2x fa-chevron-left" style="padding-top: 5px;"></span>
 				</a>
 			</div>
-			<xp:text id="workspacetitle" tagName="h3" styleClass="panel-title text-center"
-				value="#{javascript:compositeData.title}" >
+			<xp:text id="workspacetitle" tagName="h3"
+				styleClass="panel-title text-center" value="#{javascript:compositeData.title}">
 				<xp:this.style><![CDATA[#{javascript:if (isEmpty(compositeData.title)){
 	return "display: none;";
 }}]]></xp:this.style>
@@ -21,24 +21,52 @@
 		</div>
 		<div class="panel-body">
 			<div class="carousel slide" id="carousel-ios" data-ride="carousel">
-				<xp:text tagName="div" id="inner" styleClass="carousel-inner"
-					escape="false">
-					<xp:this.value><![CDATA[#{javascript:
-				var out = "";
-				if (viewScope.images != null){
+				<xp:text tagName="div" id="inner"
+					styleClass="carousel-inner" escape="false">
+					<xp:this.value><![CDATA[#{javascript:var out = "";
+if (viewScope.images != null){
 	for (var i=0; i<viewScope.images.length; i++){
 		if (i == 0){
 			out += "<div class=\"item center-block active\">";
 		}else{
 			out += "<div class=\"item\">";
 		}
-		out += "<img src=\"" + viewScope.images[i].url + "\" class=\"center-block img-responsive\" /></div>";
+		var caption = false;
+		if (viewScope.images[i].title){
+			caption = true;
+		}
+		if (caption){
+			out += "<div class=\"row\"><div class=\"col-sm-6\">";
+		}
+		if (viewScope.images[i].pageurl){
+			out += "<a href=\"" + viewScope.images[i].pageurl + "\">";
+		}
+		out += "<img src=\"" + viewScope.images[i].url + "\" class=\"center-block img-responsive\" />";
+		if (viewScope.images[i].pageurl){
+			out += "</a>";
+		}
+		if (caption){
+			out += "</div><div class=\"col-sm-6\">";
+			out += "<div>";
+			if (viewScope.images[i].pageurl){
+				out += "<a href=\"" + viewScope.images[i].pageurl + "\">";
+			}
+			out += "<h4>" + viewScope.images[i].title + "</h4>";
+			out += "<p>" + viewScope.images[i].description + "</p></div>";
+		}		
+		if (viewScope.images[i].pageurl){
+			out += "</a>";
+		}
+		if (caption){
+			out += "</div></div>";
+		}
+		out += "</div>";
 	}
 	return out;
 }else{
 	return "";
 }}]]></xp:this.value>
-				</xp:text>				
+				</xp:text>
 			</div>
 		</div>
 		<div class="panel-footer">

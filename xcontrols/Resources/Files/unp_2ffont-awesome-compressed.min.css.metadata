@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
+<noteinfo noteid="49e" sequence="1" unid="4FE4BB95437F255E80257D9300386C25">
+<created><datetime>20141117T101617,01+00</datetime></created>
+<modified><datetime>20141117T101617,21+00</datetime></modified>
+<revised><datetime>20141117T101617,20+00</datetime></revised>
+<lastaccessed><datetime>20141117T101617,21+00</datetime></lastaccessed>
+<addedtofile><datetime>20141117T101617,21+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20140717T164310,00+01</datetime></item>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$TITLE" sign="true"><text>unp/font-awesome-compressed.min.css</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>unp_2ffont-awesome-compressed.min.css</text></item></note>

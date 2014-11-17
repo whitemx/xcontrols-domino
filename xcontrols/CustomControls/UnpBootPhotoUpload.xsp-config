@@ -11,7 +11,7 @@
     <composite-extension>
       <designer-extension>
         <in-palette>true</in-palette>
-        <category>Unplugged</category>
+        <category>XControls</category>
         <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &#xd;
 &lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt; &#xd;
  &lt;button&gt;Select a photo&lt;/button&gt;&#xd;

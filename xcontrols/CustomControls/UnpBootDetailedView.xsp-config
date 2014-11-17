@@ -5,9 +5,9 @@
     <default-prefix>unp</default-prefix>
   </faces-config-extension>
   <composite-component>
-    <component-type>UnpBootCalendar</component-type>
-    <composite-name>UnpBootCalendar</composite-name>
-    <composite-file>/UnpBootCalendar.xsp</composite-file>
+    <component-type>UnpBootDetailedView</component-type>
+    <composite-name>UnpBootDetailedView</composite-name>
+    <composite-file>/UnpBootDetailedView.xsp</composite-file>
     <composite-extension>
       <designer-extension>
         <in-palette>true</in-palette>
@@ -15,7 +15,7 @@
         <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &#xd;
 &lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt; &#xd;
 	&lt;div style="border: 2px solid #A9A9A9; padding: 3px; margin: 5px;"&gt;&#xd;
-	&lt;h1&gt;UnpBootCalendar&lt;/h1&gt;&#xd;
+	&lt;h1&gt;UnpBootFlatView&lt;/h1&gt;&#xd;
 	&lt;div&gt;&#xd;
 		To use this custom control make sure you have set the Custom Properties.&#xd;
 	&lt;/div&gt;&#xd;
@@ -24,83 +24,11 @@
       </designer-extension>
     </composite-extension>
     <property>
-      <property-name>title</property-name>
+      <property-name>searchview</property-name>
       <property-class>string</property-class>
     </property>
     <property>
-      <property-name>viewname</property-name>
-      <property-class>string</property-class>
-    </property>
-    <property>
-      <property-name>startdatefield</property-name>
-      <property-class>string</property-class>
-    </property>
-    <property>
-      <property-name>enddatefield</property-name>
-      <property-class>string</property-class>
-    </property>
-    <property>
-      <property-name>titlefield</property-name>
-      <property-class>string</property-class>
-    </property>
-    <property>
-      <property-name>viewxpage</property-name>
-      <property-class>string</property-class>
-    </property>
-    <property>
-      <property-name>highlightfield</property-name>
-      <property-class>string</property-class>
-    </property>
-    <property>
-      <property-name>highlighttest</property-name>
-      <property-class>string</property-class>
-    </property>
-    <property>
-      <property-name>headerbuttonsleft</property-name>
-      <property-class>string</property-class>
-      <property-extension>
-        <designer-extension>
-          <default-value>prev,today,next</default-value>
-        </designer-extension>
-      </property-extension>
-    </property>
-    <property>
-      <property-name>headerbuttonsrighttablet</property-name>
-      <property-class>string</property-class>
-      <property-extension>
-        <designer-extension>
-          <default-value>agendaDay,agendaWeek,month</default-value>
-        </designer-extension>
-      </property-extension>
-    </property>
-    <property>
-      <property-name>headerbuttonsrightphone</property-name>
-      <property-class>string</property-class>
-    </property>
-    <property>
-      <property-name>defaultviewtablet</property-name>
-      <property-class>string</property-class>
-      <property-extension>
-        <designer-extension>
-          <default-value>month</default-value>
-        </designer-extension>
-      </property-extension>
-    </property>
-    <property>
-      <property-name>defaultviewphone</property-name>
-      <property-class>string</property-class>
-      <property-extension>
-        <designer-extension>
-          <default-value>basicWeek</default-value>
-        </designer-extension>
-      </property-extension>
-    </property>
-    <property>
-      <property-name>filter</property-name>
-      <property-class>string</property-class>
-    </property>
-    <property>
-      <property-name>catfield</property-name>
+      <property-name>newlink</property-name>
       <property-class>string</property-class>
     </property>
     <property>
@@ -108,7 +36,74 @@
       <property-class>string</property-class>
     </property>
     <property>
+      <property-name>viewname</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>summarycolumn</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>detailcolumn1</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>photocolumn</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>xpagedoc</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>xpagedocdbname</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>title</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>categoryfilter</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>numberofrows</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>enableazpicker</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>categoryindex</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>ajaxload</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>searchlocal</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>yes&#xd;
+no</editor-parameter>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
       <property-name>footertext</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>detailcolumn2</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>detailcolumn3</property-name>
       <property-class>string</property-class>
     </property>
   </composite-component>

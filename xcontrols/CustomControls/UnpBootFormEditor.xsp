@@ -15,7 +15,7 @@
 	</xp:this.data>
 	<div class="modal-content form-horizontal">
 		<xp:panel styleClass="modal-header">
-			<xp:this.rendered><![CDATA[#{javascript:compositeData.showbuttons != "no"}]]></xp:this.rendered>
+			<xp:this.rendered><![CDATA[#{javascript:compositeData.showbuttons != false}]]></xp:this.rendered>
 			<xp:panel styleClass="btn-group pull-left">
 				<a href="#" class="btn btn-danger"
 					data-dismiss="modal">
@@ -40,7 +40,7 @@ if (context.getUrlParameter("parentunid") != ""){
 	out += ", 'null'";
 }
 if (compositeData.dbname != null){
-	out += ", '" + compositeData.dbName + "'";
+	out += ", '" + compositeData.dbname + "'";
 }
 out += "); return false;"
 return out;}]]></xp:this.value>

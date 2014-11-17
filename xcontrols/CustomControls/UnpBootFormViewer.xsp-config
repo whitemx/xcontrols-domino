@@ -11,7 +11,7 @@
     <composite-extension>
       <designer-extension>
         <in-palette>true</in-palette>
-        <category>Unplugged</category>
+        <category>XControls</category>
         <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &#xd;
 &lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt; &#xd;
 	&lt;div style="border: 2px solid #A9A9A9; padding: 3px; margin: 5px;"&gt;&#xd;
@@ -19,6 +19,7 @@
 	&lt;div&gt;&#xd;
 		To use this custom control make sure you have set the Custom Properties.&#xd;
 	&lt;/div&gt;&#xd;
+	&lt;xp:callback facetName="viewerbuttons" id="viewerbuttons"&gt;&lt;/xp:callback&gt;&#xd;
 	&lt;xp:callback facetName="facet_1" id="callback1"&gt;&lt;/xp:callback&gt;&#xd;
 &lt;/div&gt;&#xd;
 &lt;/xp:view&gt;</render-markup>
@@ -46,13 +47,12 @@
     </property>
     <property>
       <property-name>showbuttons</property-name>
-      <property-class>string</property-class>
+      <property-class>boolean</property-class>
       <property-extension>
         <designer-extension>
-          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
-          <editor-parameter>yes&#xd;
-no</editor-parameter>
-          <default-value>yes</default-value>
+          <editor>com.ibm.std.Boolean</editor>
+          <editor-parameter/>
+          <default-value>true</default-value>
         </designer-extension>
       </property-extension>
     </property>

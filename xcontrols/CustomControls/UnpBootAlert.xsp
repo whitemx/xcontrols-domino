@@ -9,23 +9,28 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<div class="btn-group pull-right">
-						<xp:panel id="okbutton" tagName="a"
+						<xp:text id="okbutton" tagName="a"
 							styleClass="btn btn-success">
 							<xp:this.attrs>
-								<xp:attr name="data-dismiss" value="modal">
+								<xp:attr name="data-dismiss"
+									value="modal">
 								</xp:attr>
 								<xp:attr name="href" value="#">
 								</xp:attr>
 							</xp:this.attrs>
-							OK
-						</xp:panel>
+							<xp:this.value><![CDATA[#{javascript:if (compositeData.okbuttonlabel != ""){
+	return compositeData.okbuttonlabel;
+}else{
+	return "OK";
+}}]]></xp:this.value>
+						</xp:text>
 					</div>
 					<xp:text id="title" tagName="h3" styleClass="modal-title"
 						value="#{javascript:compositeData.title}">
 					</xp:text>
 				</div>
 				<div class="modal-body text-center">
-					<xp:text value="#{javascript:compositeData.content}"></xp:text>
+					<xp:text value="#{javascript:compositeData.content}" escape="false"></xp:text>
 				</div>
 			</div>
 		</div>

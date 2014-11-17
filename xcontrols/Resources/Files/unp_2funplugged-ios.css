@@ -89,3 +89,14 @@ span.deleteicon span:after {
 .fc-header-title {
 	padding-top: 5px !important;
 }
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+	#list { top: 40px; }
+}
+
+.list-group-item .col-sm-6 {
+	min-height: 0;
+}
