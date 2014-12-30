@@ -6,11 +6,13 @@
 
 	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
-			<unp:UnpBootDetailedView title="People" summarycolumn="FullName"
-				viewname="People By Last Name" numberofrows="20" ajaxload="Yes"
-				detailcolumn1="Company" detailcolumn2="City" detailcolumn3="Country" xpagedoc="DetailView.xsp"
-				newlink="PersonEdit.xsp" searchview="Search"
-				footertext="Built with Bootcards - Flat List">
+			<unp:UnpBootDetailedView title="People"
+				summarycolumn="FullName" viewname="People By Last Name"
+				numberofrows="20" ajaxload="Yes" detailcolumn1="Company"
+				detailcolumn2="City" detailcolumn3="Country"
+				xpagedoc="DetailView.xsp" newlink="PersonEdit.xsp"
+				searchview="Search" footertext="Built with Bootcards - Flat List"
+				callback="callbackFunction">
 			</unp:UnpBootDetailedView>
 			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
 				<xc:personviewer></xc:personviewer>

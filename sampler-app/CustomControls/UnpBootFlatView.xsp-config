@@ -98,5 +98,9 @@ no</editor-parameter>
       <property-name>footertext</property-name>
       <property-class>string</property-class>
     </property>
+    <property>
+      <property-name>callback</property-name>
+      <property-class>string</property-class>
+    </property>
   </composite-component>
 </faces-config>

@@ -65,7 +65,7 @@
 + compositeData.detailcolumn + "&photocol="
 + compositeData.photocolumn + "&xpage=" + compositeData.xpagedoc + "&dbName="
 + compositeData.dbname + "&refreshmethod=" + compositeData.refreshmethod + "&start=0"
-+ "&ajaxload=" + compositeData.ajaxload + "&target=" + compositeData.loaddocumenttarget;}]]></xp:this.value>
++ "&ajaxload=" + compositeData.ajaxload + "&target=" + compositeData.loaddocumenttarget + "&callback=" + compositeData.callback;}]]></xp:this.value>
 										</xp:attr>
 									</xp:this.attrs>
 									<i class="fa fa-search"></i>
@@ -137,9 +137,9 @@ if (isEmpty(summarycol)){
 	summarycol = null;
 }
 if (isEmpty(compositeData.categoryfilter)){
-	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "')";
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.callback + "')";
 }else{
-	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "')";
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.callback + "')";
 }}]]></xp:this.value>
 							</xp:attr>
 						</xp:this.attrs>
@@ -156,7 +156,7 @@ if (isEmpty(compositeData.categoryfilter)){
 					styleClass="clearsearchbutton btn pull-right" style="display: none;">
 					<xp:this.attrs>
 						<xp:attr name="onclick">
-							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', '" + compositeData.refreshmethod + "', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.loaddocumenttarget + "')"}]]></xp:this.value>
+							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', '" + compositeData.refreshmethod + "', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.loaddocumenttarget + "', '" + compositeData.callback + "')"}]]></xp:this.value>
 						</xp:attr>
 					</xp:this.attrs>
 				</xp:button>

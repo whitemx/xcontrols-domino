@@ -51,7 +51,7 @@ if (start == ""){
 								  viewScope.accRowcount = viewScope.accRowcount + 1;
 								}
 								if(sessionScope.get("ajaxLoad") != "No"){
-									return "unp.openDocument('" + param.get("xpageDoc") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID() + "', 'doccontent', this);"
+									return "unp.openDocument('" + param.get("xpageDoc") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID() + "', 'doccontent', this, " + context.getUrlParameter("callback") + ");"
 								}
 								else{						
 									var url = getDbPath() + "/" + param.get("xpageDoc") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID();
@@ -101,7 +101,7 @@ viewScope.accRowcount != null && viewScope.accRowcount == sessionScope.accRowcou
 			<xp:this.attrs>
 				<xp:attr name="onclick">
 					<xp:this.value><![CDATA[#{javascript:"unp.fetchMoreDetails(this,'" + context.getUrlParameter("chosenView") + "','" + 
-context.getUrlParameter("catFilter") + "', '" + context.getUrlParameter("xpageDoc") + "', '" + context.getUrlParameter("dbname") + "', '" + context.getUrlParameter("photocol") + "', '" + context.getUrlParameter("summarycol") + "', '" + context.getUrlParameter("detailcol") + "');"}]]></xp:this.value>
+context.getUrlParameter("catFilter") + "', '" + context.getUrlParameter("xpageDoc") + "', '" + context.getUrlParameter("dbname") + "', '" + context.getUrlParameter("photocol") + "', '" + context.getUrlParameter("summarycol") + "', '" + context.getUrlParameter("detailcol") + "', '" + context.getUrlParameter("callback") + "');"}]]></xp:this.value>
 				</xp:attr>
 			</xp:this.attrs>
 			<i class="fa fa-repeat" />
