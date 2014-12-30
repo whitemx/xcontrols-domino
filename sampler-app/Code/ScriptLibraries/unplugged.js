@@ -516,6 +516,31 @@ unp.editDocument = function(xpage, unid){
 	}
 }
 
+unp.newResponse = function(parentunid, xpage){
+	
+	var url = xpage + '?parentunid=' + parentunid + ' .modal-content';
+	$('#editModal .modal-dialog').load(url, function(response, status, xhr){
+		// console.log(status);
+		$('#editModal').modal();
+		unp.initDeleteable();
+		unp.initAutoComplete();
+		unp.initRichText();
+		unp.initToggle();
+		unp.initDates();
+		if (unpluggedserver){
+			setTimeout(function(){
+				$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
+			}, 1000);
+		}else{
+			// $("#editModal .modal-dialog").height($("#editModal
+			// .modal-body").height());
+		}
+	});
+	if (!unp.isIE() && !unp.isFF()){
+		return false;
+	}
+}
+
 unp.isIE = function(){
     var ua = window.navigator.userAgent;
     var msie = ua.indexOf("MSIE ");
