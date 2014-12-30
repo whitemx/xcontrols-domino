@@ -128,18 +128,18 @@ return list;}]]></xp:this.value>
 						value="#{javascript:thisRowData}">
 						<xp:this.attrs>
 							<xp:attr name="onClick">
-								<xp:this.value><![CDATA[#{javascript:var datacol = compositeData.dataColumn;
+								<xp:this.value><![CDATA[#{javascript:var datacol = compositeData.detailcolumn;
 if (isEmpty(datacol)){
 	datacol = null;
 }
-var summarycol = compositeData.summaryColumn;
+var summarycol = compositeData.summarycolumn;
 if (isEmpty(summarycol)){
 	summarycol = null;
 }
 if (isEmpty(compositeData.categoryfilter)){
-	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.photocolumn + "')";
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "')";
 }else{
-	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.photocolumn + "')";
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "')";
 }}]]></xp:this.value>
 							</xp:attr>
 						</xp:this.attrs>

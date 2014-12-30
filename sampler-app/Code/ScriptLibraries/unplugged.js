@@ -970,13 +970,14 @@ unp.closeDialog = function(id) {
 }
 
 unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
-		photocol) {
+		photocol, summarycol, detailcol) {
 	
 	var pos = $('.data-row').length;
 	var thisUrl = "UnpAccordionViewList.xsp?chosenView="
 			+ encodeURIComponent(viewName) + "&catFilter="
 			+ encodeURIComponent(catName) + "&xpageDoc=" + xpage + "&start="
-			+ pos + "&dbname=" + dbname + "&photocol=" + photocol;
+			+ pos + "&dbname=" + dbname + "&photocol=" + photocol + "&summarycol="
+			+ summarycol + "&detailcol=" + detailcol;
 
 	var tempHolder = $(".summaryDataRow");
 	$(tempHolder).load(
@@ -1000,7 +1001,7 @@ unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
 	}
 }
 
-unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol) {
+unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol) {
 	if (!$(obj).hasClass("collapsed")) {
 		// We want to collapse the current category
 		console.log('Collapsing rows...');
@@ -1019,13 +1020,13 @@ unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol) {
 		console.log('Getting category ' + catName);
 		$(obj).removeClass('collapsed');
 		$('#list').scrollTop($('#list').scrollTop() + $(obj).position().top);
-		unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol);
+		unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol);
 	}
 }
 
-unp.fetchMoreDetails = function(obj, viewName, catName, xpage, dbname, photocol) {
+unp.fetchMoreDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol) {
 
-	unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol);
+	unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol);
 }
 
 unp.syncAllDbs = function() {

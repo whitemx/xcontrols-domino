@@ -60,7 +60,7 @@ if (start == ""){
 							}]]></xp:this.value>
 					</xp:attr>
 				</xp:this.attrs>
-				<xp:image styleClass="rowphoto">
+				<xp:image styleClass="rowphoto img-rounded pull-left">
 					<xp:this.rendered><![CDATA[#{javascript:if (context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && context.getUrlParameter("photocol") != "null"){
 	if (thisRowData.getColumnValue(context.getUrlParameter("photocol")) != ""){
 		return true;
@@ -74,11 +74,8 @@ if (start == ""){
 				</xp:image>
 				<xp:text id="label2" styleClass="list-group-item-heading" tagName="h4">
 					<xp:this.value><![CDATA[#{javascript:var filter = param.get("catFilter");
-if (filter.indexOf("~") > -1){
-	thisRowData.getColumnValues()[2];
-}else{
-	thisRowData.getColumnValues()[1];
-}}]]></xp:this.value>
+thisRowData.getColumnValue(context.getUrlParameter("summarycol"));
+}]]></xp:this.value>
 				</xp:text>
 				<xp:text tagName="p" id="detail" styleClass="list-group-item-text">
 					<xp:this.value><![CDATA[#{javascript:var filter = param.get("catFilter");
@@ -87,7 +84,7 @@ if (filter.indexOf("~") > -1){
 	index = 3;
 }
 if(thisRowData.getColumnValues().length > index){
-  return thisRowData.getColumnValues()[index];
+  return thisRowData.getColumnValue(context.getUrlParameter("detailcol"));
 }else{
   return "";
 }}]]></xp:this.value>
@@ -104,7 +101,7 @@ viewScope.accRowcount != null && viewScope.accRowcount == sessionScope.accRowcou
 			<xp:this.attrs>
 				<xp:attr name="onclick">
 					<xp:this.value><![CDATA[#{javascript:"unp.fetchMoreDetails(this,'" + context.getUrlParameter("chosenView") + "','" + 
-context.getUrlParameter("catFilter") + "', '" + context.getUrlParameter("xpageDoc") + "', '" + context.getUrlParameter("dbname") + "', '" + context.getUrlParameter("summarycol") + "', '" + context.getUrlParameter("datacol") + "', '" + context.getUrlParameter("summarycol") + "');"}]]></xp:this.value>
+context.getUrlParameter("catFilter") + "', '" + context.getUrlParameter("xpageDoc") + "', '" + context.getUrlParameter("dbname") + "', '" + context.getUrlParameter("photocol") + "', '" + context.getUrlParameter("summarycol") + "', '" + context.getUrlParameter("detailcol") + "');"}]]></xp:this.value>
 				</xp:attr>
 			</xp:this.attrs>
 			<i class="fa fa-repeat" />
