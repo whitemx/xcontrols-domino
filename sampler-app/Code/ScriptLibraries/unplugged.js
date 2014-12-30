@@ -247,6 +247,18 @@ window.addEventListener('orientationchange', function() {
 unp.changeorientation = function() {
 	unp.initiscroll();
 	unp.initCalendar();
+	var isPortrait = ($(window).width() > $(window).height())? false : true;
+	if (!isPortrait){
+		if (!$("#list").hasClass("col-sm-5")){
+			$("#list").addClass("col-sm-5");
+		}
+		if ($("#doccontent").hasClass("col-xs-12")){
+			$("#doccontent").removeClass("col-xs-12");
+		}
+		if (!$("#doccontent").hasClass("col-sm-7")){
+			$("#doccontent").addClass("col-sm-7");
+		}
+	}
 }
 
 unp.fixPortrait = function(){
