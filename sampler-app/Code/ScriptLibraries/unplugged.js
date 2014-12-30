@@ -290,7 +290,7 @@ unp.stopViewSpinner = function() {
 var loadmoreloading = false;
 var loadedurls = [];
 unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
-		xpage, refreshmethod, photocol, ajaxload, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target) {
 	if (($('.searchbox').val() == "" || $('.localsearchbox').val() == ""  || ($('.searchbox').length == 0 && $('.localsearchbox').length == 0)) && !loadmoreloading) {
 		loadmoreloading == true;
 		// try {
@@ -308,7 +308,7 @@ unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
 				+ encodeURIComponent(photocol) + "&category="
 				+ encodeURIComponent(category) + "&xpage=" + xpage + "&dbName="
 				+ dbName + "&refreshmethod=" + refreshmethod + "&start=" + pos
-				+ "&ajaxload=" + ajaxload + "&target=" + target;
+				+ "&ajaxload=" + ajaxload + "&target=" + target + "&callback=" + callback;
 		if (loadedurls.indexOf(url) == -1) {
 			loadedurls.push(url);
 			// console.log('Loading ' + url);
@@ -361,7 +361,7 @@ unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
 }
 
 unp.loadmoredetailed = function(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category,
-		xpage, refreshmethod, photocol, ajaxload, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target) {
 	if (($('.searchbox').val() == "" || $('.localsearchbox').val() == ""  || ($('.searchbox').length == 0 && $('.localsearchbox').length == 0)) && !loadmoreloading) {
 		loadmoreloading == true;
 		// try {
@@ -381,7 +381,7 @@ unp.loadmoredetailed = function(dbName, viewName, summarycol, detailcol1, detail
 				"&photocol=" + encodeURIComponent(photocol) + "&category="
 				+ encodeURIComponent(category) + "&xpage=" + xpage + "&dbName="
 				+ dbName + "&refreshmethod=" + refreshmethod + "&start=" + pos
-				+ "&ajaxload=" + ajaxload + "&target=" + target;
+				+ "&ajaxload=" + ajaxload + "&target=" + target + "&callback=" + callback;
 		if (loadedurls.indexOf(url) == -1) {
 			loadedurls.push(url);
 			// console.log('Loading ' + url);
@@ -433,7 +433,7 @@ unp.loadmoredetailed = function(dbName, viewName, summarycol, detailcol1, detail
 	}
 }
 
-unp.openDocument = function(url, target, caller) {
+unp.openDocument = function(url, target, caller, callback) {
 	var thisArea = $("#" + target);
 	$('#list .active').removeClass('active');
 	if (caller) {
@@ -484,6 +484,9 @@ unp.openDocument = function(url, target, caller) {
 				}
 			} else {
 				window.scrollTo(0, 0);
+			}
+			if (callback){
+				callback();
 			}
 			return false;
 		}
@@ -995,14 +998,14 @@ unp.closeDialog = function(id) {
 }
 
 unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
-		photocol, summarycol, detailcol) {
+		photocol, summarycol, detailcol, callback) {
 	
 	var pos = $('.data-row').length;
 	var thisUrl = "UnpAccordionViewList.xsp?chosenView="
 			+ encodeURIComponent(viewName) + "&catFilter="
 			+ encodeURIComponent(catName) + "&xpageDoc=" + xpage + "&start="
 			+ pos + "&dbname=" + dbname + "&photocol=" + photocol + "&summarycol="
-			+ summarycol + "&detailcol=" + detailcol;
+			+ summarycol + "&detailcol=" + detailcol + "&callback=" + callback;
 
 	var tempHolder = $(".summaryDataRow");
 	$(tempHolder).load(
@@ -1026,7 +1029,7 @@ unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
 	}
 }
 
-unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol) {
+unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback) {
 	if (!$(obj).hasClass("collapsed")) {
 		// We want to collapse the current category
 		console.log('Collapsing rows...');
@@ -1045,13 +1048,13 @@ unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, sum
 		console.log('Getting category ' + catName);
 		$(obj).removeClass('collapsed');
 		$('#list').scrollTop($('#list').scrollTop() + $(obj).position().top);
-		unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol);
+		unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback);
 	}
 }
 
-unp.fetchMoreDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol) {
+unp.fetchMoreDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback) {
 
-	unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol);
+	unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback);
 }
 
 unp.syncAllDbs = function() {
@@ -1148,7 +1151,7 @@ unp.dosearch = function() {
 }
 
 unp.clearsearch = function(dbName, viewName, summarycol, detailcol, category,
-		xpage, refreshmethod, photocol, ajaxload, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target) {
 	$('#list .list-group').empty();
 	$('.loadmorelink').hide();
 	$('.pullupholder').hide();
@@ -1164,12 +1167,12 @@ unp.clearsearch = function(dbName, viewName, summarycol, detailcol, category,
 		});
 	}else{
 		unp.loadmore(dbName, viewName, summarycol, detailcol, category, xpage,
-				refreshmethod, photocol, ajaxload, target);
+				refreshmethod, photocol, ajaxload, callback, target);
 	}
 }
 
 unp.clearsearchdetailed = function(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category,
-		xpage, refreshmethod, photocol, ajaxload, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target) {
 	$('#list .list-group').empty();
 	$('.loadmorelink').hide();
 	$('.pullupholder').hide();
@@ -1185,7 +1188,7 @@ unp.clearsearchdetailed = function(dbName, viewName, summarycol, detailcol1, det
 		});
 	}else{
 		unp.loadmoredetailed(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category, xpage,
-				refreshmethod, photocol, ajaxload, target);
+				refreshmethod, photocol, ajaxload, callback, target);
 	}
 }
 

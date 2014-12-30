@@ -11,7 +11,8 @@
 				xpagedoc="Categorized.xsp" categoryindex="1"
 				newlink="PersonEdit.xsp" searchview="Search" categoryfilter="UK"
 				enableazpicker="yes"
-				footertext="Built with Bootcards - Categorized List">
+				footertext="Built with Bootcards - Categorized List"
+				callback="callbackFunction">
 			</unp:UnpBootFlatView>
 			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
 				<xc:personviewer></xc:personviewer>
