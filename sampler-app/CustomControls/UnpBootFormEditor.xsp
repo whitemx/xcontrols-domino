@@ -41,8 +41,10 @@ if (context.getUrlParameter("parentunid") != ""){
 }
 if (compositeData.dbname != null){
 	out += ", '" + compositeData.dbname + "'";
+}else{
+	out += ", 'null'";
 }
-out += "); return false;"
+out += ", " + compositeData.callback + "); return false;"
 return out;}]]></xp:this.value>
 						</xp:attr>
 					</xp:this.attrs>

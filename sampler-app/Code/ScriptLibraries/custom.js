@@ -377,3 +377,6 @@ function callbackFunction(){
 	console.log("Opened " + $(item).text());
 }
  
+function savecallback(){
+	console.log("Saved document at " + new Date());
+}

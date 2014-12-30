@@ -611,7 +611,7 @@ unp.goback = function() {
 	}
 }
 
-unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname) {
+unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback) {
 	var data = $("#editModal :input").serialize();
 	$(".richtextsourcefield").each(function(){
 		var source = $(this);
@@ -682,6 +682,9 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 						$('[unid="' + response + '"]').replaceWith(response2);
 						$('[unid="' + response + '"]').addClass('active');
 					})
+				}
+				if (callback){
+					callback();
 				}
 			} else {
 				alert(response);
