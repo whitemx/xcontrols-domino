@@ -173,7 +173,12 @@ if (compositeData.ajaxload != "No"){
 							<xp:attr name="unid"
 								value="#{javascript:thisRowData.getUniversalID()}">
 							</xp:attr>
+							<xp:attr name="expand-first"
+								value="#{javascript:compositeData.openfirstdocument}"
+								rendered="#{javascript:!isEmpty(compositeData.openfirstdocument)}">
+							</xp:attr>
 						</xp:this.attrs>
+						
 						<xp:this.styleClass><![CDATA[#{javascript:var out = "list-group-item";
 if (context.getUrlParameter("documentId") == thisRowData.getUniversalID()){
 	out += " active";

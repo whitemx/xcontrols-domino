@@ -313,41 +313,40 @@ unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
 			loadedurls.push(url);
 			// console.log('Loading ' + url);
 			thisArea.load(url + " #results",
-					function() {
-						var firsturl = $(".summaryDataRow a").first().prop(
-								'onclick');
-						if ($("#list .panel .list-group a[onclick='" + firsturl
-								+ "']").length > 0) {
-							// console.log("We've already loaded " + firsturl);
-				} else {
-					// console.log('Adding ' + $('.summaryDataRow a').length + '
-					// items to list');
-					$("#list .panel .list-group ").append(
-							$(".summaryDataRow .list-group-item"));
+				function() {
+					var firsturl = $(".summaryDataRow a").first().prop('onclick');
+					if ($("#list .panel .list-group a[onclick='" + firsturl + "']").length > 0) {
+						// console.log("We've already loaded " + firsturl);
+					} else {
+						// console.log('Adding ' + $('.summaryDataRow a').length + '
+						// items to list');
+						$("#list .panel .list-group ").append(
+								$(".summaryDataRow .list-group-item"));
+					}
+					if ($(".summaryDataRow").text().indexOf("NOMORERECORDS") > -1) {
+						// console.log('Reached end of view with ' + $("#list
+						// .list-group a").length + ' elements');
+						$("#pullUp").hide();
+						$(".loadmorelink").hide();
+						$("#loadmorespinner").hide();
+					} else {
+						$("#pullUp").show();
+						$(".loadmorelink").show();
+						$("#loadmorespinner").hide();
+					}
+					$(".summaryDataRow").empty();
+					try {
+						scrollContent.refresh();
+					} catch (e) {
+					}
+	
+					if ($("#pullUp").hasClass('loading')) {
+						$("#pullUp").removeClass("loading");
+					}
+					loadmoreloading = false;
+					return false;
 				}
-				if ($(".summaryDataRow").text().indexOf("NOMORERECORDS") > -1) {
-					// console.log('Reached end of view with ' + $("#list
-					// .list-group a").length + ' elements');
-					$("#pullUp").hide();
-					$(".loadmorelink").hide();
-					$("#loadmorespinner").hide();
-				} else {
-					$("#pullUp").show();
-					$(".loadmorelink").show();
-					$("#loadmorespinner").hide();
-				}
-				$(".summaryDataRow").empty();
-				try {
-					scrollContent.refresh();
-				} catch (e) {
-				}
-
-				if ($("#pullUp").hasClass('loading')) {
-					$("#pullUp").removeClass("loading");
-				}
-				loadmoreloading = false;
-				return false;
-			});
+			);
 		} else {
 			// console.log('We already loaded ' + url);
 		}

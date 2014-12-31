@@ -12,7 +12,7 @@
 				detailcolumn2="City" detailcolumn3="Country"
 				xpagedoc="DetailView.xsp" newlink="PersonEdit.xsp"
 				searchview="Search" footertext="Built with Bootcards - Flat List"
-				callback="callbackFunction">
+				callback="callbackFunction" openfirstdocument="yes">
 			</unp:UnpBootDetailedView>
 			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
 				<xc:personviewer></xc:personviewer>

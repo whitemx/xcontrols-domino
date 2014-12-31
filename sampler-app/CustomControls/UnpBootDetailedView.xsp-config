@@ -15,7 +15,7 @@
         <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &#xd;
 &lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt; &#xd;
 	&lt;div style="border: 2px solid #A9A9A9; padding: 3px; margin: 5px;"&gt;&#xd;
-	&lt;h1&gt;UnpBootFlatView&lt;/h1&gt;&#xd;
+	&lt;h1&gt;UnpBootDetailedView&lt;/h1&gt;&#xd;
 	&lt;div&gt;&#xd;
 		To use this custom control make sure you have set the Custom Properties.&#xd;
 	&lt;/div&gt;&#xd;
@@ -109,6 +109,18 @@ no</editor-parameter>
     <property>
       <property-name>callback</property-name>
       <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>openfirstdocument</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>yes&#xd;
+no</editor-parameter>
+          <default-value>yes</default-value>
+        </designer-extension>
+      </property-extension>
     </property>
   </composite-component>
 </faces-config>
