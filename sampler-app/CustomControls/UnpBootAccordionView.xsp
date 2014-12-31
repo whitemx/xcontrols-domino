@@ -31,15 +31,11 @@
 						</xp:text>
 					</div>
 					<div class="col-xs-4">
-						<xp:panel id="addlink" tagName="a" rendered="#{javascript:!isEmpty(compositeData.newlink)}"
-							styleClass="btn btn-primary btn-block">
+						<xp:panel id="addlink" tagName="a"
+							styleClass="btn btn-primary btn-block" rendered="#{javascript:!isEmpty(compositeData.newlink)}">
 							<xp:this.attrs>
-								<xp:attr name="href" value="#{javascript:compositeData.newlink}">
-								</xp:attr>
-								<xp:attr name="data-toggle" value="modal">
-								</xp:attr>
-								<xp:attr name="data-target"
-									value="#{javascript:compositeData.newdatatarget}">
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[#{javascript:"unp.newDocument('" + compositeData.newlink + "')"}]]></xp:this.value>
 								</xp:attr>
 							</xp:this.attrs>
 							<i class="fa fa-plus"></i>
