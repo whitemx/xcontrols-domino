@@ -1424,6 +1424,7 @@ unp.login = function() {
 		alert('Password is mandatory');
 		return false;
 	};
+	config.urlAfterLogin = decodeURIComponent($.urlParam('redirectto'));
 
 	var loginurl = config.urlLoginNSF.split('.nsf')[0] + '.nsf?Login';
 	$.ajax( {
@@ -1485,4 +1486,14 @@ function getCookie(name) {
 	var value = "; " + document.cookie;
 	var parts = value.split("; " + name + "=");
 	if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
 }

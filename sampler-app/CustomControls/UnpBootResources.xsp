@@ -36,6 +36,17 @@
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
 		</xp:metaData>
 	</xp:this.resources>
+	
+	
+	<xp:this.afterPageLoad><![CDATA[#{javascript:try{
+	if(!isUnpluggedServer() && @UserName() == "Anonymous" && !isEmpty(compositeData.loginpage)){
+		if (context.getUrl().getAddress().indexOf(compositeData.loginpage) == -1){
+			context.redirectToPage(compositeData.loginpage + "?redirectto=" + context.getUrl().getAddress());
+		}
+	}
+}catch(e){
+	_dump(e);
+}}]]></xp:this.afterPageLoad>
 	<xp:panel tagName="link">
 		<xp:this.attrs>
 			<xp:attr name="type" value="text/css"></xp:attr>

@@ -7,8 +7,7 @@
 		<xp:styleSheet href="/custom.css"></xp:styleSheet>
 	</xp:this.resources>
 
-	<unp:UnpBootResources>
-	</unp:UnpBootResources>
+	<unp:UnpBootResources loginpage="Login.xsp"></unp:UnpBootResources>
 
 	<unp:UnpBootNavigator>
 		<unp:this.menuitems><![CDATA[#{javascript:[

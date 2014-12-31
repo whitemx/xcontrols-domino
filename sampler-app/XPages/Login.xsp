@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.openntf.org">
+
+	<xc:commonheader pagetitle="Sampler"></xc:commonheader>
+	<div id="main" class="container bootcards-container">
+		<div class="row">
+			<xp:div styleClass="bootcards-cards fullheightrow">
+				<unp:UnpBootLogin></unp:UnpBootLogin>
+			</xp:div>
+		</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>
