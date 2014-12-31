@@ -380,3 +380,7 @@ function callbackFunction(){
 function savecallback(){
 	console.log("Saved document at " + new Date());
 }
+
+function editcallback(){
+	console.log("Started editing document at " + new Date());
+}

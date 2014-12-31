@@ -494,7 +494,7 @@ unp.openDocument = function(url, target, caller, callback) {
 	return false;
 }
 
-unp.editDocument = function(xpage, unid){
+unp.editDocument = function(xpage, unid, callback){
 	
 	var url = xpage + '?action=editDocument&documentId=' + unid + ' .modal-content';
 	$('#editModal .modal-dialog').load(url, function(response, status, xhr){
@@ -512,6 +512,9 @@ unp.editDocument = function(xpage, unid){
 		}else{
 			// $("#editModal .modal-dialog").height($("#editModal
 			// .modal-body").height());
+		}
+		if (callback){
+			callback();
 		}
 	});
 	if (!unp.isIE() && !unp.isFF()){
@@ -1240,6 +1243,7 @@ unp.initCalendar = function() {
 		url += '&filter=' + calendaroptions.filter;
 		url += '&catfield=' + calendaroptions.catfield;
 		url += '&dbname=' + calendaroptions.dbname;
+		url += '&callback=' + calendaroptions.callback;
 		$('#calendar').fullCalendar( {
 			header : {
 				left : calendaroptions.headerbuttonsleft,

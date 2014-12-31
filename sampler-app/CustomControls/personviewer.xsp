@@ -5,7 +5,8 @@
 	<unp:UnpBootFormViewer editxpagename="PersonEdit.xsp"
 		editxpagewithajax="yes" formname="Person" showbuttons="true"
 		title="Contact Details" titleiconfield="thumbnail"
-		footertext="Built with Bootcards - Form Card">
+		footertext="Built with Bootcards - Form Card"
+		callback="editcallback">
 		<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
 		<xp:this.facets>
 			<xp:panel id="list-group" xp:key="facet_1"
