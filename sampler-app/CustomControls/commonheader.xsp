@@ -51,12 +51,40 @@
 	<unp:UnpBootHeader>
 		<unp:this.navitems><![CDATA[#{javascript:[
         {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
-        {label: "Lists", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Lists", icon: "fa-list"},
+        {label: "Lists", icon: "fa-list", children: [
+			{"label": "Flat", "icon": "fa-list-alt", "page": "/FlatView.xsp"},
+			{"label": "Detailed", "icon": "fa-list-alt", "page": "/DetailView.xsp"},
+			{"label": "Categorized", "icon": "fa-list", "page": "/Categorized.xsp"},
+			{"label": "Accordion", "icon": "fa-th-list", "page": "/Accordion.xsp"} 
+		]},
         {label: "Cards", hasSubMenu: false, page: "/BaseCards.xsp", icon: "fa-book"},
-        {label: "Other Controls", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Other%20Controls", icon: "fa-th-large"},
-        {label: "Examples", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-edit"},
-        {label: "Icons", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Font%20Awesome", icon: "fa-flag"},
-        {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}        
+        {label: "Other Controls", icon: "fa-th-large", children: [		 
+			{"label": "Calendar", "icon": "fa-calendar", "page": "/Calendar.xsp"}, 
+			{"label": "Carousel", "icon": "fa-files-o", "page": "/Media.xsp"}, 
+			{"label": "Dialogs", "icon": "fa-comment", "page": "/Dialog.xsp"}
+		]},
+        {label: "Examples", icon: "fa-edit", children: [
+			{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp"}, 
+			{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp"},
+			{"label": "My Activities", "icon": "fa-tasks", "page": "/MyActivities.xsp"},
+			{"label": "Activities By Contact", "icon": "fa-tasks", "page": "/ActivitiesByContact.xsp"},
+			{"label": "Activities By Dept", "icon": "fa-tasks", "page": "/ActivitiesByDepartment.xsp"}
+		]},
+        {label: "Icons", icon: "fa-flag", children: [
+			{"label": "Brands", "icon": "fa-apple", "page": "/FontAwesome.xsp?filter=Brands&"}, 
+			{"label": "Currencies", "icon": "fa-gbp", "page": "/FontAwesome.xsp?filter=Currencies&"}, 
+			{"label": "Directional", "icon": "fa-arrows", "page": "/FontAwesome.xsp?filter=Directional&"}, 
+			{"label": "Form Control", "icon": "fa-check-square", "page": "/FontAwesome.xsp?filter=Form%20Control&"}, 
+			{"label": "Medical", "icon": "fa-ambulance", "page": "/FontAwesome.xsp?filter=Medical&"}, 
+			{"label": "New", "icon": "fa-bomb", "page": "/FontAwesome.xsp?filter=New&"}, 
+			{"label": "Text Editor", "icon": "fa-bold", "page": "/FontAwesome.xsp?filter=Text%20Editor&"}, 
+			{"label": "Video Player", "icon": "fa-play", "page": "/FontAwesome.xsp?filter=Video%20Player&"}, 
+			{"label": "Web App", "icon": "fa-asterisk", "page": "/FontAwesome.xsp?filter=Web%20App&"} 
+		]},
+        {label: "Tools", icon: "fa-cog", children: [
+			{"label": "Debug Toolbar", "icon": "fa-bug", "page": "/DebugToolbar.xsp"}, 
+			{"label": "XMark 1", "icon": "fa-bolt", "page": "/UPMark.xsp"}
+		]}        
 ]}]]></unp:this.navitems>
 		<unp:this.title><![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
 	return "Sampler";

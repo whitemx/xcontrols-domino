@@ -278,3 +278,7 @@ div.dBar .content {
 .bootcards-az-picker {
 	padding-top: 44px !important;
 }
+
+.dropdown-toggle {
+	cursor: pointer;
+}

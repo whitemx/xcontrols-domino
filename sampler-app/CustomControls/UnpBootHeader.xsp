@@ -35,7 +35,8 @@
 				<ul class="nav navbar-nav">
 					<xp:repeat id="headernavitems" value="#{javascript:compositeData.navitems}"
 						var="navitem" indexVar="navitemindex" disableOutputTag="true">
-						<xp:panel id="navitem" tagName="li">
+						<xp:panel id="navitem" tagName="li"
+							rendered="#{javascript:!navitem.children}">
 							<xp:link escape="true" text="#{javascript:navitem.label}"
 								id="navitemlink" value="#{javascript:navitem.page}">
 								<xp:text id="navitemicon" tagName="i" value="">
@@ -54,6 +55,49 @@ else{
 									</xp:attr>
 								</xp:this.attrs>
 							</xp:link>
+						</xp:panel>
+						<xp:panel tagName="li" styleClass="dropdown"
+							rendered="#{javascript:navitem.children}">
+							<xp:text tagName="a"
+								styleClass="dropdown-toggle" escape="false">
+								<xp:this.attrs>
+									<xp:attr name="role"
+										value="button">
+									</xp:attr>
+									<xp:attr name="data-toggle"
+										value="dropdown">
+									</xp:attr>
+									<xp:attr name="aria-expanded"
+										value="false">
+									</xp:attr>
+								</xp:this.attrs>
+								<xp:this.value><![CDATA[#{javascript:"<i class=\"fa " + navitem.icon + "\"></i> " + navitem.label + "<span class=\"caret\"></span>"}]]></xp:this.value>
+							</xp:text>
+							<ul class="dropdown-menu" role="menu">
+								<xp:repeat value="#{javascript:navitem.children}" var="child"
+									disableOutputTag="true">
+									<li>
+										<xp:link escape="true" text="#{javascript:child.label}"
+											id="link1" value="#{javascript:child.page}">
+											<xp:text id="computedField1" tagName="i" value="">
+												<xp:this.styleClass><![CDATA[#{javascript:"fa " + child.icon}]]></xp:this.styleClass>
+											</xp:text>
+											&#160;
+											<xp:this.attrs>
+												<xp:attr name="onclick">
+													<xp:this.value><![CDATA[#{javascript:if((child.newDocXPage != null)){
+    return "unp.newDocument('" + child.newDocXPage + "');return false;";
+}
+else{
+    return "";
+}
+}]]></xp:this.value>
+												</xp:attr>
+											</xp:this.attrs>
+										</xp:link>
+									</li>
+								</xp:repeat>
+							</ul>
 						</xp:panel>
 					</xp:repeat>
 
