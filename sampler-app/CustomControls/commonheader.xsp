@@ -56,7 +56,7 @@
         {label: "Other Controls", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Other%20Controls", icon: "fa-th-large"},
         {label: "Examples", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Contacts", icon: "fa-edit"},
         {label: "Icons", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Font%20Awesome", icon: "fa-flag"},
-        {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}      
+        {label: "Tools", hasSubMenu: false, page: "/DesktopNav.xsp?filter=Tools", icon: "fa-cog"}        
 ]}]]></unp:this.navitems>
 		<unp:this.title><![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
 	return "Sampler";
