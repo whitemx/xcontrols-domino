@@ -1018,9 +1018,27 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
 
                     <div id="doc-login" class="bs-docs-section">
             <h2>Login</h2>
-            <p class="lead">A login control that will authenticate the user. Available from v1.2 onwards.</p>
-            <p>The login control should be added to all XPages where you want the user to be authenticated. Hide it if the current user is not Anonymous.</p>
+            <p class="lead">A login control that will authenticate the user. Available from v1.3 onwards.</p>
+            <p>Create a Login XPage that uses the Login control, and then set the loginpage property on the UnpBootResources control, it will automatically redirect you to the Login page when you are not authenticated. Leave property blank if not required.</p>
             <p>You must have enabled session authentication on your server and allow anonymous access to the page that is going to perform the authentication.</p>
+            <div class="highlight"><pre><code class="html">
+            	&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+	xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
+
+	&lt;xc:commonheader pagetitle=&quot;Sampler&quot;&gt;&lt;/xc:commonheader&gt;
+	&lt;div id=&quot;main&quot; class=&quot;container bootcards-container&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;xp:div styleClass=&quot;bootcards-cards fullheightrow&quot;&gt;
+				&lt;unp:UnpBootLogin&gt;&lt;/unp:UnpBootLogin&gt;
+			&lt;/xp:div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
+	
+&lt;/xp:view&gt;
+
+            </code></pre></div>
           </div>
 
           <div id="doc-navigator" class="bs-docs-section">
