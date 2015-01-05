@@ -195,6 +195,7 @@
               <dt>searchlocal</dt><dd>If set to yes and searchview is blank then a local search will be provided.</dd>
               <dt>expandfirstcategory</dt><dd>Set to yes or no. yes will auto expand the first category when viewing the accordion</dd>
               <dt>footertext</dt><dd>A string to display in the footer of the list. Leave blank if not required.</dd>
+              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
             </dl>
             <p>If you're using this control, don't forget that you will also need to include the UnpAccordionViewList XPage.</p>
 <div class="highlight"><pre><code class="html">
@@ -320,6 +321,7 @@
               <dt>catfield</dt><dd>The name of the field on event documents which will be used to create categories, can be left blank</dd>
               <dt>dbname</dt><dd>The name of the database to load data from, can be left blank.</dd>
               <dt>footertext</dt><dd>A footer string to display, can be left blank.</dd>
+              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after clicking on an entry (i.e. when a document is put into edit mode)</dd>
             </dl>
             <p>When using this control, don't forget to include the UnpCalendarData XPage</p>
 <div class="highlight"><pre><code class="html">
@@ -492,6 +494,8 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
               <dt>ajaxload</dt><dd>Optionally load documents using a full page load, default is to use Ajax for performance reasons</dd>
               <dt>searchlocal</dt><dd>If set to yes and searchview is blank then searching on the currently displayed list will be enabled</dd>
               <dt>footertext</dt><dd>A footer text message to display. Leave blank if not required.</dd>
+              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
+              <dt>openfirstdocument</dt><dd><strong>from v1.3</strong> set to yes by default, if set to no then document will not be opened automatically when opening the view</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -690,6 +694,8 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
               <dt>ajaxload</dt><dd>Optionally load documents using a full page load, default is to use Ajax for performance reasons</dd>
               <dt>searchlocal</dt><dd>If set to yes and searchview is blank then searching on the currently displayed list will be enabled</dd>
               <dt>footertext</dt><dd>A footer text message to display. Leave blank if not required.</dd>
+              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
+              <dt>openfirstdocument</dt><dd><strong>from v1.3</strong> set to yes by default, if set to no then document will not be opened automatically when opening the view</dd>
             </dl>
             <p><strong>We do have one known issue with the A-Z Picker when using it in iOS and Unplugged (not Safari), there are situations where the list will disappear until the user touches their screen again. We're still investigating a solution to this issue.</strong></p>
 <div class="highlight"><pre><code class="html">
@@ -761,6 +767,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
               <dt>title</dt><dd>The title for the form card</dd>
               <dt>showbuttons</dt><dd>yes or no to show or hide the save and cancel buttons</dd>
               <dt>viewxpagename</dt><dd>The name of the XPage to open after saving the document, would normally be the same as the current XPage</dd>
+              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after successfully saving a document</dd>
             </dl>
             <p>The fields supported require various extra settings. In the example below you can see:</p>
             <ul>
@@ -902,6 +909,7 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
               <dt>editxpagewithajax</dt><dd>yes to edit the document with ajax or no to open the document in edit mode with a full page load</dd>
               <dt>newresponsexpagename</dt><dd>the name of the xpage to open to compose a response</dd>
               <dt>footertext</dt><dd>A static string to display in the footer of the card, leave blank if not required</dd>
+              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after clicking the edit document button (i.e. when a document is put into edit mode)</dd>
             </dl>
             <p>In the example below we see the markup required for the FirstName field. Note that it's being displayed using an H4 tag with the class list-group-item-heading applied to it.</p>
 <div class="highlight"><pre><code class="html">
@@ -956,22 +964,36 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
               <dt>navitems</dt><dd>an array of objects that describe header menu items. These will only be displayed for desktop users. For sidebar navigation, use the Navigator control. Each item should have the following properties: label, page and icon. The label is what will be displayed in the header bar, the page is the URL to open when the link is clicked and icon is the Font Awesome icon to use for the menu item.</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
-&lt;unp:UnpBootHeader&gt;
-  &lt;unp:this.navitems&gt;&lt;![CDATA[#{javascript:[
+  &lt;unp:UnpBootHeader&gt;
+    &lt;unp:this.navitems&gt;&lt;![CDATA[#{javascript:[
         {label: &quot;Dashboard&quot;, hasSubMenu: false, page: &quot;/UnpMain.xsp&quot;, icon: &quot;fa-dashboard&quot;},
-        {label: &quot;Contacts&quot;, hasSubMenu: false, page: &quot;/DesktopNav.xsp?filter=Contacts&quot;, icon: &quot;fa-group&quot;},
-        {label: &quot;UI Elements&quot;, hasSubMenu: false, page: &quot;/DesktopNav.xsp?filter=UI%20Elements&quot;, icon: &quot;fa-th-large&quot;},
-        {label: &quot;Typography&quot;, hasSubMenu: false, page: &quot;/DesktopNav.xsp?filter=Typography&quot;, icon: &quot;fa-edit&quot;},
-        {label: &quot;Font Awesome&quot;, hasSubMenu: false, page: &quot;/DesktopNav.xsp?filter=Font%20Awesome&quot;, icon: &quot;fa-flag&quot;},
-        {label: &quot;Tools&quot;, hasSubMenu: false, page: &quot;/DesktopNav.xsp?filter=Tools&quot;, icon: &quot;fa-cog&quot;}      
+        {label: &quot;Lists&quot;, icon: &quot;fa-list&quot;, children: [
+      {&quot;label&quot;: &quot;Flat&quot;, &quot;icon&quot;: &quot;fa-list-alt&quot;, &quot;page&quot;: &quot;/FlatView.xsp&quot;},
+      {&quot;label&quot;: &quot;Detailed&quot;, &quot;icon&quot;: &quot;fa-list-alt&quot;, &quot;page&quot;: &quot;/DetailView.xsp&quot;},
+      {&quot;label&quot;: &quot;Categorized&quot;, &quot;icon&quot;: &quot;fa-list&quot;, &quot;page&quot;: &quot;/Categorized.xsp&quot;},
+      {&quot;label&quot;: &quot;Accordion&quot;, &quot;icon&quot;: &quot;fa-th-list&quot;, &quot;page&quot;: &quot;/Accordion.xsp&quot;} 
+    ]},
+        {label: &quot;Cards&quot;, hasSubMenu: false, page: &quot;/BaseCards.xsp&quot;, icon: &quot;fa-book&quot;},
+        {label: &quot;Other Controls&quot;, icon: &quot;fa-th-large&quot;, children: [     
+      {&quot;label&quot;: &quot;Calendar&quot;, &quot;icon&quot;: &quot;fa-calendar&quot;, &quot;page&quot;: &quot;/Calendar.xsp&quot;}, 
+      {&quot;label&quot;: &quot;Carousel&quot;, &quot;icon&quot;: &quot;fa-files-o&quot;, &quot;page&quot;: &quot;/Media.xsp&quot;}, 
+      {&quot;label&quot;: &quot;Dialogs&quot;, &quot;icon&quot;: &quot;fa-comment&quot;, &quot;page&quot;: &quot;/Dialog.xsp&quot;}
+    ]},
+        {label: &quot;Tools&quot;, icon: &quot;fa-cog&quot;, children: [
+      {&quot;label&quot;: &quot;Debug Toolbar&quot;, &quot;icon&quot;: &quot;fa-bug&quot;, &quot;page&quot;: &quot;/DebugToolbar.xsp&quot;}, 
+      {&quot;label&quot;: &quot;XMark 1&quot;, &quot;icon&quot;: &quot;fa-bolt&quot;, &quot;page&quot;: &quot;/UPMark.xsp&quot;}
+    ]}, 
+    {label: &quot;New Person&quot;, newDocXPage: &quot;PersonEdit.xsp&quot;, icon: &quot;fa-new&quot;}
 ]}]]&gt;&lt;/unp:this.navitems&gt;
-  &lt;unp:this.title&gt;&lt;![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
+    &lt;unp:this.title&gt;&lt;![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
   return &quot;Sampler&quot;;
 }else{
   return compositeData.pagetitle;
 }}]]&gt;&lt;/unp:this.title&gt;
-&lt;/unp:UnpBootHeader&gt;
+  &lt;/unp:UnpBootHeader&gt;
 </code></pre></div>
+            <div>As of version 1.3, you can also add a "compose" button to the header menu bar for desktop users. To do this, simply add a property to the JSON object called "newDocXPage" which will be set to the name of the XPage to open when clicked. You can see an example in the last element. You must make sure that any page that has the option displayed also has a list or form control included on it (e.g. Flat List or FormViewer)</div>
+            <div>Also as part of version 1.3, you can now choose to have drop down menus in the header bar for desktop browsers. The example above shows the configuration for three different drop down menus; List, Other Controls and Tools. Include the menu options in an array called "children".
           </div>
 
           <div id="doc-imageviewer" class="bs-docs-section">
@@ -1022,22 +1044,20 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
             <p>Create a Login XPage that uses the Login control, and then set the loginpage property on the UnpBootResources control, it will automatically redirect you to the Login page when you are not authenticated. Leave property blank if not required.</p>
             <p>You must have enabled session authentication on your server and allow anonymous access to the page that is going to perform the authentication.</p>
             <div class="highlight"><pre><code class="html">
-            	&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
-	xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
+xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
 
-	&lt;xc:commonheader pagetitle=&quot;Sampler&quot;&gt;&lt;/xc:commonheader&gt;
-	&lt;div id=&quot;main&quot; class=&quot;container bootcards-container&quot;&gt;
-		&lt;div class=&quot;row&quot;&gt;
-			&lt;xp:div styleClass=&quot;bootcards-cards fullheightrow&quot;&gt;
-				&lt;unp:UnpBootLogin&gt;&lt;/unp:UnpBootLogin&gt;
-			&lt;/xp:div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
-	
+&lt;xc:commonheader pagetitle=&quot;Sampler&quot;&gt;&lt;/xc:commonheader&gt;
+&lt;div id=&quot;main&quot; class=&quot;container bootcards-container&quot;&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;xp:div styleClass=&quot;bootcards-cards fullheightrow&quot;&gt;
+&lt;unp:UnpBootLogin&gt;&lt;/unp:UnpBootLogin&gt;
+&lt;/xp:div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
 &lt;/xp:view&gt;
-
             </code></pre></div>
           </div>
 
@@ -1162,7 +1182,10 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
 
           <div id="doc-resources" class="bs-docs-section">
             <h2>Resources</h2>
-            <p class="lead">This control will load all of the required CSS and JavaScript files onto a page when it loads. It should be included in all XPages in your application.</p>            
+            <p class="lead">This control will load all of the required CSS and JavaScript files onto a page when it loads. It should be included in all XPages in your application.</p> 
+            <ul>
+            <li><strong>loginpage</strong>: <strong>from v1.3</strong> you can specify a login page to redirect to if the current user is anonymous. You must create the login page as required. Leave blank to use standard Domino authentication.</li>
+            </ul>      
           </div>
 
           <div id="doc-typographyedit" class="bs-docs-section">
