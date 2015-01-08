@@ -85,7 +85,7 @@
 							<xp:this.attrs>
 								<xp:attr name="datevalue">
 									<xp:this.value><![CDATA[#{javascript:try{
-	var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime('date');
+	var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime('initialcontactdate');
 	return date.toJavaDate().getTime();
 }catch(e){
 	return new Date().getTime();

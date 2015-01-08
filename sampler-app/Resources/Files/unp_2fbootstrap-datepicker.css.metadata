@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
+<noteinfo noteid="248e" sequence="4" unid="B789B10CCDA515E380257DC700577549">
+<created><datetime>20150108T155516,57+00</datetime></created>
+<modified><datetime>20150108T155540,48+00</datetime></modified>
+<revised><datetime>20150108T155540,47+00</datetime></revised>
+<lastaccessed><datetime>20150108T155540,48+00</datetime></lastaccessed>
+<addedtofile><datetime>20150108T155516,59+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+
+<item name="$FileModDT" sign="true"><datetime>20150107T103148,00+00</datetime></item>
+
+<item name="$FileNames" sign="true"><text>datepicker.css</text></item>
+<item name="$TITLE" sign="true"><textlist><text>unp/bootstrap-datepicker.css</text></textlist></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item></note>

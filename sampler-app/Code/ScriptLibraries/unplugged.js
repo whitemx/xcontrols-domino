@@ -807,7 +807,11 @@ unp.initDates = function(){
 	$('[datevalue]').each(function(){
 		var newval = moment(parseInt($(this).attr('datevalue'), 10)).format('YYYY-MM-DD').substr(0, 16);
 		$(this).attr('value', newval);
-		$(this).attr('type', 'date');
+		if (unp.isIE() || unp.isFF()){
+			$(this).datepicker({format: "yyyy-mm-dd"});
+		}else{
+			$(this).attr('type', 'date');
+		}
 	})
 }
 

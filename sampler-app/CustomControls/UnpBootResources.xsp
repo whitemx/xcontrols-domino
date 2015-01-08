@@ -18,10 +18,12 @@
 }}]]></xp:this.href>
 		</xp:styleSheet>
 		<xp:styleSheet href="/unp/unplugged.css"></xp:styleSheet>
+		<xp:styleSheet href="/unp/bootstrap-datepicker.css"></xp:styleSheet>
 		<xp:script src="/unp/jquery-2.0.3.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/moment-with-langs.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/bootstrap.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/bootstrap.typeahead.min.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/bootstrap-datepicker.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/js/bootcards.js" clientSide="true"></xp:script>
 		<xp:script src="/unplugged.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/fastclick.js" clientSide="true"></xp:script>
