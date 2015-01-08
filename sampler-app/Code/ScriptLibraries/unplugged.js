@@ -802,13 +802,17 @@ unp.initDates = function(){
 	$('[datetimevalue]').each(function(){
 		var newval = moment(parseInt($(this).attr('datetimevalue'), 10)).format().substr(0, 16);
 		$(this).attr('value', newval);
-		$(this).attr('type', 'datetime-local');
+		if (unp.isIE() || unp.isFF()){
+			$(this).datetimepicker({"format": "YYYY-MM-DDTHH:mm"});
+		}else{
+			$(this).attr('type', 'datetime-local');
+		}
 	})
 	$('[datevalue]').each(function(){
 		var newval = moment(parseInt($(this).attr('datevalue'), 10)).format('YYYY-MM-DD').substr(0, 16);
 		$(this).attr('value', newval);
 		if (unp.isIE() || unp.isFF()){
-			$(this).datepicker({format: "yyyy-mm-dd"});
+			$(this).datetimepicker({"format": "YYYY-MM-DD", "pickTime": false});
 		}else{
 			$(this).attr('type', 'date');
 		}
