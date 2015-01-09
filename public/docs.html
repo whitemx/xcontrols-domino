@@ -774,6 +774,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
             <li>To make a field required add a class of "required"</li>
             <li>To add a clear cross inside a field, add the bootcards-clearinput markup after the field</li>
             <li>To make a field into a date picker use the example of the initialcontactdate field, add the datevalue attribute</li>
+            <li>To make a field into a date/time picker, use the example of the initialcontactdatefield, but add the datetimevalue attribute instead</li>
             <li>To enable a mobile toggle use the markup of the mobileenabled field</li>
             <li>To provide a typeahead list, add the jslist attribute to the field, the value of this attribute is the name of a JavaScript array that will be used to search for the typeahead list</li>
             <li>Combo boxes can be used as normal</li>
@@ -781,12 +782,12 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
             <p>As with previous versions of the Unplugged Controls, the field id is used to identify the field name to save data to.</p>
             <p>You can prefix the field id with various settings to influence the data type:</p>
             <ul>
-            <li>datetime_ will make the value be a date time</li>
             <li>__ (two underscores) will make the field multivalue, use commas as a separator</li>
             <li>int_ will make the field an integer (ie a number)</li>
             <li>float_ will make the field a number with decimal points</li>
             <li>All other fields will be assumed to be strings</li>
             </ul>
+            <p>Date pickers will de different depending upon the client. On mobile devices and in the Chrome browser on the desktop, the native date picker will be used. In IE and Firefox on the desktop, a bootstrap date picker will be used.</p>
 <div class="highlight"><pre><code class="html">
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
@@ -820,7 +821,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
               &lt;xp:this.attrs&gt;
                 &lt;xp:attr name=&quot;datevalue&quot;&gt;
                   &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:try{
-  var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime(&apos;date&apos;);
+  var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime(&apos;initialcontactdate&apos;);
   return date.toJavaDate().getTime();
 }catch(e){
   return new Date().getTime();
