@@ -32,5 +32,9 @@
       <property-class>object</property-class>
       <description>A JSON object that describes the menu options</description>
     </property>
+    <property>
+      <property-name>secondarynavitems</property-name>
+      <property-class>object</property-class>
+    </property>
   </composite-component>
 </faces-config>

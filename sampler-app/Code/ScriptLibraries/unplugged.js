@@ -49,6 +49,11 @@ $(window).load( function() {
 });
 
 unp.initPage = function(){
+	if ($(".bootcards-nav-secondary").length > 0){
+		if (!$('body').hasClass('has-bootcards-navbar-double')){
+			$('body').addClass('has-bootcards-navbar-double');
+		}
+	}
 	// publish event when changing main menu option
 	$("a[data-title]").on("click", function() {
 		$.Topic("navigateTo").publish($(this).data("title"));
@@ -138,6 +143,13 @@ unp.initPage = function(){
 			}
 		}
 	}
+	
+	//Catch return in login fields
+	$('.loginfield').keypress(function(e) {
+	    if(e.which == 13) {
+	    	unp.login();
+	    }
+	});
 }
 
 unp.highlightCurrentPage = function(){

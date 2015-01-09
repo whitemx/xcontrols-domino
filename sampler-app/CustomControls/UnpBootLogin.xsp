@@ -10,11 +10,11 @@
 			<div class="list-group">
 				<div class="list-group-item">
 					<p class="list-group-item-text">Username</p>
-					<input id="username" value="" class="form-control username" placeholder="UserName" />
+					<input id="username" value="" class="form-control username loginfield" placeholder="UserName" />
 				</div>
 				<div class="list-group-item">
 					<p class="list-group-item-text">Password</p>
-					<input id="password" type="password" class="form-control password" placeholder="Password" />
+					<input id="password" type="password" class="form-control password loginfield" placeholder="Password" />
 				</div>
 				<div id="divLoginMessage" class="alert alert-danger" style="display: none;"></div>
 			</div>

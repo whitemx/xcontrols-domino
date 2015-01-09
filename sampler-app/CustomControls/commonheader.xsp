@@ -91,6 +91,9 @@
 }else{
 	return compositeData.pagetitle;
 }}]]></unp:this.title>
+		<unp:this.secondarynavitems><![CDATA[#{javascript:[
+	{label: "Home", page: "/UnpMain.xsp", icon: "fa-home"}
+]}]]></unp:this.secondarynavitems>
 	</unp:UnpBootHeader>
 	<xp:text escape="false" id="companieslist" tagName="script">
 		<xp:this.value><![CDATA[#{javascript:var list = $A(@Unique(@DbColumn(@DbName(), "People By Company", 1))).sort();
