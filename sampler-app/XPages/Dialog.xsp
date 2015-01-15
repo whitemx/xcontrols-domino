@@ -46,7 +46,7 @@
 			okbuttonlabel="OK">
 			<unp:this.content><![CDATA[#{javascript:"This is an alert message with a test <a href=\"http://google.com\">link</a>"}]]></unp:this.content>
 		</unp:UnpBootAlert>
-		<unp:UnpBootDialog callback="myCallBackFunction"
+		<unp:UnpBootDialog callback="myCallBackFunction('A callback function has been run on OK')"
 			title="Demo Dialog" dialogid="dialogPopup" showcancel="true"
 			showok="true" dismissonok="false">
 			<xp:this.facets>

@@ -28,7 +28,7 @@
 								<xp:attr name="onclick">
 									<xp:this.value><![CDATA[#{javascript:var out = "";
 if (compositeData.callback){
-	out += compositeData.callback + "(); "
+	out += compositeData.callback + "; "
 }
 return out;}]]></xp:this.value>
 								</xp:attr>
