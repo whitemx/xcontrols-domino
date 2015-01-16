@@ -2,6 +2,11 @@ body {
 	margin-top:50px;
 }
 
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav>li>a {
+	color: #ccc;
+}
+
 .jumbotron {
 	margin-bottom: 0;
 	padding-bottom: 0;
