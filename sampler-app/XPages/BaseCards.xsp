@@ -12,8 +12,7 @@
 	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="Cards" summarycolumn="Title"
-				viewname="Base Cards" numberofrows="20" ajaxload="Yes"
-				xpagedoc="BaseCards.xsp"
+				viewname="Base Cards" numberofrows="20" ajaxload="Yes" xpagedoc="BaseCards.xsp"
 				footertext="Built with Bootcards - Flat List" photocolumn="Photo"
 				detailcolumn="Detail">
 			</unp:UnpBootFlatView>
@@ -147,13 +146,15 @@
 					</unp:UnpBootRichTextReader>
 				</xp:panel>
 
-				<xp:panel id="editingpanel" style="height: 400px;">
+				<xp:panel id="editingpanel"
+					styleClass="panel panel-default">
 					<xp:this.rendered><![CDATA[#{javascript:document2.getItemValueString("Title") == "Editing Card"}]]></xp:this.rendered>
-					<unp:UnpBootFormEditor showbuttons="false"
-						footertext="Built with Bootcards - Editing Card" title="Edit"
-						formname="BaseCard" viewxpagename="BaseCards.xsp">
-						<xp:this.facets>
-							<xp:panel xp:key="facet_1">
+					<div class="panel-heading clearfix">
+						<h3 class="panel-title pull-left">Editing Card</h3>
+					</div>
+					<div class="list-group">
+						<div class="list-group-item specialrichtext">
+							<xp:panel>
 								<xp:this.data>
 									<xp:dominoDocument var="docedit" formName="RefData"
 										action="editDocument">
@@ -167,9 +168,12 @@ if (doc != null){
 								<unp:UnpBootRichTextEditor fieldname="value">
 								</unp:UnpBootRichTextEditor>
 							</xp:panel>
-						</xp:this.facets>
-
-					</unp:UnpBootFormEditor>
+						</div>
+					</div>
+					<div class="panel-footer">
+						<small class="pull-left">Built with Bootcards - Editing Card
+						</small>
+					</div>
 				</xp:panel>
 
 				<xp:panel id="photuploadpanel">
@@ -182,8 +186,7 @@ if (doc != null){
 					<xp:this.rendered><![CDATA[#{javascript:document2.getItemValueString("Title") == "Form Card"}]]></xp:this.rendered>
 					<unp:UnpBootFormViewer editxpagename="PersonEdit2.xsp"
 						editxpagewithajax="yes" formname="BaseCard" showbuttons="true"
-						title="Form Card"
-						footertext="Built with Bootcards - Form Card">
+						title="Form Card" footertext="Built with Bootcards - Form Card">
 						<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
 						<xp:this.facets>
 							<xp:panel id="list-group" xp:key="facet_1" styleClass="panel">
