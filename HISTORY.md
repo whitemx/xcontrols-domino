@@ -1,5 +1,20 @@
 # XControls
 
+## v1.3.0 / 2015-01-20
+
+* Fix a bug where the Add button in the accordion list was not working correctly, thanks [aysekai](https://github.com/ayesekai)
+* Fix a bug where JS is not fired when a new document is created, thanks [Rich Sharpe](https://github.com/richsharpe)
+* Add option to not open first document in list automatically, thanks [Rich Sharpe](https://github.com/richsharpe)
+* Improve the functionality of the Login Control, thanks [Rich Sharpe](https://github.com/richsharpe)
+* Fix bug with detailcolumn not displaying correctly in Accordion List control, thanks [Mitsuru Katoh](https://github.com/katoman) and [khsopro](https://github.com/khsopro)
+* Fix bug with display of Flat View when rotating iPad from portrait to landscape, thanks [Rich Sharpe](https://github.com/richsharpe)
+* Allow creation of new documents from header bar on desktop, thanks [Rich Sharpe](https://github.com/richsharpe)
+* Fix bug with view icons not displaying correctly in the Accordion List, thanks [susinmn](https://github.com/susinmn)
+* Callback support added to openDocument, editDocument and saveDocument events to allow developer to add post processing, thanks [Rich Sharpe](https://github.com/richsharpe)
+* Fix bug with New Response button in Form Viewer control, thanks [Mitsuru Katoh](https://github.com/katoman)
+* Added date picker for Firefox and IE desktop browsers (native pickers used elsewhere), thanks [Neil Evans](https://github.com/neilevans)
+* Add drop down support for desktop header bar, thanks [Steve Ives](https://github.com/sives)
+
 ## v1.2.0 / 2014-11-17
 
 * Add new UnpBootDetailedView control to support the Bootcards detailed list pattern
