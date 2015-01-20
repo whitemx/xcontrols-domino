@@ -9,7 +9,8 @@
 			var="docPhoto"
 			formName="Photo"
 			ignoreRequestParams="true">
-		</xp:dominoDocument>
+		<xp:this.querySaveDocument><![CDATA[#{javascript:print("Saving document")}]]></xp:this.querySaveDocument>
+		<xp:this.postSaveDocument><![CDATA[#{javascript:print("Saved Document")}]]></xp:this.postSaveDocument></xp:dominoDocument>
 	</xp:this.data>
 	
 	<!-- photo card -->
@@ -69,7 +70,13 @@
 							immediate="false"
 							save="false">
 						<xp:this.action>
-							<xp:saveDocument var="docPhoto"></xp:saveDocument>
+							<xp:actionGroup>
+								<xp:executeScript>
+									<xp:this.script><![CDATA[#{javascript:print("Saving document");
+docPhoto.save();
+print("Saved document: " + docPhoto.getDocument().getUniversalID());}]]></xp:this.script>
+								</xp:executeScript>
+							</xp:actionGroup>
 						</xp:this.action></xp:eventHandler>
 					</xp:button>
 
