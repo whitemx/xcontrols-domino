@@ -23,5 +23,9 @@
 &lt;/xp:view&gt;</render-markup>
       </designer-extension>
     </composite-extension>
+    <property>
+      <property-name>loginpage</property-name>
+      <property-class>string</property-class>
+    </property>
   </composite-component>
 </faces-config>

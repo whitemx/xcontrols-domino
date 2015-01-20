@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
-	
+
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -26,28 +26,155 @@
 				<span>Back</span>
 			</button>
 			<button type="button"
-				class="btn btn-default btn-menu pull-left offcanvas-toggle" data-toggle="offcanvas">
+				class="btn btn-default btn-menu pull-left offcanvas-toggle"
+				data-toggle="offcanvas">
 				<i class="fa fa-lg fa-bars"></i>
 				<span>&#160;Menu</span>
 			</button>
 			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
+				<xp:panel id="secondarynav" tagName="ul"
+					styleClass="nav navbar-nav navbar-right bootcards-nav-secondary">
+					<xp:this.rendered><![CDATA[#{javascript:try{
+	if (compositeData.secondarynavitems.length > 0){
+		return true;
+	}else{
+		return false;
+	}
+}catch(e){
+	return false;
+}}]]></xp:this.rendered>
+					<xp:repeat id="repeat1" value="#{javascript:compositeData.secondarynavitems}"
+						var="secondarynavitem" indexVar="secondarynavitemindex" disableOutputTag="true">
+						<xp:panel id="panel1" tagName="li"
+							rendered="#{javascript:!secondarynavitem.children}">
+							<xp:link escape="true" text="#{javascript:secondarynavitem.label}"
+								id="link2" value="#{javascript:secondarynavitem.page}">
+								<xp:text id="computedField2" tagName="i" value="">
+									<xp:this.styleClass><![CDATA[#{javascript:"fa " + secondarynavitem.icon}]]></xp:this.styleClass>
+								</xp:text>
+								&#160;
+								<xp:this.attrs>
+									<xp:attr name="onclick">
+										<xp:this.value><![CDATA[#{javascript:if((secondarynavitem.newDocXPage != null)){
+    return "unp.newDocument('" + secondarynavitem.newDocXPage + "');return false;";
+}
+else{
+    return "";
+}
+}]]></xp:this.value>
+									</xp:attr>
+								</xp:this.attrs>
+							</xp:link>
+						</xp:panel>
+						<xp:panel tagName="li" styleClass="dropdown"
+							rendered="#{javascript:secondarynavitem.children}">
+							<xp:text tagName="a" styleClass="dropdown-toggle" escape="false">
+								<xp:this.attrs>
+									<xp:attr name="role" value="button">
+									</xp:attr>
+									<xp:attr name="data-toggle" value="dropdown">
+									</xp:attr>
+									<xp:attr name="aria-expanded" value="false">
+									</xp:attr>
+								</xp:this.attrs>
+								<xp:this.value><![CDATA[#{javascript:"<i class=\"fa " + secondarynavitem.icon + "\"></i> " + secondarynavitem.label + "<span class=\"caret\"></span>"}]]></xp:this.value>
+							</xp:text>
+							<ul class="dropdown-menu" role="menu">
+								<xp:repeat value="#{javascript:secondarynavitem.children}" var="secondarychild"
+									disableOutputTag="true">
+									<li>
+										<xp:link escape="true" text="#{javascript:secondarychild.label}"
+											id="link3" value="#{javascript:secondarychild.page}">
+											<xp:text id="computedField3" tagName="i" value="">
+												<xp:this.styleClass><![CDATA[#{javascript:"fa " + secondarychild.icon}]]></xp:this.styleClass>
+											</xp:text>
+											&#160;
+											<xp:this.attrs>
+												<xp:attr name="onclick">
+													<xp:this.value><![CDATA[#{javascript:if((secondarychild.newDocXPage != null)){
+    return "unp.newDocument('" + secondarychild.newDocXPage + "');return false;";
+}
+else{
+    return "";
+}
+}]]></xp:this.value>
+												</xp:attr>
+											</xp:this.attrs>
+										</xp:link>
+									</li>
+								</xp:repeat>
+							</ul>
+						</xp:panel>
+					</xp:repeat>
+				</xp:panel>
+				<ul class="nav navbar-nav navbar-right bootcards-nav-primary">
 					<xp:repeat id="headernavitems" value="#{javascript:compositeData.navitems}"
 						var="navitem" indexVar="navitemindex" disableOutputTag="true">
-						<xp:panel id="navitem" tagName="li">
+						<xp:panel id="navitem" tagName="li"
+							rendered="#{javascript:!navitem.children}">
 							<xp:link escape="true" text="#{javascript:navitem.label}"
 								id="navitemlink" value="#{javascript:navitem.page}">
 								<xp:text id="navitemicon" tagName="i" value="">
 									<xp:this.styleClass><![CDATA[#{javascript:"fa " + navitem.icon}]]></xp:this.styleClass>
-								</xp:text>&#160;
+								</xp:text>
+								&#160;
+								<xp:this.attrs>
+									<xp:attr name="onclick">
+										<xp:this.value><![CDATA[#{javascript:if((navitem.newDocXPage != null)){
+    return "unp.newDocument('" + navitem.newDocXPage + "');return false;";
+}
+else{
+    return "";
+}
+}]]></xp:this.value>
+									</xp:attr>
+								</xp:this.attrs>
 							</xp:link>
+						</xp:panel>
+						<xp:panel tagName="li" styleClass="dropdown"
+							rendered="#{javascript:navitem.children}">
+							<xp:text tagName="a" styleClass="dropdown-toggle" escape="false">
+								<xp:this.attrs>
+									<xp:attr name="role" value="button">
+									</xp:attr>
+									<xp:attr name="data-toggle" value="dropdown">
+									</xp:attr>
+									<xp:attr name="aria-expanded" value="false">
+									</xp:attr>
+								</xp:this.attrs>
+								<xp:this.value><![CDATA[#{javascript:"<i class=\"fa " + navitem.icon + "\"></i> " + navitem.label + "<span class=\"caret\"></span>"}]]></xp:this.value>
+							</xp:text>
+							<ul class="dropdown-menu" role="menu">
+								<xp:repeat value="#{javascript:navitem.children}" var="child"
+									disableOutputTag="true">
+									<li>
+										<xp:link escape="true" text="#{javascript:child.label}"
+											id="link1" value="#{javascript:child.page}">
+											<xp:text id="computedField1" tagName="i" value="">
+												<xp:this.styleClass><![CDATA[#{javascript:"fa " + child.icon}]]></xp:this.styleClass>
+											</xp:text>
+											&#160;
+											<xp:this.attrs>
+												<xp:attr name="onclick">
+													<xp:this.value><![CDATA[#{javascript:if((child.newDocXPage != null)){
+    return "unp.newDocument('" + child.newDocXPage + "');return false;";
+}
+else{
+    return "";
+}
+}]]></xp:this.value>
+												</xp:attr>
+											</xp:this.attrs>
+										</xp:link>
+									</li>
+								</xp:repeat>
+							</ul>
 						</xp:panel>
 					</xp:repeat>
 
 					<xp:panel id="homenavitem" tagName="li">
 						<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
-						<xp:link escape="true" text="Home" value="/unpws.unp/"
-							id="homenavitemlink">
+						<xp:link escape="true" text="Home" value="/unpws.unp/" id="homenavitemlink">
 							<i class="fa fa-home unp-highlight"></i>
 						</xp:link>
 					</xp:panel>

@@ -18,12 +18,14 @@
 }}]]></xp:this.href>
 		</xp:styleSheet>
 		<xp:styleSheet href="/unp/unplugged.css"></xp:styleSheet>
+		<xp:styleSheet href="/unp/bootstrap-datetimepicker.css"></xp:styleSheet>
 		<xp:script src="/unp/jquery-2.0.3.min.js" clientSide="true"></xp:script>
-		<xp:script src="/unp/moment-with-langs.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/moment-with-locales.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/bootstrap.min.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/bootstrap.typeahead.min.js" clientSide="true"></xp:script>
+		<xp:script src="/unp/bootstrap-datetimepicker.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/js/bootcards.js" clientSide="true"></xp:script>
-		<xp:script src="/unp/unplugged.js" clientSide="true"></xp:script>
+		<xp:script src="/unplugged.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/fastclick.js" clientSide="true"></xp:script>
 		<xp:script src="/unp/quill.js" clientSide="true"></xp:script>
 		
@@ -36,6 +38,17 @@
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
 		</xp:metaData>
 	</xp:this.resources>
+	
+	
+	<xp:this.afterPageLoad><![CDATA[#{javascript:try{
+	if(!isUnpluggedServer() && @UserName() == "Anonymous" && !isEmpty(compositeData.loginpage)){
+		if (context.getUrl().getAddress().indexOf(compositeData.loginpage) == -1){
+			context.redirectToPage(compositeData.loginpage + "?redirectto=" + context.getUrl().getAddress());
+		}
+	}
+}catch(e){
+	_dump(e);
+}}]]></xp:this.afterPageLoad>
 	<xp:panel tagName="link">
 		<xp:this.attrs>
 			<xp:attr name="type" value="text/css"></xp:attr>

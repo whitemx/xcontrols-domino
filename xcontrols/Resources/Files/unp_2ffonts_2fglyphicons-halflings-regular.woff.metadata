@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
+<noteinfo noteid="61e" sequence="1" unid="A2010F79716004E980257DD3003B2BA3">
+<created><datetime>20150120T104617,95+00</datetime></created>
+<modified><datetime>20150120T104618,27+00</datetime></modified>
+<revised><datetime>20150120T104618,26+00</datetime></revised>
+<lastaccessed><datetime>20150120T104618,27+00</datetime></lastaccessed>
+<addedtofile><datetime>20150120T104618,27+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt"><text>D</text></item>
+
+<item name="$FileModDT" sign="true"><datetime>20141111T234117,00+00</datetime></item>
+
+<item name="$FileNames" sign="true"><text>glyphicons-halflings-regular.woff</text></item>
+<item name="$TITLE" sign="true"><textlist><text>unp/fonts/glyphicons-halflings-regular.woff</text></textlist></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item></note>

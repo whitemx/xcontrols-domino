@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
+<noteinfo noteid="656" sequence="1" unid="42F5F7F426B1CB3880257DD3003B2BB1">
+<created><datetime>20150120T104618,09+00</datetime></created>
+<modified><datetime>20150120T104618,55+00</datetime></modified>
+<revised><datetime>20150120T104618,54+00</datetime></revised>
+<lastaccessed><datetime>20150120T104618,55+00</datetime></lastaccessed>
+<addedtofile><datetime>20150120T104618,55+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+<item name="$FileModDT" sign="true"><datetime>20150108T162829,00+00</datetime></item>
+<item name="$TITLE" sign="true"><text>unp/moment-with-locales.js</text></item>
+<item name="$MimeCharSet"><text>UTF-8</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<item name="$FileNames" sign="true"><text>unp_2fmoment-with-locales.js</text></item></note>

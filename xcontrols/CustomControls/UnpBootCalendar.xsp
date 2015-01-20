@@ -35,7 +35,8 @@
 '"headerbuttonsrighttablet": "' + compositeData.headerbuttonsrighttablet + '",' + 
 '"headerbuttonsrightphone": "' + compositeData.headerbuttonsrightphone + '", ' +
 '"filter": "' + compositeData.filter + '", ' +
-'"catfield": "' + compositeData.catfield + '"'}]]></xp:this.value>
+'"catfield": "' + compositeData.catfield + '", ' + 
+'"callback": "' + compositeData.callback + '"'}]]></xp:this.value>
 			</xp:attr>
 		</xp:this.attrs>
 	</xp:panel>

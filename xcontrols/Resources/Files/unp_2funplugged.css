@@ -175,33 +175,6 @@ div.dBar .content {
 }
 
 /*end debug toolbar styles*/
-	/* off canvas menu based on http://blog.tomri.ch/super-simple-off-canvas-menu-navigation */
-#slideInMenu {
-	position: fixed;
-	top: 45px;
-	bottom: 0;
-	width: 18em;
-	left: -18em;
-	height: 100%;
-	-webkit-transform: translate3d(0px, 0px, 0px);
-	-moz-transform: translate3d(0px, 0px, 0px);
-	-o-transform: translate3d(0px, 0px, 0px);
-	-ms-transform: translate3d(0px, 0px, 0px);
-	transform: translate3d(0px, 0px, 0px);
-	-webkit-transition: 0.25s ease;
-	-moz-transition: 0.25s ease;
-	-o-transition: 0.25s ease;
-	transition: 0.25s ease;
-	z-index: 99;
-}
-
-#slideInMenu.active {
-	-webkit-transform: translate3d(18em, 0px, 0px);
-	-moz-transform: translate3d(18em, 0px, 0px);
-	-o-transform: translate3d(18em, 0px, 0px);
-	-ms-transform: translate3d(18em, 0px, 0px);
-	transform: translate3d(18em, 0px, 0px);
-}
 
 .navbar-fixed-bottom .fa-2x {
 	font-size: 20px;
@@ -209,11 +182,6 @@ div.dBar .content {
 
 .modal-content {
 	height: auto !important;
-}
-
-#slideInMenu {
-	overflow: auto;
-	padding-bottom: 100px;
 }
 
 /*.btn:focus,.btn:focus {
@@ -309,4 +277,8 @@ div.dBar .content {
 
 .bootcards-az-picker {
 	padding-top: 44px !important;
+}
+
+.dropdown-toggle {
+	cursor: pointer;
 }

@@ -49,6 +49,11 @@ $(window).load( function() {
 });
 
 unp.initPage = function(){
+	if ($(".bootcards-nav-secondary").length > 0){
+		if (!$('body').hasClass('has-bootcards-navbar-double')){
+			$('body').addClass('has-bootcards-navbar-double');
+		}
+	}
 	// publish event when changing main menu option
 	$("a[data-title]").on("click", function() {
 		$.Topic("navigateTo").publish($(this).data("title"));
@@ -138,6 +143,13 @@ unp.initPage = function(){
 			}
 		}
 	}
+	
+	//Catch return in login fields
+	$('.loginfield').keypress(function(e) {
+	    if(e.which == 13) {
+	    	unp.login();
+	    }
+	});
 }
 
 unp.highlightCurrentPage = function(){
@@ -247,6 +259,18 @@ window.addEventListener('orientationchange', function() {
 unp.changeorientation = function() {
 	unp.initiscroll();
 	unp.initCalendar();
+	var isPortrait = ($(window).width() > $(window).height())? false : true;
+	if (!isPortrait){
+		if (!$("#list").hasClass("col-sm-5")){
+			$("#list").addClass("col-sm-5");
+		}
+		if ($("#doccontent").hasClass("col-xs-12")){
+			$("#doccontent").removeClass("col-xs-12");
+		}
+		if (!$("#doccontent").hasClass("col-sm-7")){
+			$("#doccontent").addClass("col-sm-7");
+		}
+	}
 }
 
 unp.fixPortrait = function(){
@@ -278,7 +302,7 @@ unp.stopViewSpinner = function() {
 var loadmoreloading = false;
 var loadedurls = [];
 unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
-		xpage, refreshmethod, photocol, ajaxload, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target) {
 	if (($('.searchbox').val() == "" || $('.localsearchbox').val() == ""  || ($('.searchbox').length == 0 && $('.localsearchbox').length == 0)) && !loadmoreloading) {
 		loadmoreloading == true;
 		// try {
@@ -296,46 +320,45 @@ unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
 				+ encodeURIComponent(photocol) + "&category="
 				+ encodeURIComponent(category) + "&xpage=" + xpage + "&dbName="
 				+ dbName + "&refreshmethod=" + refreshmethod + "&start=" + pos
-				+ "&ajaxload=" + ajaxload + "&target=" + target;
+				+ "&ajaxload=" + ajaxload + "&target=" + target + "&callback=" + callback;
 		if (loadedurls.indexOf(url) == -1) {
 			loadedurls.push(url);
 			// console.log('Loading ' + url);
 			thisArea.load(url + " #results",
-					function() {
-						var firsturl = $(".summaryDataRow a").first().prop(
-								'onclick');
-						if ($("#list .panel .list-group a[onclick='" + firsturl
-								+ "']").length > 0) {
-							// console.log("We've already loaded " + firsturl);
-				} else {
-					// console.log('Adding ' + $('.summaryDataRow a').length + '
-					// items to list');
-					$("#list .panel .list-group ").append(
-							$(".summaryDataRow .list-group-item"));
+				function() {
+					var firsturl = $(".summaryDataRow a").first().prop('onclick');
+					if ($("#list .panel .list-group a[onclick='" + firsturl + "']").length > 0) {
+						// console.log("We've already loaded " + firsturl);
+					} else {
+						// console.log('Adding ' + $('.summaryDataRow a').length + '
+						// items to list');
+						$("#list .panel .list-group ").append(
+								$(".summaryDataRow .list-group-item"));
+					}
+					if ($(".summaryDataRow").text().indexOf("NOMORERECORDS") > -1) {
+						// console.log('Reached end of view with ' + $("#list
+						// .list-group a").length + ' elements');
+						$("#pullUp").hide();
+						$(".loadmorelink").hide();
+						$("#loadmorespinner").hide();
+					} else {
+						$("#pullUp").show();
+						$(".loadmorelink").show();
+						$("#loadmorespinner").hide();
+					}
+					$(".summaryDataRow").empty();
+					try {
+						scrollContent.refresh();
+					} catch (e) {
+					}
+	
+					if ($("#pullUp").hasClass('loading')) {
+						$("#pullUp").removeClass("loading");
+					}
+					loadmoreloading = false;
+					return false;
 				}
-				if ($(".summaryDataRow").text().indexOf("NOMORERECORDS") > -1) {
-					// console.log('Reached end of view with ' + $("#list
-					// .list-group a").length + ' elements');
-					$("#pullUp").hide();
-					$(".loadmorelink").hide();
-					$("#loadmorespinner").hide();
-				} else {
-					$("#pullUp").show();
-					$(".loadmorelink").show();
-					$("#loadmorespinner").hide();
-				}
-				$(".summaryDataRow").empty();
-				try {
-					scrollContent.refresh();
-				} catch (e) {
-				}
-
-				if ($("#pullUp").hasClass('loading')) {
-					$("#pullUp").removeClass("loading");
-				}
-				loadmoreloading = false;
-				return false;
-			});
+			);
 		} else {
 			// console.log('We already loaded ' + url);
 		}
@@ -349,7 +372,7 @@ unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
 }
 
 unp.loadmoredetailed = function(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category,
-		xpage, refreshmethod, photocol, ajaxload, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target) {
 	if (($('.searchbox').val() == "" || $('.localsearchbox').val() == ""  || ($('.searchbox').length == 0 && $('.localsearchbox').length == 0)) && !loadmoreloading) {
 		loadmoreloading == true;
 		// try {
@@ -369,7 +392,7 @@ unp.loadmoredetailed = function(dbName, viewName, summarycol, detailcol1, detail
 				"&photocol=" + encodeURIComponent(photocol) + "&category="
 				+ encodeURIComponent(category) + "&xpage=" + xpage + "&dbName="
 				+ dbName + "&refreshmethod=" + refreshmethod + "&start=" + pos
-				+ "&ajaxload=" + ajaxload + "&target=" + target;
+				+ "&ajaxload=" + ajaxload + "&target=" + target + "&callback=" + callback;
 		if (loadedurls.indexOf(url) == -1) {
 			loadedurls.push(url);
 			// console.log('Loading ' + url);
@@ -421,7 +444,7 @@ unp.loadmoredetailed = function(dbName, viewName, summarycol, detailcol1, detail
 	}
 }
 
-unp.openDocument = function(url, target, caller) {
+unp.openDocument = function(url, target, caller, callback) {
 	var thisArea = $("#" + target);
 	$('#list .active').removeClass('active');
 	if (caller) {
@@ -473,15 +496,46 @@ unp.openDocument = function(url, target, caller) {
 			} else {
 				window.scrollTo(0, 0);
 			}
+			if (callback){
+				callback();
+			}
 			return false;
 		}
 	});
 	return false;
 }
 
-unp.editDocument = function(xpage, unid){
+unp.editDocument = function(xpage, unid, callback){
 	
 	var url = xpage + '?action=editDocument&documentId=' + unid + ' .modal-content';
+	$('#editModal .modal-dialog').load(url, function(response, status, xhr){
+		// console.log(status);
+		$('#editModal').modal();
+		unp.initDeleteable();
+		unp.initAutoComplete();
+		unp.initRichText();
+		unp.initToggle();
+		unp.initDates();
+		if (unpluggedserver){
+			setTimeout(function(){
+				$("#editModal .modal-dialog").height($("#editModal .modal-body").height());
+			}, 1000);
+		}else{
+			// $("#editModal .modal-dialog").height($("#editModal
+			// .modal-body").height());
+		}
+		if (callback){
+			callback();
+		}
+	});
+	if (!unp.isIE() && !unp.isFF()){
+		return false;
+	}
+}
+
+unp.newResponse = function(parentunid, xpage){
+	
+	var url = xpage + '?parentunid=' + parentunid + ' .modal-content';
 	$('#editModal .modal-dialog').load(url, function(response, status, xhr){
 		// console.log(status);
 		$('#editModal').modal();
@@ -571,7 +625,7 @@ unp.goback = function() {
 	}
 }
 
-unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname) {
+unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback) {
 	var data = $("#editModal :input").serialize();
 	$(".richtextsourcefield").each(function(){
 		var source = $(this);
@@ -642,6 +696,9 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 						$('[unid="' + response + '"]').replaceWith(response2);
 						$('[unid="' + response + '"]').addClass('active');
 					})
+				}
+				if (callback){
+					callback();
 				}
 			} else {
 				alert(response);
@@ -757,12 +814,20 @@ unp.initDates = function(){
 	$('[datetimevalue]').each(function(){
 		var newval = moment(parseInt($(this).attr('datetimevalue'), 10)).format().substr(0, 16);
 		$(this).attr('value', newval);
-		$(this).attr('type', 'datetime-local');
+		if (unp.isIE() || unp.isFF()){
+			$(this).datetimepicker({"format": "YYYY-MM-DDTHH:mm"});
+		}else{
+			$(this).attr('type', 'datetime-local');
+		}
 	})
 	$('[datevalue]').each(function(){
 		var newval = moment(parseInt($(this).attr('datevalue'), 10)).format('YYYY-MM-DD').substr(0, 16);
 		$(this).attr('value', newval);
-		$(this).attr('type', 'date');
+		if (unp.isIE() || unp.isFF()){
+			$(this).datetimepicker({"format": "YYYY-MM-DD", "pickTime": false});
+		}else{
+			$(this).attr('type', 'date');
+		}
 	})
 }
 
@@ -958,13 +1023,14 @@ unp.closeDialog = function(id) {
 }
 
 unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
-		photocol) {
+		photocol, summarycol, detailcol, callback) {
 	
 	var pos = $('.data-row').length;
 	var thisUrl = "UnpAccordionViewList.xsp?chosenView="
 			+ encodeURIComponent(viewName) + "&catFilter="
 			+ encodeURIComponent(catName) + "&xpageDoc=" + xpage + "&start="
-			+ pos + "&dbname=" + dbname + "&photocol=" + photocol;
+			+ pos + "&dbname=" + dbname + "&photocol=" + photocol + "&summarycol="
+			+ summarycol + "&detailcol=" + detailcol + "&callback=" + callback;
 
 	var tempHolder = $(".summaryDataRow");
 	$(tempHolder).load(
@@ -988,7 +1054,7 @@ unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
 	}
 }
 
-unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol) {
+unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback) {
 	if (!$(obj).hasClass("collapsed")) {
 		// We want to collapse the current category
 		console.log('Collapsing rows...');
@@ -1007,13 +1073,13 @@ unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol) {
 		console.log('Getting category ' + catName);
 		$(obj).removeClass('collapsed');
 		$('#list').scrollTop($('#list').scrollTop() + $(obj).position().top);
-		unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol);
+		unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback);
 	}
 }
 
-unp.fetchMoreDetails = function(obj, viewName, catName, xpage, dbname, photocol) {
+unp.fetchMoreDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback) {
 
-	unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol);
+	unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback);
 }
 
 unp.syncAllDbs = function() {
@@ -1110,7 +1176,7 @@ unp.dosearch = function() {
 }
 
 unp.clearsearch = function(dbName, viewName, summarycol, detailcol, category,
-		xpage, refreshmethod, photocol, ajaxload, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target) {
 	$('#list .list-group').empty();
 	$('.loadmorelink').hide();
 	$('.pullupholder').hide();
@@ -1126,12 +1192,12 @@ unp.clearsearch = function(dbName, viewName, summarycol, detailcol, category,
 		});
 	}else{
 		unp.loadmore(dbName, viewName, summarycol, detailcol, category, xpage,
-				refreshmethod, photocol, ajaxload, target);
+				refreshmethod, photocol, ajaxload, callback, target);
 	}
 }
 
 unp.clearsearchdetailed = function(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category,
-		xpage, refreshmethod, photocol, ajaxload, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target) {
 	$('#list .list-group').empty();
 	$('.loadmorelink').hide();
 	$('.pullupholder').hide();
@@ -1147,7 +1213,7 @@ unp.clearsearchdetailed = function(dbName, viewName, summarycol, detailcol1, det
 		});
 	}else{
 		unp.loadmoredetailed(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category, xpage,
-				refreshmethod, photocol, ajaxload, target);
+				refreshmethod, photocol, ajaxload, callback, target);
 	}
 }
 
@@ -1196,6 +1262,7 @@ unp.initCalendar = function() {
 		url += '&filter=' + calendaroptions.filter;
 		url += '&catfield=' + calendaroptions.catfield;
 		url += '&dbname=' + calendaroptions.dbname;
+		url += '&callback=' + calendaroptions.callback;
 		$('#calendar').fullCalendar( {
 			header : {
 				left : calendaroptions.headerbuttonsleft,
@@ -1376,6 +1443,7 @@ unp.login = function() {
 		alert('Password is mandatory');
 		return false;
 	};
+	config.urlAfterLogin = decodeURIComponent($.urlParam('redirectto'));
 
 	var loginurl = config.urlLoginNSF.split('.nsf')[0] + '.nsf?Login';
 	$.ajax( {
@@ -1437,4 +1505,14 @@ function getCookie(name) {
 	var value = "; " + document.cookie;
 	var parts = value.split("; " + name + "=");
 	if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
 }

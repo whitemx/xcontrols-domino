@@ -98,5 +98,21 @@ no</editor-parameter>
       <property-name>footertext</property-name>
       <property-class>string</property-class>
     </property>
+    <property>
+      <property-name>callback</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>openfirstdocument</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>yes&#xd;
+no</editor-parameter>
+          <default-value>yes</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
   </composite-component>
 </faces-config>

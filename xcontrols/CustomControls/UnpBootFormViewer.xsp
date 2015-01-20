@@ -65,7 +65,7 @@ if (attachmentList != null && attachmentList.length > 0){
 				rendered="#{javascript:compositeData.showbuttons == true}">
 				<xp:this.attrs>
 					<xp:attr name="onclick">
-						<xp:this.value><![CDATA[#{javascript:return "unp.editDocument('" + compositeData.editxpagename + "', '" + docview.getDocument().getUniversalID() + "'); return false;"}]]></xp:this.value>
+						<xp:this.value><![CDATA[#{javascript:return "unp.editDocument('" + compositeData.editxpagename + "', '" + docview.getDocument().getUniversalID() + "', " + compositeData.callback + "); return false;"}]]></xp:this.value>
 					</xp:attr>
 				</xp:this.attrs>
 				<i class="fa fa-pencil"></i>
