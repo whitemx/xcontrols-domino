@@ -15,8 +15,8 @@
 	</xp:this.data>
 	<div class="modal-content form-horizontal">
 		<xp:panel styleClass="modal-header">
-			<xp:this.rendered><![CDATA[#{javascript:compositeData.showbuttons != false}]]></xp:this.rendered>
 			<xp:panel styleClass="btn-group pull-left">
+				<xp:this.rendered><![CDATA[#{javascript:compositeData.showbuttons != false}]]></xp:this.rendered>
 				<a href="#" class="btn btn-danger"
 					data-dismiss="modal">
 					<i class="fa fa-times" />
@@ -27,6 +27,7 @@
 
 			<xp:panel styleClass="btn-group pull-right">
 				<xp:panel id="savebutton" tagName="a" styleClass="btn btn-success">
+					<xp:this.rendered><![CDATA[#{javascript:compositeData.showbuttons != false}]]></xp:this.rendered>
 					<i class="fa fa-check" />
 					&#160;Save
 					<xp:this.attrs>
