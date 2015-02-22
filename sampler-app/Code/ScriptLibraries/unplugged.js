@@ -1012,7 +1012,10 @@ unp.jumpToLetter = function(letterelement, event) {
 
 unp.openDialog = function(id) {
 	if (id != null && id != "#") {
-		$("." + id).modal('show');
+		$("." + id).modal({
+			backdrop: 'static',
+			keyboard: false
+			});
 	}
 }
 
