@@ -19,15 +19,14 @@
 		<xp:this.facets>
 			<xp:panel id="list-group" xp:key="facet_1">
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label"
-						for="name" value="Contact">
+					<xp:label styleClass="col-xs-4 control-label" for="name"
+						value="Contact">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="contact"
-							value="#{docedit.Contact}" styleClass="form-control required">
+						<xp:inputText id="contact" value="#{docedit.Contact}"
+							styleClass="form-control required">
 							<xp:this.attrs>
-								<xp:attr name="placeholder"
-									value="Contact">
+								<xp:attr name="placeholder" value="Contact">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>
@@ -37,15 +36,14 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label"
-						for="company" value="Company">
+					<xp:label styleClass="col-xs-4 control-label" for="company"
+						value="Company">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="company"
-							value="#{docedit.Company}" styleClass="form-control required">
+						<xp:inputText id="company" value="#{docedit.Company}"
+							styleClass="form-control required">
 							<xp:this.attrs>
-								<xp:attr name="placeholder"
-									value="Company">
+								<xp:attr name="placeholder" value="Company">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>
@@ -59,8 +57,7 @@
 						styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="date"
-							styleClass="form-control">
+						<xp:inputText id="date" styleClass="form-control">
 							<xp:this.attrs>
 								<xp:attr name="datevalue">
 									<xp:this.value><![CDATA[#{javascript:try{var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime('date');
@@ -71,12 +68,12 @@ return date.toJavaDate().getTime();}catch(e){return new Date()}}]]></xp:this.val
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label"
-						for="type" value="Type">
+					<xp:label styleClass="col-xs-4 control-label" for="type"
+						value="Type">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:comboBox id="type"
-							value="#{docedit.Type}" styleClass="form-control">
+						<xp:comboBox id="type" value="#{docedit.Type}"
+							styleClass="form-control">
 							<xp:selectItems>
 								<xp:this.value><![CDATA[#{javascript:["Discussion", "Call Report", "To-Do", "Reminder", "Note"]}]]></xp:this.value>
 							</xp:selectItems>
@@ -84,12 +81,12 @@ return date.toJavaDate().getTime();}catch(e){return new Date()}}]]></xp:this.val
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label"
-						for="assignedto" value="Assigned To">
+					<xp:label styleClass="col-xs-4 control-label" for="assignedto"
+						value="Assigned To">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:comboBox id="assignedto"
-							value="#{docedit.AssignedTo}" styleClass="form-control">
+						<xp:comboBox id="assignedto" value="#{docedit.AssignedTo}"
+							styleClass="form-control">
 							<xp:selectItems>
 								<xp:this.value><![CDATA[#{javascript:@Unique(@DbColumn(@DbName(), "Activities By Contact", 1))}]]></xp:this.value>
 							</xp:selectItems>
@@ -97,15 +94,14 @@ return date.toJavaDate().getTime();}catch(e){return new Date()}}]]></xp:this.val
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label"
-						for="title" value="Title">
+					<xp:label styleClass="col-xs-4 control-label" for="title"
+						value="Title">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="title"
-							value="#{docedit.Title}" styleClass="form-control required">
+						<xp:inputText id="title" value="#{docedit.Title}"
+							styleClass="form-control required">
 							<xp:this.attrs>
-								<xp:attr name="placeholder"
-									value="Title">
+								<xp:attr name="placeholder" value="Title">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>
@@ -119,8 +115,15 @@ return date.toJavaDate().getTime();}catch(e){return new Date()}}]]></xp:this.val
 						styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
-						<unp:UnpBootRichTextEditor fieldname="body">
-						</unp:UnpBootRichTextEditor>
+						<xp:text tagName="textarea" id="body" value="#{docedit.Body}"
+							styleClass="form-control">
+							<xp:this.attrs>
+								<xp:attr name="placeholder" value="Enter Value">
+								</xp:attr>
+								<xp:attr name="rows" value="12"></xp:attr>
+							</xp:this.attrs>
+						</xp:text>
+
 					</div>
 				</div>
 			</xp:panel>

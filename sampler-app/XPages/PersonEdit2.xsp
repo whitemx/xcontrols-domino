@@ -224,8 +224,14 @@ return out;}]]></xp:this.styleClass>
 						styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
-						<unp:UnpBootRichTextEditor fieldname="bio">
-						</unp:UnpBootRichTextEditor>
+						<xp:text tagName="textarea" id="bio" value="#{docedit.Bio}"
+							styleClass="form-control">
+							<xp:this.attrs>
+								<xp:attr name="placeholder" value="Enter Value">
+								</xp:attr>
+								<xp:attr name="rows" value="12"></xp:attr>
+							</xp:this.attrs>
+						</xp:text>
 					</div>
 				</div>
 			</xp:panel>
