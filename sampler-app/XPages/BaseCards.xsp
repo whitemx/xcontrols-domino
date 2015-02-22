@@ -155,18 +155,19 @@
 					<div class="list-group">
 						<div class="list-group-item specialrichtext">
 							<xp:panel>
-								<xp:this.data>
-									<xp:dominoDocument var="docedit" formName="RefData"
-										action="editDocument">
-										<xp:this.documentId><![CDATA[#{javascript:var vw:NotesView = database.getView("Reference Data");
-var doc:NotesDocument = vw.getDocumentByKey("SamplerEditHTML");
-if (doc != null){
-	return doc.getUniversalID();
-}}]]></xp:this.documentId>
-									</xp:dominoDocument>
-								</xp:this.data>
-								<unp:UnpBootRichTextEditor fieldname="value">
-								</unp:UnpBootRichTextEditor>
+								<div class="form-group">
+									<div class="col-xs-12">
+										<xp:text tagName="textarea" id="value"
+											value="#{document2.Value}" styleClass="form-control">
+											<xp:this.attrs>
+												<xp:attr
+													name="placeholder" value="Enter Value">
+												</xp:attr>
+												<xp:attr name="rows" value="12"></xp:attr>
+											</xp:this.attrs>
+										</xp:text>
+									</div>
+								</div>
 							</xp:panel>
 						</div>
 					</div>
