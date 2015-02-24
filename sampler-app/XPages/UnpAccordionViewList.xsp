@@ -27,6 +27,9 @@ return filter;}]]></xp:this.keys>
 		</xp:dominoView>
 	</xp:this.data>
 
+	<xp:this.resources>
+		<xp:script src="/unpCommon.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
 	<div id="results">
 		<xp:repeat id="repeat4" var="thisRowData" value="#{viewList}"
 			disableOutputTag="true">
@@ -42,7 +45,8 @@ if (start == ""){
 }else{
 	return 12;
 }}]]></xp:this.rows>
-			<xp:panel tagName="a" id="datarow" styleClass="list-group-item data-row">
+			<xp:panel tagName="a" id="datarow"
+				styleClass="list-group-item data-row">
 				<xp:this.attrs>
 					<xp:attr name="onclick">
 						<xp:this.value><![CDATA[#{javascript:if (viewScope.accRowcount == null){
@@ -50,7 +54,7 @@ if (start == ""){
 								}else{
 								  viewScope.accRowcount = viewScope.accRowcount + 1;
 								}
-								if(sessionScope.get("ajaxLoad") != "No"){
+								if(context.getUrlParameter("ajaxload") != "No"){
 									return "unp.openDocument('" + param.get("xpageDoc") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID() + "', 'doccontent', this, " + context.getUrlParameter("callback") + ");"
 								}
 								else{						
@@ -72,12 +76,14 @@ if (start == ""){
 }}]]></xp:this.rendered>
 					<xp:this.url><![CDATA[#{javascript:thisRowData.getColumnValue(context.getUrlParameter("photocol"))}]]></xp:this.url>
 				</xp:image>
-				<xp:text id="label2" styleClass="list-group-item-heading" tagName="h4">
+				<xp:text id="label2"
+					styleClass="list-group-item-heading" tagName="h4">
 					<xp:this.value><![CDATA[#{javascript:var filter = param.get("catFilter");
 thisRowData.getColumnValue(context.getUrlParameter("summarycol"));
 }]]></xp:this.value>
 				</xp:text>
-				<xp:text tagName="p" id="detail" styleClass="list-group-item-text">
+				<xp:text tagName="p" id="detail"
+					styleClass="list-group-item-text">
 					<xp:this.value><![CDATA[#{javascript:var filter = param.get("catFilter");
 var index = 2;
 if (filter.indexOf("~") > -1){
@@ -93,7 +99,8 @@ if(thisRowData.getColumnValues().length > index){
 			</xp:panel>
 		</xp:repeat>
 
-		<xp:panel id="loadmore" styleClass="list-group-item load-more" tagName="a">
+		<xp:panel id="loadmore" styleClass="list-group-item load-more"
+			tagName="a">
 			<xp:this.rendered><![CDATA[#{javascript:if (sessionScope.accRowcount == null){
 	sessionScope.accRowcount = 12;
 }
@@ -111,7 +118,8 @@ context.getUrlParameter("catFilter") + "', '" + context.getUrlParameter("xpageDo
 	</div>
 
 	<xp:this.navigationRules>
-		<xp:navigationRule outcome="xsp-success" viewId="/UnpMain.xsp">
+		<xp:navigationRule outcome="xsp-success"
+			viewId="/UnpMain.xsp">
 		</xp:navigationRule>
 	</xp:this.navigationRules>
 </xp:view>

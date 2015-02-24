@@ -1026,14 +1026,14 @@ unp.closeDialog = function(id) {
 }
 
 unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
-		photocol, summarycol, detailcol, callback) {
+		photocol, summarycol, detailcol, ajaxload, callback) {
 	
 	var pos = $('.data-row').length;
 	var thisUrl = "UnpAccordionViewList.xsp?chosenView="
 			+ encodeURIComponent(viewName) + "&catFilter="
 			+ encodeURIComponent(catName) + "&xpageDoc=" + xpage + "&start="
 			+ pos + "&dbname=" + dbname + "&photocol=" + photocol + "&summarycol="
-			+ summarycol + "&detailcol=" + detailcol + "&callback=" + callback;
+			+ summarycol + "&detailcol=" + detailcol + "&ajaxload=" + ajaxload + "&callback=" + callback;
 
 	var tempHolder = $(".summaryDataRow");
 	$(tempHolder).load(
@@ -1057,7 +1057,7 @@ unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
 	}
 }
 
-unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback) {
+unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback) {
 	if (!$(obj).hasClass("collapsed")) {
 		// We want to collapse the current category
 		console.log('Collapsing rows...');
@@ -1076,13 +1076,13 @@ unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, sum
 		console.log('Getting category ' + catName);
 		$(obj).removeClass('collapsed');
 		$('#list').scrollTop($('#list').scrollTop() + $(obj).position().top);
-		unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback);
+		unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback);
 	}
 }
 
-unp.fetchMoreDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback) {
+unp.fetchMoreDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback) {
 
-	unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, callback);
+	unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback);
 }
 
 unp.syncAllDbs = function() {

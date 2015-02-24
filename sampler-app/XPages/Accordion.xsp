@@ -14,7 +14,7 @@
 				footertext="Built with Bootcards - Accordion List"
 				callback="callbackFunction">
 			</unp:UnpBootAccordionView>
-			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs" style="display: none;">
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
 				<xc:personviewer>
 					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
 				</xc:personviewer>
