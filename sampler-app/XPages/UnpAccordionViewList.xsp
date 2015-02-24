@@ -108,7 +108,7 @@ viewScope.accRowcount != null && viewScope.accRowcount == sessionScope.accRowcou
 			<xp:this.attrs>
 				<xp:attr name="onclick">
 					<xp:this.value><![CDATA[#{javascript:"unp.fetchMoreDetails(this,'" + context.getUrlParameter("chosenView") + "','" + 
-context.getUrlParameter("catFilter") + "', '" + context.getUrlParameter("xpageDoc") + "', '" + context.getUrlParameter("dbname") + "', '" + context.getUrlParameter("photocol") + "', '" + context.getUrlParameter("summarycol") + "', '" + context.getUrlParameter("detailcol") + "', '" + context.getUrlParameter("callback") + "');"}]]></xp:this.value>
+context.getUrlParameter("catFilter") + "', '" + context.getUrlParameter("xpageDoc") + "', '" + context.getUrlParameter("dbname") + "', '" + context.getUrlParameter("photocol") + "', '" + context.getUrlParameter("summarycol") + "', '" + context.getUrlParameter("detailcol") + "', '" + context.getUrlParameter("ajaxload") + "', '" + context.getUrlParameter("callback") + "');"}]]></xp:this.value>
 				</xp:attr>
 			</xp:this.attrs>
 			<i class="fa fa-repeat" />
