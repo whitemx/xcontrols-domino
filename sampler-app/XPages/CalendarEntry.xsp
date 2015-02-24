@@ -60,14 +60,8 @@ return date.toJavaDate().getTime();}]]></xp:this.value>
 						styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:text tagName="textarea" id="details" value="#{docedit.details}"
-							styleClass="form-control">
-							<xp:this.attrs>
-								<xp:attr name="placeholder" value="Enter Value">
-								</xp:attr>
-								<xp:attr name="rows" value="12"></xp:attr>
-							</xp:this.attrs>
-						</xp:text>
+						<unp:UnpBootRichTextEditor fieldname="details">
+						</unp:UnpBootRichTextEditor>
 					</div>
 				</div>
 			</xp:panel>

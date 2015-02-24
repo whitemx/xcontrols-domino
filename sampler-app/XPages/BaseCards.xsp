@@ -146,8 +146,7 @@
 					</unp:UnpBootRichTextReader>
 				</xp:panel>
 
-				<xp:panel id="editingpanel"
-					styleClass="panel panel-default">
+				<xp:panel id="editingpanel" styleClass="panel panel-default">
 					<xp:this.rendered><![CDATA[#{javascript:document2.getItemValueString("Title") == "Editing Card"}]]></xp:this.rendered>
 					<div class="panel-heading clearfix">
 						<h3 class="panel-title pull-left">Editing Card</h3>
@@ -155,19 +154,18 @@
 					<div class="list-group">
 						<div class="list-group-item specialrichtext">
 							<xp:panel>
-								<div class="form-group">
-									<div class="col-xs-12">
-										<xp:text tagName="textarea" id="value"
-											value="#{document2.Value}" styleClass="form-control">
-											<xp:this.attrs>
-												<xp:attr
-													name="placeholder" value="Enter Value">
-												</xp:attr>
-												<xp:attr name="rows" value="12"></xp:attr>
-											</xp:this.attrs>
-										</xp:text>
-									</div>
-								</div>
+								<xp:this.data>
+									<xp:dominoDocument var="docedit" formName="RefData"
+										action="editDocument">
+										<xp:this.documentId><![CDATA[#{javascript:var vw:NotesView = database.getView("Reference Data");
+var doc:NotesDocument = vw.getDocumentByKey("SamplerEditHTML");
+if (doc != null){
+	return doc.getUniversalID();
+}}]]></xp:this.documentId>
+									</xp:dominoDocument>
+								</xp:this.data>
+								<unp:UnpBootRichTextEditor fieldname="value">
+								</unp:UnpBootRichTextEditor>
 							</xp:panel>
 						</div>
 					</div>
