@@ -579,6 +579,7 @@ unp.isFF = function() {
 unp.newDocument = function(xpage){
 	
 	var url = xpage + '?action=newDocument .modal-content';
+	$('#editModal .modal-content').empty();
 	$('#editModal .modal-content').load(url, function(){
 		$('#editModal').modal();
 		unp.initDeleteable();
