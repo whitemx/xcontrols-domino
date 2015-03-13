@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="XControls - A cards-based UI for mobile and desktop apps, built on top of Bootcards and Bootstrap">
   <meta name="author" content="XControls">
+  <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="images/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="images/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <!--<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">-->
 
   <title>XControls - XPages Cards-based UI built with Bootcards and Bootstrap</title>
@@ -63,12 +80,12 @@
     </div>
   </div>
 
-	<div class="container">  
+	<div class="container">
 	<div class="row">
 
 		<div class="col-sm-3 hidden-xs">
 			<div class="docs-menu affix">
-				<ul class="nav nav-pills nav-stacked">	
+				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><a href="#getting-started">Getting started</a></li>
           				<li><a href="#doc-deployment">Deployment Tips</a></li>
           				<li><a href="#doc-icons">Font Awesome Icons</a></li>
@@ -135,19 +152,19 @@
         ... Header Menu for Desktop goes here...
 ]}]]&gt;&lt;/unp:this.navitems&gt;
 	&lt;/unp:UnpBootHeader&gt;
-	
+
 &lt;/xp:view&gt;
 </code></pre></div>
-						<p>Then in between the header and footer you can insert one or more cards to create your application. The rest of this page shows the different options. 
+						<p>Then in between the header and footer you can insert one or more cards to create your application. The rest of this page shows the different options.
 						If you need some help to get going then have a look at how we built the <a href="http://sampler.xcontrols.org/">Sampler application</a> for inspiration.</p>
-            <p>To install the Sampler application onto your devices, copy and sign the XControls Sampler nsf file onto your Domino server. You can then access it using a desktop or mobile browser. 
-            If you want to test Teamstudio Unplugged, then you'll need to add the Unplugged.nsf admin database to your server, 
-            add the Sampler application as an app inside the configuration and then sync Unplugged on your mobile device to your server. 
+            <p>To install the Sampler application onto your devices, copy and sign the XControls Sampler nsf file onto your Domino server. You can then access it using a desktop or mobile browser.
+            If you want to test Teamstudio Unplugged, then you'll need to add the Unplugged.nsf admin database to your server,
+            add the Sampler application as an app inside the configuration and then sync Unplugged on your mobile device to your server.
             For more details on this process, you can visit the <a href="https://teamstudio.jira.com/wiki/display/UNPDOC/Preparing+the+Development+Environment">Teamstudio Unplugged Documentation</a>.</p>
             <div class="alert alert-info">Remember to increase the "Max Response Size" in settings to 512kb</div>
             <p>For a more detailed walk-through of creating an application, you can visit our <a href="gettingstarted.html">detailed getting started page</a>.</p>
-					</div>						
-						
+					</div>
+
           <div id="doc-deployment" class="bs-docs-section">
           <h2>Deployment</h2>
           <p class="lead">This section details a few bits and pieces that will make your application easier to deploy.</p>
@@ -183,7 +200,7 @@
                 </a>
             </div>
 						<p>You can specify the categorized view you want to acces, the columns that will get displayed and what happens when you open a document. We also support searching and composing new documents.</p>
-            
+
             <dl class="dl-horizontal">
               <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
               <dt>newlink</dt><dd>the link to open when composing a new document</dd>
@@ -251,7 +268,7 @@
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/alert-desktop.png" class="img-responsive">
                 </a>
             </div>
-            
+
             <dl class="dl-horizontal">
               <dt>title</dt><dd>The title for the modal window</dd>
               <dt>content</dt><dd>The message to display</dd>
@@ -310,7 +327,7 @@
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/calendar-desktop.png" class="img-responsive">
                 </a>
             </div>
-            
+
             <dl class="dl-horizontal">
               <dt>title</dt><dd>The title for the calendar</dd>
               <dt>viewname</dt><dd>The view to get the data from. The view needs to be formatted in the same way as the example in the Sampler application.</dd>
@@ -409,21 +426,21 @@ var dbPath = database.getFilePath();
 dbPath = @ReplaceSubstring(dbPath, &quot;\\&quot;, &quot;/&quot;);
 if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
   for(var i=0; i&lt;attachmentList.length; i++){
-  
+
     var imagename = attachmentList[i];
-    
+
     imageFile = &quot;/&quot; + dbPath + &quot;/0/&quot; + docviewdoc.getUniversalID() + &quot;/$FILE/&quot; + imagename;
     if (imagename != &quot;&quot;){
       images.push({
          url: imageFile,
-         filename: imagename, 
-         pageurl: 'UnpMain.xsp', 
-         title: 'Caption Title', 
+         filename: imagename,
+         pageurl: 'UnpMain.xsp',
+         title: 'Caption Title',
          description: 'This is a block of text that will appear to the right of the image'
       });
-    } 
+    }
   }
-  
+
   viewScope.put(&quot;images&quot;, images);
 }}]]&gt;&lt;/xp:this.script&gt;
     &lt;/xp:executeScript&gt;
@@ -458,7 +475,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
             <h2>Charts</h2>
             <p class="lead">We make use of <a href="http://morrisjs.github.io/morris.js/">Morris Charts</a> in our Sampler application</p>
             <p>Although we don't provide a charting control in XControls, it's very simple to add charts to your application using any framework that is compatible with Bootstrap. In our <a href="http://sampler.xcontrols.org/XControls.nsf/BaseCards.xsp?action=openDocument&documentId=FC76A87C31CC8A8500257D66004657CE&history=true">Sampler application</a> we use <a href="http://morrisjs.github.io/morris.js/">Morris Charts</a>.</p>
-          </div>            
+          </div>
 
           <div id="doc-debugtoolbar" class="bs-docs-section">
             <h2>Debug Toolbar</h2>
@@ -475,7 +492,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-desktop.png" class="img-responsive">
                 </a>
             </div>
-            
+
             <dl class="dl-horizontal">
               <dt>defaultCollapsed</dt><dd>true or false to define whether the toolbar should be collapsed when opening a page</dd>
             </dl>
@@ -649,7 +666,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/files-desktop.png" class="img-responsive">
                 </a>
             </div>
-            
+
             <dl class="dl-horizontal">
               <dt>filestitle</dt><dd>The title for the list</dd>
               <dt>fileslist</dt><dd>An array of file objects that contain filename and url for each file. If you're using a FormViewer, then pass in viewScope.images</dd>
@@ -689,7 +706,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
                 <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Flat View Desktop" class="col-sm-4">
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" class="img-responsive">
                 </a>
-            </div>          
+            </div>
             <dl class="dl-horizontal">
               <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
               <dt>newlink</dt><dd>The link to open when composing a new document, leave blank to hide new button</dd>
@@ -743,7 +760,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
           <div id="doc-footer" class="bs-docs-section">
             <h2>Footer</h2>
             <p class="lead">Display a sync button for Unplugged devices and optionally a different navigation technique with footer tabs</p>
-            
+
             <dl class="dl-horizontal">
               <dt>synctype</dt><dd>Choose between alldbs, currentdb or none to enable a sync button when using Unplugged on a mobile device</dd>
               <dt>tabs</dt><dd>An array of objects that describe the footer tabs you want to display, leave blank if not required</dd>
@@ -774,7 +791,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-desktop.png" class="img-responsive">
                 </a>
             </div>
-            
+
             <dl class="dl-horizontal">
               <dt>dbname</dt><dd>The name of the database that contains the document, leave blank for current database</dd>
               <dt>formname</dt><dd>The form name of the document being edited</dd>
@@ -912,7 +929,7 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
                 <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Viewer Desktop" class="col-sm-4">
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" class="img-responsive">
                 </a>
-            </div>            
+            </div>
             <dl class="dl-horizontal">
               <dt>dbname</dt><dd>the name of the database that contains the document, leave blank for the current database</dd>
               <dt>formname</dt><dd>the name of the form for the document</dd>
@@ -973,7 +990,7 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
             <h2>Header</h2>
             <p class="lead">The control to configuring the header bar</p>
             <p>Used for the header bar navigation</p>
-            
+
             <dl class="dl-horizontal">
               <dt>title</dt><dd>title for the page</dd>
               <dt>navitems</dt><dd>an array of objects that describe header menu items. These will only be displayed for desktop users. For sidebar navigation, use the Navigator control. Each item should have the following properties: label, page and icon. The label is what will be displayed in the header bar, the page is the URL to open when the link is clicked and icon is the Font Awesome icon to use for the menu item.</dd>
@@ -986,18 +1003,18 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
       {&quot;label&quot;: &quot;Flat&quot;, &quot;icon&quot;: &quot;fa-list-alt&quot;, &quot;page&quot;: &quot;/FlatView.xsp&quot;},
       {&quot;label&quot;: &quot;Detailed&quot;, &quot;icon&quot;: &quot;fa-list-alt&quot;, &quot;page&quot;: &quot;/DetailView.xsp&quot;},
       {&quot;label&quot;: &quot;Categorized&quot;, &quot;icon&quot;: &quot;fa-list&quot;, &quot;page&quot;: &quot;/Categorized.xsp&quot;},
-      {&quot;label&quot;: &quot;Accordion&quot;, &quot;icon&quot;: &quot;fa-th-list&quot;, &quot;page&quot;: &quot;/Accordion.xsp&quot;} 
+      {&quot;label&quot;: &quot;Accordion&quot;, &quot;icon&quot;: &quot;fa-th-list&quot;, &quot;page&quot;: &quot;/Accordion.xsp&quot;}
     ]},
         {label: &quot;Cards&quot;, hasSubMenu: false, page: &quot;/BaseCards.xsp&quot;, icon: &quot;fa-book&quot;},
-        {label: &quot;Other Controls&quot;, icon: &quot;fa-th-large&quot;, children: [     
-      {&quot;label&quot;: &quot;Calendar&quot;, &quot;icon&quot;: &quot;fa-calendar&quot;, &quot;page&quot;: &quot;/Calendar.xsp&quot;}, 
-      {&quot;label&quot;: &quot;Carousel&quot;, &quot;icon&quot;: &quot;fa-files-o&quot;, &quot;page&quot;: &quot;/Media.xsp&quot;}, 
+        {label: &quot;Other Controls&quot;, icon: &quot;fa-th-large&quot;, children: [
+      {&quot;label&quot;: &quot;Calendar&quot;, &quot;icon&quot;: &quot;fa-calendar&quot;, &quot;page&quot;: &quot;/Calendar.xsp&quot;},
+      {&quot;label&quot;: &quot;Carousel&quot;, &quot;icon&quot;: &quot;fa-files-o&quot;, &quot;page&quot;: &quot;/Media.xsp&quot;},
       {&quot;label&quot;: &quot;Dialogs&quot;, &quot;icon&quot;: &quot;fa-comment&quot;, &quot;page&quot;: &quot;/Dialog.xsp&quot;}
     ]},
         {label: &quot;Tools&quot;, icon: &quot;fa-cog&quot;, children: [
-      {&quot;label&quot;: &quot;Debug Toolbar&quot;, &quot;icon&quot;: &quot;fa-bug&quot;, &quot;page&quot;: &quot;/DebugToolbar.xsp&quot;}, 
+      {&quot;label&quot;: &quot;Debug Toolbar&quot;, &quot;icon&quot;: &quot;fa-bug&quot;, &quot;page&quot;: &quot;/DebugToolbar.xsp&quot;},
       {&quot;label&quot;: &quot;XMark 1&quot;, &quot;icon&quot;: &quot;fa-bolt&quot;, &quot;page&quot;: &quot;/UPMark.xsp&quot;}
-    ]}, 
+    ]},
     {label: &quot;New Person&quot;, newDocXPage: &quot;PersonEdit.xsp&quot;, icon: &quot;fa-new&quot;}
 ]}]]&gt;&lt;/unp:this.navitems&gt;
     &lt;unp:this.title&gt;&lt;![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
@@ -1025,7 +1042,7 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
                 <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Image Viewer Desktop" class="col-sm-4">
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-desktop.png" class="img-responsive">
                 </a>
-            </div>            
+            </div>
 
             <dl class="dl-horizontal">
               <dt>imageurl</dt><dd>the URL for the image</dd>
@@ -1089,7 +1106,7 @@ xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
             </div>
             <p>Menu items can open a page either with a full page reload or an Ajax request. Menu items can have icons. The navigator will not display on desktop browsers.</p>
             <p>If the navigator is viewed with a mobile device using Unplugged, then a Home item will be inserted at the top of the navigator to take you back to the workspace</p>
-            
+
             <dl class="dl-horizontal">
               <dt>menuitems</dt><dd>an array of menu item objects. Each menu item will have the following settings:</dd>
             </dl>
@@ -1106,17 +1123,17 @@ xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
   &lt;unp:this.menuitems&gt;&lt;![CDATA[#{javascript:[
   {&quot;label&quot;: &quot;Dashboard&quot;, &quot;icon&quot;: &quot;fa-dashboard&quot;, &quot;page&quot;: &quot;/UnpMain.xsp&quot;},
   {&quot;label&quot;: &quot;Contacts&quot;, children: [
-    {&quot;label&quot;: &quot;Contacts&quot;, &quot;icon&quot;: &quot;fa-group&quot;, &quot;page&quot;: &quot;/Contacts.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;}, 
+    {&quot;label&quot;: &quot;Contacts&quot;, &quot;icon&quot;: &quot;fa-group&quot;, &quot;page&quot;: &quot;/Contacts.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
     {&quot;label&quot;: &quot;Departments&quot;, &quot;icon&quot;: &quot;fa-building&quot;, &quot;page&quot;: &quot;/Departments.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
     {&quot;label&quot;: &quot;My Activities&quot;, &quot;icon&quot;: &quot;fa-tasks&quot;, &quot;page&quot;: &quot;/MyActivities.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
     {&quot;label&quot;: &quot;Activities By Contact&quot;, &quot;icon&quot;: &quot;fa-tasks&quot;, &quot;page&quot;: &quot;/ActivitiesByContact.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
     {&quot;label&quot;: &quot;Activities By Department&quot;, &quot;icon&quot;: &quot;fa-tasks&quot;, &quot;page&quot;: &quot;/ActivitiesByDepartment.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;}
-  ]} 
+  ]}
 ]}]]&gt;&lt;/unp:this.menuitems&gt;
 &lt;/unp:UnpBootNavigator&gt;
 </code></pre></div>
           </div>
-          
+
           <div id="doc-photoupload" class="bs-docs-section">
             <h2>Photo Upload</h2>
             <p class="lead">To upload pictures on your mobile device and also resize, rotate as required before uploading.</p>
@@ -1154,7 +1171,7 @@ xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
       &lt;div class="btn-group"&gt;
          &lt;div class="js-custom-photo-select photoUpload btn btn-default"&gt;
             &lt;i class="fa fa-camera"&gt;&lt;/i&gt;
-            Select		
+            Select
          &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class="btn-group"&gt;
@@ -1197,10 +1214,10 @@ xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
 
           <div id="doc-resources" class="bs-docs-section">
             <h2>Resources</h2>
-            <p class="lead">This control will load all of the required CSS and JavaScript files onto a page when it loads. It should be included in all XPages in your application.</p> 
+            <p class="lead">This control will load all of the required CSS and JavaScript files onto a page when it loads. It should be included in all XPages in your application.</p>
             <ul>
             <li><strong>loginpage</strong>: <strong>from v1.3</strong> you can specify a login page to redirect to if the current user is anonymous. You must create the login page as required. Leave blank to use standard Domino authentication.</li>
-            </ul>      
+            </ul>
           </div>
 
           <div id="doc-typographyedit" class="bs-docs-section">
@@ -1218,7 +1235,7 @@ xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
                     <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-desktop.png" class="img-responsive">
                 </a>
             </div>
-            
+
             <dl class="dl-horizontal">
               <dt>fieldname</dt><dd>the name of the field to get get the initial content from. The data must be HTML formatted or plain text. Domino Rich Text will not work.</dd>
             </dl>
