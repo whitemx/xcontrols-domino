@@ -834,7 +834,7 @@ unp.initDates = function(){
 
 unp.initAutoComplete = function() {
 	$(".typeahead").each( function() {
-		$(this).typeahead({source: eval($(this).attr('jslist'))});
+		$(this).typeahead({source: eval($(this).attr('jslist')), autoSelect: false});
 	});
 }
 
