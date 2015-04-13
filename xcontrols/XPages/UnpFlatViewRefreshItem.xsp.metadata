@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
-<noteinfo noteid="546" sequence="6" unid="7428F43007E1888480257DD3003B0C90">
-<created><datetime>20150120T104458,40+00</datetime></created>
-<modified><datetime>20150120T104828,70+00</datetime></modified>
-<revised><datetime>20150120T104828,69+00</datetime></revised>
-<lastaccessed><datetime>20150120T104828,70+00</datetime></lastaccessed>
-<addedtofile><datetime>20150120T104458,41+00</datetime></addedtofile></noteinfo>
+<noteinfo noteid="806" sequence="6" unid="741CE1F68A701C4480257E2600409BC6">
+<created><datetime dst="true">20150413T124541,82+01</datetime></created>
+<modified><datetime dst="true">20150413T124925,83+01</datetime></modified>
+<revised><datetime dst="true">20150413T124925,82+01</datetime></revised>
+<lastaccessed><datetime dst="true">20150413T124925,83+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150413T124541,84+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpFlatViewRefreshItem.xsp</text></item>

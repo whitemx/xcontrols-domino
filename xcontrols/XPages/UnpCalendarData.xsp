@@ -35,8 +35,13 @@ try{
 		filters.push(start[0] + @Right("0" + (parseInt(start[1], 10)+2), 2));
 	}
 	var db = database;
-	if (context.getUrlParameter('dbname') != 'null' && context.getUrlParameter('dbname') != ''){
-		db = session.getDatabase("", context.getUrlParameter('dbname'));
+	var dbname = context.getUrlParameter("dbname");
+	if (dbname != 'null' && dbname != ''){
+		if (dbname.indexOf("!") > -1){
+			db = session.getDatabase(@Left(dbname, "!"), @RightBack(dbname, "!"));
+		}else{
+			db = session.getDatabase("", dbname);
+		}
 	}
 	var vw = db.getView(context.getUrlParameter('viewname'));
 	var out = "";

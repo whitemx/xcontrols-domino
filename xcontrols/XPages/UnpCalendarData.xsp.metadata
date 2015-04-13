@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
-<noteinfo noteid="536" sequence="6" unid="D3852CCB9DC8E41480257DD3003B0BE1">
-<created><datetime>20150120T104456,65+00</datetime></created>
-<modified><datetime>20150120T104828,38+00</datetime></modified>
-<revised><datetime>20150120T104828,37+00</datetime></revised>
-<lastaccessed><datetime>20150120T104828,38+00</datetime></lastaccessed>
-<addedtofile><datetime>20150120T104456,66+00</datetime></addedtofile></noteinfo>
+<noteinfo noteid="7f6" sequence="6" unid="E7A5A5F0CA5E625B80257E2600409B21">
+<created><datetime dst="true">20150413T124540,17+01</datetime></created>
+<modified><datetime dst="true">20150413T124925,51+01</datetime></modified>
+<revised><datetime dst="true">20150413T124925,50+01</datetime></revised>
+<lastaccessed><datetime dst="true">20150413T124925,51+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150413T124540,18+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpCalendarData.xsp</text></item>

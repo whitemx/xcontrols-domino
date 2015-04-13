@@ -9,7 +9,12 @@
 	return compositeData.categoryfilter;
 }}]]></xp:this.categoryFilter>
 			<xp:this.databaseName><![CDATA[#{javascript:if (compositeData.dbname != null){
-	var db = session.getDatabase("", compositeData.dbname);
+  	var db;
+	if (compositeData.dbname.indexOf("!") > -1){
+		db = session.getDatabase(@Left(compositeData.dbname, "!"), @RightBack(compositeData.dbname, "!"));
+	}else{
+		db = session.getDatabase("", compositeData.dbname);
+	}
 	if (db == null){
 		return null;
 	}else{
@@ -90,7 +95,11 @@
 					disableOutputTag="true" indexVar="thisRowIndex" rows="999">
 					<xp:this.value><![CDATA[#{javascript:var db = @DbName();
 if (!isEmpty(compositeData.dbname)){
-	db = [@DbName()[0], compositeData.dbname];
+	if (compositeData.dbname.indexOf("!") > -1){
+		db = [@Left(compositeData.dbname, "!"), @RightBack(compositeData.dbname, "!")];
+	}else{
+		db = [@DbName()[0], compositeData.dbname];
+	}
 }
 var list;
 if (isEmpty(compositeData.categoryfilter)){
@@ -133,9 +142,9 @@ if (isEmpty(summarycol)){
 	summarycol = null;
 }
 if (isEmpty(compositeData.categoryfilter)){
-	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.callback + "')";
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "')";
 }else{
-	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.callback + "')";
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "')";
 }}]]></xp:this.value>
 							</xp:attr>
 						</xp:this.attrs>

@@ -8,8 +8,15 @@
 }else{
 	return compositeData.categoryfilter;
 }}]]></xp:this.categoryFilter>
+
 			<xp:this.databaseName><![CDATA[#{javascript:if (compositeData.dbname != null){
-	var db = session.getDatabase("", compositeData.dbname);
+  var db;
+	if (compositeData.dbname.indexOf("!") > -1){
+		db = session.getDatabase(@Left(compositeData.dbname, "!"), @RightBack(compositeData.dbname, "!"));
+	}else{
+		db = session.getDatabase("", compositeData.dbname);
+	}
+	
 	if (db == null){
 		return null;
 	}else{
