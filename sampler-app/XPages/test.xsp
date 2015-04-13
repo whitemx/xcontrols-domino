@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	<xp:this.data>
+		<xp:dominoView var="view1" databaseName="demos\Discussion.nsf"
+			viewName="MainTopic">
+		</xp:dominoView>
+	</xp:this.data>
+	<xp:this.beforePageLoad><![CDATA[#{javascript:var db = session.getDatabase("192.168.0.12", "demos\\discussion.nsf");
+print("Got db " + db.getTitle());}]]></xp:this.beforePageLoad>
+	<xp:viewPanel rows="30" value="#{view1}" id="viewPanel1">
+		<xp:this.facets>
+			<xp:pager partialRefresh="true" layout="Previous Group Next"
+				xp:key="headerPager" id="pager1">
+			</xp:pager>
+		</xp:this.facets>
+		<xp:viewColumn columnName="_MainTopicsDate" id="viewColumn1">
+			<xp:viewColumnHeader value="Date" id="viewColumnHeader1"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="_AllDate" id="viewColumn2">
+			<xp:viewColumnHeader value="All Dates" id="viewColumnHeader2">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="_From" id="viewColumn3">
+			<xp:viewColumnHeader value="From" id="viewColumnHeader3"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="_ResponseCount" id="viewColumn4">
+			<xp:viewColumnHeader value="_ResponseCount" id="viewColumnHeader4">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="_Responses" id="viewColumn5">
+			<xp:viewColumnHeader value="_Responses" id="viewColumnHeader5">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="_Topic" id="viewColumn6">
+			<xp:viewColumnHeader value="Topic" id="viewColumnHeader6"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="Abstract" id="viewColumn7">
+			<xp:viewColumnHeader value="Abstract" id="viewColumnHeader7">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="_Categories" id="viewColumn8">
+			<xp:viewColumnHeader value="Categories" id="viewColumnHeader8">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+	</xp:viewPanel>
+</xp:view>

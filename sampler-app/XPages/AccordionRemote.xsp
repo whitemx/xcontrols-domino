@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xc:commonheader></xc:commonheader>
+	<div id="main" class="container bootcards-container">
+		<div class="row fullheightrow">
+			<unp:UnpBootAccordionView title="By Author"
+				summarycolumn="Topic" viewname="By Author" expandfirstcategory="no"
+				ajaxload="Yes" loaddocumenttarget="doccontent" detailcolumn="Date"
+				xpagedoc="AccordionRemote.xsp" newdatatarget="#editModal"
+				newlink="MainTopicEdit.xsp" searchview="Search"
+				footertext="Built with Bootcards - Accordion List"
+				callback="callbackFunction"
+				dbname="Surface/FCL!!demos/discussion.nsf">
+			</unp:UnpBootAccordionView>
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
+				<unp:UnpBootFormViewer editxpagename="MainTopicEdit.xsp"
+					editxpagewithajax="yes" formname="MainTopic" showbuttons="true"
+					title="Main Topic" titleiconfield="thumbnail"
+					footertext="Built with Bootcards - Form Card"
+					callback="editcallback" dbname="Surface/FCL!!demos/discussion.nsf">
+					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
+					<xp:this.facets>
+						<xp:panel id="list-group" xp:key="facet_1"
+							styleClass="panel">
+							<div class="list-group">
+								<div class="list-group-item">
+									<label>Subject</label>
+									<xp:text id="subject" tagName="h4"
+										styleClass="list-group-item-heading"
+										value="#{docview.Subject}">
+									</xp:text>
+								</div>
+
+								<div class="list-group-item">
+									<xp:label value="Created By"
+										id="createdbylabel" for="createdby">
+									</xp:label>
+									<xp:text tagName="h4" id="createdby"
+										value="#{docview.From}"
+										styleClass="list-group-item-heading">
+									</xp:text>
+								</div>
+								<div class="list-group-item">
+									<xp:label value="Details"
+										id="detailslabel" for="body">
+									</xp:label>
+									<xp:text id="body" tagName="h4"
+										styleClass="list-group-item-heading" value="#{docview.Body}"
+										escape="false">
+									</xp:text>
+								</div>
+							</div>
+						</xp:panel>
+					</xp:this.facets>
+				</unp:UnpBootFormViewer>
+			</div>
+		</div>
+		<div class="pagetitle hidden">Accordion</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

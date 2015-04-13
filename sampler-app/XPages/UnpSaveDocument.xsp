@@ -23,9 +23,15 @@ try{
 	resp = "Started";
 	var doc = null;
 	resp = "Getting doc";
-	if (context.getUrlParameter("dbname") != "" && context.getUrlParameter("dbname") != "null" && context.getUrlParameter("dbname") != null){
+	var dbname = context.getUrlParameter("dbname");
+	if (dbname != "" && dbname != "null" && dbname != null){
 		try{
-			var dbother:NotesDatabase = session.getDatabase(database.getServer(), context.getUrlParameter("dbname"));
+			var dbother:NotesDatabase;
+			if (dbname.indexOf("!") > -1){
+				dbother = session.getDatabase(@Left(dbname, "!"), @RightBack(dbname, "!"));
+			}else{
+				dbother = session.getDatabase(database.getServer(), context.getUrlParameter("dbname"));
+			}
 			doc = dbother.getDocumentByUNID(context.getUrlParameter("unid"));
 		}catch(e){
 			resp = "Error getting doc from another database";
