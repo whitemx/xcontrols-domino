@@ -9,45 +9,6 @@
 
 	<unp:UnpBootResources loginpage="Login.xsp"></unp:UnpBootResources>
 
-	<unp:UnpBootNavigator>
-		<unp:this.menuitems><![CDATA[#{javascript:[
-	{"label": "Home", "icon": "fa-dashboard", "page": "/UnpMain.xsp"},
-	{"label": "Lists", children: [
-		{"label": "Flat", "icon": "fa-list-alt", "page": "/FlatView.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Detailed", "icon": "fa-list-alt", "page": "/DetailView.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Categorized", "icon": "fa-list", "page": "/Categorized.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Accordion", "icon": "fa-th-list", "page": "/Accordion.xsp", ajaxloadid: "main", ajaxtargetid: "main"} 
-	]}, 
-	{"label": "Cards", "icon": "fa-book", "page": "/BaseCards.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-	{"label": "Other Controls", children: [		 
-		{"label": "Calendar", "icon": "fa-calendar", "page": "/Calendar.xsp"}, 
-		{"label": "Carousel", "icon": "fa-files-o", "page": "/Media.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Dialogs", "icon": "fa-comment", "page": "/Dialog.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
-	]}, 
-	{"label": "Examples", children: [
-		{"label": "Contacts", "icon": "fa-group", "page": "/Contacts.xsp", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Departments", "icon": "fa-building", "page": "/Departments.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "My Activities", "icon": "fa-tasks", "page": "/MyActivities.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Activities By Contact", "icon": "fa-tasks", "page": "/ActivitiesByContact.xsp", ajaxloadid: "main", ajaxtargetid: "main"},
-		{"label": "Activities By Dept", "icon": "fa-tasks", "page": "/ActivitiesByDepartment.xsp", ajaxloadid: "main", ajaxtargetid: "main"}
-	]}, 
-	{"label": "Font Awesome", children: [
-		{"label": "Brands", "icon": "fa-apple", "page": "/FontAwesome.xsp?filter=Brands&", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Currencies", "icon": "fa-gbp", "page": "/FontAwesome.xsp?filter=Currencies&", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Directional", "icon": "fa-arrows", "page": "/FontAwesome.xsp?filter=Directional&", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Form Control", "icon": "fa-check-square", "page": "/FontAwesome.xsp?filter=Form%20Control&", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Medical", "icon": "fa-ambulance", "page": "/FontAwesome.xsp?filter=Medical&", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "New", "icon": "fa-bomb", "page": "/FontAwesome.xsp?filter=New&", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Text Editor", "icon": "fa-bold", "page": "/FontAwesome.xsp?filter=Text%20Editor&", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Video Player", "icon": "fa-play", "page": "/FontAwesome.xsp?filter=Video%20Player&", ajaxloadid: "main", ajaxtargetid: "main"}, 
-		{"label": "Web App", "icon": "fa-asterisk", "page": "/FontAwesome.xsp?filter=Web%20App&", ajaxloadid: "main", ajaxtargetid: "main"} 
-	]}, 
-	{"label": "Tools", children: [
-		{"label": "Debug Toolbar", "icon": "fa-bug", "page": "/DebugToolbar.xsp"}, 
-		{"label": "XMark 1", "icon": "fa-bolt", "page": "/UPMark.xsp"}
-	]}	
-]}]]></unp:this.menuitems>
-	</unp:UnpBootNavigator>
 	<unp:UnpBootHeader>
 		<unp:this.navitems><![CDATA[#{javascript:[
         {label: "Dashboard", hasSubMenu: false, page: "/UnpMain.xsp", icon: "fa-dashboard"},
@@ -92,7 +53,8 @@
 	return compositeData.pagetitle;
 }}]]></unp:this.title>
 		<unp:this.secondarynavitems><![CDATA[#{javascript:[
-	{label: "Home", page: "/UnpMain.xsp", icon: "fa-home"}
+	{label: "XControls", page: "http://xcontrols.org/", icon: "fa-home"}, 
+	{label: "Documentation", page: "http://xcontrols.org/public/docs.html", icon: "fa-book"}
 ]}]]></unp:this.secondarynavitems>
 	</unp:UnpBootHeader>
 	<xp:text escape="false" id="companieslist" tagName="script">
