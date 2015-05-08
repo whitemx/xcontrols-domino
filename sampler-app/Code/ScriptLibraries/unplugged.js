@@ -1157,6 +1157,17 @@ unp.initSearch = function() {
 			return false;
 		}
 	});
+	$('.searchbox').typeahead({
+		source: function(query, process) {
+			return $.ajax({
+                url: $('.searchbox').attr('searchahead') + "&query=" + query,
+                dataType: 'json',
+                success: function (data) {
+                    return typeof data == 'undefined' ? false : process(data);
+                }
+            });
+		}
+	});
 }
 
 unp.dosearch = function() {

@@ -3,7 +3,6 @@
  * https://github.com/bassjobsen/Bootstrap-3-Typeahead
  * =============================================================
  * Original written by @mdo and @fat
- * Modified for XControls by @mattwhite
  * =============================================================
  * Copyright 2014 Bass Jobsen @bassjobsen
  *
@@ -281,7 +280,7 @@
       }
 
       this.$menu
-        .on('click', 'li', $.proxy(this.click, this))
+        .on('click', $.proxy(this.click, this))
         .on('mouseenter', 'li', $.proxy(this.mouseenter, this))
         .on('mouseleave', 'li', $.proxy(this.mouseleave, this));
     },
@@ -395,7 +394,6 @@
     },
 
     click: function (e) {
-      $(e.currentTarget).addClass('active');
       e.stopPropagation();
       e.preventDefault();
       this.select();

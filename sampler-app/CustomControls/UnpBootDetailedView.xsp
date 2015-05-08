@@ -97,6 +97,10 @@
 + compositeData.dbname + "&refreshmethod=pull&start=0"
 + "&ajaxload=" + compositeData.ajaxload + "&callback=" + compositeData.callback + "&target=doccontent";}]]></xp:this.value>
 										</xp:attr>
+										<xp:attr name="searchahead">
+											<xp:this.value><![CDATA[#{javascript:"UnpSearchAhead.xsp?chosenView=" + compositeData.searchview
++ "&dbName=" + compositeData.dbname;}]]></xp:this.value>
+										</xp:attr>
 									</xp:this.attrs>
 									<i class="fa fa-search"></i>
 								</xp:panel>

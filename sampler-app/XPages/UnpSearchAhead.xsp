@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" rendered="false">
+
+	<xp:this.afterRenderResponse><![CDATA[#{javascript:var out = [];
+var category = param.get("query");
+if (category == "null" || category == "" || category == "undefined"){
+	return null;
+}else{
+	var out = @DbColumn(@DbName(), param.get("chosenView"), 1);
+}
+out = out.sort();
+var strout = "[";
+var len = 0;
+for (var i=0; i<out.length; i++){
+	if (out[i].indexOf(category.toLowerCase()) > -1){
+		if (len > 0){
+			strout += ", ";
+		}
+		strout += "\"" + out[i] + "\"";
+		if (len > 10){
+			break;
+		}
+		len++;
+	}
+}
+strout += "]";
+
+// The external context gives access to the servlet environment
+var exCon = facesContext.getExternalContext(); 
+
+// The writer is the closest you get to a PRINT statement
+// If you need to output binary data, use the stream instead
+var writer = facesContext.getResponseWriter();
+
+// The servlet's response, check the J2EE documentation what you can do
+var response = exCon.getResponse();
+
+// In this example we want to deliver xml and make sure it doesn't get cached
+response.setContentType("application/json");
+response.setHeader("Cache-Control", "no-cache");
+
+// Here all your output will be written
+writer.write(strout);
+
+// We tell the writer we are through
+writer.endDocument();
+facesContext.responseComplete();}]]></xp:this.afterRenderResponse></xp:view>
