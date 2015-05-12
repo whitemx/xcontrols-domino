@@ -18,7 +18,7 @@
 		<div class="panel-heading">
 			<h3 class="panel-title">Upload Card</h3>
 		</div>
-		<div class="panel-body">
+		<div id="photoupload" class="panel-body">
 			 Tap 'Select' to take a new photo or select from your Photos library, then tap 'Upload'.
 			
 			<div style="margin-top:15px; text-align: center;">

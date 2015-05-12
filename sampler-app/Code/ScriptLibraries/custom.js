@@ -330,51 +330,80 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
 	//now add the resized image to the FormData object and send it
 	
 	 var canvas = document.getElementById('photoUploadCanvas');
-     
-     if (canvas.toBlob) {
-	    canvas.toBlob(
-	        function (blob) {
-	            
-	           	blob.name = _resizedFile.name;
-	            fd.append( $resizeFileUpload.prop('id'), blob, 'photo.jpg' );
-	            
-	            //make the ajax request to send all data to the server             
-	        	$.ajax({
-	        	  url: window.location.pathname,
-	        	  type: 'POST',
-	        	  data: fd,
-	        	  processData: false,
-	        	  contentType: false,
-	        	  
-	        	  success: function(data) {
-
-	        			if (typeof unpluggedserver != 'undefined' && unpluggedserver) {
-	        				
-	        				$.get("UnpSyncAll.xsp")
-	        					.done( function() {
-	        						alert('Photo Saved and Synced');
-	        					})
-	        					.fail( function() {
-	        						alert('Photo Saved but not yet Synced');
-	        					})
-	        					.always( function() {
-	        						unp.openDocument(window.location.href, 'doccontent');
-	        					});
-	        				
-	        			} else {
-	        				alert('Photo Saved');
-	        			}
-	        			unp.hideSpinner($(".uploadphotobutton"));
-	        		
-	        	  }
-	        	});
-	        
-	        },
-	        'image/jpeg'
-	    );
-	}
+     if (unpluggedserver){
+	     if (canvas.toBlob) {
+		    canvas.toBlob(
+		        function (blob) {
+		            
+		           	blob.name = _resizedFile.name;
+		            fd.append( $resizeFileUpload.prop('id'), blob, 'photo.jpg' );
+		            
+		            //make the ajax request to send all data to the server             
+		        	$.ajax({
+		        	  url: window.location.pathname,
+		        	  type: 'POST',
+		        	  data: fd,
+		        	  processData: false,
+		        	  contentType: false,
+		        	  
+		        	  success: function(data) {
 	
+		        			if (typeof unpluggedserver != 'undefined' && unpluggedserver) {
+		        				
+		        				$.get("UnpSyncAll.xsp")
+		        					.done( function() {
+		        						alert('Photo Saved and Synced');
+		        					})
+		        					.fail( function() {
+		        						alert('Photo Saved but not yet Synced');
+		        					})
+		        					.always( function() {
+		        						unp.openDocument(window.location.href, 'doccontent');
+		        					});
+		        				
+		        			} else {
+		        				alert('Photo Saved');
+		        			}
+		        			unp.hideSpinner($(".uploadphotobutton"));
+		        		
+		        	  }
+		        	});
+		        
+		        },
+		        'image/jpeg'
+		    );
+		}
+     }else{
+    	 var dataUrl = canvas.toDataURL("image/png");
+    	 $('.js-photouploader-preview')
+         	.find('.base64string')
+            .val(dataUrl);
+    	 unp.saveDocument(null, "newdoc", "BaseCards.xsp", "Photo", null, null, null, "photoupload");
+     }
 };
+
+function resize_canvas( img, maxWidth, maxHeight ) {
+	var width = img.width;
+	var height = img.height;
+
+	if (width > height) {
+	  if (width > maxWidth) {
+	    height *= maxWidth / width;
+	    width = maxWidth;
+	  }
+	} else {
+	  if (height > maxHeight) {
+	    width *= maxHeight / height;
+	    height = maxHeight;
+	  }
+	}
+	img.width = width;
+	img.height = height;
+	var ctx = img.getContext("2d");
+	ctx.drawImage(img, 0, 0, width, height);
+
+	var dataurl = img.toDataURL("image/png");
+}
 
 function callbackFunction(){
 	var item = $(".list-group-item.active").find("h4");

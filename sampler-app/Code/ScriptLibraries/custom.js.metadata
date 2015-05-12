@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="filter" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
-<noteinfo noteid="5f2" sequence="112" unid="4299C7E6CE999E4480257D2D004484B5">
+<noteinfo noteid="5f2" sequence="155" unid="4299C7E6CE999E4480257D2D004484B5">
 <created><datetime dst="true">20140807T132824,21+01</datetime></created>
-<modified><datetime>20150222T084957,53+00</datetime></modified>
-<revised><datetime>20150222T084957,52+00</datetime></revised>
-<lastaccessed><datetime>20150222T084957,53+00</datetime></lastaccessed>
+<modified><datetime dst="true">20150511T172318,42+01</datetime></modified>
+<revised><datetime dst="true">20150511T172318,41+01</datetime></revised>
+<lastaccessed><datetime dst="true">20150511T172318,42+01</datetime></lastaccessed>
 <addedtofile><datetime>20141230T093647,48+00</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE" sign="true"><text>custom.js</text></item>
 <item name="$Flags"><text>h534Q</text></item>
 <item name="$PublicAccess" sign="true"><text>1</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
 
-<item name="$Comment" sign="true"><text>v1.3.1</text></item>
-<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>
+<item name="$Comment"><text>v1.3.1</text></item></note>

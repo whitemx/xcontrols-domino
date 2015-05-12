@@ -626,8 +626,12 @@ unp.goback = function() {
 	}
 }
 
-unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback) {
-	var data = $("#editModal :input").serialize();
+unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback, dataid) {
+	var id = dataid;
+	if (id == null){
+		id = "editModal";
+	}
+	var data = $("#" + id + " :input").serialize();
 	$(".richtextsourcefield").each(function(){
 		var source = $(this);
 		var destfieldname = source.attr("fieldname");
