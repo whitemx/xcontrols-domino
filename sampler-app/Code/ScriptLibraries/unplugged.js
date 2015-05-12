@@ -665,6 +665,7 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 		url += "&dbname=" + dbname;
 	}
 	var valid = unp.validate();
+
 	if (valid) {
 		$.ajax( {
 			type : 'POST',

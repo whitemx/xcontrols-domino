@@ -382,29 +382,6 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
      }
 };
 
-function resize_canvas( img, maxWidth, maxHeight ) {
-	var width = img.width;
-	var height = img.height;
-
-	if (width > height) {
-	  if (width > maxWidth) {
-	    height *= maxWidth / width;
-	    width = maxWidth;
-	  }
-	} else {
-	  if (height > maxHeight) {
-	    width *= maxHeight / height;
-	    height = maxHeight;
-	  }
-	}
-	img.width = width;
-	img.height = height;
-	var ctx = img.getContext("2d");
-	ctx.drawImage(img, 0, 0, width, height);
-
-	var dataurl = img.toDataURL("image/png");
-}
-
 function callbackFunction(){
 	var item = $(".list-group-item.active").find("h4");
 	console.log("Opened " + $(item).text());

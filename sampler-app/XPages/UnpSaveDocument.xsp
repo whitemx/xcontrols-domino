@@ -118,7 +118,6 @@ try{
 				}else if (value.indexOf("data:") > -1 && value.indexOf("base64") > -1){
 					//NB If you are using this, you MUST add commons-codec-1.10.jar
 					var imageDataBytes = value.substring(value.indexOf(",")+1);
-					print(imageDataBytes.length);
 					var is:java.io.InputStream = new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64(imageDataBytes.getBytes()));
 					var mime:NotesMIMEEntity  = doc.createMIMEEntity(fieldname);
 					var header:NotesMIMEHeader = mime.createHeader("Content-Disposition");
