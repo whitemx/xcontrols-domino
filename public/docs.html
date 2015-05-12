@@ -508,7 +508,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
             <dl class="dl-horizontal">
               <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
               <dt>newlink</dt><dd>The link to open when composing a new document, leave blank to hide new button</dd>
-              <dt>dbname</dt><dd>The database to load data from, leave blank if not required</dd>
+              <dt>dbname</dt><dd>The database to load data from, leave blank if not required<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
               <dt>viewname</dt><dd>The view to load data from</dd>
               <dt>summarycolumn</dt><dd>The column title to load summary data from</dd>
               <dt>detailcolumn1</dt><dd>The column title to load detail data from</dd>
@@ -710,7 +710,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
             <dl class="dl-horizontal">
               <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
               <dt>newlink</dt><dd>The link to open when composing a new document, leave blank to hide new button</dd>
-              <dt>dbname</dt><dd>The database to load data from, leave blank if not required</dd>
+              <dt>dbname</dt><dd>The database to load data from, leave blank if not required<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
               <dt>viewname</dt><dd>The view to load data from</dd>
               <dt>summarycolumn</dt><dd>The column title to load summary data from</dd>
               <dt>detailcolumn</dt><dd>The column title to load detail data from</dd>
@@ -793,7 +793,7 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
             </div>
 
             <dl class="dl-horizontal">
-              <dt>dbname</dt><dd>The name of the database that contains the document, leave blank for current database</dd>
+              <dt>dbname</dt><dd>The name of the database that contains the document, leave blank for current database<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
               <dt>formname</dt><dd>The form name of the document being edited</dd>
               <dt>title</dt><dd>The title for the form card</dd>
               <dt>showbuttons</dt><dd>yes or no to show or hide the save and cancel buttons</dd>
@@ -931,7 +931,7 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
                 </a>
             </div>
             <dl class="dl-horizontal">
-              <dt>dbname</dt><dd>the name of the database that contains the document, leave blank for the current database</dd>
+              <dt>dbname</dt><dd>the name of the database that contains the document, leave blank for the current database<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
               <dt>formname</dt><dd>the name of the form for the document</dd>
               <dt>titlefield</dt><dd>the name of the field from which to get the title (if this is set then the title property is ignored)</dd>
               <dt>titleiconfield</dt><dd>the name of the field which contains a thumbnail to display in the title</dd>
