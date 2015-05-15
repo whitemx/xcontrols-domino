@@ -89,7 +89,7 @@
 						</xp:label>
 						<xp:text id="mobileenabled" tagName="h4"
 							styleClass="list-group-item-heading">
-							<xp:this.value><![CDATA[#{javascript:if (docview.getItemValueString("mobileenabled") == "on"){
+							<xp:this.value><![CDATA[#{javascript:if (docview.getItemValueString("mobileenabled") == "fredchecked"){
 	return "Yes";
 }else{
 	return "No";
