@@ -115,7 +115,7 @@ try{
 					var dateval = @Left(value, "T").split("-");
 					var timeval = @Right(value, "T").split(":");
 					value = session.createDateTime(@Date(parseInt(dateval[0], 10), parseInt(dateval[1], 10), parseInt(dateval[2], 10), parseInt(timeval[0]), parseInt(timeval[1], 10), 0));
-				}else if (value.indexOf("data:") > -1 && value.indexOf("base64") > -1){
+				}else if (typeof value == "String" && value.indexOf("data:") > -1 && value.indexOf("base64") > -1){
 					//NB If you are using this, you MUST add commons-codec-1.10.jar
 					var imageDataBytes = value.substring(value.indexOf(",")+1);
 					var is:java.io.InputStream = new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64(imageDataBytes.getBytes()));
@@ -141,7 +141,7 @@ try{
 		unid = doc.getUniversalID();
 		resp = "OK";
 	}catch(e){
-		resp = e;
+		resp = resp + e;
 	}
 }catch(mainerror){
 

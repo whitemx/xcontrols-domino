@@ -128,8 +128,8 @@ if (docedit.getItemValueString('mobileenabled') == "on"){
 return out;}]]></xp:this.styleClass>
 							<div class="bootcards-toggle-handle"></div>
 						</xp:panel>
-						<xp:checkBox checkedValue="on"
-							uncheckedValue="off" style="display: none;"
+						<xp:checkBox checkedValue="yes"
+							uncheckedValue="no" style="display: none;"
 							value="#{docedit.mobileenabled}" required="false"
 							id="mobileenabled">
 						</xp:checkBox>
