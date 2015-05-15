@@ -385,6 +385,7 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
 function callbackFunction(){
 	var item = $(".list-group-item.active").find("h4");
 	console.log("Opened " + $(item).text());
+	return true;
 }
  
 function savecallback(){
