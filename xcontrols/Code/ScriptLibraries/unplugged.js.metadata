@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="filter" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
-<noteinfo noteid="86a" sequence="3" unid="2699092D8A19D01980257E260040D018">
-<created><datetime dst="true">20150413T124755,76+01</datetime></created>
-<modified><datetime dst="true">20150413T124812,68+01</datetime></modified>
-<revised><datetime dst="true">20150413T124812,67+01</datetime></revised>
-<lastaccessed><datetime dst="true">20150413T124812,68+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20150413T124755,80+01</datetime></addedtofile></noteinfo>
+<noteinfo noteid="9ca" sequence="1" unid="6B1A622059D2FD2E80257E49004A1BD7">
+<created><datetime dst="true">20150518T142927,91+01</datetime></created>
+<modified><datetime dst="true">20150518T142927,97+01</datetime></modified>
+<revised><datetime dst="true">20150518T142927,96+01</datetime></revised>
+<lastaccessed><datetime dst="true">20150518T142927,97+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150518T142927,97+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE" sign="true"><text>unplugged.js</text></item>
 <item name="$Flags"><text>h534Q</text></item>
 <item name="$PublicAccess" sign="true"><text>1</text></item>
 
-<item name="$Comment" sign="true"><text>v1.3.2</text></item>
+<item name="$Comment" sign="true"><text>v1.4</text></item>
 <item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>

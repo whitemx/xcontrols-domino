@@ -43,7 +43,7 @@
 			rendered="#{javascript:!isEmpty(compositeData.placeHolderIcon)}">
 			<xp:this.styleClass><![CDATA[#{javascript:"fa fa-2x " + compositeData.placeHolderIcon}]]></xp:this.styleClass>
 		</xp:text>
-
+		<xp:inputTextarea styleClass="base64string hidden" id="base64string"></xp:inputTextarea>
 		</div>
 
 		<!-- buttons to rotate the image -->

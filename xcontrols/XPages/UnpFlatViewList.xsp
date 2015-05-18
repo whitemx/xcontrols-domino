@@ -18,6 +18,29 @@
 if (category == "null" || category == "" || category == "undefined"){
 	return null;
 }else{
+	var vwtemp = database.getView(param.get("chosenView"));
+	var entries:NotesViewEntryCollection = vwtemp.getAllEntriesByKey(category, true);
+	if (entries.getCount() == 0){
+		entries.recycle();
+		entries = vwtemp.getAllEntriesByKey(category, false);
+		if (entries.getCount() > 0){
+			var entry:NotesViewEntry = entries.getFirstEntry();
+			var value = entry.getColumnValues().elementAt(0);
+			if (typeof value == "java.util.Vector"){
+				for (var i=0; i<value.size(); i++){
+					if (value.elementAt(i).indexOf(category) > -1){
+						category = value.elementAt(i).toLowerCase();
+					}
+				}
+			}else{
+				if (value.indexOf(category) > -1){
+					category = value.toLowerCase();
+				}
+			}
+			entry.recycle();
+			entries.recycle();
+		}
+	}
 	return category;
 }}]]></xp:this.categoryFilter>
 			<xp:this.viewName><![CDATA[#{javascript:var viewname = param.get("chosenView");

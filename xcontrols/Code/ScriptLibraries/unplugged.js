@@ -626,8 +626,12 @@ unp.goback = function() {
 	}
 }
 
-unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback) {
-	var data = $("#editModal :input").serialize();
+unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback, presavecallback, dataid) {
+	var id = dataid;
+	if (id == null){
+		id = "editModal";
+	}
+	var data = $("#" + id + " :input").serialize();
 	$(".richtextsourcefield").each(function(){
 		var source = $(this);
 		var destfieldname = source.attr("fieldname");
@@ -660,7 +664,14 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 	if (dbname) {
 		url += "&dbname=" + dbname;
 	}
-	var valid = unp.validate();
+	var valid = true;
+	if (presavecallback){
+		valid = presavecallback();
+	}
+	if (valid){
+		valid = unp.validate();
+	}
+
 	if (valid) {
 		$.ajax( {
 			type : 'POST',
@@ -697,9 +708,24 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 						$('[unid="' + response + '"]').replaceWith(response2);
 						$('[unid="' + response + '"]').addClass('active');
 					})
-				}
-				if (callback){
-					callback();
+					if (callback){
+						callback(
+								obj.dbname, 
+								obj.viewname, 
+								obj.summarycolumn, 
+								obj.detailcolumn, 
+								obj.categoryfilter, 
+								obj.xpagedoc, 
+								'pull', 
+								obj.photocolumn, 
+								obj.ajaxload, 
+								null, 
+								'doccontent');
+					}
+				}else{
+					if (callback){
+						callback();
+					}
 				}
 			} else {
 				alert(response);
@@ -1155,6 +1181,17 @@ unp.initSearch = function() {
 			unp.dolocalsearch();
 			e.stopPropagation();
 			return false;
+		}
+	});
+	$('.searchbox').typeahead({
+		source: function(query, process) {
+			return $.ajax({
+                url: $('.searchbox').attr('searchahead') + "&query=" + query,
+                dataType: 'json',
+                success: function (data) {
+                    return typeof data == 'undefined' ? false : process(data);
+                }
+            });
 		}
 	});
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="filter" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
-<noteinfo noteid="706" sequence="3" unid="E3E77A84D700EB1E80257E00003025B1">
-<created><datetime>20150306T084553,77+00</datetime></created>
-<modified><datetime dst="true">20150413T124816,24+01</datetime></modified>
-<revised><datetime dst="true">20150413T124816,23+01</datetime></revised>
-<lastaccessed><datetime dst="true">20150413T124816,24+01</datetime></lastaccessed>
-<addedtofile><datetime>20150306T084553,77+00</datetime></addedtofile></noteinfo>
+<noteinfo noteid="9c2" sequence="1" unid="A33CEB5D624B01F980257E49004A1BD5">
+<created><datetime dst="true">20150518T142927,89+01</datetime></created>
+<modified><datetime dst="true">20150518T142927,93+01</datetime></modified>
+<revised><datetime dst="true">20150518T142927,92+01</datetime></revised>
+<lastaccessed><datetime dst="true">20150518T142927,93+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150518T142927,93+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE" sign="true"><text>OpenLogFunctions</text></item>
@@ -12,5 +12,5 @@
 <item name="$PublicAccess" sign="true"><text>1</text></item>
 
 
-<item name="$Comment" sign="true"><text>v1.3.2</text></item>
+<item name="$Comment" sign="true"><text>v1.4</text></item>
 <item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>

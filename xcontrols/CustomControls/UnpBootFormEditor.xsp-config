@@ -15,7 +15,7 @@
         <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &#xd;
 &lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt; &#xd;
 	&lt;div style="border: 2px solid #A9A9A9; padding: 3px; margin: 5px;"&gt;&#xd;
-	&lt;h1&gt;UnpBootFormEditor v1.3.2&lt;/h1&gt;&#xd;
+	&lt;h1&gt;UnpBootFormEditor v1.4&lt;/h1&gt;&#xd;
 	&lt;div&gt;&#xd;
 		To use this custom control make sure you have set the Custom Properties.&#xd;
 	&lt;/div&gt;&#xd;
@@ -57,6 +57,20 @@
     </property>
     <property>
       <property-name>callback</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>fullpagemode</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.std.Boolean</editor>
+          <default-value>false</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>presavecallback</property-name>
       <property-class>string</property-class>
     </property>
   </composite-component>
