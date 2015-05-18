@@ -395,6 +395,11 @@ function savecallback(dbName, viewName, summarycol, detailcol, category,
 			xpage, refreshmethod, photocol, ajaxload, callback, target)
 }
 
+function presavecallback(){
+	console.log("Pre save document at " + new Date());
+	return true;
+}
+
 function editcallback(){
 	console.log("Started editing document at " + new Date());
 }

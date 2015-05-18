@@ -664,11 +664,13 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 	if (dbname) {
 		url += "&dbname=" + dbname;
 	}
-	var valid = false;
+	var valid = true;
 	if (presavecallback){
 		valid = presavecallback();
 	}
-	valid = unp.validate();
+	if (valid){
+		valid = unp.validate();
+	}
 
 	if (valid) {
 		$.ajax( {
