@@ -626,7 +626,7 @@ unp.goback = function() {
 	}
 }
 
-unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback, dataid) {
+unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback, presavecallback, dataid) {
 	var id = dataid;
 	if (id == null){
 		id = "editModal";
@@ -664,7 +664,11 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 	if (dbname) {
 		url += "&dbname=" + dbname;
 	}
-	var valid = unp.validate();
+	var valid = false;
+	if (presavecallback){
+		valid = presavecallback();
+	}
+	valid = unp.validate();
 
 	if (valid) {
 		$.ajax( {

@@ -69,5 +69,9 @@
         </designer-extension>
       </property-extension>
     </property>
+    <property>
+      <property-name>presavecallback</property-name>
+      <property-class>string</property-class>
+    </property>
   </composite-component>
 </faces-config>
