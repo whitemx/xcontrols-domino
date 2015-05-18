@@ -22,8 +22,7 @@
 					</div>
 					<div class="btn-group pull-right">
 						<xp:panel id="okbutton" tagName="a"
-							styleClass="btn btn-success"
-							rendered="#{javascript:compositeData.showok != false}">
+							styleClass="btn btn-success">
 							<xp:this.attrs>
 								<xp:attr name="onclick">
 									<xp:this.value><![CDATA[#{javascript:var out = "";
@@ -33,13 +32,29 @@ if (compositeData.callback){
 return out;}]]></xp:this.value>
 								</xp:attr>
 								<xp:attr name="data-dismiss"
-									value="modal"
-									rendered="#{javascript:compositeData.dismissonok != false}">
+									value="modal">
 								</xp:attr>
 								<xp:attr name="href" value="#">
 								</xp:attr>
 							</xp:this.attrs>
 							OK
+							<xp:this.rendered><![CDATA[#{javascript:compositeData.showok != false && compositeData.dismissonok != false}]]></xp:this.rendered>
+						</xp:panel>
+						<xp:panel id="okbutton2" tagName="a"
+							styleClass="btn btn-success">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[#{javascript:var out = "";
+if (compositeData.callback){
+	out += compositeData.callback + "; "
+}
+return out;}]]></xp:this.value>
+								</xp:attr>
+								<xp:attr name="href" value="#">
+								</xp:attr>
+							</xp:this.attrs>
+							OK
+							<xp:this.rendered><![CDATA[#{javascript:compositeData.showok != false && compositeData.dismissonok == false}]]></xp:this.rendered>
 						</xp:panel>
 					</div>
 					<xp:text id="title" tagName="h3" styleClass="modal-title"
