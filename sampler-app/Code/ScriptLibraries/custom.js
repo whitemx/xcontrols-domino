@@ -388,8 +388,11 @@ function callbackFunction(){
 	return true;
 }
  
-function savecallback(){
+function savecallback(dbName, viewName, summarycol, detailcol, category,
+		xpage, refreshmethod, photocol, ajaxload, callback, target){
 	console.log("Saved document at " + new Date());
+	unp.clearsearch(dbName, viewName, summarycol, detailcol, category,
+			xpage, refreshmethod, photocol, ajaxload, callback, target)
 }
 
 function editcallback(){

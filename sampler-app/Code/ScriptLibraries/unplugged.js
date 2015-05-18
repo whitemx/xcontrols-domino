@@ -702,9 +702,24 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 						$('[unid="' + response + '"]').replaceWith(response2);
 						$('[unid="' + response + '"]').addClass('active');
 					})
-				}
-				if (callback){
-					callback();
+					if (callback){
+						callback(
+								obj.dbname, 
+								obj.viewname, 
+								obj.summarycolumn, 
+								obj.detailcolumn, 
+								obj.categoryfilter, 
+								obj.xpagedoc, 
+								'pull', 
+								obj.photocolumn, 
+								obj.ajaxload, 
+								null, 
+								'doccontent');
+					}
+				}else{
+					if (callback){
+						callback();
+					}
 				}
 			} else {
 				alert(response);
