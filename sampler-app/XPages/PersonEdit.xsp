@@ -14,19 +14,22 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 	<unp:UnpBootFormEditor showbuttons="true"
-		footertext="Built with Bootcards - Form Editor Card" viewxpagename="FlatView.xsp"
-		formname="Person" title="Person" xp:key="facet_1" callback="savecallback">
+		footertext="Built with Bootcards - Form Editor Card"
+		viewxpagename="FlatView.xsp" formname="Person" title="Person"
+		xp:key="facet_1" callback="savecallback" fullpagemode="false">
 		<xp:this.facets>
 			<xp:panel id="list-group" xp:key="facet_1">
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label" for="name"
-						value="First Name">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="name" value="First Name">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="firstname" value="#{docedit.firstname}"
+						<xp:inputText id="firstname"
+							value="#{docedit.firstname}"
 							styleClass="form-control required">
 							<xp:this.attrs>
-								<xp:attr name="placeholder" value="First Name">
+								<xp:attr name="placeholder"
+									value="First Name">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>
@@ -36,14 +39,15 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label" for="name"
-						value="Last Name">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="name" value="Last Name">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="lastname" value="#{docedit.lastname}"
-							styleClass="form-control required">
+						<xp:inputText id="lastname"
+							value="#{docedit.lastname}" styleClass="form-control required">
 							<xp:this.attrs>
-								<xp:attr name="placeholder" value="Last Name">
+								<xp:attr name="placeholder"
+									value="Last Name">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>
@@ -53,28 +57,31 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label" for="title"
-						value="Title">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="title" value="Title">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="title" value="#{docedit.Title}"
+						<xp:inputText id="title"
+							value="#{docedit.Title}" styleClass="form-control">
+							<xp:this.attrs>
+								<xp:attr name="placeholder"
+									value="Title">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Date"
+						id="datetime_initialcontactdatelabel" for="initialcontactdate"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="initialcontactdate"
 							styleClass="form-control">
-							<xp:this.attrs>
-								<xp:attr name="placeholder" value="Title">
-								</xp:attr>
-							</xp:this.attrs>
-						</xp:inputText>
-						<a href="" class="bootcards-clearinput">
-							<i class="fa fa-lg fa-times-circle"></i>
-						</a>
-					</div>
-				</div>
-				<div class="form-group">
-					<xp:label value="Date" id="datetime_initialcontactdatelabel"
-						for="initialcontactdate" styleClass="col-xs-4 control-label">
-					</xp:label>
-					<div class="col-xs-8">
-						<xp:inputText id="initialcontactdate" styleClass="form-control">
 							<xp:this.attrs>
 								<xp:attr name="datevalue">
 									<xp:this.value><![CDATA[#{javascript:try{
@@ -90,14 +97,16 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label" for="email"
-						value="Email">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="email" value="Email">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="email" value="#{docedit.Email}"
-							styleClass="form-control" type="email">
+						<xp:inputText id="email"
+							value="#{docedit.Email}" styleClass="form-control"
+							type="email">
 							<xp:this.attrs>
-								<xp:attr name="placeholder" value="Email">
+								<xp:attr name="placeholder"
+									value="Email">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>
@@ -107,8 +116,8 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label value="Mobile Enabled?" id="mobilelabel" for="mobileenabled"
-						styleClass="col-xs-4 control-label">
+					<xp:label value="Mobile Enabled?" id="mobilelabel"
+						for="mobileenabled" styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
 						<xp:panel id="toggle">
@@ -120,40 +129,47 @@ return out;}]]></xp:this.styleClass>
 							<div class="bootcards-toggle-handle"></div>
 						</xp:panel>
 						<xp:checkBox checkedValue="fredchecked"
-							uncheckedValue="barryunchecked" style="display: none;" value="#{docedit.mobileenabled}"
-							required="false" id="mobileenabled">
+							uncheckedValue="barryunchecked" style="display: none;"
+							value="#{docedit.mobileenabled}" required="false"
+							id="mobileenabled">
 							<xp:this.attrs>
-								<xp:attr name="checkedValue" value="fredchecked">
+								<xp:attr name="checkedValue"
+									value="fredchecked">
 								</xp:attr>
-								<xp:attr name="uncheckedValue" value="barryunchecked">
+								<xp:attr name="uncheckedValue"
+									value="barryunchecked">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:checkBox>
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label value="Company" id="companylabel" for="company"
-						styleClass="col-xs-4 control-label">
+					<xp:label value="Company" id="companylabel"
+						for="company" styleClass="col-xs-4 control-label">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="company" value="#{docedit.Company}"
-							styleClass="required form-control typeahead" autocomplete="off">
+						<xp:inputText id="company"
+							value="#{docedit.Company}"
+							styleClass="required form-control typeahead"
+							autocomplete="off">
 							<xp:this.attrs>
-								<xp:attr name="jslist" value="companies">
+								<xp:attr name="jslist"
+									value="companies">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label" for="streetaddress"
-						value="Street Address">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="streetaddress" value="Street Address">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="streetaddress" value="#{docedit.streetaddress}"
-							styleClass="form-control">
+						<xp:inputText id="streetaddress"
+							value="#{docedit.streetaddress}" styleClass="form-control">
 							<xp:this.attrs>
-								<xp:attr name="placeholder" value="Street Address">
+								<xp:attr name="placeholder"
+									value="Street Address">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>
@@ -163,14 +179,15 @@ return out;}]]></xp:this.styleClass>
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label" for="city"
-						value="City">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="city" value="City">
 					</xp:label>
 					<div class="col-xs-8">
 						<xp:inputText id="city" value="#{docedit.city}"
 							styleClass="form-control">
 							<xp:this.attrs>
-								<xp:attr name="placeholder" value="City">
+								<xp:attr name="placeholder"
+									value="City">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>
@@ -180,12 +197,12 @@ return out;}]]></xp:this.styleClass>
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label" for="country"
-						value="Country">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="country" value="Country">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:comboBox id="country" value="#{docedit.Country}"
-							styleClass="form-control">
+						<xp:comboBox id="country"
+							value="#{docedit.Country}" styleClass="form-control">
 							<xp:selectItems>
 								<xp:this.value><![CDATA[#{javascript:@Unique(@DbColumn(@DbName(), "People By Country", 1))}]]></xp:this.value>
 							</xp:selectItems>
@@ -193,14 +210,15 @@ return out;}]]></xp:this.styleClass>
 					</div>
 				</div>
 				<div class="form-group">
-					<xp:label styleClass="col-xs-4 control-label" for="phone"
-						value="Phone">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="phone" value="Phone">
 					</xp:label>
 					<div class="col-xs-8">
-						<xp:inputText id="phone" value="#{docedit.phone}"
-							type="tel" styleClass="form-control">
+						<xp:inputText id="phone"
+							value="#{docedit.phone}" type="tel" styleClass="form-control">
 							<xp:this.attrs>
-								<xp:attr name="placeholder" value="Phone">
+								<xp:attr name="placeholder"
+									value="Phone">
 								</xp:attr>
 							</xp:this.attrs>
 						</xp:inputText>

@@ -23,11 +23,25 @@
 		<xp:panel styleClass="modal-header">
 			<xp:panel styleClass="btn-group pull-left">
 				<xp:this.rendered><![CDATA[#{javascript:compositeData.showbuttons != false}]]></xp:this.rendered>
-				<a href="#" class="btn btn-danger"
-					data-dismiss="modal">
+				<xp:panel tagName="a" styleClass="btn btn-danger">
+					<xp:this.attrs>
+						<xp:attr>
+							<xp:this.name><![CDATA[#{javascript:if (compositeData.fullpagemode != true){
+	return "data-dismiss";
+}else{
+	return "onclick";
+}}]]></xp:this.name>
+							<xp:this.value><![CDATA[#{javascript:if (compositeData.fullpagemode != true){
+	return "modal";
+}else{
+	return "history.go(-1);";
+}}]]></xp:this.value>
+						</xp:attr>
+						<xp:attr name="href" value="#"></xp:attr>
+					</xp:this.attrs>
 					<i class="fa fa-times" />
 					&#160;Cancel
-				</a>
+				</xp:panel>
 			</xp:panel>
 
 
