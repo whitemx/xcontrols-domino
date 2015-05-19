@@ -82,44 +82,64 @@ try{
 					//This needs to be a multi value field
 					fieldnames = fieldname.split("__");
 					resp = "start fieldname = " + fieldname;
+					//print(resp);
 					fieldname = fieldnames[fieldnames.length - 1]
 					resp = "new fieldname = " + fieldname;
 					resp = "value = " + value;
+					//print(resp);
 					value = @Explode(value, ",");
+					doc.replaceItemValue(fieldname, value);
+					resp = (fieldname + ": " + value);
+					//print(resp);
 				}else if(fieldname.indexOf("int_") > -1){
 					//This needs to be an integer value field
 					fieldnames = fieldname.split("int_");
 					resp = "start fieldname = " + fieldname;
 					fieldname = fieldnames[fieldnames.length - 1]
 					resp = "new fieldname = " + fieldname;
+					//print(resp);
 					resp = "value = " + parseInt(value);
+					//print(resp);
 					value = parseInt(value);
 					if (isNaN(value)){
 						value = 0;
 					}
-					
+					doc.replaceItemValue(fieldname, value);
+					resp = (fieldname + ": " + value);
+					//print(resp);
 				}else if(fieldname.indexOf("float_") > -1){
 					//This needs to be a float value field
 					fieldnames = fieldname.split("float_");
 					resp = "start fieldname = " + fieldname;
+					//print(resp);
 					fieldname = fieldnames[fieldnames.length - 1]
 					resp = "new fieldname = " + fieldname;		
 					resp = "value = " + parseFloat(value);
+					//print(resp);
 					value = parseFloat(value);
 					if (isNaN(value)){
 						value = 0;
 					}
+					doc.replaceItemValue(fieldname, value);
+					resp = (fieldname + ": " + value);
+					//print(resp);
 				}else if(fieldname.indexOf("datetime_") > -1){
 					fieldnames = fieldname.split("datetime_");
 					fieldname = fieldnames[fieldnames.length - 1]
 					var dateval = @Left(value, "T").split("-");
 					var timeval = @Right(value, "T").split(":");
 					value = session.createDateTime(@Date(parseInt(dateval[0], 10), parseInt(dateval[1], 10), parseInt(dateval[2], 10), parseInt(timeval[0]), parseInt(timeval[1], 10), 0));
-				}else if (typeof value == "String" && value.indexOf("data:") > -1 && value.indexOf("base64") > -1){
+					doc.replaceItemValue(fieldname, value);
+					resp = (fieldname + ": " + value);
+					//print(resp);
+				}else if (typeof value == "string" && value.indexOf("data:") > -1 && value.indexOf("base64") > -1){
 					//NB If you are using this, you MUST add commons-codec-1.10.jar
+					//print("Processing base64 string...");
 					var imageDataBytes = value.substring(value.indexOf(",")+1);
+					//print(imageDataBytes.length);
 					var is:java.io.InputStream = new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64(imageDataBytes.getBytes()));
 					var mime:NotesMIMEEntity  = doc.createMIMEEntity(fieldname);
+					//print("created mime field " + fieldname);
 					var header:NotesMIMEHeader = mime.createHeader("Content-Disposition");
 					var fileName = "photo.png";
 					header.setHeaderVal("attachment; filename=\"" + fileName + "\"");
@@ -128,12 +148,18 @@ try{
 					var stream = session.createStream();
 					stream.setContents(is);
 					mime.setContentFromBytes(stream, "image/png", NotesMIMEEntity.ENC_IDENTITY_BINARY);
+					stream.close();
+					//print("Processed image");
+					value = "";
+				}else{
+					doc.replaceItemValue(fieldname, value);
+					resp = (fieldname + ": " + value);
+					//print(resp);
 				}
-				doc.replaceItemValue(fieldname, value);
-				resp = (fieldname + ": " + value);
 			}else{
 				doc.replaceItemValue(key, value);
 				resp = (key + ": " + value);
+				print(resp);
 			}
 		}
 
