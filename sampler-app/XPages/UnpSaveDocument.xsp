@@ -68,6 +68,7 @@ try{
 		while(keys.hasNext()){
 			var key = keys.next();
 			resp = ("Processing " + key);
+			//print(resp);
 			var value = unescape(param.get(key));
 			if (dateformat.test(value) && key.indexOf("datetime_") == -1){
 				value = value.split("-");
@@ -75,9 +76,15 @@ try{
 			}
 			if (@Left(key, 2) == "$$"){
 				//Ignore, this is a system field
-			}else if(key.indexOf(":") > -1){
-				var fieldnames = key.split(":");
-				var fieldname = fieldnames[fieldnames.length - 1];
+			}else{
+				var fieldnames;
+				var fieldname;
+				if (key.indexOf(":") > -1){
+					fieldnames = key.split(":");
+					fieldname = fieldnames[fieldnames.length - 1];
+				}else{
+					fieldname = key;
+				}
 				if (fieldname.indexOf("__") > -1){
 					//This needs to be a multi value field
 					fieldnames = fieldname.split("__");
@@ -156,10 +163,6 @@ try{
 					resp = (fieldname + ": " + value);
 					//print(resp);
 				}
-			}else{
-				doc.replaceItemValue(key, value);
-				resp = (key + ": " + value);
-				print(resp);
 			}
 		}
 

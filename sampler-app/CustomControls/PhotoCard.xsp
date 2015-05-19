@@ -31,7 +31,7 @@
 					showRotationControls="false"
 					placeHolderIcon="fa-camera"
 					crop="false"
-					customSelectElement=".js-custom-photo-select">
+					customSelectElement=".js-custom-photo-select" attachmentFieldName="photo">
 				</unp:UnpBootPhotoUpload>
 			</div>
 

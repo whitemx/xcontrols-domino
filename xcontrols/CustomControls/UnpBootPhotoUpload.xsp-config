@@ -90,5 +90,12 @@
       <property-class>string</property-class>
       <description>jQuery selector that can be used to specify a custom location for the 'photo select' control</description>
     </property>
+    <property>
+      <property-name>attachmentFieldName</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
   </composite-component>
 </faces-config>

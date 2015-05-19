@@ -378,7 +378,7 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
     	 $('.js-photouploader-preview')
          	.find('.base64string')
             .val(dataUrl);
-    	 unp.saveDocument(null, "newdoc", "BaseCards.xsp", "Photo", null, null, null, "photoupload");
+    	 unp.saveDocument(null, "newdoc", "BaseCards.xsp", "Photo", null, null, null, null, "photoupload");
      }
 };
 
