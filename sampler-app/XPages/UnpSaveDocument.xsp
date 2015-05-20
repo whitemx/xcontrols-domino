@@ -54,7 +54,8 @@ try{
 		}
 	}
 	resp = "getting parentunid";
-	if (context.getUrlParameter("parentunid") != "" && context.getUrlParameter("parentunid") != "null"){
+	if (context.getUrlParameter("parentunid") != null && context.getUrlParameter("parentunid") != "" && context.getUrlParameter("parentunid") != "null"){
+		resp = "parentunid = " + context.getUrlParameter("parentunid");
 		var parent:NotesDocument = database.getDocumentByUNID(context.getUrlParameter("parentunid"));
 		resp = "creating response to parentunid = " + parent.getUniversalID();
 		doc.makeResponse(parent);

@@ -330,7 +330,7 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
 	//now add the resized image to the FormData object and send it
 	
 	 var canvas = document.getElementById('photoUploadCanvas');
-     if (false && unpluggedserver){
+     if (unpluggedserver){
 	     if (canvas.toBlob) {
 		    canvas.toBlob(
 		        function (blob) {
@@ -349,7 +349,7 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
 		        	  success: function(data) {
 	
 		        			if (typeof unpluggedserver != 'undefined' && unpluggedserver) {
-		        				
+		        				/*
 		        				$.get("UnpSyncAll.xsp")
 		        					.done( function() {
 		        						alert('Photo Saved and Synced');
@@ -360,7 +360,8 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
 		        					.always( function() {
 		        						unp.openDocument(window.location.href, 'doccontent');
 		        					});
-		        				
+		        				*/
+		        				window.location.reload();
 		        			} else {
 		        				alert('Photo Saved');
 		        			}
