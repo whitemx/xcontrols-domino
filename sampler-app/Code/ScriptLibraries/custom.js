@@ -330,7 +330,7 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
 	//now add the resized image to the FormData object and send it
 	
 	 var canvas = document.getElementById('photoUploadCanvas');
-     if (unpluggedserver){
+     if (false && unpluggedserver){
 	     if (canvas.toBlob) {
 		    canvas.toBlob(
 		        function (blob) {
