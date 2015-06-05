@@ -1,5 +1,26 @@
 # XControls
 
+##v1.4 / 2015-05-19
+* Fix bug with selecting options from list in typeahead in iOS, thanks <a href="https://github.com/adymakombo”>adymakombo</a> for reporting
+* Add support for data sources on a different server to the application database, thanks Klaus F Heine for reporting
+* Fix bug with selecting options from list in typeahead in iOS, thanks <a href="https://github.com/adymakombo”>adymakombo</a> for reporting
+* Improve flat view searching by allowing partial matches and offering typeahead options, thanks <a href="https://github.com/notesboy">notesboy</a> for reporting
+* Better support double header bar from Bootcards, thanks <a href="https://github.com/sives">sives</a> for reporting
+* Improve photo upload support to work on desktop and mobile browsers as well as Unplugged, thanks <a href="https://github.com/richsharpe">richsharpe</a> for reporting
+* Improved sampler code for mobile toggle switch, thanks <a href="https://github.com/richsharpe">richsharpe</a> for reporting
+* Allow UnpBootFormEdit control to be loaded full page and have cancel button return to previous page, thanks <a href="https://github.com/richsharpe">richsharpe</a> for reporting
+* Fix bug with dismissOnOk=false in Unplugged, thanks <a href="https://github.com/richsharpe">richsharpe</a> for reporting
+* Extend post save callback to pass in sufficient parameters to allow developer to reload flat list in place, thanks <a href="https://github.com/richsharpe">richsharpe</a> for suggesting
+* Add new presavecallback to allow custom validation to be performed before saving, thanks <a href="https://github.com/richsharpe">richsharpe</a> for suggesting
+
+##v1.3.1 / 2015-03-06
+* Identify bug where max response size in Unplugged server prevented rich text editor from working properly, thanks <a href="https://github.com/edm00se">edm00se</a>, <a href="https://github.com/neilevans">NeilEvans</a> for help tracking it down
+* Fix bug with showbuttons not working correctly in UnpBootFormEditor, thanks <a href="https://github.com/reidcanavan">Reid Canavan</a>
+* Fix bug with UnpBootAccordionView not correctly handling ajaxload=no setting, thanks <a href="https://github.com/reidcanavan">Reid Canavan</a>
+* Add version number to design elements, thanks <a href="https://github.com/richsharpe">David Henderson</a>
+* Make dialogs truly modal, user now has to click close or cancel, thanks <a href="https://github.com/ktatsuki">ktatsuki</a> and <a href="https://github.com/khsopro">khsopro</a>
+* Fix toggle switch not working in some situations on the desktop, thanks <a href="https://github.com/richsharpe">Rich Sharpe</a>
+
 ## v1.3.0 / 2015-01-20
 
 * Fix a bug where the Add button in the accordion list was not working correctly, thanks [aysekai](https://github.com/ayesekai)
