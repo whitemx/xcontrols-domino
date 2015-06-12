@@ -106,7 +106,6 @@
 					<li><a href="#doc-header">Header</a></li>
 					<li><a href="#doc-imageviewer">Image Viewer</a></li>
           				<li><a href="#doc-login">Login</a></li>
-					<li><a href="#doc-navigator">Navigator</a></li>
 					<li><a href="#doc-photoupload">Photo Upload</a></li>
 					<li><a href="#doc-resources">Resources</a></li>
 					<li><a href="#doc-typographyedit">Typography Edit</a></li>
@@ -142,11 +141,6 @@
 	&lt;unp:UnpBootResources&gt;
 	&lt;/unp:UnpBootResources&gt;
 
-	&lt;unp:UnpBootNavigator&gt;
-		&lt;unp:this.menuitems&gt;&lt;![CDATA[#{javascript:[
-	...Sidebar nav goes here...
-]}]]&gt;&lt;/unp:this.menuitems&gt;
-	&lt;/unp:UnpBootNavigator&gt;
 	&lt;unp:UnpBootHeader title=&quot;Sampler&quot;&gt;
 		&lt;unp:this.navitems&gt;&lt;![CDATA[#{javascript:[
         ... Header Menu for Desktop goes here...
@@ -995,7 +989,7 @@ return out;}]]&gt;&lt;/xp:this.styleClass&gt;
 
             <dl class="dl-horizontal">
               <dt>title</dt><dd>title for the page</dd>
-              <dt>navitems</dt><dd>an array of objects that describe header menu items. These will only be displayed for desktop users. For sidebar navigation, use the Navigator control. Each item should have the following properties: label, page and icon. The label is what will be displayed in the header bar, the page is the URL to open when the link is clicked and icon is the Font Awesome icon to use for the menu item.</dd>
+              <dt>navitems</dt><dd>an array of objects that describe menu items. Each item should have the following properties: label, page and icon. The label is what will be displayed in the header bar, the page is the URL to open when the link is clicked and icon is the Font Awesome icon to use for the menu item.</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
   &lt;unp:UnpBootHeader&gt;
@@ -1093,47 +1087,6 @@ xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
 &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
 &lt;/xp:view&gt;
             </code></pre></div>
-          </div>
-
-          <div id="doc-navigator" class="bs-docs-section">
-            <h2>Navigator</h2>
-            <p class="lead">For use on mobile devices, the navigator will provide a slide in side menu with up to three levels of nesting</p>
-            <div class="row">
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/navigator-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Navigator iOS" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/navigator-ios.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/navigator-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Navigator Android" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/navigator-android.png" class="img-responsive">
-                </a>
-            </div>
-            <p>Menu items can open a page either with a full page reload or an Ajax request. Menu items can have icons. The navigator will not display on desktop browsers.</p>
-            <p>If the navigator is viewed with a mobile device using Unplugged, then a Home item will be inserted at the top of the navigator to take you back to the workspace</p>
-
-            <dl class="dl-horizontal">
-              <dt>menuitems</dt><dd>an array of menu item objects. Each menu item will have the following settings:</dd>
-            </dl>
-            <ul>
-            <li><strong>label</strong>: the label for the menu item</li>
-            <li><strong>icon</strong>: the Font Awesome icon for the menu item. the icon will be ignored if there are children defined)</li>
-            <li><strong>page</strong>: the page to open when the menu item is clicked</li>
-            <li><strong>ajaxloadid</strong>: the element to load if using Ajax (leave blank for a full page reload)</li>
-            <li><strong>ajaxtargetid</strong>: the element to insert data into is using Ajax (leave blank for a full page reload)</li>
-            <li><strong>children</strong>: an array of menu items using the same format, but will be displayed as a sub menu</li>
-            </ul>
-<div class="highlight"><pre><code class="html">
-&lt;unp:UnpBootNavigator&gt;
-  &lt;unp:this.menuitems&gt;&lt;![CDATA[#{javascript:[
-  {&quot;label&quot;: &quot;Dashboard&quot;, &quot;icon&quot;: &quot;fa-dashboard&quot;, &quot;page&quot;: &quot;/UnpMain.xsp&quot;},
-  {&quot;label&quot;: &quot;Contacts&quot;, children: [
-    {&quot;label&quot;: &quot;Contacts&quot;, &quot;icon&quot;: &quot;fa-group&quot;, &quot;page&quot;: &quot;/Contacts.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
-    {&quot;label&quot;: &quot;Departments&quot;, &quot;icon&quot;: &quot;fa-building&quot;, &quot;page&quot;: &quot;/Departments.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
-    {&quot;label&quot;: &quot;My Activities&quot;, &quot;icon&quot;: &quot;fa-tasks&quot;, &quot;page&quot;: &quot;/MyActivities.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
-    {&quot;label&quot;: &quot;Activities By Contact&quot;, &quot;icon&quot;: &quot;fa-tasks&quot;, &quot;page&quot;: &quot;/ActivitiesByContact.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;},
-    {&quot;label&quot;: &quot;Activities By Department&quot;, &quot;icon&quot;: &quot;fa-tasks&quot;, &quot;page&quot;: &quot;/ActivitiesByDepartment.xsp&quot;, ajaxloadid: &quot;main&quot;, ajaxtargetid: &quot;main&quot;}
-  ]}
-]}]]&gt;&lt;/unp:this.menuitems&gt;
-&lt;/unp:UnpBootNavigator&gt;
-</code></pre></div>
           </div>
 
           <div id="doc-photoupload" class="bs-docs-section">
