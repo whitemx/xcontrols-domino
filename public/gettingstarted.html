@@ -141,7 +141,7 @@
             <p class="lead">We can create our standard application layout with a Common Header and Common Footer Custom Control included on most XPages</p>
             <img class="img-responsive" src="http://teamstudio.s3.amazonaws.com/documentation/commonheader.png"></img>
             <p>Every page we load needs the UnpBootResources custom control added. This adds CSS, JavaScript and Server Side JavaScript to your application. Don't forget to also enable the "Use runtime optimized JavaScript and CSS resources", this will drastically reduce the size of pages being loaded.</p>
-            <p>We want the app to work on Mobile and Desktop so we add a UnpBootNavigator <u>and</u> define the navitems in UnpBootHeader. The former will be used for mobile and the latter will be used for desktop.</p>
+            <p>Next we define the navitems in UnpBootHeader. They will be used for mobile and desktop configurations.</p>
             <p>Each menu item is an element in an array, we define the label, the icon to display and the page to open. Optionally you can also choose to load the page using Ajax rather than a full page refresh, this will be faster in most situations, so define the ajaxloadid and the ajaxtargetid for each menu item.</p>
             <p>Save your commonheader custom control</p>
           </div>
