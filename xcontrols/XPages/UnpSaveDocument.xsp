@@ -20,54 +20,64 @@ response.setContentType("text/plain; charset=\"utf-8\"");
 var resp;
 var unid = "testing";
 try{
-	resp = "Started";
+	resp = "Started\n";
 	var doc = null;
-	resp = "Getting doc";
+	resp += "Getting doc\n";
 	var dbname = context.getUrlParameter("dbname");
 	if (dbname != "" && dbname != "null" && dbname != null){
+		resp += "Working with different db: " + dbname + "\n";
 		try{
 			var dbother:NotesDatabase;
 			if (dbname.indexOf("!") > -1){
 				dbother = session.getDatabase(@Left(dbname, "!"), @RightBack(dbname, "!"));
 			}else{
-				dbother = session.getDatabase(database.getServer(), context.getUrlParameter("dbname"));
+				if (isUnpluggedServer()){
+					dbname = @ReplaceSubstring(dbname, ".nsf", ".unp");
+					resp += "We're on Unplugged, so dbname is " + dbname + "\n";
+					dbother = session.getDatabase("", context.getUrlParameter("dbname"));
+				}else{
+					dbother = session.getDatabase(database.getServer(), context.getUrlParameter("dbname"));
+				}
 			}
 			doc = dbother.getDocumentByUNID(context.getUrlParameter("unid"));
 		}catch(e){
-			resp = "Error getting doc from another database";
+			resp += "Error getting doc from another database on server " + database.getServer() + " " + e + "\n";
 		}
 		if (doc == null){
-			resp = "Creating doc in other db (" + context.getUrlParameter("dbname") + ")";
+			resp += "Working with other db: " + dbother.getTitle() + ")\n";
+			resp += "Creating doc in other db (" + context.getUrlParameter("dbname") + ")\n";
 			doc = dbother.createDocument();
 			doc.replaceItemValue("Form", context.getUrlParameter("formname"));
 		}	
 	}else{
+		resp += "Working with current DB" + "\n";
 		try{
 			doc = database.getDocumentByUNID(context.getUrlParameter("unid"));
 		}catch(e){
-			resp = "Error getting doc";
+			resp += "Error getting doc\n";
 		}
 		if (doc == null){
-			resp = "Creating doc";
+			resp += "Creating doc\n";
 			doc = database.createDocument();
 			doc.replaceItemValue("Form", context.getUrlParameter("formname"));
 		}
 	}
-	resp = "getting parentunid";
-	if (context.getUrlParameter("parentunid") != "" && context.getUrlParameter("parentunid") != "null"){
+	resp += "getting parentunid\n";
+	if (context.getUrlParameter("parentunid") != null && context.getUrlParameter("parentunid") != "" && context.getUrlParameter("parentunid") != "null"){
+		resp += "parentunid = " + context.getUrlParameter("parentunid") + "\n";
 		var parent:NotesDocument = database.getDocumentByUNID(context.getUrlParameter("parentunid"));
-		resp = "creating response to parentunid = " + parent.getUniversalID();
+		resp += "creating response to parentunid = " + parent.getUniversalID() + "\n";
 		doc.makeResponse(parent);
 	}
-	resp = "setting dateformat";
+	resp += "setting dateformat\n";
 	var dateformat = /^(19|20)\d\d[- \/.](0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])$/;
 	try{
-		resp = "getting keyset";
+		resp += "getting keyset\n";
 		var keys = param.keySet().iterator();
-		resp = "starting iterator loop";
+		resp += "starting iterator loop\n";
 		while(keys.hasNext()){
 			var key = keys.next();
-			resp = ("Processing " + key);
+			resp += ("Processing " + key + "\n");
 			//print(resp);
 			var value = unescape(param.get(key));
 			if (dateformat.test(value) && key.indexOf("datetime_") == -1){
@@ -88,47 +98,47 @@ try{
 				if (fieldname.indexOf("__") > -1){
 					//This needs to be a multi value field
 					fieldnames = fieldname.split("__");
-					resp = "start fieldname = " + fieldname;
+					resp += "start fieldname = " + fieldname + "\n";
 					//print(resp);
 					fieldname = fieldnames[fieldnames.length - 1]
-					resp = "new fieldname = " + fieldname;
-					resp = "value = " + value;
+					resp += "new fieldname = " + fieldname + "\n";
+					resp += "value = " + value + "\n";
 					//print(resp);
 					value = @Explode(value, ",");
 					doc.replaceItemValue(fieldname, value);
-					resp = (fieldname + ": " + value);
+					resp += (fieldname + ": " + value + "\n");
 					//print(resp);
 				}else if(fieldname.indexOf("int_") > -1){
 					//This needs to be an integer value field
 					fieldnames = fieldname.split("int_");
-					resp = "start fieldname = " + fieldname;
+					resp += "start fieldname = " + fieldname + "\n";
 					fieldname = fieldnames[fieldnames.length - 1]
-					resp = "new fieldname = " + fieldname;
+					resp += "new fieldname = " + fieldname + "\n";
 					//print(resp);
-					resp = "value = " + parseInt(value);
+					resp += "value = " + parseInt(value) + "\n";
 					//print(resp);
 					value = parseInt(value);
 					if (isNaN(value)){
 						value = 0;
 					}
 					doc.replaceItemValue(fieldname, value);
-					resp = (fieldname + ": " + value);
+					resp += (fieldname + ": " + value) + "\n";
 					//print(resp);
 				}else if(fieldname.indexOf("float_") > -1){
 					//This needs to be a float value field
 					fieldnames = fieldname.split("float_");
-					resp = "start fieldname = " + fieldname;
+					resp += "start fieldname = " + fieldname + "\n";
 					//print(resp);
 					fieldname = fieldnames[fieldnames.length - 1]
-					resp = "new fieldname = " + fieldname;		
-					resp = "value = " + parseFloat(value);
+					resp += "new fieldname = " + fieldname + "\n";		
+					resp += "value = " + parseFloat(value) + "\n";
 					//print(resp);
 					value = parseFloat(value);
 					if (isNaN(value)){
 						value = 0;
 					}
 					doc.replaceItemValue(fieldname, value);
-					resp = (fieldname + ": " + value);
+					resp += (fieldname + ": " + value) + "\n";
 					//print(resp);
 				}else if(fieldname.indexOf("datetime_") > -1){
 					fieldnames = fieldname.split("datetime_");
@@ -137,7 +147,7 @@ try{
 					var timeval = @Right(value, "T").split(":");
 					value = session.createDateTime(@Date(parseInt(dateval[0], 10), parseInt(dateval[1], 10), parseInt(dateval[2], 10), parseInt(timeval[0]), parseInt(timeval[1], 10), 0));
 					doc.replaceItemValue(fieldname, value);
-					resp = (fieldname + ": " + value);
+					resp += (fieldname + ": " + value) + "\n";
 					//print(resp);
 				}else if (typeof value == "string" && value.indexOf("data:") > -1 && value.indexOf("base64") > -1){
 					//NB If you are using this, you MUST add commons-codec-1.10.jar
@@ -160,7 +170,7 @@ try{
 					value = "";
 				}else{
 					doc.replaceItemValue(fieldname, value);
-					resp = (fieldname + ": " + value);
+					resp += (fieldname + ": " + value) + "\n";
 					//print(resp);
 				}
 			}
@@ -170,7 +180,7 @@ try{
 		unid = doc.getUniversalID();
 		resp = "OK";
 	}catch(e){
-		resp = resp + e;
+		resp += resp + e + "\n";
 	}
 }catch(mainerror){
 
@@ -183,4 +193,7 @@ if(resp == "OK")
 }
 writer.endDocument();
 facesContext.responseComplete();}]]></xp:this.afterRenderResponse>
+	<xp:this.resources>
+		<xp:script src="/unpCommon.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
 </xp:view>

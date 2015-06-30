@@ -267,7 +267,7 @@ unp.changeorientation = function() {
 		if ($("#doccontent").hasClass("col-xs-12")){
 			$("#doccontent").removeClass("col-xs-12");
 		}
-		if (!$("#doccontent").hasClass("col-sm-7")){
+		if (!$("#doccontent").hasClass("col-sm-7") && !$("#doccontent").hasClass("full-width")){
 			$("#doccontent").addClass("col-sm-7");
 		}
 	}
