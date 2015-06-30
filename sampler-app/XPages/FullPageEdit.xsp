@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xc:commonheader pagetitle="Flat View"></xc:commonheader>
+
+	<div id="main" class="container bootcards-container">
+		<div class="row fullheightrow">
+			<div id="doccontent" class="full-width col-sm-12 bootcards-cards hidden-xs">
+				<unp:UnpBootFormEditor showbuttons="true"
+					footertext="Built with Bootcards - Form Editor Card" viewxpagename="FlatView.xsp"
+					formname="Person" title="Person" callback="savecallback"
+					fullpagemode="false" presavecallback="presavecallback">
+					<xp:this.facets>
+						<xp:panel id="list-group" xp:key="facet_1">
+							<div class="form-group">
+								<xp:label styleClass="col-xs-4 control-label" for="name"
+									value="First Name">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:inputText id="firstname" value="#{docedit.firstname}"
+										styleClass="form-control required">
+										<xp:this.attrs>
+											<xp:attr name="placeholder" value="First Name">
+											</xp:attr>
+										</xp:this.attrs>
+									</xp:inputText>
+									<a href="" class="bootcards-clearinput">
+										<i class="fa fa-lg fa-times-circle"></i>
+									</a>
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label styleClass="col-xs-4 control-label" for="name"
+									value="Last Name">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:inputText id="lastname" value="#{docedit.lastname}"
+										styleClass="form-control required">
+										<xp:this.attrs>
+											<xp:attr name="placeholder" value="Last Name">
+											</xp:attr>
+										</xp:this.attrs>
+									</xp:inputText>
+									<a href="" class="bootcards-clearinput">
+										<i class="fa fa-lg fa-times-circle"></i>
+									</a>
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label styleClass="col-xs-4 control-label" for="title"
+									value="Title">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:inputText id="title" value="#{docedit.Title}"
+										styleClass="form-control">
+										<xp:this.attrs>
+											<xp:attr name="placeholder" value="Title">
+											</xp:attr>
+										</xp:this.attrs>
+									</xp:inputText>
+									<a href="" class="bootcards-clearinput">
+										<i class="fa fa-lg fa-times-circle"></i>
+									</a>
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label value="Date" id="datetime_initialcontactdatelabel"
+									for="initialcontactdate" styleClass="col-xs-4 control-label">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:inputText id="initialcontactdate" styleClass="form-control">
+										<xp:this.attrs>
+											<xp:attr name="datevalue">
+												<xp:this.value><![CDATA[#{javascript:try{
+	var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime('initialcontactdate');
+	return date.toJavaDate().getTime();
+}catch(e){
+	return new Date().getTime();
+}}]]></xp:this.value>
+											</xp:attr>
+										</xp:this.attrs>
+									</xp:inputText>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label styleClass="col-xs-4 control-label" for="email"
+									value="Email">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:inputText id="email" value="#{docedit.Email}"
+										styleClass="form-control" type="email">
+										<xp:this.attrs>
+											<xp:attr name="placeholder" value="Email">
+											</xp:attr>
+										</xp:this.attrs>
+									</xp:inputText>
+									<a href="" class="bootcards-clearinput">
+										<i class="fa fa-lg fa-times-circle"></i>
+									</a>
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label value="Mobile Enabled?" id="mobilelabel" for="mobileenabled"
+									styleClass="col-xs-4 control-label">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:panel id="toggle">
+										<xp:this.styleClass><![CDATA[#{javascript:var out = "bootcards-toggle";
+if (docedit.getItemValueString('mobileenabled') == "fredchecked"){
+	out += " active";
+}
+return out;}]]></xp:this.styleClass>
+										<div class="bootcards-toggle-handle"></div>
+									</xp:panel>
+									<xp:checkBox checkedValue="fredchecked"
+										uncheckedValue="barryunchecked" style="display: none;"
+										value="#{docedit.mobileenabled}" required="false" id="mobileenabled">
+										<xp:this.attrs>
+											<xp:attr name="checkedValue" value="fredchecked">
+											</xp:attr>
+											<xp:attr name="uncheckedValue" value="barryunchecked">
+											</xp:attr>
+										</xp:this.attrs>
+									</xp:checkBox>
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label value="Company" id="companylabel" for="company"
+									styleClass="col-xs-4 control-label">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:inputText id="company" value="#{docedit.Company}"
+										styleClass="required form-control typeahead" autocomplete="off">
+										<xp:this.attrs>
+											<xp:attr name="jslist" value="companies">
+											</xp:attr>
+										</xp:this.attrs>
+									</xp:inputText>
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label styleClass="col-xs-4 control-label" for="streetaddress"
+									value="Street Address">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:inputText id="streetaddress" value="#{docedit.streetaddress}"
+										styleClass="form-control">
+										<xp:this.attrs>
+											<xp:attr name="placeholder" value="Street Address">
+											</xp:attr>
+										</xp:this.attrs>
+									</xp:inputText>
+									<a href="" class="bootcards-clearinput">
+										<i class="fa fa-lg fa-times-circle"></i>
+									</a>
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label styleClass="col-xs-4 control-label" for="city"
+									value="City">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:inputText id="city" value="#{docedit.city}"
+										styleClass="form-control">
+										<xp:this.attrs>
+											<xp:attr name="placeholder" value="City">
+											</xp:attr>
+										</xp:this.attrs>
+									</xp:inputText>
+									<a href="" class="bootcards-clearinput">
+										<i class="fa fa-lg fa-times-circle"></i>
+									</a>
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label styleClass="col-xs-4 control-label" for="country"
+									value="Country">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:comboBox id="country" value="#{docedit.Country}"
+										styleClass="form-control">
+										<xp:selectItems>
+											<xp:this.value><![CDATA[#{javascript:@Unique(@DbColumn(@DbName(), "People By Country", 1))}]]></xp:this.value>
+										</xp:selectItems>
+									</xp:comboBox>
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label styleClass="col-xs-4 control-label" for="phone"
+									value="Phone">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:inputText id="phone" value="#{docedit.phone}"
+										type="tel" styleClass="form-control">
+										<xp:this.attrs>
+											<xp:attr name="placeholder" value="Phone">
+											</xp:attr>
+										</xp:this.attrs>
+									</xp:inputText>
+									<a href="" class="bootcards-clearinput">
+										<i class="fa fa-lg fa-times-circle"></i>
+									</a>
+								</div>
+							</div>
+							<div class="form-group">
+								<xp:label value="Details" id="biolabel" for="bio"
+									styleClass="col-xs-4 control-label">
+								</xp:label>
+								<div class="col-xs-8">
+									<unp:UnpBootRichTextEditor fieldname="bio">
+									</unp:UnpBootRichTextEditor>
+								</div>
+							</div>
+						</xp:panel>
+					</xp:this.facets>
+				</unp:UnpBootFormEditor>
+			</div>
+		</div>
+		<div class="pagetitle hidden">Flat</div>
+	</div>
+
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>
