@@ -73,5 +73,9 @@
       <property-name>presavecallback</property-name>
       <property-class>string</property-class>
     </property>
+    <property>
+      <property-name>fullpagemodecancellink</property-name>
+      <property-class>string</property-class>
+    </property>
   </composite-component>
 </faces-config>
