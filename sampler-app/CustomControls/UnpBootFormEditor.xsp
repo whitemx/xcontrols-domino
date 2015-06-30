@@ -34,7 +34,7 @@
 							<xp:this.value><![CDATA[#{javascript:if (compositeData.fullpagemode != true){
 	return "modal";
 }else{
-	return "history.go(-1);";
+	return "history.go(-1);return false;";
 }}]]></xp:this.value>
 						</xp:attr>
 						<xp:attr name="href" value="#"></xp:attr>
