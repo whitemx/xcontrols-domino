@@ -66,17 +66,26 @@ if (attachmentList != null && attachmentList.length > 0){
 				<xp:this.value><![CDATA[#{javascript:return compositeData.title;}]]></xp:this.value>
 			</xp:text>
 			
-			<xp:link id="editbutton" value="#"
+			<xp:panel id="editbutton" tagName="a"
 				styleClass="btn btn-primary pull-right"
 				rendered="#{javascript:compositeData.showbuttons == true}">
 				<xp:this.attrs>
-					<xp:attr name="onclick">
-						<xp:this.value><![CDATA[#{javascript:return "unp.editDocument('" + compositeData.editxpagename + "', '" + docview.getDocument().getUniversalID() + "', " + compositeData.callback + "); return false;"}]]></xp:this.value>
+					<xp:attr>
+						<xp:this.value><![CDATA[#{javascript:if (compositeData.editxpagewithajax == "yes"){
+	 return "unp.editDocument('" + compositeData.editxpagename + "', '" + docview.getDocument().getUniversalID() + "', " + compositeData.callback + "); return false;"
+}else{
+	return compositeData.editxpagename + "?action=editDocument&documentId=" + docview.getDocument().getUniversalID();
+}}]]></xp:this.value>
+						<xp:this.name><![CDATA[#{javascript:if (compositeData.editxpagewithajax == "yes"){
+	return "onclick";
+}else{
+	return "href";
+}}]]></xp:this.name>
 					</xp:attr>
 				</xp:this.attrs>
 				<i class="fa fa-pencil"></i>
 				&#160;Edit
-			</xp:link>
+			</xp:panel>
 			<xp:callback facetName="viewerbuttons" id="viewerbuttons"></xp:callback>
 		</div>
 		<xp:callback facetName="facet_1" id="callback1"></xp:callback>

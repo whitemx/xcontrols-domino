@@ -29,7 +29,7 @@
 							<xp:this.name><![CDATA[#{javascript:if (compositeData.fullpagemode != true){
 	return "data-dismiss";
 }else{
-	return "onclick";
+	return "href";
 }}]]></xp:this.name>
 							<xp:this.value><![CDATA[#{javascript:if (compositeData.fullpagemode != true){
 	return "modal";
@@ -37,7 +37,7 @@
 	if (compositeData.fullpagemodecancellink != null && compositeData.fullpagemodecancellink != ""){
 		return compositeData.fullpagemodecancellink;
 	}else{
-		return "history.go(-1);return false;";
+		return "javascript:history.go(-1);return false;";
 	}
 }}]]></xp:this.value>
 						</xp:attr>
