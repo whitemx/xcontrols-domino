@@ -73,6 +73,19 @@
 						</xp:text>
 					</div>
 					<div class="list-group-item">
+						<xp:label value="Time" id="label1"
+							for="date">
+						</xp:label>
+						<xp:text tagName="h4" id="time"
+							value="#{docview.myTimeField}"
+							styleClass="list-group-item-heading">
+							<xp:this.converter>
+								<xp:convertDateTime pattern="hh:mm">
+								</xp:convertDateTime>
+							</xp:this.converter>
+						</xp:text>
+					</div>
+					<div class="list-group-item">
 						<xp:label value="Email" id="emaillabel"
 							for="email">
 						</xp:label>
