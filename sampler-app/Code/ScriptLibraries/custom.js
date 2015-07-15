@@ -290,9 +290,9 @@ function showFontAwesomeDetails(element) {
 //save the photo selected in the photo uploader
 unp.photoUploader.savePhoto = function(button, saveButtonId) {
 	//get the file input
-	var $resizeFileUpload = $('.js-photouploader-upload');
+	var $resizeFileUpload = $('input.js-photouploader-upload');
 	var files = $resizeFileUpload[0].files;
-	if (typeof files == 'undefined' || files.length === 0 ) {
+	if ((typeof files == 'undefined' || files.length === 0) ) {
 		return;
 	}
 	

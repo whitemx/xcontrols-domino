@@ -1411,7 +1411,7 @@ unp.photoUploader.loadImage = function( file) {
 	
 unp.photoUploader.rotateImage = function(clockWise) {
 	
-	var $resizeFileUpload = $('.js-photouploader-upload');
+	var $resizeFileUpload = $('input.js-photouploader-upload');
 	
 	if ( $resizeFileUpload[0].files.length === 0) {
 		return;
