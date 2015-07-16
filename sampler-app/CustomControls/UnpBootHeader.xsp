@@ -32,7 +32,7 @@
 					</xp:attr>
 					<xp:attr name="href" value="UnpMain.xsp"></xp:attr>
 				</xp:this.attrs>
-				<xp:text value="#{javascript:compositeData.title}"></xp:text>
+				<xp:text value="#{javascript:compositeData.title}" escape="false" style="margin-bottom: 10px;"></xp:text>
 			</xp:panel>
 
 			<div class="navbar-collapse collapse">
