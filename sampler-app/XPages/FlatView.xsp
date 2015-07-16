@@ -2,7 +2,9 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 
-	<xc:commonheader pagetitle="Flat View"></xc:commonheader>
+	<xc:commonheader>
+		<xc:this.pagetitle><![CDATA[Flat View]]></xc:this.pagetitle>
+	</xc:commonheader>
 
 	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">

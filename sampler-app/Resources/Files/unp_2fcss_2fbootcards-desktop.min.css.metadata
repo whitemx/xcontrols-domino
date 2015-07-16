@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
-<noteinfo noteid="2326" sequence="37" unid="71D11DB8C40CA33280257D8500344C3E">
-<created><datetime>20141103T093113,90+00</datetime></created>
-<modified><datetime dst="true">20150708T080238,25+01</datetime></modified>
-<revised><datetime dst="true">20150708T080238,24+01</datetime></revised>
-<lastaccessed><datetime dst="true">20150708T080238,25+01</datetime></lastaccessed>
-<addedtofile><datetime>20141230T093643,37+00</datetime></addedtofile></noteinfo>
+<noteinfo noteid="2726" sequence="2" unid="57A1CC6E116DC8EC80257E830052674D">
+<created><datetime dst="true">20150715T160003,97+01</datetime></created>
+<modified><datetime dst="true">20150715T160049,56+01</datetime></modified>
+<revised><datetime dst="true">20150715T160049,55+01</datetime></revised>
+<lastaccessed><datetime dst="true">20150715T160049,56+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150715T160004,01+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
-<item name="$FlagsExt" sign="true"><text>D</text></item>
-<item name="$FileModDT" sign="true"><datetime>20150109T104306,00+00</datetime></item>
 <item name="$Flags"><text>345CgQ</text></item>
-<item name="$MimeCharSet"><text>UTF-8</text></item>
+<item name="$FlagsExt"><text>D</text></item>
 
+<item name="$FileModDT" sign="true"><datetime dst="true">20150417T030214,00+01</datetime></item>
 
-
-
-
-
-
-<item name="$FileNames" sign="true"><text>unp_2fcss_2fbootcards-desktop.min.css</text></item>
+<item name="$FileNames" sign="true"><text>bootcards-desktop.min.css</text></item>
 <item name="$TITLE" sign="true"><textlist><text>unp/css/bootcards-desktop.min.css</text></textlist></item>
 <item name="$DesignerVersion"><text>8.5.3</text></item></note>

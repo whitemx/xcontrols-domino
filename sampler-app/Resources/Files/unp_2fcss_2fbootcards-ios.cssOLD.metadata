@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
+<noteinfo noteid="232a" sequence="36" unid="9BF8C7F8E49AFE8E80257D8500344C3F">
+<created><datetime>20141103T093113,91+00</datetime></created>
+<modified><datetime dst="true">20150715T155856,12+01</datetime></modified>
+<revised><datetime dst="true">20150715T155856,11+01</datetime></revised>
+<lastaccessed><datetime dst="true">20150715T155856,12+01</datetime></lastaccessed>
+<addedtofile><datetime>20141230T093643,29+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+<item name="$FileModDT" sign="true"><datetime>20141103T072311,00+00</datetime></item>
+
+
+<item name="$FileNames" sign="true"><text>unp_2fcss_2fbootcards-ios.css</text></item>
+<item name="$TITLE" sign="true"><text>unp/css/bootcards-ios.cssOLD</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
+<noteinfo noteid="266e" sequence="4" unid="251D80B31BD9B0DC80257E7C0025C751">
+<created><datetime dst="true">20150708T075238,57+01</datetime></created>
+<modified><datetime dst="true">20150715T155941,51+01</datetime></modified>
+<revised><datetime dst="true">20150715T155941,50+01</datetime></revised>
+<lastaccessed><datetime dst="true">20150715T155941,51+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150708T075238,59+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+
+<item name="$FileModDT" sign="true"><datetime dst="true">20150616T002150,00+01</datetime></item>
+
+<item name="$FileNames" sign="true"><text>bootcards.js</text></item>
+<item name="$TITLE" sign="true"><text>unp/js/bootcards.jsOLD</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>

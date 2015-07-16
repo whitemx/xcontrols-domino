@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	<xp:this.data>
+		<xp:dominoDocument var="document1" formName="Photo"></xp:dominoDocument>
+	</xp:this.data>
+	<xp:fileUpload id="fileUpload1" value="#{document1.Photo}"></xp:fileUpload>
+	<xp:button value="Label" id="button1"><xp:eventHandler event="onclick" submit="true" refreshMode="complete" immediate="false" save="true"></xp:eventHandler></xp:button></xp:view>

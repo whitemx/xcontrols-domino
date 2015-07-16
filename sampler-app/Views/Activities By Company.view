@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='5b2' unid='E77F0465BCF8322180257CD8002C314D' sequence='10'>
+<noteinfo noteid='5b2' unid='E77F0465BCF8322180257CD8002C314D' sequence='42'>
 <created><datetime dst='true'>20140514T090242,05+01</datetime></created>
-<modified><datetime dst='true'>20140828T160410,44+01</datetime></modified>
-<revised><datetime dst='true'>20140828T160410,43+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140828T160410,44+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140815T121858,57+01</datetime></addedtofile></noteinfo>
+<modified><datetime dst='true'>20150507T121416,26+01</datetime></modified>
+<revised><datetime dst='true'>20150507T121416,25+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20150630T020000,46+01</datetime></lastaccessed>
+<addedtofile><datetime>20141230T093640,01+00</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name='$FormatNote' summary='true'>
