@@ -281,3 +281,7 @@ div.dBar .content {
 .dropdown-toggle {
 	cursor: pointer;
 }
+
+#list.bootcards-list.offcanvas-list.active {
+	top: 45px;
+}

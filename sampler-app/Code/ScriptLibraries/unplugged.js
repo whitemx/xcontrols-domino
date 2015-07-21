@@ -37,6 +37,7 @@ unp.storePageRequest = function(url) {
 }
 
 $(window).load( function() {
+	$('body').addClass('bootcards');
 	bootcards.init( {
         offCanvasHideOnMainClick : true,
         enableTabletPortraitMode : true,
