@@ -303,7 +303,7 @@ unp.stopViewSpinner = function() {
 var loadmoreloading = false;
 var loadedurls = [];
 unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
-		xpage, refreshmethod, photocol, ajaxload, callback, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target, openineditmode) {
 	if (($('.searchbox').val() == "" || $('.localsearchbox').val() == ""  || ($('.searchbox').length == 0 && $('.localsearchbox').length == 0)) && !loadmoreloading) {
 		loadmoreloading == true;
 		// try {
@@ -321,7 +321,8 @@ unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
 				+ encodeURIComponent(photocol) + "&category="
 				+ encodeURIComponent(category) + "&xpage=" + xpage + "&dbName="
 				+ dbName + "&refreshmethod=" + refreshmethod + "&start=" + pos
-				+ "&ajaxload=" + ajaxload + "&target=" + target + "&callback=" + callback;
+				+ "&ajaxload=" + ajaxload + "&target=" + target + "&callback=" + callback
+				+ "&openineditmode=" + openineditmode;
 		if (loadedurls.indexOf(url) == -1) {
 			loadedurls.push(url);
 			// console.log('Loading ' + url);
@@ -373,7 +374,7 @@ unp.loadmore = function(dbName, viewName, summarycol, detailcol, category,
 }
 
 unp.loadmoredetailed = function(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category,
-		xpage, refreshmethod, photocol, ajaxload, callback, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target, openineditmode) {
 	if (($('.searchbox').val() == "" || $('.localsearchbox').val() == ""  || ($('.searchbox').length == 0 && $('.localsearchbox').length == 0)) && !loadmoreloading) {
 		loadmoreloading == true;
 		// try {
@@ -393,7 +394,8 @@ unp.loadmoredetailed = function(dbName, viewName, summarycol, detailcol1, detail
 				"&photocol=" + encodeURIComponent(photocol) + "&category="
 				+ encodeURIComponent(category) + "&xpage=" + xpage + "&dbName="
 				+ dbName + "&refreshmethod=" + refreshmethod + "&start=" + pos
-				+ "&ajaxload=" + ajaxload + "&target=" + target + "&callback=" + callback;
+				+ "&ajaxload=" + ajaxload + "&target=" + target + "&callback=" + callback
+				+ "&openineditmode=" + openineditmode;
 		if (loadedurls.indexOf(url) == -1) {
 			loadedurls.push(url);
 			// console.log('Loading ' + url);
@@ -627,9 +629,9 @@ unp.goback = function() {
 	}
 }
 
-unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback, presavecallback, dataid) {
+unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback, presavecallback, dataid, reopenineditmode) {
 	var id = dataid;
-	if (id == null){
+	if (id == null || id == "null"){
 		id = "editModal";
 	}
 	var data = $("#" + id + " :input").serialize();
@@ -684,8 +686,12 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 		}
 		}).done( function(response) {
 			if (response.length == 32) {
+				var action = "openDocument";
+				if (reopenineditmode){
+					action = "editDocument";
+				}
 				unp.openDocument(viewxpagename
-						+ "?action=openDocument&documentId=" + response,
+						+ "?action=" + action + "&documentId=" + response,
 						"doccontent");
 				unp.initiscroll();
 				$('#editModal').modal('hide');
@@ -697,6 +703,9 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 					url += '&photocol=' + obj.photocolumn + '&category=' + obj.categoryfilter;
 					url += '&xpage=' + obj.xpagedoc + '&dbName=' + obj.dbname;
 					url += '&refreshmethod=pull&ajaxload=' + obj.ajaxload + '&target=doccontent';
+					if (reopenineditmode){
+						url += '&openineditmode=true';
+					}
 					var el = $('[unid="' + response + '"]');
 					var pos = $(".flatview a").index(el);
 					url += '&start=' + pos;
@@ -721,7 +730,8 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 								obj.photocolumn, 
 								obj.ajaxload, 
 								null, 
-								'doccontent');
+								'doccontent', 
+								reopenineditmode);
 					}
 				}else{
 					if (callback){
@@ -1054,14 +1064,15 @@ unp.closeDialog = function(id) {
 }
 
 unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
-		photocol, summarycol, detailcol, ajaxload, callback) {
+		photocol, summarycol, detailcol, ajaxload, callback, target, openineditmode) {
 	
 	var pos = $('.data-row').length;
 	var thisUrl = "UnpAccordionViewList.xsp?chosenView="
 			+ encodeURIComponent(viewName) + "&catFilter="
 			+ encodeURIComponent(catName) + "&xpageDoc=" + xpage + "&start="
 			+ pos + "&dbname=" + dbname + "&photocol=" + photocol + "&summarycol="
-			+ summarycol + "&detailcol=" + detailcol + "&ajaxload=" + ajaxload + "&callback=" + callback;
+			+ summarycol + "&detailcol=" + detailcol + "&ajaxload=" + ajaxload + "&callback=" + callback
+			+ "&target=" + target + "&openineditmode=" + openineditmode;
 
 	var tempHolder = $(".summaryDataRow");
 	$(tempHolder).load(
@@ -1085,7 +1096,7 @@ unp.accordionLoadMore = function(obj, viewName, catName, xpage, dbname,
 	}
 }
 
-unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback) {
+unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback, target, openineditmode) {
 	if (!$(obj).hasClass("collapsed")) {
 		// We want to collapse the current category
 		console.log('Collapsing rows...');
@@ -1104,13 +1115,13 @@ unp.fetchDetails = function(obj, viewName, catName, xpage, dbname, photocol, sum
 		console.log('Getting category ' + catName);
 		$(obj).removeClass('collapsed');
 		$('#list').scrollTop($('#list').scrollTop() + $(obj).position().top);
-		unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback);
+		unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback, target, openineditmode);
 	}
 }
 
-unp.fetchMoreDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback) {
+unp.fetchMoreDetails = function(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback, target, openineditmode) {
 
-	unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback);
+	unp.accordionLoadMore(obj, viewName, catName, xpage, dbname, photocol, summarycol, detailcol, ajaxload, callback, target, openineditmode);
 }
 
 unp.syncAllDbs = function() {
@@ -1218,7 +1229,7 @@ unp.dosearch = function() {
 }
 
 unp.clearsearch = function(dbName, viewName, summarycol, detailcol, category,
-		xpage, refreshmethod, photocol, ajaxload, callback, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target, openineditmode) {
 	$('#list .list-group').empty();
 	$('.loadmorelink').hide();
 	$('.pullupholder').hide();
@@ -1234,12 +1245,12 @@ unp.clearsearch = function(dbName, viewName, summarycol, detailcol, category,
 		});
 	}else{
 		unp.loadmore(dbName, viewName, summarycol, detailcol, category, xpage,
-				refreshmethod, photocol, ajaxload, callback, target);
+				refreshmethod, photocol, ajaxload, callback, target, openineditmode);
 	}
 }
 
 unp.clearsearchdetailed = function(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category,
-		xpage, refreshmethod, photocol, ajaxload, callback, target) {
+		xpage, refreshmethod, photocol, ajaxload, callback, target, openineditmode) {
 	$('#list .list-group').empty();
 	$('.loadmorelink').hide();
 	$('.pullupholder').hide();
@@ -1255,7 +1266,7 @@ unp.clearsearchdetailed = function(dbName, viewName, summarycol, detailcol1, det
 		});
 	}else{
 		unp.loadmoredetailed(dbName, viewName, summarycol, detailcol1, detailcol2, detailcol3, category, xpage,
-				refreshmethod, photocol, ajaxload, callback, target);
+				refreshmethod, photocol, ajaxload, callback, target, target, openineditmode);
 	}
 }
 

@@ -64,10 +64,14 @@ if (start == ""){
 		}else{
 			viewScope.rowcount = viewScope.rowcount + 1;
 		}
+		var action = "openDocument";
+		if (context.getUrlParameter("openineditmode")){
+			action = "editDocument";
+		}
 		if (context.getUrlParameter("ajaxload") != "No"){
-			return "unp.openDocument('" + getDbPath() + "/" + context.getUrlParameter("xpage") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID() + "', '" + context.getUrlParameter("target") + "', this, " + context.getUrlParameter("callback") + ");";
+			return "unp.openDocument('" + getDbPath() + "/" + context.getUrlParameter("xpage") + "?action=" + action + "&documentId=" + thisRowData.getDocument().getUniversalID() + "', '" + context.getUrlParameter("target") + "', this, " + context.getUrlParameter("callback") + ");";
 		}else{
-			return "document.location.href='" + getDbPath() + "/" + context.getUrlParameter("xpage") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID() + "'";
+			return "document.location.href='" + getDbPath() + "/" + context.getUrlParameter("xpage") + "?action=" + action + "&documentId=" + thisRowData.getDocument().getUniversalID() + "'";
 		}
 	}
 }catch(e){}}]]></xp:this.value>

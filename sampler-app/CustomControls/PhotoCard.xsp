@@ -1,56 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xp:view
-	xmlns:xp="http://www.ibm.com/xsp/core"
-	xmlns:xc="http://www.ibm.com/xsp/custom"
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
 	xmlns:unp="http://unplugged.teamstudio.com">
 
 	<xp:this.data>
-		<xp:dominoDocument
-			var="docPhoto"
-			formName="Photo"
+		<xp:dominoDocument var="docPhoto" formName="Photo"
 			ignoreRequestParams="true">
-		<xp:this.querySaveDocument><![CDATA[#{javascript:print("Saving document")}]]></xp:this.querySaveDocument>
-		<xp:this.postSaveDocument><![CDATA[#{javascript:print("Saved Document")}]]></xp:this.postSaveDocument></xp:dominoDocument>
+			<xp:this.querySaveDocument><![CDATA[#{javascript:print("Saving document")}]]></xp:this.querySaveDocument>
+			<xp:this.postSaveDocument><![CDATA[#{javascript:print("Saved Document")}]]></xp:this.postSaveDocument>
+		</xp:dominoDocument>
 	</xp:this.data>
-	
+
 	<!-- photo card -->
 	<div class="panel panel-default bootcards-media">
 		<div class="panel-heading">
 			<h3 class="panel-title">Upload Card</h3>
 		</div>
 		<div id="photoupload" class="panel-body">
-			 Tap 'Select' to take a new photo or select from your Photos library, then tap 'Upload'.
-			
+			Tap 'Select' to take a new photo or select from your Photos library,
+			then tap 'Upload'.
+
 			<div style="margin-top:15px; text-align: center;">
 				<!-- show selected image -->
-				<unp:UnpBootPhotoUpload
-					targetWidth="1024"
-					targetHeight="768"
-					targetDoc="#{docPhoto}"
-					itemName="photo"
-					showRotationControls="false"
-					placeHolderIcon="fa-camera"
-					crop="false"
+				<unp:UnpBootPhotoUpload targetWidth="1024"
+					targetHeight="768" targetDoc="#{docPhoto}" itemName="photo"
+					showRotationControls="false" placeHolderIcon="fa-camera" crop="false"
 					customSelectElement=".js-custom-photo-select" attachmentFieldName="photo">
 				</unp:UnpBootPhotoUpload>
 			</div>
 
 		</div>
 
-		<div class="panel-footer">
+		<div class="panel-footer" style="padding-bottom: 60px;">
 			<xp:div styleClass="btn-group btn-group-justified">
-
+				<xp:this.rendered><![CDATA[#{javascript:if(isAndroid() && isUnpluggedServer()){
+	return false;
+}else{
+	return true;
+}}]]></xp:this.rendered>
 				<div class="btn-group">
 					<div class="js-custom-photo-select photoUpload btn btn-default">
 						<i class="fa fa-camera"></i>
-						Select		
+						Select
 					</div>
 				</div>
 
 				<div class="btn-group">
-					<button
-						type="button"
-						class="btn btn-default"
+					<button type="button" class="btn btn-default"
 						onclick="unp.photoUploader.rotateImage(true)">
 						<i class="fa fa-rotate-right"></i>
 						Rotate
@@ -59,25 +54,19 @@
 
 				<div class="btn-group">
 
-					<xp:button
-						value="save"
-						styleClass="hidden"
-						id="button1">
-						<xp:eventHandler
-							event="onclick"
-							submit="true"
-							refreshMode="complete"
-							immediate="false"
-							save="false">
-						<xp:this.action>
-							<xp:actionGroup>
-								<xp:executeScript>
-									<xp:this.script><![CDATA[#{javascript:print("Saving document");
+					<xp:button value="save" styleClass="hidden" id="button1">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete" immediate="false" save="false">
+							<xp:this.action>
+								<xp:actionGroup>
+									<xp:executeScript>
+										<xp:this.script><![CDATA[#{javascript:print("Saving document");
 docPhoto.save();
 print("Saved document: " + docPhoto.getDocument().getUniversalID());}]]></xp:this.script>
-								</xp:executeScript>
-							</xp:actionGroup>
-						</xp:this.action></xp:eventHandler>
+									</xp:executeScript>
+								</xp:actionGroup>
+							</xp:this.action>
+						</xp:eventHandler>
 					</xp:button>
 
 					<xp:text escape="false">
@@ -88,7 +77,18 @@ print("Saved document: " + docPhoto.getDocument().getUniversalID());}]]></xp:thi
 				</div>
 
 			</xp:div>
-
+			<xp:button id="androidsavebutton" value="Upload" styleClass="btn btn-primary">
+				<xp:this.rendered><![CDATA[#{javascript:isAndroid() && isUnpluggedServer()}]]></xp:this.rendered>
+				<xp:eventHandler event="onclick" submit="true"
+					refreshMode="complete">
+					<xp:this.action>
+						<xp:actionGroup>
+							<xp:saveDocument var="docPhoto"></xp:saveDocument>
+							<xp:openPage name="/BaseCards.xsp"></xp:openPage>
+						</xp:actionGroup>
+					</xp:this.action>
+				</xp:eventHandler>
+			</xp:button>
 		</div><!-- panel footer -->
 	</div><!-- panel -->
 

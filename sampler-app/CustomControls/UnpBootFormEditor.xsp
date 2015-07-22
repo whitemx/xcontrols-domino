@@ -68,7 +68,13 @@ if (compositeData.dbname != null){
 }else{
 	out += ", 'null'";
 }
-out += ", " + compositeData.callback + ", " + compositeData.presavecallback + "); return false;"
+out += ", " + compositeData.callback + ", " + compositeData.presavecallback + "";
+if (compositeData.reopenineditmode == true){
+	out += ", 'doccontent', true";
+}else{
+	out += ", 'null', false";
+}
+out += "); return false;"
 return out;}]]></xp:this.value>
 						</xp:attr>
 					</xp:this.attrs>

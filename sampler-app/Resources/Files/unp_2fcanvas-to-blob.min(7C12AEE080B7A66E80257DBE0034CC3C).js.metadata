@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
+<noteinfo noteid="2406" sequence="12" unid="7C12AEE080B7A66E80257DBE0034CC3C">
+<created><datetime>20141230T093641,56+00</datetime></created>
+<modified><datetime dst="true">20150507T121419,28+01</datetime></modified>
+<revised><datetime dst="true">20150507T121419,27+01</datetime></revised>
+<lastaccessed><datetime dst="true">20150507T121419,28+01</datetime></lastaccessed>
+<addedtofile><datetime>20141230T093643,67+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<item name="$TITLE" sign="true"><text>unp/canvas-to-blob.min.js</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20150507T121417,94+01</datetime></item>
+<item name="$Flags"><text>g345QC</text></item>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>unp_2fcanvas-to-blob.min.js</text></item></note>

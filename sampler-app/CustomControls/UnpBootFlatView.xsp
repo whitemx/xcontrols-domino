@@ -133,7 +133,8 @@ return out;}]]></xp:this.styleClass>
 "\", \"categoryfilter\": \"" + compositeData.categoryfilter + 
 "\", \"xpagedoc\": \"" + compositeData.xpagedoc + 
 "\", \"photocolumn\": \"" + compositeData.photocolumn + 
-"\", \"ajaxload\": \"" + compositeData.ajaxload + "\"}"}]]></xp:this.value>
+"\", \"ajaxload\": \"" + compositeData.ajaxload + 
+"\", \"openineditmode\":\"" + compositeData.openineditmode + "\"}"}]]></xp:this.value>
 					</xp:attr>
 				</xp:this.attrs>
 				<xp:repeat id="repeat4" var="thisRowData"
@@ -172,7 +173,12 @@ if (!isEmpty(compositeData.xpagedocdbname)){
 		dbPath = "/" + dbPath;
 	}
 }
-var url = dbPath + "/" + compositeData.xpagedoc + "?action=openDocument&documentId=" + thisRowData.getUniversalID();
+var url = dbPath + "/" + compositeData.xpagedoc + "?documentId=" + thisRowData.getUniversalID() + "&action=";
+if (compositeData.openineditmode == true){
+	url += "editDocument";
+}else{
+	url += "openDocument";
+}
 if (compositeData.ajaxload != "No"){
 	return "unp.openDocument('" + url + "', 'doccontent', this, " + compositeData.callback + ");"
 }else{
@@ -257,7 +263,7 @@ return out;}]]></xp:this.styleClass>
 						styleClass="loadmorebutton btn pull-right">
 						<xp:this.attrs>
 							<xp:attr name="onclick">
-								<xp:this.value><![CDATA[#{javascript:"unp.loadmore('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent')"}]]></xp:this.value>
+								<xp:this.value><![CDATA[#{javascript:"unp.loadmore('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')"}]]></xp:this.value>
 							</xp:attr>
 						</xp:this.attrs>
 					</xp:button>
@@ -266,7 +272,7 @@ return out;}]]></xp:this.styleClass>
 					styleClass="clearsearchbutton btn pull-right" style="display: none;">
 					<xp:this.attrs>
 						<xp:attr name="onclick">
-							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent')"}]]></xp:this.value>
+							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')"}]]></xp:this.value>
 						</xp:attr>
 					</xp:this.attrs>
 				</xp:button>

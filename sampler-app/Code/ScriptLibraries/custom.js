@@ -8,6 +8,7 @@ $(document).ready( function() {
 	}
 	initRTButtons();
 	initBaseCards();
+	
 })
 
 $(document).ajaxComplete( function() {
@@ -331,48 +332,27 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
 	
 	 var canvas = document.getElementById('photoUploadCanvas');
      if (unpluggedserver){
-	     if (canvas.toBlob) {
+	     if (canvas.toBlob && unp.isIOS()) {
 		    canvas.toBlob(
 		        function (blob) {
-		            
 		           	blob.name = _resizedFile.name;
 		            fd.append( $resizeFileUpload.prop('id'), blob, 'photo.jpg' );
-		            
-		            //make the ajax request to send all data to the server             
 		        	$.ajax({
 		        	  url: window.location.pathname,
 		        	  type: 'POST',
 		        	  data: fd,
 		        	  processData: false,
 		        	  contentType: false,
-		        	  
 		        	  success: function(data) {
-	
-		        			if (typeof unpluggedserver != 'undefined' && unpluggedserver) {
-		        				/*
-		        				$.get("UnpSyncAll.xsp")
-		        					.done( function() {
-		        						alert('Photo Saved and Synced');
-		        					})
-		        					.fail( function() {
-		        						alert('Photo Saved but not yet Synced');
-		        					})
-		        					.always( function() {
-		        						unp.openDocument(window.location.href, 'doccontent');
-		        					});
-		        				*/
-		        				window.location.reload();
-		        			} else {
-		        				alert('Photo Saved');
-		        			}
-		        			unp.hideSpinner($(".uploadphotobutton"));
-		        		
+        				window.location.reload();
+	        			unp.hideSpinner($(".uploadphotobutton"));
 		        	  }
-		        	});
-		        
+		        	});		        
 		        },
 		        'image/jpeg'
 		    );
+		}else{
+			document.forms[0].submit();
 		}
      }else{
     	 var dataUrl = canvas.toDataURL("image/png");
@@ -383,6 +363,8 @@ unp.photoUploader.savePhoto = function(button, saveButtonId) {
      }
 };
 
+
+
 function callbackFunction(){
 	var item = $(".list-group-item.active").find("h4");
 	console.log("Opened " + $(item).text());
@@ -390,10 +372,10 @@ function callbackFunction(){
 }
  
 function savecallback(dbName, viewName, summarycol, detailcol, category,
-		xpage, refreshmethod, photocol, ajaxload, callback, target){
+		xpage, refreshmethod, photocol, ajaxload, callback, target, openineditmode){
 	console.log("Saved document at " + new Date());
 	unp.clearsearch(dbName, viewName, summarycol, detailcol, category,
-			xpage, refreshmethod, photocol, ajaxload, callback, target)
+			xpage, refreshmethod, photocol, ajaxload, callback, target, openineditmode)
 }
 
 function presavecallback(){
