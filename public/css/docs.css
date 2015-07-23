@@ -4,6 +4,7 @@ body {
 }
 
 /*docs menu*/
+/*
 .docs-menu li > a {
 	padding: 5px 15px !important;
 	border-radius:0;
@@ -22,15 +23,97 @@ body {
 	border-left: 1px solid #000;
 	background: none;
 }
+*/
+
+.back-to-top {
+	padding: 4px 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-size: 12px;
+	font-weight: 500;
+	color: #999;
+}
+
+.docs-menu .nav>li>a {
+  display: block;
+  padding: 4px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #767676
+}
+.docs-menu .nav>li>a:focus, .docs-menu .nav>li>a:hover {
+  padding-left: 19px;
+  color: #101010;
+  text-decoration: none;
+  background-color: transparent;
+  border-left: 1px solid #101010;
+	border-radius: 0px;
+}
+.docs-menu .nav>.active:focus>a, .docs-menu .nav>.active:hover>a, .docs-menu .nav>.active>a {
+  padding-left: 18px;
+  font-weight: 700;
+  color: #101010;
+  background-color: transparent;
+  border-left: 2px solid #101010;
+	border-radius: 0px;
+}
+.docs-menu .nav .nav {
+  display: none;
+  padding-bottom: 10px
+}
+.docs-menu .nav .nav>li>a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 30px;
+  font-size: 12px;
+  font-weight: 400
+}
+.docs-menu .nav .nav>li>a:focus, .docs-menu .nav .nav>li>a:hover {
+  padding-left: 29px
+}
+.docs-menu .nav .nav>.active:focus>a, .docs-menu .nav .nav>.active:hover>a, .docs-menu .nav .nav>.active>a {
+  padding-left: 28px;
+  font-weight: 500
+}
+@media (min-width:992px) {
+  .docs-menu .nav>.active>ul {
+    display: block
+  }
+  .docs-menu.affix, .docs-menu.affix-bottom {
+    width: 213px
+  }
+  .docs-menu.affix {
+    position: fixed;
+    top: 60px
+  }
+  .docs-menu.affix-bottom {
+    position: absolute
+  }
+  .docs-menu.affix .bs-docs-sidenav, .docs-menu.affix-bottom .bs-docs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0
+  }
+}
+@media (min-width:1200px) {
+  .docs-menu.affix, .docs-menu.affix-bottom {
+    width: 263px
+  }
+}
+
+
+
+
+
+
 
 .bootcards-documentation-list .list-group-item-heading,
 .bootcards-documentation-list .list-group-item-text {
-	margin: 0;	
+	margin: 0;
 }
 
 
 .bs-docs-section {
-	padding-bottom: 20px;	
+	padding-bottom: 20px;
 	border-bottom: 1px solid #eee;
 	margin-bottom: 20px;
 }
@@ -59,7 +142,7 @@ body {
 	box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
 	border-color: #e5e5e5 #eee #eee;
 	border-style: solid;
-	border-width: 1px 0;	
+	border-width: 1px 0;
 	margin-top: 20px;
 }
 
@@ -132,4 +215,8 @@ margin-bottom: 0;
 background-color: transparent;
 border: 0;
 white-space: nowrap;
+}
+
+.bs-docs-section h1, .bs-docs-section h2 {
+	padding-top: 50px;
 }
