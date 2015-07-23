@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xc:commonheader>
+		<xc:this.pagetitle><![CDATA[Basic Photo Upload]]></xc:this.pagetitle>
+	</xc:commonheader>
+
+	<div id="main" class="container bootcards-container">
+		<div class="row fullheightrow">
+			<div id="doccontent" class="col-sm-12 bootcards-cards">
+				<unp:UnpBootFormEditor showbuttons="false"
+					fullpagemode="true" reopenineditmode="false" formname="Photo">
+					<xp:this.facets>
+						<xp:panel xp:key="facet_1">
+							<div class="form-group">
+								<xp:label styleClass="col-xs-4 control-label" for="fileUpload1"
+									value="Select Picture:">
+								</xp:label>
+								<div class="col-xs-8">
+									<xp:fileUpload id="fileUpload1" value="#{docedit.Photo}">
+										<xp:this.attrs>
+											<xp:attr name="accept" value="image/*"></xp:attr>
+										</xp:this.attrs>
+									</xp:fileUpload>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-4"></div>
+								<div class="col-xs-8 btn-group pull-right">
+									<xp:button value="Cancel" id="cancelbutton"
+										styleClass="btn btn-default">
+										<xp:eventHandler event="onclick" submit="true"
+											refreshMode="complete">
+											<xp:this.action>
+												<xp:openPage name="/BaseCards.xsp">
+												</xp:openPage>
+											</xp:this.action>
+										</xp:eventHandler>
+									</xp:button>
+									<xp:button value="Upload" id="submitbutton"
+										styleClass="btn btn-success">
+										<xp:eventHandler event="onclick" submit="true"
+											refreshMode="complete">
+											<xp:this.action>
+												<xp:actionGroup>
+													<xp:executeScript
+														script="#{javascript:docedit.replaceItemValue('Form', 'Photo');docedit.save();}">
+													</xp:executeScript>
+													<xp:openPage name="/BaseCards.xsp">
+													</xp:openPage>
+												</xp:actionGroup>
+											</xp:this.action>
+										</xp:eventHandler>
+									</xp:button>
+								</div>
+							</div>
+						</xp:panel>
+					</xp:this.facets>
+				</unp:UnpBootFormEditor>
+			</div>
+		</div>
+		<div class="pagetitle hidden">Flat</div>
+	</div>
+
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>

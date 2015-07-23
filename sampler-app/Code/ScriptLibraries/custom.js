@@ -370,6 +370,16 @@ function callbackFunction(){
 	console.log("Opened " + $(item).text());
 	return true;
 }
+
+function basecardsCallback() {
+	var item = $(".list-group-item.active").find("h4");
+	if ($(item).text() == "Upload Card" && unpluggedserver && unp.isAndroid()){
+		window.location.href = "BasicPhotoUpload.xsp";
+	}else{
+		console.log("Opened (advanced upload should work) " + $(item).text());
+		return true;
+	}
+}
  
 function savecallback(dbName, viewName, summarycol, detailcol, category,
 		xpage, refreshmethod, photocol, ajaxload, callback, target, openineditmode){

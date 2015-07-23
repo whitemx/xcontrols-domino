@@ -50,7 +50,13 @@
 
 
 			<xp:panel styleClass="btn-group pull-right">
-				<xp:panel id="savebutton" tagName="a" styleClass="btn btn-success">
+				<xp:panel id="savebutton" tagName="a"
+					styleClass="btn btn-success">
+					<xp:this.rendered><![CDATA[#{javascript:if (compositeData.showbuttons == false){
+	return false;
+}else{
+	return true;
+}}]]></xp:this.rendered>
 					<i class="fa fa-check" />
 					&#160;Save
 					<xp:this.attrs>
