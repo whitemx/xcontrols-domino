@@ -30,6 +30,7 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootcards-site.css">
+  <link rel="stylesheet" href="css/docs.css">
   <link rel="stylesheet" href="css/ekko-lightbox.css">
 
   <!--font awesome-->
@@ -84,34 +85,57 @@
 	<div class="row">
 
 		<div class="col-sm-3 hidden-xs">
-			<div class="docs-menu affix">
+			<div class="docs-menu affix bs-docs-sidenav">
 				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><a href="#getting-started">Getting started</a></li>
-          				<li><a href="#doc-deployment">Deployment Tips</a></li>
-          				<li><a href="#doc-icons">Font Awesome Icons</a></li>
-					<li><a href="#doc-accordionview">Accordion List</a></li>
-					<li><a href="#doc-alert">Alert</a></li>
-					<li><a href="#doc-calendar">Calendar</a></li>
-					<li><a href="#doc-carousel">Carousel</a></li>
-					<li><a href="#doc-categorisedview">Categorised List</a></li>
-          				<li><a href="#doc-charts">Charts</a></li>
-					<li><a href="#doc-debugtoolbar">Debug Toolbar</a></li>
-          				<li><a href="#doc-detailedview">Detailed List</a></li>
-					<li><a href="#doc-dialog">Dialog</a></li>
-					<li><a href="#doc-files">Files</a></li>
-					<li><a href="#doc-flatview">Flat List</a></li>
-					<li><a href="#doc-footer">Footer</a></li>
-					<li><a href="#doc-formeditor">Form Editor</a></li>
-					<li><a href="#doc-formviewer">Form Viewer</a></li>
-					<li><a href="#doc-header">Header</a></li>
-					<li><a href="#doc-imageviewer">Image Viewer</a></li>
-          				<li><a href="#doc-login">Login</a></li>
-					<li><a href="#doc-photoupload">Photo Upload</a></li>
-					<li><a href="#doc-resources">Resources</a></li>
-					<li><a href="#doc-typographyedit">Typography Edit</a></li>
-					<li><a href="#doc-typographyread">Typography Read</a></li>
-					<li><a href="#doc-workspace">Workspace</a></li>
+  				<li><a href="#doc-deployment">Deployment Tips</a></li>
+  				<li><a href="#doc-icons">Font Awesome Icons</a></li>
+          <li>
+            <a href="#lists">Lists</a>
+            <ul class="nav">
+              <li><a href="#doc-accordionview">Accordion List</a></li>
+    					<li><a href="#doc-categorisedview">Categorised List</a></li>
+              <li><a href="#doc-detailedview">Detailed List</a></li>
+              <li><a href="#doc-flatview">Flat List</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#forms">Forms</a>
+            <ul class="nav">
+              <li><a href="#doc-formeditor">Form Editor</a></li>
+    					<li><a href="#doc-formviewer">Form Viewer</a></li>
+              <li><a href="#doc-imageviewer">Image Viewer</a></li>
+              <li><a href="#doc-photoupload">Photo Upload</a></li>
+              <li><a href="#doc-typographyedit">Typography Edit</a></li>
+    					<li><a href="#doc-typographyread">Typography Read</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#other">Other Controls</a>
+            <ul class="nav">
+              <li><a href="#doc-alert">Alert</a></li>
+    					<li><a href="#doc-calendar">Calendar</a></li>
+    					<li><a href="#doc-carousel">Carousel</a></li>
+      				<li><a href="#doc-charts">Charts</a></li>
+    					<li><a href="#doc-dialog">Dialog</a></li>
+    					<li><a href="#doc-files">Files</a></li>
+      				<li><a href="#doc-login">Login</a></li>
+    					<li><a href="#doc-workspace">Workspace</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#utilities">Utilities</a>
+            <ul class="nav">
+              <li><a href="#doc-debugtoolbar">Debug Toolbar</a></li>
+              <li><a href="#doc-footer">Footer</a></li>
+    					<li><a href="#doc-header">Header</a></li>
+            <li><a href="#doc-resources">Resources</a></li>
+            </ul>
+          </li>
 				</ul>
+        <a class="back-to-top" href="#top">
+          Back to top
+        </a>
 			</div>
 		</div>
 
@@ -119,7 +143,7 @@
 
 			<div class="panel panel-default bootcards-richtext">
 				<div class="panel-body">
-
+          <div id="top"></div>
 					<div id="getting-started" class="bs-docs-section">
 						<h2>Getting started</h2>
 						<p class="lead">Using the controls in XPages is a simple process</p>
@@ -179,6 +203,7 @@
             </div>
           </div>
 
+          <div id="lists" class="bs-docs-section"><h1>Lists</h1></div>
 					<div id="doc-accordionview" class="bs-docs-section">
 						<h2>Accordion List</h2>
 						<p class="lead">The Bootcards equivalent of a categorized view</p>
@@ -246,6 +271,558 @@
 </code></pre></div>
 					</div>
 
+          <div id="doc-categorisedview" class="bs-docs-section">
+      	  	<h2>Categorised List</h2>
+      	  	<p class="lead">Using the <a href="#doc-flatview">Flat List</a> you can also displayed categorised data.</p>
+      	  	<p>Simply specify the "categoryindex" property when you specify the control in your XPage.</p>
+      	  </div>
+
+          <div id="doc-detailedview" class="bs-docs-section">
+            <h2>Detailed List</h2>
+            <p class="lead">Very similar to the Flat List, but displays more columns of data. Available from v1.2 onwards.</p>
+            <p>Optionally add icons and other formatting.</p>
+            <dl class="dl-horizontal">
+              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
+              <dt>newlink</dt><dd>The link to open when composing a new document, leave blank to hide new button</dd>
+              <dt>dbname</dt><dd>The database to load data from, leave blank if not required<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
+              <dt>viewname</dt><dd>The view to load data from</dd>
+              <dt>summarycolumn</dt><dd>The column title to load summary data from</dd>
+              <dt>detailcolumn1</dt><dd>The column title to load detail data from</dd>
+              <dt>detailcolumn2</dt><dd>The column title to load detail data from</dd>
+              <dt>detailcolumn3</dt><dd>The column title to load detail data from</dd>
+              <dt>photocolumn</dt><dd>The column title to load photos from, leave blank if not required</dd>
+              <dt>xpagedoc</dt><dd>The xpage to load documents with, by default this would be the same as the current XPage</dd>
+              <dt>xpagedocdbname</dt><dd>The database that holds the xpage to load documents from, leave blank if not required</dd>
+              <dt>title</dt><dd>The title for the list</dd>
+              <dt>categoryfilter</dt><dd>A filter to apply to the view before loading data</dd>
+              <dt>numberofrows</dt><dd>The number of rows to display per page. Default is 20</dd>
+              <dt>enableazpicker</dt><dd>yes or no, enable the A-Z picker. If yes then it is best to load all documents in the view by setting number of rows to a large number</dd>
+              <dt>categoryindex</dt><dd>If you want to display categories, they will be non clickable but can effectively break up lists of data. This is the index number for the category column to use (counting from 0). Leave blank if not required.</dd>
+              <dt>ajaxload</dt><dd>Optionally load documents using a full page load, default is to use Ajax for performance reasons</dd>
+              <dt>searchlocal</dt><dd>If set to yes and searchview is blank then searching on the currently displayed list will be enabled</dd>
+              <dt>footertext</dt><dd>A footer text message to display. Leave blank if not required.</dd>
+              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
+              <dt>openfirstdocument</dt><dd><strong>from v1.3</strong> set to yes by default, if set to no then document will not be opened automatically when opening the view</dd>
+            </dl>
+<div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+
+  &lt;xc:commonheader pagetitle=&quot;Detailed View&quot;&gt;&lt;/xc:commonheader&gt;
+
+  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row fullheightrow&quot;&gt;
+      &lt;unp:UnpBootDetailedView title=&quot;People&quot; summarycolumn=&quot;FullName&quot;
+        viewname=&quot;People By Last Name&quot; numberofrows=&quot;20&quot; ajaxload=&quot;Yes&quot;
+        detailcolumn1=&quot;Company&quot; detailcolumn2=&quot;Country&quot; detailcolumn3=&quot;City&quot; xpagedoc=&quot;DetailedView.xsp&quot;
+        newlink=&quot;PersonEdit.xsp&quot; searchview=&quot;Search&quot; photocolumn=&quot;Photo&quot; footertext=&quot;Built with Bootcards - List&quot;&gt;
+      &lt;/unp:UnpBootDetailedView&gt;
+      &lt;div id=&quot;doccontent&quot; class=&quot;col-sm-7 bootcards-cards hidden-xs&quot;&gt;
+        &lt;xc:personviewer&gt;&lt;/xc:personviewer&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pagetitle hidden&quot;&gt;Detailed View&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
+&lt;/xp:view&gt;
+</code></pre></div>
+
+          </div>
+
+          <div id="doc-flatview" class="bs-docs-section">
+            <h2>Flat List</h2>
+            <p class="lead">Display a view of data as a list.</p>
+            <p>Optionally add icons and other formatting.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Flat View iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Flat View Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Flat View Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" class="img-responsive">
+                </a>
+            </div>
+            <dl class="dl-horizontal">
+              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
+              <dt>newlink</dt><dd>The link to open when composing a new document, leave blank to hide new button</dd>
+              <dt>dbname</dt><dd>The database to load data from, leave blank if not required<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
+              <dt>viewname</dt><dd>The view to load data from</dd>
+              <dt>summarycolumn</dt><dd>The column title to load summary data from</dd>
+              <dt>detailcolumn</dt><dd>The column title to load detail data from</dd>
+              <dt>photocolumn</dt><dd>The column title to load photos from, leave blank if not required</dd>
+              <dt>xpagedoc</dt><dd>The xpage to load documents with, by default this would be the same as the current XPage</dd>
+              <dt>xpagedocdbname</dt><dd>The database that holds the xpage to load documents from, leave blank if not required</dd>
+              <dt>title</dt><dd>The title for the list</dd>
+              <dt>categoryfilter</dt><dd>A filter to apply to the view before loading data</dd>
+              <dt>numberofrows</dt><dd>The number of rows to display per page. Default is 20</dd>
+              <dt>enableazpicker</dt><dd>yes or no, enable the A-Z picker. If yes then it is best to load all documents in the view by setting number of rows to a large number</dd>
+              <dt>categoryindex</dt><dd>If you want to display categories, they will be non clickable but can effectively break up lists of data. This is the index number for the category column to use (counting from 0). Leave blank if not required.</dd>
+              <dt>ajaxload</dt><dd>Optionally load documents using a full page load, default is to use Ajax for performance reasons</dd>
+              <dt>searchlocal</dt><dd>If set to yes and searchview is blank then searching on the currently displayed list will be enabled</dd>
+              <dt>footertext</dt><dd>A footer text message to display. Leave blank if not required.</dd>
+              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
+              <dt>openfirstdocument</dt><dd><strong>from v1.3</strong> set to yes by default, if set to no then document will not be opened automatically when opening the view</dd>
+            </dl>
+            <p><strong>We do have one known issue with the A-Z Picker when using it in iOS and Unplugged (not Safari), there are situations where the list will disappear until the user touches their screen again. We're still investigating a solution to this issue.</strong></p>
+<div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+
+  &lt;xc:commonheader pagetitle=&quot;Flat View&quot;&gt;&lt;/xc:commonheader&gt;
+
+  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row fullheightrow&quot;&gt;
+      &lt;unp:UnpBootFlatView title=&quot;People&quot; summarycolumn=&quot;FullName&quot;
+        viewname=&quot;People By Last Name&quot; numberofrows=&quot;20&quot; ajaxload=&quot;Yes&quot;
+        detailcolumn=&quot;Company&quot; xpagedoc=&quot;FlatView.xsp&quot;
+        newlink=&quot;PersonEdit.xsp&quot; searchview=&quot;Search&quot; photocolumn=&quot;Photo&quot; footertext=&quot;Built with Bootcards - List&quot;&gt;
+      &lt;/unp:UnpBootFlatView&gt;
+      &lt;div id=&quot;doccontent&quot; class=&quot;col-sm-7 bootcards-cards hidden-xs&quot;&gt;
+        &lt;xc:personviewer&gt;&lt;/xc:personviewer&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pagetitle hidden&quot;&gt;Flat View&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
+&lt;/xp:view&gt;
+</code></pre></div>
+
+          </div>
+
+          <div id="forms" class="bs-docs-section"><h1>Forms</h1></div>
+          <div id="doc-formeditor" class="bs-docs-section">
+            <h2>Form Editor</h2>
+            <p class="lead">A wrapper into which you can insert form fields for creating and editing documents</p>
+            <p>Form fields can include auto clearing, type ahead, date pickers, numbers, rich text and more!</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Editor iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Editor Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Editor Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-desktop.png" class="img-responsive">
+                </a>
+            </div>
+
+            <dl class="dl-horizontal">
+              <dt>dbname</dt><dd>The name of the database that contains the document, leave blank for current database<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
+              <dt>formname</dt><dd>The form name of the document being edited</dd>
+              <dt>title</dt><dd>The title for the form card</dd>
+              <dt>showbuttons</dt><dd>yes or no to show or hide the save and cancel buttons</dd>
+              <dt>viewxpagename</dt><dd>The name of the XPage to open after saving the document, would normally be the same as the current XPage</dd>
+              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after successfully saving a document</dd>
+              <dt>fullpagemode</dt><dd><strong>from v1.4</strong> a boolean switch to allow you to run the editor control in a full page rather than a dialog. Cancel button takes user back to previous page.</dd>
+              <dt>presavecallback</dt><dd><strong>from v1.4</strong> the name of a client side JavaScript function to call before running standard form validations. It <strong>must</strong> return true or false. If false the save will not proceed.</dd>
+            </dl>
+            <p>The fields supported require various extra settings. In the example below you can see:</p>
+            <ul>
+            <li>To make a field required add a class of "required"</li>
+            <li>To add a clear cross inside a field, add the bootcards-clearinput markup after the field</li>
+            <li>To make a field into a date picker use the example of the initialcontactdate field, add the datevalue attribute</li>
+            <li>To make a field into a date/time picker, use the example of the initialcontactdatefield, but add the datetimevalue attribute instead</li>
+            <li>To enable a mobile toggle use the markup of the mobileenabled field</li>
+            <li>To provide a typeahead list, add the jslist attribute to the field, the value of this attribute is the name of a JavaScript array that will be used to search for the typeahead list</li>
+            <li>Combo boxes can be used as normal</li>
+            </ul>
+            <p>As with previous versions of the Unplugged Controls, the field id is used to identify the field name to save data to.</p>
+            <p>You can prefix the field id with various settings to influence the data type:</p>
+            <ul>
+            <li>__ (two underscores) will make the field multivalue, use commas as a separator</li>
+            <li>int_ will make the field an integer (ie a number)</li>
+            <li>float_ will make the field a number with decimal points</li>
+            <li>All other fields will be assumed to be strings</li>
+            </ul>
+            <p>Date pickers will de different depending upon the client. On mobile devices and in the Chrome browser on the desktop, the native date picker will be used. In IE and Firefox on the desktop, a bootstrap date picker will be used.</p>
+          <div class="highlight"><pre><code class="html">
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+          &lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+          xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+          &lt;unp:UnpBootFormEditor showbuttons=&quot;yes&quot;
+          viewxpagename=&quot;FlatView.xsp&quot; formname=&quot;Person&quot; title=&quot;Person&quot;
+          xp:key=&quot;facet_1&quot;&gt;
+          &lt;xp:this.facets&gt;
+          &lt;xp:panel id=&quot;list-group&quot; xp:key=&quot;facet_1&quot;&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label styleClass=&quot;col-xs-4 control-label&quot; for=&quot;name&quot;
+            value=&quot;First Name&quot;&gt;&lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;xp:inputText id=&quot;firstname&quot; value=&quot;#{docedit.firstname}&quot;
+              styleClass=&quot;form-control required&quot;&gt;
+              &lt;xp:this.attrs&gt;
+                &lt;xp:attr name=&quot;placeholder&quot; value=&quot;First Name&quot;&gt;&lt;/xp:attr&gt;
+              &lt;/xp:this.attrs&gt;
+            &lt;/xp:inputText&gt;
+            &lt;a href=&quot;&quot; class=&quot;bootcards-clearinput&quot;&gt;
+              &lt;i class=&quot;fa fa-lg fa-times-circle&quot;&gt;&lt;/i&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label value=&quot;Date&quot; id=&quot;initialcontactdatelabel&quot; for=&quot;initialcontactdate&quot;
+            styleClass=&quot;col-xs-4 control-label&quot;&gt;
+          &lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;xp:inputText id=&quot;initialcontactdate&quot; styleClass=&quot;form-control&quot;&gt;
+              &lt;xp:this.attrs&gt;
+                &lt;xp:attr name=&quot;datevalue&quot;&gt;
+                  &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:try{
+          var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime(&apos;initialcontactdate&apos;);
+          return date.toJavaDate().getTime();
+          }catch(e){
+          return new Date().getTime();
+          }}]]&gt;&lt;/xp:this.value&gt;
+                &lt;/xp:attr&gt;
+              &lt;/xp:this.attrs&gt;
+            &lt;/xp:inputText&gt;
+
+          &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label value=&quot;Mobile Enabled?&quot; id=&quot;mobilelabel&quot; for=&quot;mobileenabled&quot;
+            styleClass=&quot;col-xs-4 control-label&quot;&gt;
+          &lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;xp:panel id=&quot;toggle&quot;&gt;
+              &lt;xp:this.styleClass&gt;&lt;![CDATA[#{javascript:var out = &quot;bootcards-toggle&quot;;
+          if (docedit.getItemValueString(&apos;mobileenabled&apos;) == &quot;on&quot;){
+          out += &quot; active&quot;;
+          }
+          return out;}]]&gt;&lt;/xp:this.styleClass&gt;
+              &lt;div class=&quot;bootcards-toggle-handle&quot;&gt;&lt;/div&gt;
+            &lt;/xp:panel&gt;
+            &lt;xp:checkBox checkedValue=&quot;on&quot; uncheckedValue=&quot;off&quot;
+              style=&quot;display: none;&quot; value=&quot;#{docedit.mobileenabled}&quot; required=&quot;false&quot;
+              id=&quot;checkBox1&quot;&gt;&lt;/xp:checkBox&gt;
+          &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label value=&quot;Company&quot; id=&quot;companylabel&quot; for=&quot;company&quot;
+            styleClass=&quot;col-xs-4 control-label&quot;&gt;
+          &lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;xp:inputText id=&quot;company&quot; value=&quot;#{docedit.Company}&quot;
+              styleClass=&quot;required form-control typeahead&quot; autocomplete=&quot;off&quot;&gt;
+              &lt;xp:this.attrs&gt;
+                &lt;xp:attr name=&quot;jslist&quot; value=&quot;companies&quot;&gt;
+                &lt;/xp:attr&gt;
+              &lt;/xp:this.attrs&gt;
+            &lt;/xp:inputText&gt;
+          &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label styleClass=&quot;col-xs-4 control-label&quot; for=&quot;country&quot;
+            value=&quot;Country&quot;&gt;&lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;xp:comboBox id=&quot;country&quot; value=&quot;#{docedit.Country}&quot;
+              styleClass=&quot;form-control&quot;&gt;
+              &lt;xp:selectItems&gt;
+                &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:@Unique(@DbColumn(@DbName(), &quot;People By Country&quot;, 1))}]]&gt;&lt;/xp:this.value&gt;
+              &lt;/xp:selectItems&gt;
+            &lt;/xp:comboBox&gt;
+          &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;/xp:panel&gt;
+          &lt;/xp:this.facets&gt;
+          &lt;/unp:UnpBootFormEditor&gt;
+          &lt;/xp:view&gt;
+          </code></pre></div>
+          </div>
+
+
+          <div id="doc-formviewer" class="bs-docs-section">
+            <h2>Form Viewer</h2>
+            <p class="lead">A wrapper to allow you to display document data inside a card</p>
+            <p>You can also choose to display an Edit button.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Viewer iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Viewer Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Viewer Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" class="img-responsive">
+                </a>
+            </div>
+            <dl class="dl-horizontal">
+              <dt>dbname</dt><dd>the name of the database that contains the document, leave blank for the current database<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
+              <dt>formname</dt><dd>the name of the form for the document</dd>
+              <dt>titlefield</dt><dd>the name of the field from which to get the title (if this is set then the title property is ignored)</dd>
+              <dt>titleiconfield</dt><dd>the name of the field which contains a thumbnail to display in the title</dd>
+              <dt>title</dt><dd>An alternative static title</dd>
+              <dt>showbuttons</dt><dd>yes to display edit button and no to hide edit button</dd>
+              <dt>editxpagename</dt><dd>the xpage to use to edit the document with</dd>
+              <dt>editxpagewithajax</dt><dd>yes to edit the document with ajax or no to open the document in edit mode with a full page load</dd>
+              <dt>newresponsexpagename</dt><dd>the name of the xpage to open to compose a response</dd>
+              <dt>footertext</dt><dd>A static string to display in the footer of the card, leave blank if not required</dd>
+              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after clicking the edit document button (i.e. when a document is put into edit mode)</dd>
+            </dl>
+            <p>In the example below we see the markup required for the FirstName field. Note that it's being displayed using an H4 tag with the class list-group-item-heading applied to it.</p>
+          <div class="highlight"><pre><code class="html">
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+          &lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;
+          xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;&gt;
+
+          &lt;unp:UnpBootFormViewer editxpagename=&quot;PersonEdit.xsp&quot;
+          editxpagewithajax=&quot;yes&quot; formname=&quot;Person&quot; showbuttons=&quot;yes&quot; title=&quot;Contact Details&quot;
+          titleiconfield=&quot;thumbnail&quot; footertext=&quot;Built with Bootcards - Base Card&quot;&gt;
+          &lt;xp:this.rendered&gt;&lt;![CDATA[#{javascript:context.getUrlParameter(&quot;documentId&quot;) != &quot;&quot;}]]&gt;&lt;/xp:this.rendered&gt;
+          &lt;xp:this.facets&gt;
+          &lt;xp:panel id=&quot;list-group&quot; xp:key=&quot;facet_1&quot; styleClass=&quot;panel&quot;&gt;
+          &lt;div class=&quot;list-group&quot;&gt;
+          &lt;div class=&quot;list-group-item&quot;&gt;
+            &lt;label&gt;Name&lt;/label&gt;
+            &lt;xp:text id=&quot;fullname&quot; tagName=&quot;h4&quot; styleClass=&quot;list-group-item-heading&quot;&gt;
+              &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:docview.getItemValueString(&quot;FirstName&quot;) + &quot; &quot; + docview.getItemValueString(&quot;LastName&quot;)}]]&gt;&lt;/xp:this.value&gt;
+            &lt;/xp:text&gt;
+          &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;/xp:panel&gt;
+          &lt;/xp:this.facets&gt;
+          &lt;/unp:UnpBootFormViewer&gt;
+
+          &lt;/xp:view&gt;
+          </code></pre></div>
+          <p>As of version 1.2, custom buttons can be added to your form by populating the Editable Area "viewerbuttons". The only caveat to remember is that if you're using server side actions on your custom buttons that the page will need to be loaded with a full refresh, not an Ajax request.</p>
+          <div><pre><code>
+          &lt;xp:panel xp:key="viewerbuttons"&gt;
+          &lt;xp:link id="custombutton" value="#" styleClass="btn btn-danger pull-right"
+          rendered="#{javascript:compositeData.showbuttons == true}"&gt;
+          &lt;i class="fa fa-folder"&gt;&lt;/i&gt;
+          &#160;Custom
+          &lt;xp:eventHandler event="onclick" submit="true"
+            refreshMode="complete"&gt;
+            &lt;xp:this.action&gt;&lt;![CDATA[#{javascript:print("Hello World");}]]&gt;&lt;/xp:this.action&gt;
+          &lt;/xp:eventHandler&gt;
+          &lt;/xp:link&gt;
+          &lt;/xp:panel&gt;
+          </code></pre></div>
+          </div>
+
+
+          <div id="doc-imageviewer" class="bs-docs-section">
+            <h2>Image Viewer</h2>
+            <p class="lead">A simple way to display an image to the user</p>
+            <p>The image will be displayed inside a card with a link below to download the image</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Image Viewer iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Image Viewer Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Image Viewer Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-desktop.png" class="img-responsive">
+                </a>
+            </div>
+
+            <dl class="dl-horizontal">
+              <dt>imageurl</dt><dd>the URL for the image</dd>
+              <dt>imagetitle</dt><dd>the title for the image</dd>
+            </dl>
+          <div class="highlight"><pre><code class="html">
+          &lt;xp:repeat var=&quot;imagefile&quot;&gt;
+          &lt;xc:this.rendered&gt;&lt;![CDATA[#{javascript:viewScope.images != null &amp;&amp; viewScope.images.length &gt; 0;}]]&gt;&lt;/xc:this.rendered&gt;
+          &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:if (viewScope.images != null){
+          var out = [];
+          for (var i=0; i&lt;viewScope.images.length; i++){
+          var filetype = viewScope.images[i].filename.toLowerCase().split(&apos;.&apos;);
+          filetype = filetype[filetype.length - 1];
+          if (filetype == &apos;png&apos; || filetype == &apos;gif&apos; || filetype == &apos;jpg&apos;){
+          out.push(viewScope.images[i]);
+          }
+          }
+          return out;
+          }else{
+          return null;
+          }}]]&gt;&lt;/xp:this.value&gt;
+          &lt;unp:UnpBootImageViewer imageurl=&quot;#{javascript:imagefile.url}&quot; imagetitle=&quot;#{javascript:imagefile.filename}&quot;&gt;
+          &lt;/unp:UnpBootImageViewer&gt;
+          &lt;/xp:repeat&gt;
+          </code></pre></div>
+          </div>
+
+          <div id="doc-photoupload" class="bs-docs-section">
+            <h2>Photo Upload</h2>
+            <p class="lead">To upload pictures on your mobile device and also resize, rotate as required before uploading.</p>
+            <p>To upload an image, add this control.</p>
+
+            <ul>
+            <li><strong>targetWidth</strong>: the width to resize the immage to</li>
+            <li><strong>targetHeight</strong>: the height to resize the image to</li>
+            <li><strong>targetDoc</strong>: the document binding to attach the file to</li>
+            <li><strong>itemName</strong>: the field to insert the image to</li>
+            <li><strong>showRotationControls</strong>: whether to allow the user to rotate the image before it's uploaded</li>
+            <li><strong>placeHolderIcon</strong>: the font-awesome icon to display before the image is uploaded</li>
+            <li><strong>crop</strong>: whether to crop the image rather than resize it when uploading</li>
+            <li><strong>customSelectElement</strong>: a classname to identify where to move the default photo upload button to (optional)</li>
+            </ul>
+<div class="highlight"><pre><code class="html">
+&lt;div class="panel-body"&gt;
+   Tap 'Select' to take a new photo or select from your Photos library, then tap 'Upload'.
+   &lt;div style="margin-top:15px; text-align: center;"&gt;
+      &lt;!-- show selected image --&gt;
+      &lt;unp:UnpBootPhotoUpload
+         targetWidth="1024"
+         targetHeight="768"
+         targetDoc="#{docPhoto}"
+         itemName="photo"
+         showRotationControls="false"
+         placeHolderIcon="fa-camera"
+         crop="false"
+         customSelectElement=".js-custom-photo-select"&gt;
+      &lt;/unp:UnpBootPhotoUpload&gt;
+   &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="panel-footer"&gt;
+   &lt;xp:div styleClass="btn-group btn-group-justified"&gt;
+      &lt;div class="btn-group"&gt;
+         &lt;div class="js-custom-photo-select photoUpload btn btn-default"&gt;
+            &lt;i class="fa fa-camera"&gt;&lt;/i&gt;
+            Select
+         &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="btn-group"&gt;
+         &lt;button
+            type="button"
+            class="btn btn-default"
+            onclick="unp.photoUploader.rotateImage(true)"&gt;
+         &lt;i class="fa fa-rotate-right"&gt;&lt;/i&gt;
+         Rotate
+         &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="btn-group"&gt;
+         &lt;xp:button
+            value="save"
+            styleClass="hidden"
+            id="button1"&gt;
+            &lt;xp:eventHandler
+               event="onclick"
+               submit="true"
+               refreshMode="complete"
+               immediate="false"
+               save="false"&gt;
+               &lt;xp:this.action&gt;
+                  &lt;xp:saveDocument var="docPhoto"&gt;&lt;/xp:saveDocument&gt;
+               &lt;/xp:this.action&gt;
+            &lt;/xp:eventHandler&gt;
+         &lt;/xp:button&gt;
+         &lt;xp:text escape="false"&gt;
+            &lt;xp:this.value&gt;
+               &lt;![CDATA[#{javascript:"&lt;button type=\"button\" onClick=\"unp.photoUploader.savePhoto(this, \'" + getClientId("button1") + "\')\" class=\"btn btn-default uploadphotobutton\"&gt;" +
+                  "&lt;i class=\"fa fa-upload\"&gt;&lt;/i&gt;Upload&lt;/button&gt;"}]]&gt;
+            &lt;/xp:this.value&gt;
+         &lt;/xp:text&gt;
+      &lt;/div&gt;
+   &lt;/xp:div&gt;
+&lt;/div&gt;
+&lt;!-- panel footer --&gt;
+</code></pre></div>
+          </div>
+
+          <div id="doc-typographyedit" class="bs-docs-section">
+            <h2>Typography Edit</h2>
+            <p class="lead">An implementation of a Rich Text Editor</p>
+            <p>Used in conjunction with the Form Editor control, you can make use of the <a href="http://quilljs.com">Quill rich text editor</a> which will save HTML formatted text into the document.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Edit iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Edit Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Edit Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-desktop.png" class="img-responsive">
+                </a>
+            </div>
+
+            <dl class="dl-horizontal">
+              <dt>fieldname</dt><dd>the name of the field to get get the initial content from. The data must be HTML formatted or plain text. Domino Rich Text will not work.</dd>
+            </dl>
+<div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+  &lt;unp:UnpBootFormEditor showbuttons=&quot;yes&quot;
+    viewxpagename=&quot;FlatView.xsp&quot; formname=&quot;Person&quot; title=&quot;Person&quot;
+    xp:key=&quot;facet_1&quot;&gt;
+    &lt;xp:this.facets&gt;
+      &lt;xp:panel id=&quot;list-group&quot; xp:key=&quot;facet_1&quot;&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+          &lt;xp:label value=&quot;Details&quot; id=&quot;biolabel&quot; for=&quot;bio&quot;
+            styleClass=&quot;col-xs-4 control-label&quot;&gt;
+          &lt;/xp:label&gt;
+          &lt;div class=&quot;col-xs-8&quot;&gt;
+            &lt;unp:UnpBootTypographyEdit fieldname=&quot;bio&quot;&gt;
+            &lt;/unp:UnpBootTypographyEdit&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/xp:panel&gt;
+    &lt;/xp:this.facets&gt;
+  &lt;/unp:UnpBootFormEditor&gt;
+&lt;/xp:view&gt;
+</code></pre></div>
+          </div>
+
+          <div id="doc-typographyread" class="bs-docs-section">
+            <h2>Typography Read</h2>
+            <p class="lead">A wrapper for text content that includes resize buttons</p>
+            <p>Ideal for use with large blocks of text to make them easier to read.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Read iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Read Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Read Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-desktop.png" class="img-responsive">
+                </a>
+            </div>
+
+            <dl class="dl-horizontal">
+              <dt>title</dt><dd>the title for the card</dd>
+              <dt>footertext</dt><dd>the footer text for the card</dd>
+
+            </dl>
+<div class="highlight"><pre><code class="html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
+  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+  &lt;xc:commonheader pagetitle=&quot;Reading Panel&quot;&gt;&lt;/xc:commonheader&gt;
+  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;bootcards-cards fullheightrow&quot;&gt;
+        &lt;div class=&quot;col-xs-12 col-sm-12 col-md-12&quot;&gt;
+          &lt;unp:UnpBootTypographyRead title=&quot;Reading Panel&quot;
+            footertext=&quot;Built with Bootcards - Rich Text Card&quot;&gt;
+            &lt;xp:this.facets&gt;
+              &lt;xp:panel xp:key=&quot;typographyfacet&quot;&gt;
+                &lt;h1&gt;
+                  h1. Bootstrap heading&amp;#160;
+                  &lt;small&gt;Secondary text&lt;/small&gt;
+                &lt;/h1&gt;
+              &lt;/xp:panel&gt;
+            &lt;/xp:this.facets&gt;
+          &lt;/unp:UnpBootTypographyRead&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
+&lt;/xp:view&gt;
+</code></pre></div>
+          </div>
+
+          <div id="other" class="bs-docs-section"><h1>Other Controls</h1></div>
 
           <div id="doc-alert" class="bs-docs-section">
             <h2>Alert</h2>
@@ -459,11 +1036,6 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
 </code></pre></div>
           </div>
 
-	  <div id="doc-categorisedview" class="bs-docs-section">
-	  	<h2>Categorised List</h2>
-	  	<p class="lead">Using the <a href="#doc-flatview">Flat List</a> you can also displayed categorised data.</p>
-	  	<p>Simply specify the "categoryindex" property when you specify the control in your XPage.</p>
-	  </div>
 
           <div id="doc-charts" class="bs-docs-section">
             <h2>Charts</h2>
@@ -471,83 +1043,6 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
             <p>Although we don't provide a charting control in XControls, it's very simple to add charts to your application using any framework that is compatible with Bootstrap. In our <a href="http://sampler.xcontrols.org/XControls.nsf/BaseCards.xsp">Sampler application</a> we use <a href="http://morrisjs.github.io/morris.js/">Morris Charts</a>.</p>
           </div>
 
-          <div id="doc-debugtoolbar" class="bs-docs-section">
-            <h2>Debug Toolbar</h2>
-            <p class="lead">For developers, the debug toolbar can help with development in all environments</p>
-            <p>Just drop the control onto your XPage and you can log messages, view variables and more.</p>
-            <div class="row">
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Debug Toolbar iOS" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-ios.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Debug Toolbar Android" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-android.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Debug Toolbar Desktop" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-desktop.png" class="img-responsive">
-                </a>
-            </div>
-
-            <dl class="dl-horizontal">
-              <dt>defaultCollapsed</dt><dd>true or false to define whether the toolbar should be collapsed when opening a page</dd>
-            </dl>
-<div class="highlight"><pre><code class="html">
-&lt;unp:UnpBootDebugToolbar defaultCollapsed=&quot;true&quot;&gt;&lt;/unp:UnpBootDebugToolbar&gt;
-</code></pre></div>
-          </div>
-
-          <div id="doc-detailedview" class="bs-docs-section">
-            <h2>Detailed List</h2>
-            <p class="lead">Very similar to the Flat List, but displays more columns of data. Available from v1.2 onwards.</p>
-            <p>Optionally add icons and other formatting.</p>
-            <dl class="dl-horizontal">
-              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
-              <dt>newlink</dt><dd>The link to open when composing a new document, leave blank to hide new button</dd>
-              <dt>dbname</dt><dd>The database to load data from, leave blank if not required<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
-              <dt>viewname</dt><dd>The view to load data from</dd>
-              <dt>summarycolumn</dt><dd>The column title to load summary data from</dd>
-              <dt>detailcolumn1</dt><dd>The column title to load detail data from</dd>
-              <dt>detailcolumn2</dt><dd>The column title to load detail data from</dd>
-              <dt>detailcolumn3</dt><dd>The column title to load detail data from</dd>
-              <dt>photocolumn</dt><dd>The column title to load photos from, leave blank if not required</dd>
-              <dt>xpagedoc</dt><dd>The xpage to load documents with, by default this would be the same as the current XPage</dd>
-              <dt>xpagedocdbname</dt><dd>The database that holds the xpage to load documents from, leave blank if not required</dd>
-              <dt>title</dt><dd>The title for the list</dd>
-              <dt>categoryfilter</dt><dd>A filter to apply to the view before loading data</dd>
-              <dt>numberofrows</dt><dd>The number of rows to display per page. Default is 20</dd>
-              <dt>enableazpicker</dt><dd>yes or no, enable the A-Z picker. If yes then it is best to load all documents in the view by setting number of rows to a large number</dd>
-              <dt>categoryindex</dt><dd>If you want to display categories, they will be non clickable but can effectively break up lists of data. This is the index number for the category column to use (counting from 0). Leave blank if not required.</dd>
-              <dt>ajaxload</dt><dd>Optionally load documents using a full page load, default is to use Ajax for performance reasons</dd>
-              <dt>searchlocal</dt><dd>If set to yes and searchview is blank then searching on the currently displayed list will be enabled</dd>
-              <dt>footertext</dt><dd>A footer text message to display. Leave blank if not required.</dd>
-              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
-              <dt>openfirstdocument</dt><dd><strong>from v1.3</strong> set to yes by default, if set to no then document will not be opened automatically when opening the view</dd>
-            </dl>
-<div class="highlight"><pre><code class="html">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
-  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
-
-  &lt;xc:commonheader pagetitle=&quot;Detailed View&quot;&gt;&lt;/xc:commonheader&gt;
-
-  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
-    &lt;div class=&quot;row fullheightrow&quot;&gt;
-      &lt;unp:UnpBootDetailedView title=&quot;People&quot; summarycolumn=&quot;FullName&quot;
-        viewname=&quot;People By Last Name&quot; numberofrows=&quot;20&quot; ajaxload=&quot;Yes&quot;
-        detailcolumn1=&quot;Company&quot; detailcolumn2=&quot;Country&quot; detailcolumn3=&quot;City&quot; xpagedoc=&quot;DetailedView.xsp&quot;
-        newlink=&quot;PersonEdit.xsp&quot; searchview=&quot;Search&quot; photocolumn=&quot;Photo&quot; footertext=&quot;Built with Bootcards - List&quot;&gt;
-      &lt;/unp:UnpBootDetailedView&gt;
-      &lt;div id=&quot;doccontent&quot; class=&quot;col-sm-7 bootcards-cards hidden-xs&quot;&gt;
-        &lt;xc:personviewer&gt;&lt;/xc:personviewer&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;pagetitle hidden&quot;&gt;Detailed View&lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
-&lt;/xp:view&gt;
-</code></pre></div>
-
-          </div>
 
           <div id="doc-dialog" class="bs-docs-section">
             <h2>Dialog</h2>
@@ -686,385 +1181,11 @@ if (attachmentList != null &amp;&amp; attachmentList.length &gt; 0){
 
 
 
-          <div id="doc-flatview" class="bs-docs-section">
-            <h2>Flat List</h2>
-            <p class="lead">Display a view of data as a list.</p>
-            <p>Optionally add icons and other formatting.</p>
-            <div class="row">
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Flat View iOS" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-ios.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Flat View Android" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-android.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Flat View Desktop" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" class="img-responsive">
-                </a>
-            </div>
-            <dl class="dl-horizontal">
-              <dt>searchview</dt><dd>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up.</dd>
-              <dt>newlink</dt><dd>The link to open when composing a new document, leave blank to hide new button</dd>
-              <dt>dbname</dt><dd>The database to load data from, leave blank if not required<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
-              <dt>viewname</dt><dd>The view to load data from</dd>
-              <dt>summarycolumn</dt><dd>The column title to load summary data from</dd>
-              <dt>detailcolumn</dt><dd>The column title to load detail data from</dd>
-              <dt>photocolumn</dt><dd>The column title to load photos from, leave blank if not required</dd>
-              <dt>xpagedoc</dt><dd>The xpage to load documents with, by default this would be the same as the current XPage</dd>
-              <dt>xpagedocdbname</dt><dd>The database that holds the xpage to load documents from, leave blank if not required</dd>
-              <dt>title</dt><dd>The title for the list</dd>
-              <dt>categoryfilter</dt><dd>A filter to apply to the view before loading data</dd>
-              <dt>numberofrows</dt><dd>The number of rows to display per page. Default is 20</dd>
-              <dt>enableazpicker</dt><dd>yes or no, enable the A-Z picker. If yes then it is best to load all documents in the view by setting number of rows to a large number</dd>
-              <dt>categoryindex</dt><dd>If you want to display categories, they will be non clickable but can effectively break up lists of data. This is the index number for the category column to use (counting from 0). Leave blank if not required.</dd>
-              <dt>ajaxload</dt><dd>Optionally load documents using a full page load, default is to use Ajax for performance reasons</dd>
-              <dt>searchlocal</dt><dd>If set to yes and searchview is blank then searching on the currently displayed list will be enabled</dd>
-              <dt>footertext</dt><dd>A footer text message to display. Leave blank if not required.</dd>
-              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
-              <dt>openfirstdocument</dt><dd><strong>from v1.3</strong> set to yes by default, if set to no then document will not be opened automatically when opening the view</dd>
-            </dl>
-            <p><strong>We do have one known issue with the A-Z Picker when using it in iOS and Unplugged (not Safari), there are situations where the list will disappear until the user touches their screen again. We're still investigating a solution to this issue.</strong></p>
-<div class="highlight"><pre><code class="html">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
-  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
-
-  &lt;xc:commonheader pagetitle=&quot;Flat View&quot;&gt;&lt;/xc:commonheader&gt;
-
-  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
-    &lt;div class=&quot;row fullheightrow&quot;&gt;
-      &lt;unp:UnpBootFlatView title=&quot;People&quot; summarycolumn=&quot;FullName&quot;
-        viewname=&quot;People By Last Name&quot; numberofrows=&quot;20&quot; ajaxload=&quot;Yes&quot;
-        detailcolumn=&quot;Company&quot; xpagedoc=&quot;FlatView.xsp&quot;
-        newlink=&quot;PersonEdit.xsp&quot; searchview=&quot;Search&quot; photocolumn=&quot;Photo&quot; footertext=&quot;Built with Bootcards - List&quot;&gt;
-      &lt;/unp:UnpBootFlatView&gt;
-      &lt;div id=&quot;doccontent&quot; class=&quot;col-sm-7 bootcards-cards hidden-xs&quot;&gt;
-        &lt;xc:personviewer&gt;&lt;/xc:personviewer&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;pagetitle hidden&quot;&gt;Flat View&lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
-&lt;/xp:view&gt;
-</code></pre></div>
-
-          </div>
 
 
-          <div id="doc-footer" class="bs-docs-section">
-            <h2>Footer</h2>
-            <p class="lead">Display a sync button for Unplugged devices and optionally a different navigation technique with footer tabs</p>
-
-            <dl class="dl-horizontal">
-              <dt>synctype</dt><dd>Choose between alldbs, currentdb or none to enable a sync button when using Unplugged on a mobile device</dd>
-              <dt>tabs</dt><dd>An array of objects that describe the footer tabs you want to display, leave blank if not required</dd>
-              <dt>postSyncTarget</dt><dd>The page to open after syncing, leave blank if not required, or you're happy with the default which is to open the UnpMain XPage</dd>
-            </dl>
-<div class="highlight"><pre><code class="html">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
-  &lt;unp:UnpBootFooter synctype=&quot;currentdb&quot;&gt;
-  &lt;/unp:UnpBootFooter&gt;
-&lt;/xp:view&gt;
-</code></pre></div>
-          </div>
 
 
-          <div id="doc-formeditor" class="bs-docs-section">
-            <h2>Form Editor</h2>
-            <p class="lead">A wrapper into which you can insert form fields for creating and editing documents</p>
-            <p>Form fields can include auto clearing, type ahead, date pickers, numbers, rich text and more!</p>
-            <div class="row">
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Editor iOS" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-ios.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Editor Android" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-android.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Editor Desktop" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formeditor-desktop.png" class="img-responsive">
-                </a>
-            </div>
 
-            <dl class="dl-horizontal">
-              <dt>dbname</dt><dd>The name of the database that contains the document, leave blank for current database<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
-              <dt>formname</dt><dd>The form name of the document being edited</dd>
-              <dt>title</dt><dd>The title for the form card</dd>
-              <dt>showbuttons</dt><dd>yes or no to show or hide the save and cancel buttons</dd>
-              <dt>viewxpagename</dt><dd>The name of the XPage to open after saving the document, would normally be the same as the current XPage</dd>
-              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after successfully saving a document</dd>
-              <dt>fullpagemode</dt><dd><strong>from v1.4</strong> a boolean switch to allow you to run the editor control in a full page rather than a dialog. Cancel button takes user back to previous page.</dd>
-              <dt>presavecallback</dt><dd><strong>from v1.4</strong> the name of a client side JavaScript function to call before running standard form validations. It <strong>must</strong> return true or false. If false the save will not proceed.</dd>
-            </dl>
-            <p>The fields supported require various extra settings. In the example below you can see:</p>
-            <ul>
-            <li>To make a field required add a class of "required"</li>
-            <li>To add a clear cross inside a field, add the bootcards-clearinput markup after the field</li>
-            <li>To make a field into a date picker use the example of the initialcontactdate field, add the datevalue attribute</li>
-            <li>To make a field into a date/time picker, use the example of the initialcontactdatefield, but add the datetimevalue attribute instead</li>
-            <li>To enable a mobile toggle use the markup of the mobileenabled field</li>
-            <li>To provide a typeahead list, add the jslist attribute to the field, the value of this attribute is the name of a JavaScript array that will be used to search for the typeahead list</li>
-            <li>Combo boxes can be used as normal</li>
-            </ul>
-            <p>As with previous versions of the Unplugged Controls, the field id is used to identify the field name to save data to.</p>
-            <p>You can prefix the field id with various settings to influence the data type:</p>
-            <ul>
-            <li>__ (two underscores) will make the field multivalue, use commas as a separator</li>
-            <li>int_ will make the field an integer (ie a number)</li>
-            <li>float_ will make the field a number with decimal points</li>
-            <li>All other fields will be assumed to be strings</li>
-            </ul>
-            <p>Date pickers will de different depending upon the client. On mobile devices and in the Chrome browser on the desktop, the native date picker will be used. In IE and Firefox on the desktop, a bootstrap date picker will be used.</p>
-<div class="highlight"><pre><code class="html">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
-  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
-  &lt;unp:UnpBootFormEditor showbuttons=&quot;yes&quot;
-    viewxpagename=&quot;FlatView.xsp&quot; formname=&quot;Person&quot; title=&quot;Person&quot;
-    xp:key=&quot;facet_1&quot;&gt;
-    &lt;xp:this.facets&gt;
-      &lt;xp:panel id=&quot;list-group&quot; xp:key=&quot;facet_1&quot;&gt;
-        &lt;div class=&quot;form-group&quot;&gt;
-          &lt;xp:label styleClass=&quot;col-xs-4 control-label&quot; for=&quot;name&quot;
-            value=&quot;First Name&quot;&gt;&lt;/xp:label&gt;
-          &lt;div class=&quot;col-xs-8&quot;&gt;
-            &lt;xp:inputText id=&quot;firstname&quot; value=&quot;#{docedit.firstname}&quot;
-              styleClass=&quot;form-control required&quot;&gt;
-              &lt;xp:this.attrs&gt;
-                &lt;xp:attr name=&quot;placeholder&quot; value=&quot;First Name&quot;&gt;&lt;/xp:attr&gt;
-              &lt;/xp:this.attrs&gt;
-            &lt;/xp:inputText&gt;
-            &lt;a href=&quot;&quot; class=&quot;bootcards-clearinput&quot;&gt;
-              &lt;i class=&quot;fa fa-lg fa-times-circle&quot;&gt;&lt;/i&gt;
-            &lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;form-group&quot;&gt;
-          &lt;xp:label value=&quot;Date&quot; id=&quot;initialcontactdatelabel&quot; for=&quot;initialcontactdate&quot;
-            styleClass=&quot;col-xs-4 control-label&quot;&gt;
-          &lt;/xp:label&gt;
-          &lt;div class=&quot;col-xs-8&quot;&gt;
-            &lt;xp:inputText id=&quot;initialcontactdate&quot; styleClass=&quot;form-control&quot;&gt;
-              &lt;xp:this.attrs&gt;
-                &lt;xp:attr name=&quot;datevalue&quot;&gt;
-                  &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:try{
-  var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime(&apos;initialcontactdate&apos;);
-  return date.toJavaDate().getTime();
-}catch(e){
-  return new Date().getTime();
-}}]]&gt;&lt;/xp:this.value&gt;
-                &lt;/xp:attr&gt;
-              &lt;/xp:this.attrs&gt;
-            &lt;/xp:inputText&gt;
-
-          &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;form-group&quot;&gt;
-          &lt;xp:label value=&quot;Mobile Enabled?&quot; id=&quot;mobilelabel&quot; for=&quot;mobileenabled&quot;
-            styleClass=&quot;col-xs-4 control-label&quot;&gt;
-          &lt;/xp:label&gt;
-          &lt;div class=&quot;col-xs-8&quot;&gt;
-            &lt;xp:panel id=&quot;toggle&quot;&gt;
-              &lt;xp:this.styleClass&gt;&lt;![CDATA[#{javascript:var out = &quot;bootcards-toggle&quot;;
-if (docedit.getItemValueString(&apos;mobileenabled&apos;) == &quot;on&quot;){
-  out += &quot; active&quot;;
-}
-return out;}]]&gt;&lt;/xp:this.styleClass&gt;
-              &lt;div class=&quot;bootcards-toggle-handle&quot;&gt;&lt;/div&gt;
-            &lt;/xp:panel&gt;
-            &lt;xp:checkBox checkedValue=&quot;on&quot; uncheckedValue=&quot;off&quot;
-              style=&quot;display: none;&quot; value=&quot;#{docedit.mobileenabled}&quot; required=&quot;false&quot;
-              id=&quot;checkBox1&quot;&gt;&lt;/xp:checkBox&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;form-group&quot;&gt;
-          &lt;xp:label value=&quot;Company&quot; id=&quot;companylabel&quot; for=&quot;company&quot;
-            styleClass=&quot;col-xs-4 control-label&quot;&gt;
-          &lt;/xp:label&gt;
-          &lt;div class=&quot;col-xs-8&quot;&gt;
-            &lt;xp:inputText id=&quot;company&quot; value=&quot;#{docedit.Company}&quot;
-              styleClass=&quot;required form-control typeahead&quot; autocomplete=&quot;off&quot;&gt;
-              &lt;xp:this.attrs&gt;
-                &lt;xp:attr name=&quot;jslist&quot; value=&quot;companies&quot;&gt;
-                &lt;/xp:attr&gt;
-              &lt;/xp:this.attrs&gt;
-            &lt;/xp:inputText&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;form-group&quot;&gt;
-          &lt;xp:label styleClass=&quot;col-xs-4 control-label&quot; for=&quot;country&quot;
-            value=&quot;Country&quot;&gt;&lt;/xp:label&gt;
-          &lt;div class=&quot;col-xs-8&quot;&gt;
-            &lt;xp:comboBox id=&quot;country&quot; value=&quot;#{docedit.Country}&quot;
-              styleClass=&quot;form-control&quot;&gt;
-              &lt;xp:selectItems&gt;
-                &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:@Unique(@DbColumn(@DbName(), &quot;People By Country&quot;, 1))}]]&gt;&lt;/xp:this.value&gt;
-              &lt;/xp:selectItems&gt;
-            &lt;/xp:comboBox&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/xp:panel&gt;
-    &lt;/xp:this.facets&gt;
-  &lt;/unp:UnpBootFormEditor&gt;
-&lt;/xp:view&gt;
-</code></pre></div>
-          </div>
-
-
-          <div id="doc-formviewer" class="bs-docs-section">
-            <h2>Form Viewer</h2>
-            <p class="lead">A wrapper to allow you to display document data inside a card</p>
-            <p>You can also choose to display an Edit button.</p>
-            <div class="row">
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Viewer iOS" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-ios.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Viewer Android" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/formviewer-android.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Form Viewer Desktop" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/flatview-desktop.png" class="img-responsive">
-                </a>
-            </div>
-            <dl class="dl-horizontal">
-              <dt>dbname</dt><dd>the name of the database that contains the document, leave blank for the current database<br /><strong>From 1.4</strong> To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</dd>
-              <dt>formname</dt><dd>the name of the form for the document</dd>
-              <dt>titlefield</dt><dd>the name of the field from which to get the title (if this is set then the title property is ignored)</dd>
-              <dt>titleiconfield</dt><dd>the name of the field which contains a thumbnail to display in the title</dd>
-              <dt>title</dt><dd>An alternative static title</dd>
-              <dt>showbuttons</dt><dd>yes to display edit button and no to hide edit button</dd>
-              <dt>editxpagename</dt><dd>the xpage to use to edit the document with</dd>
-              <dt>editxpagewithajax</dt><dd>yes to edit the document with ajax or no to open the document in edit mode with a full page load</dd>
-              <dt>newresponsexpagename</dt><dd>the name of the xpage to open to compose a response</dd>
-              <dt>footertext</dt><dd>A static string to display in the footer of the card, leave blank if not required</dd>
-              <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after clicking the edit document button (i.e. when a document is put into edit mode)</dd>
-            </dl>
-            <p>In the example below we see the markup required for the FirstName field. Note that it's being displayed using an H4 tag with the class list-group-item-heading applied to it.</p>
-<div class="highlight"><pre><code class="html">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;
-  xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;&gt;
-
-  &lt;unp:UnpBootFormViewer editxpagename=&quot;PersonEdit.xsp&quot;
-    editxpagewithajax=&quot;yes&quot; formname=&quot;Person&quot; showbuttons=&quot;yes&quot; title=&quot;Contact Details&quot;
-    titleiconfield=&quot;thumbnail&quot; footertext=&quot;Built with Bootcards - Base Card&quot;&gt;
-    &lt;xp:this.rendered&gt;&lt;![CDATA[#{javascript:context.getUrlParameter(&quot;documentId&quot;) != &quot;&quot;}]]&gt;&lt;/xp:this.rendered&gt;
-    &lt;xp:this.facets&gt;
-      &lt;xp:panel id=&quot;list-group&quot; xp:key=&quot;facet_1&quot; styleClass=&quot;panel&quot;&gt;
-        &lt;div class=&quot;list-group&quot;&gt;
-          &lt;div class=&quot;list-group-item&quot;&gt;
-            &lt;label&gt;Name&lt;/label&gt;
-            &lt;xp:text id=&quot;fullname&quot; tagName=&quot;h4&quot; styleClass=&quot;list-group-item-heading&quot;&gt;
-              &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:docview.getItemValueString(&quot;FirstName&quot;) + &quot; &quot; + docview.getItemValueString(&quot;LastName&quot;)}]]&gt;&lt;/xp:this.value&gt;
-            &lt;/xp:text&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/xp:panel&gt;
-    &lt;/xp:this.facets&gt;
-  &lt;/unp:UnpBootFormViewer&gt;
-
-&lt;/xp:view&gt;
-</code></pre></div>
-<p>As of version 1.2, custom buttons can be added to your form by populating the Editable Area "viewerbuttons". The only caveat to remember is that if you're using server side actions on your custom buttons that the page will need to be loaded with a full refresh, not an Ajax request.</p>
-<div><pre><code>
-&lt;xp:panel xp:key="viewerbuttons"&gt;
-    &lt;xp:link id="custombutton" value="#" styleClass="btn btn-danger pull-right"
-        rendered="#{javascript:compositeData.showbuttons == true}"&gt;
-        &lt;i class="fa fa-folder"&gt;&lt;/i&gt;
-        &#160;Custom
-        &lt;xp:eventHandler event="onclick" submit="true"
-            refreshMode="complete"&gt;
-            &lt;xp:this.action&gt;&lt;![CDATA[#{javascript:print("Hello World");}]]&gt;&lt;/xp:this.action&gt;
-        &lt;/xp:eventHandler&gt;
-    &lt;/xp:link&gt;
-&lt;/xp:panel&gt;
-</code></pre></div>
-          </div>
-
-
-          <div id="doc-header" class="bs-docs-section">
-            <h2>Header</h2>
-            <p class="lead">The control to configuring the header bar</p>
-            <p>Used for the header bar navigation</p>
-
-            <dl class="dl-horizontal">
-              <dt>title</dt><dd>title for the page</dd>
-              <dt>navitems</dt><dd>an array of objects that describe menu items. Each item should have the following properties: label, page and icon. The label is what will be displayed in the header bar, the page is the URL to open when the link is clicked and icon is the Font Awesome icon to use for the menu item.</dd>
-            </dl>
-<div class="highlight"><pre><code class="html">
-  &lt;unp:UnpBootHeader&gt;
-    &lt;unp:this.navitems&gt;&lt;![CDATA[#{javascript:[
-        {label: &quot;Dashboard&quot;, hasSubMenu: false, page: &quot;/UnpMain.xsp&quot;, icon: &quot;fa-dashboard&quot;},
-        {label: &quot;Lists&quot;, icon: &quot;fa-list&quot;, children: [
-      {&quot;label&quot;: &quot;Flat&quot;, &quot;icon&quot;: &quot;fa-list-alt&quot;, &quot;page&quot;: &quot;/FlatView.xsp&quot;},
-      {&quot;label&quot;: &quot;Detailed&quot;, &quot;icon&quot;: &quot;fa-list-alt&quot;, &quot;page&quot;: &quot;/DetailView.xsp&quot;},
-      {&quot;label&quot;: &quot;Categorized&quot;, &quot;icon&quot;: &quot;fa-list&quot;, &quot;page&quot;: &quot;/Categorized.xsp&quot;},
-      {&quot;label&quot;: &quot;Accordion&quot;, &quot;icon&quot;: &quot;fa-th-list&quot;, &quot;page&quot;: &quot;/Accordion.xsp&quot;}
-    ]},
-        {label: &quot;Cards&quot;, hasSubMenu: false, page: &quot;/BaseCards.xsp&quot;, icon: &quot;fa-book&quot;},
-        {label: &quot;Other Controls&quot;, icon: &quot;fa-th-large&quot;, children: [
-      {&quot;label&quot;: &quot;Calendar&quot;, &quot;icon&quot;: &quot;fa-calendar&quot;, &quot;page&quot;: &quot;/Calendar.xsp&quot;},
-      {&quot;label&quot;: &quot;Carousel&quot;, &quot;icon&quot;: &quot;fa-files-o&quot;, &quot;page&quot;: &quot;/Media.xsp&quot;},
-      {&quot;label&quot;: &quot;Dialogs&quot;, &quot;icon&quot;: &quot;fa-comment&quot;, &quot;page&quot;: &quot;/Dialog.xsp&quot;}
-    ]},
-        {label: &quot;Tools&quot;, icon: &quot;fa-cog&quot;, children: [
-      {&quot;label&quot;: &quot;Debug Toolbar&quot;, &quot;icon&quot;: &quot;fa-bug&quot;, &quot;page&quot;: &quot;/DebugToolbar.xsp&quot;},
-      {&quot;label&quot;: &quot;XMark 1&quot;, &quot;icon&quot;: &quot;fa-bolt&quot;, &quot;page&quot;: &quot;/UPMark.xsp&quot;}
-    ]},
-    {label: &quot;New Person&quot;, newDocXPage: &quot;PersonEdit.xsp&quot;, icon: &quot;fa-new&quot;}
-]}]]&gt;&lt;/unp:this.navitems&gt;
-    &lt;unp:this.title&gt;&lt;![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
-  return &quot;Sampler&quot;;
-}else{
-  return compositeData.pagetitle;
-}}]]&gt;&lt;/unp:this.title&gt;
-  &lt;/unp:UnpBootHeader&gt;
-</code></pre></div>
-            <div>As of version 1.3, you can also add a "compose" button to the header menu bar for desktop users. To do this, simply add a property to the JSON object called "newDocXPage" which will be set to the name of the XPage to open when clicked. You can see an example in the last element. You must make sure that any page that has the option displayed also has a list or form control included on it (e.g. Flat List or FormViewer)</div>
-            <div>Also as part of version 1.3, you can now choose to have drop down menus in the header bar for desktop browsers. The example above shows the configuration for three different drop down menus; List, Other Controls and Tools. Include the menu options in an array called "children".
-          </div>
-
-          <div id="doc-imageviewer" class="bs-docs-section">
-            <h2>Image Viewer</h2>
-            <p class="lead">A simple way to display an image to the user</p>
-            <p>The image will be displayed inside a card with a link below to download the image</p>
-            <div class="row">
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Image Viewer iOS" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-ios.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Image Viewer Android" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-android.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Image Viewer Desktop" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/images-desktop.png" class="img-responsive">
-                </a>
-            </div>
-
-            <dl class="dl-horizontal">
-              <dt>imageurl</dt><dd>the URL for the image</dd>
-              <dt>imagetitle</dt><dd>the title for the image</dd>
-            </dl>
-<div class="highlight"><pre><code class="html">
-&lt;xp:repeat var=&quot;imagefile&quot;&gt;
-  &lt;xc:this.rendered&gt;&lt;![CDATA[#{javascript:viewScope.images != null &amp;&amp; viewScope.images.length &gt; 0;}]]&gt;&lt;/xc:this.rendered&gt;
-  &lt;xp:this.value&gt;&lt;![CDATA[#{javascript:if (viewScope.images != null){
-  var out = [];
-  for (var i=0; i&lt;viewScope.images.length; i++){
-    var filetype = viewScope.images[i].filename.toLowerCase().split(&apos;.&apos;);
-    filetype = filetype[filetype.length - 1];
-    if (filetype == &apos;png&apos; || filetype == &apos;gif&apos; || filetype == &apos;jpg&apos;){
-      out.push(viewScope.images[i]);
-    }
-  }
-  return out;
-}else{
-  return null;
-}}]]&gt;&lt;/xp:this.value&gt;
-  &lt;unp:UnpBootImageViewer imageurl=&quot;#{javascript:imagefile.url}&quot; imagetitle=&quot;#{javascript:imagefile.filename}&quot;&gt;
-  &lt;/unp:UnpBootImageViewer&gt;
-&lt;/xp:repeat&gt;
-</code></pre></div>
-          </div>
 
                     <div id="doc-login" class="bs-docs-section">
             <h2>Login</h2>
@@ -1089,185 +1210,9 @@ xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
             </code></pre></div>
           </div>
 
-          <div id="doc-photoupload" class="bs-docs-section">
-            <h2>Photo Upload</h2>
-            <p class="lead">To upload pictures on your mobile device and also resize, rotate as required before uploading.</p>
-            <p>To upload an image, add this control.</p>
 
-            <ul>
-            <li><strong>targetWidth</strong>: the width to resize the immage to</li>
-            <li><strong>targetHeight</strong>: the height to resize the image to</li>
-            <li><strong>targetDoc</strong>: the document binding to attach the file to</li>
-            <li><strong>itemName</strong>: the field to insert the image to</li>
-            <li><strong>showRotationControls</strong>: whether to allow the user to rotate the image before it's uploaded</li>
-            <li><strong>placeHolderIcon</strong>: the font-awesome icon to display before the image is uploaded</li>
-            <li><strong>crop</strong>: whether to crop the image rather than resize it when uploading</li>
-            <li><strong>customSelectElement</strong>: a classname to identify where to move the default photo upload button to (optional)</li>
-            </ul>
-<div class="highlight"><pre><code class="html">
-&lt;div class="panel-body"&gt;
-   Tap 'Select' to take a new photo or select from your Photos library, then tap 'Upload'.
-   &lt;div style="margin-top:15px; text-align: center;"&gt;
-      &lt;!-- show selected image --&gt;
-      &lt;unp:UnpBootPhotoUpload
-         targetWidth="1024"
-         targetHeight="768"
-         targetDoc="#{docPhoto}"
-         itemName="photo"
-         showRotationControls="false"
-         placeHolderIcon="fa-camera"
-         crop="false"
-         customSelectElement=".js-custom-photo-select"&gt;
-      &lt;/unp:UnpBootPhotoUpload&gt;
-   &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="panel-footer"&gt;
-   &lt;xp:div styleClass="btn-group btn-group-justified"&gt;
-      &lt;div class="btn-group"&gt;
-         &lt;div class="js-custom-photo-select photoUpload btn btn-default"&gt;
-            &lt;i class="fa fa-camera"&gt;&lt;/i&gt;
-            Select
-         &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="btn-group"&gt;
-         &lt;button
-            type="button"
-            class="btn btn-default"
-            onclick="unp.photoUploader.rotateImage(true)"&gt;
-         &lt;i class="fa fa-rotate-right"&gt;&lt;/i&gt;
-         Rotate
-         &lt;/button&gt;
-      &lt;/div&gt;
-      &lt;div class="btn-group"&gt;
-         &lt;xp:button
-            value="save"
-            styleClass="hidden"
-            id="button1"&gt;
-            &lt;xp:eventHandler
-               event="onclick"
-               submit="true"
-               refreshMode="complete"
-               immediate="false"
-               save="false"&gt;
-               &lt;xp:this.action&gt;
-                  &lt;xp:saveDocument var="docPhoto"&gt;&lt;/xp:saveDocument&gt;
-               &lt;/xp:this.action&gt;
-            &lt;/xp:eventHandler&gt;
-         &lt;/xp:button&gt;
-         &lt;xp:text escape="false"&gt;
-            &lt;xp:this.value&gt;
-               &lt;![CDATA[#{javascript:"&lt;button type=\"button\" onClick=\"unp.photoUploader.savePhoto(this, \'" + getClientId("button1") + "\')\" class=\"btn btn-default uploadphotobutton\"&gt;" +
-                  "&lt;i class=\"fa fa-upload\"&gt;&lt;/i&gt;Upload&lt;/button&gt;"}]]&gt;
-            &lt;/xp:this.value&gt;
-         &lt;/xp:text&gt;
-      &lt;/div&gt;
-   &lt;/xp:div&gt;
-&lt;/div&gt;
-&lt;!-- panel footer --&gt;
-</code></pre></div>
-          </div>
 
-          <div id="doc-resources" class="bs-docs-section">
-            <h2>Resources</h2>
-            <p class="lead">This control will load all of the required CSS and JavaScript files onto a page when it loads. It should be included in all XPages in your application.</p>
-            <ul>
-            <li><strong>loginpage</strong>: <strong>from v1.3</strong> you can specify a login page to redirect to if the current user is anonymous. You must create the login page as required. Leave blank to use standard Domino authentication.</li>
-            </ul>
-          </div>
 
-          <div id="doc-typographyedit" class="bs-docs-section">
-            <h2>Typography Edit</h2>
-            <p class="lead">An implementation of a Rich Text Editor</p>
-            <p>Used in conjunction with the Form Editor control, you can make use of the <a href="http://quilljs.com">Quill rich text editor</a> which will save HTML formatted text into the document.</p>
-            <div class="row">
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Edit iOS" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-ios.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Edit Android" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-android.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Edit Desktop" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtexteditor-desktop.png" class="img-responsive">
-                </a>
-            </div>
-
-            <dl class="dl-horizontal">
-              <dt>fieldname</dt><dd>the name of the field to get get the initial content from. The data must be HTML formatted or plain text. Domino Rich Text will not work.</dd>
-            </dl>
-<div class="highlight"><pre><code class="html">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
-  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
-  &lt;unp:UnpBootFormEditor showbuttons=&quot;yes&quot;
-    viewxpagename=&quot;FlatView.xsp&quot; formname=&quot;Person&quot; title=&quot;Person&quot;
-    xp:key=&quot;facet_1&quot;&gt;
-    &lt;xp:this.facets&gt;
-      &lt;xp:panel id=&quot;list-group&quot; xp:key=&quot;facet_1&quot;&gt;
-        &lt;div class=&quot;form-group&quot;&gt;
-          &lt;xp:label value=&quot;Details&quot; id=&quot;biolabel&quot; for=&quot;bio&quot;
-            styleClass=&quot;col-xs-4 control-label&quot;&gt;
-          &lt;/xp:label&gt;
-          &lt;div class=&quot;col-xs-8&quot;&gt;
-            &lt;unp:UnpBootTypographyEdit fieldname=&quot;bio&quot;&gt;
-            &lt;/unp:UnpBootTypographyEdit&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/xp:panel&gt;
-    &lt;/xp:this.facets&gt;
-  &lt;/unp:UnpBootFormEditor&gt;
-&lt;/xp:view&gt;
-</code></pre></div>
-          </div>
-
-          <div id="doc-typographyread" class="bs-docs-section">
-            <h2>Typography Read</h2>
-            <p class="lead">A wrapper for text content that includes resize buttons</p>
-            <p>Ideal for use with large blocks of text to make them easier to read.</p>
-            <div class="row">
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Read iOS" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-ios.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Read Android" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-android.png" class="img-responsive">
-                </a>
-                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Typography Read Desktop" class="col-sm-4">
-                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/richtextreader-desktop.png" class="img-responsive">
-                </a>
-            </div>
-
-            <dl class="dl-horizontal">
-              <dt>title</dt><dd>the title for the card</dd>
-              <dt>footertext</dt><dd>the footer text for the card</dd>
-
-            </dl>
-<div class="highlight"><pre><code class="html">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:xc=&quot;http://www.ibm.com/xsp/custom&quot;
-  xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
-  &lt;xc:commonheader pagetitle=&quot;Reading Panel&quot;&gt;&lt;/xc:commonheader&gt;
-  &lt;div id=&quot;main&quot; class=&quot;container&quot;&gt;
-    &lt;div class=&quot;row&quot;&gt;
-      &lt;div class=&quot;bootcards-cards fullheightrow&quot;&gt;
-        &lt;div class=&quot;col-xs-12 col-sm-12 col-md-12&quot;&gt;
-          &lt;unp:UnpBootTypographyRead title=&quot;Reading Panel&quot;
-            footertext=&quot;Built with Bootcards - Rich Text Card&quot;&gt;
-            &lt;xp:this.facets&gt;
-              &lt;xp:panel xp:key=&quot;typographyfacet&quot;&gt;
-                &lt;h1&gt;
-                  h1. Bootstrap heading&amp;#160;
-                  &lt;small&gt;Secondary text&lt;/small&gt;
-                &lt;/h1&gt;
-              &lt;/xp:panel&gt;
-            &lt;/xp:this.facets&gt;
-          &lt;/unp:UnpBootTypographyRead&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;xc:commonfooter&gt;&lt;/xc:commonfooter&gt;
-&lt;/xp:view&gt;
-</code></pre></div>
-          </div>
 
           <div id="doc-workspace" class="bs-docs-section">
             <h2>Workspace</h2>
@@ -1316,6 +1261,104 @@ xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
 &lt;/xp:view&gt;
 </code></pre></div>
           </div>
+
+          <div id="utilities" class="bs-docs-section"><h1>Utilities</h1></div>
+
+          <div id="doc-debugtoolbar" class="bs-docs-section">
+            <h2>Debug Toolbar</h2>
+            <p class="lead">For developers, the debug toolbar can help with development in all environments</p>
+            <p>Just drop the control onto your XPage and you can log messages, view variables and more.</p>
+            <div class="row">
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-ios.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Debug Toolbar iOS" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-ios.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-android.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Debug Toolbar Android" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-android.png" class="img-responsive">
+                </a>
+                <a href="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-desktop.png" data-toggle="lightbox" data-gallery="multiimages" data-title="Debug Toolbar Desktop" class="col-sm-4">
+                    <img src="http://teamstudio.s3.amazonaws.com/bootstrapcontrols/debugtoolbar-desktop.png" class="img-responsive">
+                </a>
+            </div>
+
+            <dl class="dl-horizontal">
+              <dt>defaultCollapsed</dt><dd>true or false to define whether the toolbar should be collapsed when opening a page</dd>
+            </dl>
+          <div class="highlight"><pre><code class="html">
+          &lt;unp:UnpBootDebugToolbar defaultCollapsed=&quot;true&quot;&gt;&lt;/unp:UnpBootDebugToolbar&gt;
+          </code></pre></div>
+          </div>
+          <div id="doc-footer" class="bs-docs-section">
+            <h2>Footer</h2>
+            <p class="lead">Display a sync button for Unplugged devices and optionally a different navigation technique with footer tabs</p>
+
+            <dl class="dl-horizontal">
+              <dt>synctype</dt><dd>Choose between alldbs, currentdb or none to enable a sync button when using Unplugged on a mobile device</dd>
+              <dt>tabs</dt><dd>An array of objects that describe the footer tabs you want to display, leave blank if not required</dd>
+              <dt>postSyncTarget</dt><dd>The page to open after syncing, leave blank if not required, or you're happy with the default which is to open the UnpMain XPage</dd>
+            </dl>
+          <div class="highlight"><pre><code class="html">
+          &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+          &lt;xp:view xmlns:xp=&quot;http://www.ibm.com/xsp/core&quot; xmlns:unp=&quot;http://unplugged.teamstudio.com&quot;&gt;
+          &lt;unp:UnpBootFooter synctype=&quot;currentdb&quot;&gt;
+          &lt;/unp:UnpBootFooter&gt;
+          &lt;/xp:view&gt;
+          </code></pre></div>
+          </div>
+
+
+
+
+
+          <div id="doc-header" class="bs-docs-section">
+            <h2>Header</h2>
+            <p class="lead">The control to configuring the header bar</p>
+            <p>Used for the header bar navigation</p>
+
+            <dl class="dl-horizontal">
+              <dt>title</dt><dd>title for the page</dd>
+              <dt>navitems</dt><dd>an array of objects that describe menu items. Each item should have the following properties: label, page and icon. The label is what will be displayed in the header bar, the page is the URL to open when the link is clicked and icon is the Font Awesome icon to use for the menu item.</dd>
+            </dl>
+          <div class="highlight"><pre><code class="html">
+          &lt;unp:UnpBootHeader&gt;
+          &lt;unp:this.navitems&gt;&lt;![CDATA[#{javascript:[
+          {label: &quot;Dashboard&quot;, hasSubMenu: false, page: &quot;/UnpMain.xsp&quot;, icon: &quot;fa-dashboard&quot;},
+          {label: &quot;Lists&quot;, icon: &quot;fa-list&quot;, children: [
+          {&quot;label&quot;: &quot;Flat&quot;, &quot;icon&quot;: &quot;fa-list-alt&quot;, &quot;page&quot;: &quot;/FlatView.xsp&quot;},
+          {&quot;label&quot;: &quot;Detailed&quot;, &quot;icon&quot;: &quot;fa-list-alt&quot;, &quot;page&quot;: &quot;/DetailView.xsp&quot;},
+          {&quot;label&quot;: &quot;Categorized&quot;, &quot;icon&quot;: &quot;fa-list&quot;, &quot;page&quot;: &quot;/Categorized.xsp&quot;},
+          {&quot;label&quot;: &quot;Accordion&quot;, &quot;icon&quot;: &quot;fa-th-list&quot;, &quot;page&quot;: &quot;/Accordion.xsp&quot;}
+          ]},
+          {label: &quot;Cards&quot;, hasSubMenu: false, page: &quot;/BaseCards.xsp&quot;, icon: &quot;fa-book&quot;},
+          {label: &quot;Other Controls&quot;, icon: &quot;fa-th-large&quot;, children: [
+          {&quot;label&quot;: &quot;Calendar&quot;, &quot;icon&quot;: &quot;fa-calendar&quot;, &quot;page&quot;: &quot;/Calendar.xsp&quot;},
+          {&quot;label&quot;: &quot;Carousel&quot;, &quot;icon&quot;: &quot;fa-files-o&quot;, &quot;page&quot;: &quot;/Media.xsp&quot;},
+          {&quot;label&quot;: &quot;Dialogs&quot;, &quot;icon&quot;: &quot;fa-comment&quot;, &quot;page&quot;: &quot;/Dialog.xsp&quot;}
+          ]},
+          {label: &quot;Tools&quot;, icon: &quot;fa-cog&quot;, children: [
+          {&quot;label&quot;: &quot;Debug Toolbar&quot;, &quot;icon&quot;: &quot;fa-bug&quot;, &quot;page&quot;: &quot;/DebugToolbar.xsp&quot;},
+          {&quot;label&quot;: &quot;XMark 1&quot;, &quot;icon&quot;: &quot;fa-bolt&quot;, &quot;page&quot;: &quot;/UPMark.xsp&quot;}
+          ]},
+          {label: &quot;New Person&quot;, newDocXPage: &quot;PersonEdit.xsp&quot;, icon: &quot;fa-new&quot;}
+          ]}]]&gt;&lt;/unp:this.navitems&gt;
+          &lt;unp:this.title&gt;&lt;![CDATA[#{javascript:if (isEmpty(compositeData.pagetitle)){
+          return &quot;Sampler&quot;;
+          }else{
+          return compositeData.pagetitle;
+          }}]]&gt;&lt;/unp:this.title&gt;
+          &lt;/unp:UnpBootHeader&gt;
+          </code></pre></div>
+            <div>As of version 1.3, you can also add a "compose" button to the header menu bar for desktop users. To do this, simply add a property to the JSON object called "newDocXPage" which will be set to the name of the XPage to open when clicked. You can see an example in the last element. You must make sure that any page that has the option displayed also has a list or form control included on it (e.g. Flat List or FormViewer)</div>
+            <div>Also as part of version 1.3, you can now choose to have drop down menus in the header bar for desktop browsers. The example above shows the configuration for three different drop down menus; List, Other Controls and Tools. Include the menu options in an array called "children".
+          </div>
+          </div>
+          <div id="doc-resources" class="bs-docs-section">
+            <h2>Resources</h2>
+            <p class="lead">This control will load all of the required CSS and JavaScript files onto a page when it loads. It should be included in all XPages in your application.</p>
+            <ul>
+            <li><strong>loginpage</strong>: <strong>from v1.3</strong> you can specify a login page to redirect to if the current user is anonymous. You must create the login page as required. Leave blank to use standard Domino authentication.</li>
+            </ul>
+          </div>
+
 
 
 				</div>
