@@ -64,11 +64,11 @@ body {
 }
 .carousel .item {
 	/*height: 300px !important;*/
-    background: none;    
+    background: none;
 }
 .carousel .item img {
 	max-height: 392px;
-    
+
     margin: auto;
 }
 .carousel a {
@@ -90,12 +90,12 @@ body {
 	margin-top: -12px;
 }
 
-.carousel-control .icon-prev, 
+.carousel-control .icon-prev,
 .carousel-control .glyphicon-chevron-left {
 	left: 0;
 }
 
-.carousel-control .icon-next, 
+.carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-right {
 	right: 0;
 }
@@ -105,18 +105,6 @@ body {
 
 .container.content {
 	padding-top: 20px;
-}
-
-/* Fix Scrollspy */
-.nav-stacked>li>a {
-	padding: 5px 15px;	
-}
-.nav-stacked>li {
-	height: 30px;
-}
-
-.bs-docs-section {
-	margin-bottom: 50px;
 }
 
 .row {
