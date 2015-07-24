@@ -206,6 +206,10 @@ div.dBar .content {
 	cursor: pointer;
 }
 
+.fc-event {
+	height: initial !important;	
+}
+
 .fc-event-title {
 	padding-left: 2px !important;
 }
