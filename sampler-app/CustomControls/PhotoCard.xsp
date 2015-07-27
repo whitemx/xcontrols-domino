@@ -11,12 +11,16 @@
 	</xp:this.data>
 
 	<!-- photo card -->
-	<div class="panel panel-default bootcards-media">
+	<xp:div styleClass="panel panel-default bootcards-media standardupload">
+		<xp:this.style><![CDATA[#{javascript:if (isUnpluggedServer() && isAndroid()){
+	return "display: none;";
+}}]]></xp:this.style>
 		<div class="panel-heading">
 			<h3 class="panel-title">Upload Card</h3>
 		</div>
 		<div id="photoupload" class="panel-body">
-			Tap 'Select' to take a new photo or select from your Photos library,
+			Tap 'Select' to take a new photo or select from your Photos
+			library,
 			then tap 'Upload'.
 
 			<div style="margin-top:15px; text-align: center;">
@@ -77,7 +81,8 @@ print("Saved document: " + docPhoto.getDocument().getUniversalID());}]]></xp:thi
 				</div>
 
 			</xp:div>
-			<xp:button id="androidsavebutton" value="Upload" styleClass="btn btn-primary">
+			<xp:button id="androidsavebutton" value="Upload"
+				styleClass="btn btn-primary">
 				<xp:this.rendered><![CDATA[#{javascript:isAndroid() && isUnpluggedServer()}]]></xp:this.rendered>
 				<xp:eventHandler event="onclick" submit="true"
 					refreshMode="complete">
@@ -90,6 +95,16 @@ print("Saved document: " + docPhoto.getDocument().getUniversalID());}]]></xp:thi
 				</xp:eventHandler>
 			</xp:button>
 		</div><!-- panel footer -->
-	</div><!-- panel -->
-
+	</xp:div><!-- panel -->
+	<xp:div styleClass="progress">
+		<xp:this.style><![CDATA[#{javascript:if (isUnpluggedServer() && isAndroid()){
+	return "display: block;";
+}else{
+	return "display: none;";
+}}]]></xp:this.style>
+		<div class="progress-bar progress-bar-striped active" role="progressbar"
+			aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+			<span class="sr-only">Loading File Upload</span>
+		</div>
+	</xp:div>
 </xp:view>

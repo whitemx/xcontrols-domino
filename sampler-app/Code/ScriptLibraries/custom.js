@@ -374,6 +374,11 @@ function callbackFunction(){
 function basecardsCallback() {
 	var item = $(".list-group-item.active").find("h4");
 	if ($(item).text() == "Upload Card" && unpluggedserver && unp.isAndroid()){
+		var html = '<div class="progress">';
+		html += '<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">';
+		html += '<span class="sr-only"></span>';
+		html += '</div></div>';
+		$(".standardupload").html(html);
 		window.location.href = "BasicPhotoUpload.xsp";
 	}else{
 		console.log("Opened (advanced upload should work) " + $(item).text());
