@@ -240,6 +240,7 @@
               <dt>expandfirstcategory</dt><dd>Set to yes or no. yes will auto expand the first category when viewing the accordion</dd>
               <dt>footertext</dt><dd>A string to display in the footer of the list. Leave blank if not required.</dd>
               <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
+              <dt>openineditmode</dt><dd><strong>from v1.5</strong> set to true to open a document in edit mode rather than read mode, default = false</dd>
             </dl>
             <p>If you're using this control, don't forget that you will also need to include the UnpAccordionViewList XPage.</p>
 <div class="highlight"><pre><code class="html">
@@ -303,6 +304,7 @@
               <dt>footertext</dt><dd>A footer text message to display. Leave blank if not required.</dd>
               <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
               <dt>openfirstdocument</dt><dd><strong>from v1.3</strong> set to yes by default, if set to no then document will not be opened automatically when opening the view</dd>
+              <dt>openineditmode</dt><dd><strong>from v1.5</strong> set to true to open a document in edit mode rather than read mode, default = false</dd>
             </dl>
 <div class="highlight"><pre><code class="html">
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -366,6 +368,7 @@
               <dt>footertext</dt><dd>A footer text message to display. Leave blank if not required.</dd>
               <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
               <dt>openfirstdocument</dt><dd><strong>from v1.3</strong> set to yes by default, if set to no then document will not be opened automatically when opening the view</dd>
+              <dt>openineditmode</dt><dd><strong>from v1.5</strong> set to true to open a document in edit mode rather than read mode, default = false</dd>
             </dl>
             <p><strong>We do have one known issue with the A-Z Picker when using it in iOS and Unplugged (not Safari), there are situations where the list will disappear until the user touches their screen again. We're still investigating a solution to this issue.</strong></p>
 <div class="highlight"><pre><code class="html">
