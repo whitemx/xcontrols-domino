@@ -632,7 +632,11 @@ unp.goback = function() {
 unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, dbname, callback, presavecallback, dataid, reopenineditmode) {
 	var id = dataid;
 	if (id == null || id == "null"){
-		id = "editModal";
+		if ($("#doccontent").hasClass("full-width")){
+			id = "doccontent";
+		}else{
+			id = "editModal";
+		}
 	}
 	var data = $("#" + id + " :input").serialize();
 	$(".richtextsourcefield").each(function(){
