@@ -26,13 +26,20 @@
 				<span>&#160;Menu</span>
 			</button>
 
-			<xp:panel id="title" tagName="a" styleClass="navbar-brand">
+			<xp:panel id="title" tagName="a">
+				<xp:this.styleClass><![CDATA[#{javascript:if(compositeData.title.indexOf("<br") > -1){
+	return "navbar-brand navbar-brand-multiline";
+}else{
+	return "navbar-brand";
+}}]]></xp:this.styleClass>
 				<xp:this.attrs>
 					<xp:attr name="title" value="#{javascript:compositeData.title}">
 					</xp:attr>
 					<xp:attr name="href" value="UnpMain.xsp"></xp:attr>
 				</xp:this.attrs>
-				<xp:text value="#{javascript:compositeData.title}" escape="false" style="margin-bottom: 10px;"></xp:text>
+				<xp:text value="#{javascript:compositeData.title}"
+					escape="false">
+				</xp:text>
 			</xp:panel>
 
 			<div class="navbar-collapse collapse">

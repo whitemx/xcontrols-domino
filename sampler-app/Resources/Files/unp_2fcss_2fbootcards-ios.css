@@ -577,10 +577,10 @@ a.list-group-item.bootcards-list-subheading {
     width: 400px; } }
 
 html,
-#bootcards, .bootcards {
+#bootcards {
   height: 100%; }
 
-#bootcards, .bootcards {
+#bootcards {
   padding-top: 50px;
   overflow-x: hidden; }
 
@@ -591,7 +591,7 @@ html,
   padding: 0;
   margin: 0; }
 
-#bootcards small, .bootcards small {
+#bootcards small {
   font-size: 70%; }
 
 /* NAVBAR */
@@ -766,20 +766,20 @@ a.list-group-item.bootcards-list-subheading:hover {
 .bootcards-container > .modal-backdrop {
   z-index: 9; }
 
-html, #bootcards, .bootcards {
+html, #bootcards {
   height: 100%;
   /*overflow-y: scroll;*/
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch; }
 
-#bootcards, .bootcards {
+#bootcards {
   background-color: #efeff4;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding-top: 44px;
   color: black;
   background: #efeff4; }
   @media (orientation: landscape) and (max-width: 767px) {
-    #bootcards, .bootcards {
+    #bootcards {
       padding-top: 32px; } }
 
 h1, h2, h3, h4, h5, h6 {
@@ -907,6 +907,12 @@ a {
         .navbar-fixed-top > .container-fluid .navbar-brand:hover {
           line-height: 32px;
           height: 32px; } }
+      .navbar-fixed-top > .container .navbar-brand.navbar-brand-multiline,
+      .navbar-fixed-top > .container .navbar-brand:hover.navbar-brand-multiline,
+      .navbar-fixed-top > .container-fluid .navbar-brand.navbar-brand-multiline,
+      .navbar-fixed-top > .container-fluid .navbar-brand:hover.navbar-brand-multiline {
+        margin-top: 2px;
+        line-height: 19px; }
     .navbar-fixed-top > .container .navbar-nav,
     .navbar-fixed-top > .container-fluid .navbar-nav {
       margin: 0; }

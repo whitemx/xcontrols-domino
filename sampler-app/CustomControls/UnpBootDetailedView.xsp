@@ -57,30 +57,14 @@
 }}]]></xp:this.style>
 						</xp:text>
 					</xp:div>
-					<xp:div>
-						<xp:this.styleClass><![CDATA[#{javascript:if (compositeData.enableazpicker=="yes" && (isIOS() || isAndroid())){
-	return "col-xs-5";
-}else{
-	return "col-xs-4";
-}}]]></xp:this.styleClass>
-						<xp:panel id="addlink" tagName="a"
-							styleClass="btn btn-primary btn-block" rendered="#{javascript:!isEmpty(compositeData.newlink)}">
-							<xp:this.attrs>
-								<xp:attr name="onclick">
-									<xp:this.value><![CDATA[#{javascript:"unp.newDocument('" + compositeData.newlink + "')"}]]></xp:this.value>
-								</xp:attr>
-							</xp:this.attrs>
-							<i class="fa fa-plus"></i>
-							<span>&#160;Add</span>
-						</xp:panel>
-					</xp:div>
+
 				</div>
 			</xp:panel>
-			<xp:panel id="searchpanel" styleClass="panel-body"
-				rendered="#{javascript:!isEmpty(compositeData.searchview) || compositeData.searchlocal == 'yes'}">
+			<xp:panel id="searchpanel" styleClass="panel-body">
 				<div class="search-form">
 					<div class="row">
-						<div class="col-xs-11">
+						<xp:div styleClass="col-xs-9"
+							rendered="#{javascript:!isEmpty(compositeData.searchview) || compositeData.searchlocal == 'yes'}">
 							<div class="form-group">
 								<xp:panel id="searchbox" tagName="input"
 									styleClass="form-control searchbox" rendered="#{javascript:!isEmpty(compositeData.searchview)}">
@@ -115,7 +99,19 @@
 									<i class="fa fa-search"></i>
 								</xp:panel>
 							</div>
-						</div>
+						</xp:div>
+						<xp:div styleClass="col-xs-3">
+							<xp:panel id="addlink" tagName="a"
+								styleClass="btn btn-primary btn-block" rendered="#{javascript:!isEmpty(compositeData.newlink)}">
+								<xp:this.attrs>
+									<xp:attr name="onclick">
+										<xp:this.value><![CDATA[#{javascript:"unp.newDocument('" + compositeData.newlink + "')"}]]></xp:this.value>
+									</xp:attr>
+								</xp:this.attrs>
+								<i class="fa fa-plus"></i>
+								<span>&#160;Add</span>
+							</xp:panel>
+						</xp:div>
 					</div>
 				</div>
 			</xp:panel>
@@ -173,10 +169,9 @@ if (compositeData.ajaxload != "No"){
 							</xp:attr>
 							<xp:attr name="href" value="#"></xp:attr>
 							<xp:attr name="expand-first"
-								value="#{javascript:compositeData.openfirstdocument}"
-								rendered="#{javascript:!isEmpty(compositeData.openfirstdocument)}">
+								value="#{javascript:compositeData.openfirstdocument}" rendered="#{javascript:!isEmpty(compositeData.openfirstdocument)}">
 							</xp:attr>
-							
+
 						</xp:this.attrs>
 						<xp:this.styleClass><![CDATA[#{javascript:var out = "list-group-item";
 if (context.getUrlParameter("documentId") == thisRowData.getUniversalID()){
