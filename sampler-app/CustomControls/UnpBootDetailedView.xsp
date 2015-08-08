@@ -60,7 +60,7 @@
 
 				</div>
 			</xp:panel>
-			<xp:panel id="searchpanel" styleClass="panel-body">
+			<xp:panel id="searchpanel" styleClass="panel-body" rendered="#{javascript:!isEmpty(compositeData.searchview) || compositeData.searchlocal == 'yes' || !isEmpty(compositeData.newlink)}">
 				<div class="search-form">
 					<div class="row">
 						<xp:div styleClass="col-xs-9"
