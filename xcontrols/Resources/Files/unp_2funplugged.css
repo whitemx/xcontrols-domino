@@ -206,6 +206,10 @@ div.dBar .content {
 	cursor: pointer;
 }
 
+.fc-event {
+	height: initial !important;	
+}
+
 .fc-event-title {
 	padding-left: 2px !important;
 }
@@ -272,7 +276,6 @@ div.dBar .content {
     -ms-transform: translate3d(0, 0, 0) !important;
     transform: translate3d(0, 0, 0) !important;
 }
-
 .form-control::-ms-clear {display: none; width:0; height:0;}
 
 .bootcards-az-picker {
@@ -281,4 +284,8 @@ div.dBar .content {
 
 .dropdown-toggle {
 	cursor: pointer;
+}
+
+#list.bootcards-list.offcanvas-list.active {
+	top: 45px;
 }

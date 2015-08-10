@@ -77,5 +77,14 @@
       <property-name>fullpagemodecancellink</property-name>
       <property-class>string</property-class>
     </property>
+    <property>
+      <property-name>reopenineditmode</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>false</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
   </composite-component>
 </faces-config>

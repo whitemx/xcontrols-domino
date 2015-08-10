@@ -84,6 +84,15 @@ try{
 				value = value.split("-");
 				value = session.createDateTime(@Date(parseInt(value[0], 10), parseInt(value[1], 10), parseInt(value[2], 10)));
 			}
+			if(key.indexOf("timeonly_") > -1){
+                var keyNames = key.split("timeonly_");
+                key = keyNames[keyNames.length - 1];
+                var todaysDate = new Date();
+                var timeval = value.split(":");
+                todaysDate.setHours(parseInt(timeval[0]));
+                todaysDate.setMinutes(parseInt(timeval[1], 10));
+                value = session.createDateTime(todaysDate);                        
+            }
 			if (@Left(key, 2) == "$$"){
 				//Ignore, this is a system field
 			}else{

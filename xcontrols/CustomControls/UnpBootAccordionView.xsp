@@ -35,25 +35,13 @@
 }}]]></xp:this.style>
 						</xp:text>
 					</div>
-					<div class="col-xs-4">
-						<xp:panel id="addlink" tagName="a"
-							styleClass="btn btn-primary btn-block" rendered="#{javascript:!isEmpty(compositeData.newlink)}">
-							<xp:this.attrs>
-								<xp:attr name="onclick">
-									<xp:this.value><![CDATA[#{javascript:"unp.newDocument('" + compositeData.newlink + "')"}]]></xp:this.value>
-								</xp:attr>
-							</xp:this.attrs>
-							<i class="fa fa-plus"></i>
-							<span>&#160;Add</span>
-						</xp:panel>
-					</div>
+
 				</div>
 			</xp:panel>
-			<xp:panel id="searchpanel" styleClass="panel-body"
-				rendered="#{javascript:!isEmpty(compositeData.searchview) || compositeData.searchlocal == 'yes'}">
+			<xp:panel id="searchpanel" styleClass="panel-body" rendered="#{javascript:!isEmpty(compositeData.searchview) || compositeData.searchlocal == 'yes' || !isEmpty(compositeData.newlink)}">
 				<div class="search-form">
 					<div class="row">
-						<div class="col-xs-11">
+						<xp:div styleClass="col-xs-9" rendered="#{javascript:!isEmpty(compositeData.searchview) || compositeData.searchlocal == 'yes'}">
 							<div class="form-group">
 								<xp:panel id="searchbox" tagName="input"
 									styleClass="form-control searchbox" rendered="#{javascript:!isEmpty(compositeData.searchview)}">
@@ -66,7 +54,8 @@
 + compositeData.detailcolumn + "&photocol="
 + compositeData.photocolumn + "&xpage=" + compositeData.xpagedoc + "&dbName="
 + compositeData.dbname + "&refreshmethod=" + compositeData.refreshmethod + "&start=0"
-+ "&ajaxload=" + compositeData.ajaxload + "&target=" + compositeData.loaddocumenttarget + "&callback=" + compositeData.callback;}]]></xp:this.value>
++ "&ajaxload=" + compositeData.ajaxload + "&target=" + compositeData.loaddocumenttarget + "&callback=" + compositeData.callback
++ "&openineditmode=" + compositeData.openineditmode;}]]></xp:this.value>
 										</xp:attr>
 										<xp:attr name="searchahead">
 											<xp:this.value><![CDATA[#{javascript:"UnpSearchAhead.xsp?chosenView=" + compositeData.searchview
@@ -85,6 +74,18 @@
 									<i class="fa fa-search"></i>
 								</xp:panel>
 							</div>
+						</xp:div>
+						<div class="col-xs-3">
+							<xp:panel id="addlink" tagName="a"
+								styleClass="btn btn-primary btn-block" rendered="#{javascript:!isEmpty(compositeData.newlink)}">
+								<xp:this.attrs>
+									<xp:attr name="onclick">
+										<xp:this.value><![CDATA[#{javascript:"unp.newDocument('" + compositeData.newlink + "')"}]]></xp:this.value>
+									</xp:attr>
+								</xp:this.attrs>
+								<i class="fa fa-plus"></i>
+								<span>&#160;Add</span>
+							</xp:panel>
 						</div>
 					</div>
 				</div>
@@ -146,9 +147,9 @@ if (isEmpty(summarycol)){
 	summarycol = null;
 }
 if (isEmpty(compositeData.categoryfilter)){
-	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "')";
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')";
 }else{
-	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "')";
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')";
 }}]]></xp:this.value>
 							</xp:attr>
 						</xp:this.attrs>
@@ -165,7 +166,7 @@ if (isEmpty(compositeData.categoryfilter)){
 					styleClass="clearsearchbutton btn pull-right" style="display: none;">
 					<xp:this.attrs>
 						<xp:attr name="onclick">
-							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', '" + compositeData.refreshmethod + "', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.loaddocumenttarget + "', '" + compositeData.callback + "')"}]]></xp:this.value>
+							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', '" + compositeData.refreshmethod + "', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.loaddocumenttarget + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')"}]]></xp:this.value>
 						</xp:attr>
 					</xp:this.attrs>
 				</xp:button>

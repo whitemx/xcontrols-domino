@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
-<noteinfo noteid="3aa" sequence="3" unid="50375574E78298F980257D8500322423">
-<created><datetime>20141103T090740,51+00</datetime></created>
-<modified><datetime>20141103T090943,67+00</datetime></modified>
-<revised><datetime>20141103T090943,66+00</datetime></revised>
-<lastaccessed><datetime>20141103T090943,67+00</datetime></lastaccessed>
-<addedtofile><datetime>20141103T090740,66+00</datetime></addedtofile></noteinfo>
+<noteinfo noteid="a9e" sequence="1" unid="5625676F1B4636FF80257E9D0025004C">
+<created><datetime dst="true">20150810T074409,08+01</datetime></created>
+<modified><datetime dst="true">20150810T074409,46+01</datetime></modified>
+<revised><datetime dst="true">20150810T074409,45+01</datetime></revised>
+<lastaccessed><datetime dst="true">20150810T074409,46+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150810T074409,46+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
-<item name="$Flags"><text>345CgQ</text></item>
 <item name="$FlagsExt" sign="true"><text>D</text></item>
-
-<item name="$FileModDT" sign="true"><datetime>20141103T072311,00+00</datetime></item>
-
-
-
-
-
-
-
-<item name="$FileNames" sign="true"><text>bootcards-android.min.css</text></item>
 <item name="$TITLE" sign="true"><text>unp/css/bootcards-android.min.css</text></item>
-<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item>
+
+<item name="$FileModDT" sign="true"><datetime dst="true">20150805T105952,00+01</datetime></item>
+
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FileNames" sign="true"><text>bootcards-android.min.css</text></item></note>

@@ -54,11 +54,15 @@ if (start == ""){
 								}else{
 								  viewScope.accRowcount = viewScope.accRowcount + 1;
 								}
+								var action = "openDocument";
+								if (context.getUrlParameter("openineditmode")){
+									action = "editDocument";
+								}
 								if(context.getUrlParameter("ajaxload") != "No"){
-									return "unp.openDocument('" + param.get("xpageDoc") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID() + "', 'doccontent', this, " + context.getUrlParameter("callback") + ");"
+									return "unp.openDocument('" + param.get("xpageDoc") + "?action=" + action + "&documentId=" + thisRowData.getDocument().getUniversalID() + "', 'doccontent', this, " + context.getUrlParameter("callback") + ");"
 								}
 								else{						
-									var url = getDbPath() + "/" + param.get("xpageDoc") + "?action=openDocument&documentId=" + thisRowData.getDocument().getUniversalID();
+									var url = getDbPath() + "/" + param.get("xpageDoc") + "?action=" + action + "&documentId=" + thisRowData.getDocument().getUniversalID();
 									return "document.location.href='" + url + "'";
 								}
 							}]]></xp:this.value>
@@ -108,7 +112,10 @@ viewScope.accRowcount != null && viewScope.accRowcount == sessionScope.accRowcou
 			<xp:this.attrs>
 				<xp:attr name="onclick">
 					<xp:this.value><![CDATA[#{javascript:"unp.fetchMoreDetails(this,'" + context.getUrlParameter("chosenView") + "','" + 
-context.getUrlParameter("catFilter") + "', '" + context.getUrlParameter("xpageDoc") + "', '" + context.getUrlParameter("dbname") + "', '" + context.getUrlParameter("photocol") + "', '" + context.getUrlParameter("summarycol") + "', '" + context.getUrlParameter("detailcol") + "', '" + context.getUrlParameter("ajaxload") + "', '" + context.getUrlParameter("callback") + "');"}]]></xp:this.value>
+context.getUrlParameter("catFilter") + "', '" + context.getUrlParameter("xpageDoc") + "', '" + context.getUrlParameter("dbname") + "', '" + 
+context.getUrlParameter("photocol") + "', '" + context.getUrlParameter("summarycol") + "', '" + context.getUrlParameter("detailcol") + "', '" + 
+context.getUrlParameter("ajaxload") + "', '" + context.getUrlParameter("callback") + "', 'doccontent', '" + 
+context.getUrlParameter("openineditmode") + "');"}]]></xp:this.value>
 				</xp:attr>
 			</xp:this.attrs>
 			<i class="fa fa-repeat" />

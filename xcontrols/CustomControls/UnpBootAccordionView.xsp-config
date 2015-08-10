@@ -106,5 +106,14 @@ no</editor-parameter>
       <property-name>callback</property-name>
       <property-class>string</property-class>
     </property>
+    <property>
+      <property-name>openineditmode</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <default-value>false</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
   </composite-component>
 </faces-config>

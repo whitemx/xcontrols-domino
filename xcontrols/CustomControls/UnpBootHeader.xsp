@@ -1,233 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 
-	<!-- Mobile Header -->
-	<div class="navmenu offcanvas offcanvas-left"
-		id="slideInMenux">
-		<ul class="nav navmenu-nav">
-			<xp:panel id="panel3" tagName="li" styleClass="unp-highlight">
-				<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
-				<xp:link escape="true" text="Unplugged Workspace" value="/unpws.unp/" id="link4">
-					<i class="fa fa-lg fa-home unp-highlight"></i>&#160;
-				</xp:link>
-			</xp:panel>
-			<xp:repeat id="repeat2"
-				value="#{javascript:compositeData.secondarynavitems}"
-				var="sidesecondarynavitem" indexVar="sidesecondarynavitemindex"
-				disableOutputTag="true">
-				<xp:panel id="panel4" tagName="li"
-					rendered="#{javascript:if (sidesecondarynavitem.children){return false;}else{return true;}}">
-					<xp:link escape="true"
-						text="#{javascript:sidesecondarynavitem.label}" id="link6"
-						value="#{javascript:sidesecondarynavitem.page}">
-						<xp:text id="computedField4"
-							tagName="i" value="">
-							<xp:this.styleClass><![CDATA[#{javascript:"fa " + sidesecondarynavitem.icon}]]></xp:this.styleClass>
-						</xp:text>
-						&#160;
-						<xp:this.attrs>
-							<xp:attr name="onclick">
-								<xp:this.value><![CDATA[#{javascript:if((sidesecondarynavitem.newDocXPage != null)){
-    return "unp.newDocument('" + sidesecondarynavitem.newDocXPage + "');return false;";
-}
-else{
-    return "";
-}
-}]]></xp:this.value>
-							</xp:attr>
-						</xp:this.attrs>
-					</xp:link>
-				</xp:panel>
-				<xp:panel tagName="li"
-					styleClass="dropdown"
-					rendered="#{javascript:if (sidesecondarynavitem.children){return true;}else{return false;}}">
-					<xp:text tagName="a"
-						styleClass="dropdown-toggle" escape="false">
-						<xp:this.attrs>
-							<xp:attr name="role"
-								value="button">
-							</xp:attr>
-							<xp:attr name="data-toggle"
-								value="dropdown">
-							</xp:attr>
-							<xp:attr
-								name="aria-expanded" value="false">
-							</xp:attr>
-						</xp:this.attrs>
-						<xp:this.value><![CDATA[#{javascript:"<i class=\"fa " + sidesecondarynavitem.icon + "\"></i> " + sidesecondarynavitem.label + "<span class=\"caret\"></span>"}]]></xp:this.value>
-					</xp:text>
-					<ul class="dropdown-menu"
-						role="menu">
-						<xp:repeat
-							value="#{javascript:sidesecondarynavitem.children}"
-							var="sidesecondarychild" disableOutputTag="true">
-							<li>
-								<xp:link escape="true"
-									text="#{javascript:sidesecondarychild.label}" id="link7"
-									value="#{javascript:sidesecondarychild.page}">
-									<xp:text
-										id="computedField5" tagName="i" value="">
-										<xp:this.styleClass><![CDATA[#{javascript:"fa " + sidesecondarychild.icon}]]></xp:this.styleClass>
-									</xp:text>
-									&#160;
-									<xp:this.attrs>
-										<xp:attr
-											name="onclick">
-											<xp:this.value><![CDATA[#{javascript:if((sidesecondarychild.newDocXPage != null)){
-    return "unp.newDocument('" + sidesecondarychild.newDocXPage + "');return false;";
-}
-else{
-    return "";
-}
-}]]></xp:this.value>
-										</xp:attr>
-									</xp:this.attrs>
-								</xp:link>
-							</li>
-						</xp:repeat>
-					</ul>
-				</xp:panel>
-			</xp:repeat>
-			<xp:repeat var="sidemenuitem" disableOutputTag="true">
-				<xp:this.value><![CDATA[#{javascript:compositeData.navitems;}]]></xp:this.value>
-				<xp:panel id="litop" tagName="li">
-
-					<xp:this.styleClass><![CDATA[#{javascript:if (viewScope.litop){
-	viewScope.litop = viewScope.litop + 1
-}else{
-	viewScope.litop = 1;
-}
-"collapse litop" + viewScope.litop;}]]></xp:this.styleClass>
-					<xp:panel id="toplink" tagName="li"
-						rendered="#{javascript:if (sidemenuitem.children){return false;}else{return true;}}">
-						<xp:link id="link5" text="#{javascript:sidemenuitem.label}"
-							value="">
-							<xp:this.attrs>
-								<xp:attr name="onclick">
-									<xp:this.value><![CDATA[#{javascript:var url = sidemenuitem.page;
-if (url.indexOf("http:") == -1){
-	url = getDbPath() + sidemenuitem.page;
-}
-if (sidemenuitem.ajaxloadid != null && sidemenuitem.ajaxloadid != ""){
-	return "unp.loadPage('" + url + "?rnd=' + Date.now()+ ' #" + sidemenuitem.ajaxloadid + "', '" + sidemenuitem.ajaxtargetid + "', " + viewScope.sidemenuitemindex + "); return false;";
-}else{
-	return "window.location.href='" + url + "'";
-}}]]></xp:this.value>
-								</xp:attr>
-							</xp:this.attrs>
-							<xp:panel id="panel2" tagName="i">
-								<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + sidemenuitem.icon}]]></xp:this.styleClass>
-							</xp:panel>&#160;
-						</xp:link>
-					</xp:panel>
-					<xp:link text="#{javascript:sidemenuitem.label}"
-						rendered="#{javascript:if (sidemenuitem.children){return true;}else{return false;}}"
-						styleClass="collapsed bootcards-parent">
-						<xp:this.value><![CDATA[#{javascript:return "#" + getClientId("collapse");}]]></xp:this.value>
-						<xp:this.attrs>
-							<xp:attr name="data-toggle" value="collapse">
-							</xp:attr>
-							<xp:attr name="data-parent">
-								<xp:this.value><![CDATA[#{javascript:".litop" + viewScope.litop}]]></xp:this.value>
-							</xp:attr>
-						</xp:this.attrs>
-						<xp:panel id="toplevelicon" tagName="i"
-							styleClass="fa fa-lg fa-fw fa-chevron-circle-right">
-						</xp:panel>&#160;
-					</xp:link>
-					<xp:panel id="collapse" styleClass="collapse">
-						<xp:this.rendered><![CDATA[#{javascript:if (sidemenuitem.children){
-	return true;
-}else{return false}}]]></xp:this.rendered>
-						<ul class="nav navmenu-nav">
-							<xp:repeat id="sidechildren" disableOutputTag="true" var="sidechild">
-
-								<xp:this.value><![CDATA[#{javascript:if (sidemenuitem.children){
-	sidemenuitem.children
-}}]]></xp:this.value>
-								<xp:panel id="childitem" tagName="li"
-									rendered="#{javascript:if (sidechild.children){return false;}else{return true;}}">
-									<xp:link id="childlink" text="#{javascript:sidechild.label}">
-										<xp:this.attrs>
-											<xp:attr name="onclick">
-												<xp:this.value><![CDATA[#{javascript:var url = sidechild.page;
-if (url.indexOf("http:") == -1){
-	url = getDbPath() + sidechild.page;
-}
-if (sidechild.ajaxloadid != null && sidechild.ajaxloadid != ""){
-	return "unp.loadPage('" + url + "?rnd=' + Date.now()+ ' #" + sidechild.ajaxloadid + "', '" + sidechild.ajaxtargetid + "', " + viewScope.menuitemindex + "); return false;";
-}else{
-	return "window.location.href='" + url + "'";
-}}]]></xp:this.value>
-											</xp:attr>
-										</xp:this.attrs>
-										<xp:panel id="childicon" tagName="i">
-											<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + sidechild.icon}]]></xp:this.styleClass>
-										</xp:panel>&#160;
-									</xp:link>
-								</xp:panel>
-								<xp:panel id="accordion2" tagName="li"
-									rendered="#{javascript:if (sidechild.children){return true;}else{return false;}}">
-									<xp:link id="collapselink" styleClass="collapsed bootcards-parent"
-										text="#{javascript:sidechild.label}">
-										<xp:this.attrs>
-											<xp:attr name="data-toggle" value="collapse">
-											</xp:attr>
-										</xp:this.attrs>
-										<xp:this.value><![CDATA[#{javascript:"#" + getClientId("accordion2")}]]></xp:this.value>
-										<i class="fa fa-lg fa-fw fa-chevron-circle-right">&#160;
-										</i>
-									</xp:link>
-									<xp:panel id="collapse2" styleClass="collapse">
-										<ul class="nav navmenu-nav">
-											<xp:repeat
-												value="#{javascript:if(sidechild.children){return sidechild.children;}}"
-												var="sidegrandchild">
-												<li>
-													<xp:link id="grandchildlink" text="#{javascript:sidegrandchild.label}">
-														<xp:this.attrs>
-															<xp:attr
-																name="onclick">
-																<xp:this.value><![CDATA[#{javascript:var url = sidegrandchild.page;
-if (url.indexOf("http:") == -1){
-	url = getDbPath() + sidegrandchild.page;
-}
-if (sidegrandchild.ajaxloadid != null && sidegrandchild.ajaxloadid != ""){
-	return "unp.loadPage('" + url + "?rnd=' + Date.now()+ ' #" + sidegrandchild.ajaxloadid + "', '" + sidegrandchild.ajaxtargetid + "', " + viewScope.menuitemindex + "); return false;";
-}else{
-	return "window.location.href='" + url + "'";
-}}]]></xp:this.value>
-															</xp:attr>
-														</xp:this.attrs>
-														<xp:panel id="grandchildicon" tagName="i">
-															<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + sidegrandchild.icon}]]></xp:this.styleClass>
-														</xp:panel>&#160;
-													</xp:link>
-												</li>
-											</xp:repeat>
-										</ul>
-									</xp:panel>
-								</xp:panel>
-							</xp:repeat>
-						</ul>
-					</xp:panel>
-				</xp:panel>
-			</xp:repeat>
-		</ul>
-	</div>
 
 	<!-- Desktop Header -->
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<xp:panel id="title" tagName="a" styleClass="navbar-brand">
-					<xp:this.attrs>
-						<xp:attr name="title" value="#{javascript:compositeData.title}">
-						</xp:attr>
-						<xp:attr name="href" value="UnpMain.xsp"></xp:attr>
-					</xp:this.attrs>
-					<xp:text value="#{javascript:compositeData.title}"></xp:text>
-				</xp:panel>
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target=".navbar-collapse">
 					<span class="sr-only">Toggle navigation</span>
@@ -247,6 +25,23 @@ if (sidegrandchild.ajaxloadid != null && sidegrandchild.ajaxloadid != ""){
 				<i class="fa fa-lg fa-bars"></i>
 				<span>&#160;Menu</span>
 			</button>
+
+			<xp:panel id="title" tagName="a">
+				<xp:this.styleClass><![CDATA[#{javascript:if(compositeData.title.indexOf("<br") > -1){
+	return "navbar-brand navbar-brand-multiline";
+}else{
+	return "navbar-brand";
+}}]]></xp:this.styleClass>
+				<xp:this.attrs>
+					<xp:attr name="title" value="#{javascript:compositeData.title}">
+					</xp:attr>
+					<xp:attr name="href" value="UnpMain.xsp"></xp:attr>
+				</xp:this.attrs>
+				<xp:text value="#{javascript:compositeData.title}"
+					escape="false">
+				</xp:text>
+			</xp:panel>
+
 			<div class="navbar-collapse collapse">
 				<xp:panel id="secondarynav" tagName="ul"
 					styleClass="nav navbar-nav navbar-right bootcards-nav-secondary">
@@ -259,8 +54,9 @@ if (sidegrandchild.ajaxloadid != null && sidegrandchild.ajaxloadid != ""){
 }catch(e){
 	return false;
 }}]]></xp:this.rendered>
-					<xp:repeat id="repeat1" value="#{javascript:compositeData.secondarynavitems}"
-						var="secondarynavitem" indexVar="secondarynavitemindex" disableOutputTag="true">
+					<xp:repeat id="repeat1"
+						value="#{javascript:compositeData.secondarynavitems}" var="secondarynavitem"
+						indexVar="secondarynavitemindex" disableOutputTag="true">
 						<xp:panel id="panel1" tagName="li"
 							rendered="#{javascript:!secondarynavitem.children}">
 							<xp:link escape="true" text="#{javascript:secondarynavitem.label}"
@@ -296,8 +92,8 @@ else{
 								<xp:this.value><![CDATA[#{javascript:"<i class=\"fa " + secondarynavitem.icon + "\"></i> " + secondarynavitem.label + "<span class=\"caret\"></span>"}]]></xp:this.value>
 							</xp:text>
 							<ul class="dropdown-menu" role="menu">
-								<xp:repeat value="#{javascript:secondarynavitem.children}" var="secondarychild"
-									disableOutputTag="true">
+								<xp:repeat value="#{javascript:secondarynavitem.children}"
+									var="secondarychild" disableOutputTag="true">
 									<li>
 										<xp:link escape="true" text="#{javascript:secondarychild.label}"
 											id="link3" value="#{javascript:secondarychild.page}">
@@ -398,4 +194,211 @@ else{
 			</div>
 		</div>
 	</div>
+
+	<!-- Mobile Header -->
+	<xp:panel tagName="nav" styleClass="navmenu offcanvas offcanvas-left"
+		id="slideInMenux">
+		<ul class="nav">
+			<xp:panel id="panel3" tagName="li" styleClass="unp-highlight">
+				<xp:this.rendered><![CDATA[#{javascript:!isDesktop() && isUnpluggedServer();}]]></xp:this.rendered>
+				<xp:link escape="true" text="Unplugged Workspace" value="/unpws.unp/"
+					id="link4">
+					<i class="fa fa-lg fa-home unp-highlight"></i>
+					&#160;
+				</xp:link>
+			</xp:panel>
+			<xp:repeat id="repeat2"
+				value="#{javascript:compositeData.secondarynavitems}" var="sidesecondarynavitem"
+				indexVar="sidesecondarynavitemindex" disableOutputTag="true">
+				<xp:panel id="panel4" tagName="li"
+					rendered="#{javascript:if (sidesecondarynavitem.children){return false;}else{return true;}}">
+					<xp:link escape="true" text="#{javascript:sidesecondarynavitem.label}"
+						id="link6" value="#{javascript:sidesecondarynavitem.page}">
+						<xp:text id="computedField4" tagName="i" value="">
+							<xp:this.styleClass><![CDATA[#{javascript:"fa " + sidesecondarynavitem.icon}]]></xp:this.styleClass>
+						</xp:text>
+						&#160;
+						<xp:this.attrs>
+							<xp:attr name="onclick">
+								<xp:this.value><![CDATA[#{javascript:if((sidesecondarynavitem.newDocXPage != null)){
+    return "unp.newDocument('" + sidesecondarynavitem.newDocXPage + "');return false;";
+}
+else{
+    return "";
+}
+}]]></xp:this.value>
+							</xp:attr>
+						</xp:this.attrs>
+					</xp:link>
+				</xp:panel>
+				<xp:panel tagName="li" styleClass="dropdown"
+					rendered="#{javascript:if (sidesecondarynavitem.children){return true;}else{return false;}}">
+					<xp:text tagName="a" styleClass="dropdown-toggle" escape="false">
+						<xp:this.attrs>
+							<xp:attr name="role" value="button">
+							</xp:attr>
+							<xp:attr name="data-toggle" value="dropdown">
+							</xp:attr>
+							<xp:attr name="aria-expanded" value="false">
+							</xp:attr>
+						</xp:this.attrs>
+						<xp:this.value><![CDATA[#{javascript:"<i class=\"fa " + sidesecondarynavitem.icon + "\"></i> " + sidesecondarynavitem.label + "<span class=\"caret\"></span>"}]]></xp:this.value>
+					</xp:text>
+					<ul class="dropdown-menu" role="menu">
+						<xp:repeat value="#{javascript:sidesecondarynavitem.children}"
+							var="sidesecondarychild" disableOutputTag="true">
+							<li>
+								<xp:link escape="true" text="#{javascript:sidesecondarychild.label}"
+									id="link7" value="#{javascript:sidesecondarychild.page}">
+									<xp:text id="computedField5" tagName="i" value="">
+										<xp:this.styleClass><![CDATA[#{javascript:"fa " + sidesecondarychild.icon}]]></xp:this.styleClass>
+									</xp:text>
+									&#160;
+									<xp:this.attrs>
+										<xp:attr name="onclick">
+											<xp:this.value><![CDATA[#{javascript:if((sidesecondarychild.newDocXPage != null)){
+    return "unp.newDocument('" + sidesecondarychild.newDocXPage + "');return false;";
+}
+else{
+    return "";
+}
+}]]></xp:this.value>
+										</xp:attr>
+									</xp:this.attrs>
+								</xp:link>
+							</li>
+						</xp:repeat>
+					</ul>
+				</xp:panel>
+			</xp:repeat>
+			<xp:repeat var="sidemenuitem" disableOutputTag="true">
+				<xp:this.value><![CDATA[#{javascript:compositeData.navitems;}]]></xp:this.value>
+				<xp:panel id="litop" tagName="li">
+
+					<xp:this.styleClass><![CDATA[#{javascript:if (viewScope.litop){
+	viewScope.litop = viewScope.litop + 1
+}else{
+	viewScope.litop = 1;
+}
+"collapse litop" + viewScope.litop;}]]></xp:this.styleClass>
+					<xp:panel id="toplink" tagName="li"
+						rendered="#{javascript:if (sidemenuitem.children){return false;}else{return true;}}">
+						<xp:link id="link5" text="#{javascript:sidemenuitem.label}"
+							value="">
+							<xp:this.attrs>
+								<xp:attr name="onclick">
+									<xp:this.value><![CDATA[#{javascript:var url = sidemenuitem.page;
+if (url.indexOf("http:") == -1){
+	url = getDbPath() + sidemenuitem.page;
+}
+if (sidemenuitem.ajaxloadid != null && sidemenuitem.ajaxloadid != ""){
+	return "unp.loadPage('" + url + "?rnd=' + Date.now()+ ' #" + sidemenuitem.ajaxloadid + "', '" + sidemenuitem.ajaxtargetid + "', " + viewScope.sidemenuitemindex + "); return false;";
+}else{
+	return "window.location.href='" + url + "'";
+}}]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
+							<xp:panel id="panel2" tagName="i">
+								<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + sidemenuitem.icon}]]></xp:this.styleClass>
+							</xp:panel>
+							&#160;
+						</xp:link>
+					</xp:panel>
+					<xp:link text="#{javascript:sidemenuitem.label}"
+						rendered="#{javascript:if (sidemenuitem.children){return true;}else{return false;}}"
+						styleClass="collapsed bootcards-parent">
+						<xp:this.value><![CDATA[#{javascript:return "#" + getClientId("collapse");}]]></xp:this.value>
+						<xp:this.attrs>
+							<xp:attr name="data-toggle" value="collapse">
+							</xp:attr>
+							<xp:attr name="data-parent">
+								<xp:this.value><![CDATA[#{javascript:".litop" + viewScope.litop}]]></xp:this.value>
+							</xp:attr>
+						</xp:this.attrs>
+						<xp:panel id="toplevelicon" tagName="i"
+							styleClass="fa fa-lg fa-fw fa-chevron-circle-right">
+						</xp:panel>
+						&#160;
+					</xp:link>
+					<xp:panel id="collapse" styleClass="collapse">
+						<xp:this.rendered><![CDATA[#{javascript:if (sidemenuitem.children){
+	return true;
+}else{return false}}]]></xp:this.rendered>
+						<ul class="nav navmenu-nav">
+							<xp:repeat id="sidechildren" disableOutputTag="true"
+								var="sidechild">
+
+								<xp:this.value><![CDATA[#{javascript:if (sidemenuitem.children){
+	sidemenuitem.children
+}}]]></xp:this.value>
+								<xp:panel id="childitem" tagName="li"
+									rendered="#{javascript:if (sidechild.children){return false;}else{return true;}}">
+									<xp:link id="childlink" text="#{javascript:sidechild.label}">
+										<xp:this.attrs>
+											<xp:attr name="onclick">
+												<xp:this.value><![CDATA[#{javascript:var url = sidechild.page;
+if (url.indexOf("http:") == -1){
+	url = getDbPath() + sidechild.page;
+}
+if (sidechild.ajaxloadid != null && sidechild.ajaxloadid != ""){
+	return "unp.loadPage('" + url + "?rnd=' + Date.now()+ ' #" + sidechild.ajaxloadid + "', '" + sidechild.ajaxtargetid + "', " + viewScope.menuitemindex + "); return false;";
+}else{
+	return "window.location.href='" + url + "'";
+}}]]></xp:this.value>
+											</xp:attr>
+										</xp:this.attrs>
+										<xp:panel id="childicon" tagName="i">
+											<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + sidechild.icon}]]></xp:this.styleClass>
+										</xp:panel>
+										&#160;
+									</xp:link>
+								</xp:panel>
+								<xp:panel id="accordion2" tagName="li"
+									rendered="#{javascript:if (sidechild.children){return true;}else{return false;}}">
+									<xp:link id="collapselink" styleClass="collapsed bootcards-parent"
+										text="#{javascript:sidechild.label}">
+										<xp:this.attrs>
+											<xp:attr name="data-toggle" value="collapse">
+											</xp:attr>
+										</xp:this.attrs>
+										<xp:this.value><![CDATA[#{javascript:"#" + getClientId("accordion2")}]]></xp:this.value>
+										<i class="fa fa-lg fa-fw fa-chevron-circle-right">&#160; </i>
+									</xp:link>
+									<xp:panel id="collapse2" styleClass="collapse">
+										<ul class="nav navmenu-nav">
+											<xp:repeat
+												value="#{javascript:if(sidechild.children){return sidechild.children;}}"
+												var="sidegrandchild">
+												<li>
+													<xp:link id="grandchildlink" text="#{javascript:sidegrandchild.label}">
+														<xp:this.attrs>
+															<xp:attr name="onclick">
+																<xp:this.value><![CDATA[#{javascript:var url = sidegrandchild.page;
+if (url.indexOf("http:") == -1){
+	url = getDbPath() + sidegrandchild.page;
+}
+if (sidegrandchild.ajaxloadid != null && sidegrandchild.ajaxloadid != ""){
+	return "unp.loadPage('" + url + "?rnd=' + Date.now()+ ' #" + sidegrandchild.ajaxloadid + "', '" + sidegrandchild.ajaxtargetid + "', " + viewScope.menuitemindex + "); return false;";
+}else{
+	return "window.location.href='" + url + "'";
+}}]]></xp:this.value>
+															</xp:attr>
+														</xp:this.attrs>
+														<xp:panel id="grandchildicon" tagName="i">
+															<xp:this.styleClass><![CDATA[#{javascript:"fa fa-lg fa-fw " + sidegrandchild.icon}]]></xp:this.styleClass>
+														</xp:panel>
+														&#160;
+													</xp:link>
+												</li>
+											</xp:repeat>
+										</ul>
+									</xp:panel>
+								</xp:panel>
+							</xp:repeat>
+						</ul>
+					</xp:panel>
+				</xp:panel>
+			</xp:repeat>
+		</ul>
+	</xp:panel>
 </xp:view>
