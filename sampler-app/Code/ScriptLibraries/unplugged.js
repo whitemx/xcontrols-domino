@@ -876,7 +876,24 @@ unp.initDates = function(){
 
 unp.initAutoComplete = function() {
 	$(".typeahead").each( function() {
-		$(this).typeahead({source: eval($(this).attr('jslist')), autoSelect: false});
+		var jslist = $(this).attr('jslist');
+		if (typeof jslist !== typeof undefined && jslist !== false){
+			$(this).typeahead({source: eval($(this).attr('jslist')), autoSelect: false});
+		}else{
+			//We must be looking for a remote list
+			var viewid = $(this).attr('searchahead');
+			$(this).typeahead({
+				source: function(query, process) {
+					return $.ajax({
+		                url: viewid + "&query=" + query,
+		                dataType: 'json',
+		                success: function (data) {
+		                    return typeof data == 'undefined' ? false : process(data);
+		                }
+		            });
+				}
+			})
+		}
 	});
 }
 
