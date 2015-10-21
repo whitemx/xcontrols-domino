@@ -18,7 +18,29 @@
 if (category == "null" || category == "" || category == "undefined"){
 	return null;
 }else{
-	var vwtemp = database.getView(param.get("chosenView"));
+	var dbname = context.getUrlParameter("dbname");
+	var vwtemp;
+	if (dbname != "" && dbname != "null" && dbname != null){
+		try{
+			var dbother:NotesDatabase;
+			if (dbname.indexOf("!") > -1){
+				dbother = session.getDatabase(@Left(dbname, "!"), @RightBack(dbname, "!"));
+			}else{
+				if (isUnpluggedServer()){
+					dbname = @ReplaceSubstring(dbname, ".nsf", ".unp");
+					resp += "We're on Unplugged, so dbname is " + dbname + "\n";
+					//print(resp);
+					dbother = session.getDatabase("", context.getUrlParameter("dbname"));
+				}else{
+					dbother = session.getDatabase(database.getServer(), context.getUrlParameter("dbname"));
+				}
+			}
+			vwtemp = dbother.getView(param.get("chosenView"));
+		}catch(e){
+		}
+	}else{
+		vwtemp = database.getView(param.get("chosenView"));
+	}
 	var entries:NotesViewEntryCollection = vwtemp.getAllEntriesByKey(category, true);
 	if (entries.getCount() == 0){
 		entries.recycle();
