@@ -123,5 +123,9 @@ no</editor-parameter>
         </designer-extension>
       </property-extension>
     </property>
+    <property>
+      <property-name>newFormLabel</property-name>
+      <property-class>string</property-class>
+    </property>
   </composite-component>
 </faces-config>

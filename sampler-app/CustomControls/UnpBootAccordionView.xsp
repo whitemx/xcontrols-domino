@@ -84,7 +84,13 @@
 									</xp:attr>
 								</xp:this.attrs>
 								<i class="fa fa-plus"></i>
-								<span>&#160;Add</span>
+								<xp:label id="newlabel">
+									<xp:this.value><![CDATA[#{javascript:if(compositeData.newFormLabel == "" || compositeData.newFormLabel == null){
+										return "Add";
+									}else{
+										return compositeData.newFormLabel;
+									}}]]></xp:this.value>
+								</xp:label> 
 							</xp:panel>
 						</div>
 					</div>
