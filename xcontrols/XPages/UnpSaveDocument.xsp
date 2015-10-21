@@ -21,11 +21,14 @@ var resp;
 var unid = "testing";
 try{
 	resp = "Started\n";
+	//print(resp);
 	var doc = null;
 	resp += "Getting doc\n";
+	//print(resp);
 	var dbname = context.getUrlParameter("dbname");
 	if (dbname != "" && dbname != "null" && dbname != null){
 		resp += "Working with different db: " + dbname + "\n";
+		//print(resp);
 		try{
 			var dbother:NotesDatabase;
 			if (dbname.indexOf("!") > -1){
@@ -34,6 +37,7 @@ try{
 				if (isUnpluggedServer()){
 					dbname = @ReplaceSubstring(dbname, ".nsf", ".unp");
 					resp += "We're on Unplugged, so dbname is " + dbname + "\n";
+					//print(resp);
 					dbother = session.getDatabase("", context.getUrlParameter("dbname"));
 				}else{
 					dbother = session.getDatabase(database.getServer(), context.getUrlParameter("dbname"));
@@ -42,44 +46,61 @@ try{
 			doc = dbother.getDocumentByUNID(context.getUrlParameter("unid"));
 		}catch(e){
 			resp += "Error getting doc from another database on server " + database.getServer() + " " + e + "\n";
+			//print(resp);
 		}
 		if (doc == null){
 			resp += "Working with other db: " + dbother.getTitle() + ")\n";
 			resp += "Creating doc in other db (" + context.getUrlParameter("dbname") + ")\n";
+			//print(resp);
 			doc = dbother.createDocument();
 			doc.replaceItemValue("Form", context.getUrlParameter("formname"));
 		}	
 	}else{
 		resp += "Working with current DB" + "\n";
+		//print(resp);
 		try{
 			doc = database.getDocumentByUNID(context.getUrlParameter("unid"));
 		}catch(e){
 			resp += "Error getting doc\n";
+			//print(resp);
 		}
 		if (doc == null){
 			resp += "Creating doc\n";
+			//print(resp);
 			doc = database.createDocument();
 			doc.replaceItemValue("Form", context.getUrlParameter("formname"));
 		}
 	}
 	resp += "getting parentunid\n";
+	//print(resp);
 	if (context.getUrlParameter("parentunid") != null && context.getUrlParameter("parentunid") != "" && context.getUrlParameter("parentunid") != "null"){
 		resp += "parentunid = " + context.getUrlParameter("parentunid") + "\n";
+		//print(resp);
 		var parent:NotesDocument = database.getDocumentByUNID(context.getUrlParameter("parentunid"));
 		resp += "creating response to parentunid = " + parent.getUniversalID() + "\n";
+		//print(resp);
 		doc.makeResponse(parent);
 	}
 	resp += "setting dateformat\n";
+	//print(resp);
 	var dateformat = /^(19|20)\d\d[- \/.](0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])$/;
 	try{
 		resp += "getting keyset\n";
+		//print(resp);
 		var keys = param.keySet().iterator();
 		resp += "starting iterator loop\n";
+		//print(resp);
 		while(keys.hasNext()){
 			var key = keys.next();
 			resp += ("Processing " + key + "\n");
 			//print(resp);
-			var value = unescape(param.get(key));
+			var value = "";
+			if (param.get(key).indexOf("%") > -1){
+				//print("Handling special case for %");
+				value = param.get(key);
+			}else{
+				value = unescape(param.get(key));
+			}
 			if (dateformat.test(value) && key.indexOf("datetime_") == -1){
 				value = value.split("-");
 				value = session.createDateTime(@Date(parseInt(value[0], 10), parseInt(value[1], 10), parseInt(value[2], 10)));
@@ -190,9 +211,11 @@ try{
 		resp = "OK";
 	}catch(e){
 		resp += resp + e + "\n";
+		//print(resp);
 	}
 }catch(mainerror){
-
+	//print(resp);
+	_dump(mainerror);
 }
 if(resp == "OK")
 {
