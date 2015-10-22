@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D2D003F8F5C" version="9.0">
-<noteinfo noteid="275e" sequence="4" unid="FFBBB87AC1EE3F4B80257E8900363791">
+<noteinfo noteid="275e" sequence="6" unid="FFBBB87AC1EE3F4B80257E8900363791">
 <created><datetime dst="true">20150721T105211,69+01</datetime></created>
-<modified><datetime dst="true">20150805T110124,06+01</datetime></modified>
-<revised><datetime dst="true">20150805T110124,05+01</datetime></revised>
-<lastaccessed><datetime dst="true">20150805T110124,06+01</datetime></lastaccessed>
+<modified><datetime dst="true">20151022T102805,98+01</datetime></modified>
+<revised><datetime dst="true">20151022T102805,97+01</datetime></revised>
+<lastaccessed><datetime dst="true">20151022T102805,98+01</datetime></lastaccessed>
 <addedtofile><datetime dst="true">20150721T105211,74+01</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
-<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<updatedby><name>CN=Matt White/O=Exhilarate</name><name>CN=Matt White/O=TSPSDev</name></updatedby>
+<wassignedby><name>CN=Matt White/O=TSPSDev</name></wassignedby>
 <item name="$FlagsExt" sign="true"><text>D</text></item>
 <item name="$TITLE" sign="true"><text>unp/css/bootcards-desktop.min.css</text></item>
-<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item>
-
 <item name="$FileModDT" sign="true"><datetime dst="true">20150805T105952,00+01</datetime></item>
-
 <item name="$Flags"><text>345CgQ</text></item>
-<item name="$FileNames" sign="true"><text>bootcards-desktop.min.css</text></item></note>
+<item name="$MimeCharSet"><text>UTF-8</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>unp_2fcss_2fbootcards-desktop.min.css</text></item></note>
