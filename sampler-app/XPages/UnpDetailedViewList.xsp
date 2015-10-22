@@ -76,6 +76,9 @@ if (start == ""){
 	}
 }catch(e){}}]]></xp:this.value>
 					</xp:attr>
+					<xp:attr name="unid"
+						value="#{javascript:thisRowData.getUniversalID()}">
+					</xp:attr>
 				</xp:this.attrs>
 				<div class="row">
 					<div class="col-sm-6">

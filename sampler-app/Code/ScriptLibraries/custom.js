@@ -389,8 +389,8 @@ function basecardsCallback() {
 function savecallback(dbName, viewName, summarycol, detailcol, category,
 		xpage, refreshmethod, photocol, ajaxload, callback, target, openineditmode){
 	console.log("Saved document at " + new Date());
-	unp.clearsearch(dbName, viewName, summarycol, detailcol, category,
-			xpage, refreshmethod, photocol, ajaxload, callback, target, openineditmode)
+	//unp.clearsearch(dbName, viewName, summarycol, detailcol, category,
+	//		xpage, refreshmethod, photocol, ajaxload, callback, target, openineditmode)
 }
 
 function presavecallback(){

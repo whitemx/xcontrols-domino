@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Copyright 2013 Teamstudio Inc Licensed under the Apache License,
+		Version 2.0 (the "License"); you may not use this file except in
+		compliance with the License. You may obtain a copy of the License at
+		http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+		applicable law or agreed to in writing, software distributed under the
+		License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+		CONDITIONS OF ANY KIND, either express or implied. See the License for
+		the specific language governing permissions and limitations under the
+		License
+	-->
+
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+	<unp:UnpBootFormEditor showbuttons="true"
+		footertext="Built with Bootcards - Form Editor Card"
+		viewxpagename="DetailView.xsp" formname="Person" title="Person"
+		xp:key="facet_1" callback="savecallback" fullpagemode="false">
+		<xp:this.facets>
+			<xp:panel id="list-group" xp:key="facet_1">
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="name" value="First Name">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="firstname"
+							value="#{docedit.firstname}"
+							styleClass="form-control required">
+							<xp:this.attrs>
+								<xp:attr name="placeholder"
+									value="First Name">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="name" value="Last Name">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="lastname"
+							value="#{docedit.lastname}" styleClass="form-control required">
+							<xp:this.attrs>
+								<xp:attr name="placeholder"
+									value="Last Name">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="title" value="Title">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="title"
+							value="#{docedit.Title}" styleClass="form-control">
+							<xp:this.attrs>
+								<xp:attr name="placeholder"
+									value="Title">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Date"
+						id="datetime_initialcontactdatelabel" for="initialcontactdate"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="initialcontactdate"
+							styleClass="form-control">
+							<xp:this.attrs>
+								<xp:attr name="datevalue">
+									<xp:this.value><![CDATA[#{javascript:try{
+	var date:lotus.domino.local.DateTime = docedit.getItemValueDateTime('initialcontactdate');
+	return date.toJavaDate().getTime();
+}catch(e){
+	return new Date().getTime();
+}}]]></xp:this.value>
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label"
+						value="Time:" id="label6" for="timeonly_myTimeField">
+					</xp:label>
+					<div class="col-xs-8">
+						<input type="time"
+							class="form-control mandatory" id="timeonly_myTimeField"
+							name="timeonly_myTimeField"
+							value="#{javascript:try{
+                                    var thisDate:Date = docedit.getItemValueDateTime('myTimeField').toJavaDate();
+                                    return ('0' + thisDate.getHours()).slice(-2) + ':' + ('0' + thisDate.getMinutes()).slice(-2);
+                                     }catch(e){
+                                         return '';
+                                     }
+                                }">
+						</input>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="email" value="Email">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="email"
+							value="#{docedit.Email}" styleClass="form-control"
+							type="email">
+							<xp:this.attrs>
+								<xp:attr name="placeholder"
+									value="Email">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Mobile Enabled?" id="mobilelabel"
+						for="mobileenabled" styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:panel id="toggle">
+							<xp:this.styleClass><![CDATA[#{javascript:var out = "bootcards-toggle";
+if (docedit.getItemValueString('mobileenabled') == "fredchecked"){
+	out += " active";
+}
+return out;}]]></xp:this.styleClass>
+							<div class="bootcards-toggle-handle"></div>
+						</xp:panel>
+						<xp:checkBox checkedValue="fredchecked"
+							uncheckedValue="barryunchecked" style="display: none;"
+							value="#{docedit.mobileenabled}" required="false"
+							id="mobileenabled">
+							<xp:this.attrs>
+								<xp:attr name="checkedValue"
+									value="fredchecked">
+								</xp:attr>
+								<xp:attr name="uncheckedValue"
+									value="barryunchecked">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:checkBox>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Company" id="companylabel"
+						for="company" styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="company"
+							value="#{docedit.Company}"
+							styleClass="required form-control typeahead"
+							autocomplete="off">
+							<xp:this.attrs>
+								<xp:attr name="jslist"
+									value="companies">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="streetaddress" value="Street Address">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="streetaddress"
+							value="#{docedit.streetaddress}" styleClass="form-control">
+							<xp:this.attrs>
+								<xp:attr name="placeholder"
+									value="Street Address">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="city" value="City">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="city" value="#{docedit.city}"
+							styleClass="form-control">
+							<xp:this.attrs>
+								<xp:attr name="placeholder"
+									value="City">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="country" value="Country">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:comboBox id="country"
+							value="#{docedit.Country}" styleClass="form-control">
+							<xp:selectItems>
+								<xp:this.value><![CDATA[#{javascript:@Unique(@DbColumn(@DbName(), "People By Country", 1))}]]></xp:this.value>
+							</xp:selectItems>
+						</xp:comboBox>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label styleClass="col-xs-4 control-label"
+						for="phone" value="Phone">
+					</xp:label>
+					<div class="col-xs-8">
+						<xp:inputText id="phone"
+							value="#{docedit.phone}" type="tel" styleClass="form-control">
+							<xp:this.attrs>
+								<xp:attr name="placeholder"
+									value="Phone">
+								</xp:attr>
+							</xp:this.attrs>
+						</xp:inputText>
+						<a href="" class="bootcards-clearinput">
+							<i class="fa fa-lg fa-times-circle"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<xp:label value="Details" id="biolabel" for="bio"
+						styleClass="col-xs-4 control-label">
+					</xp:label>
+					<div class="col-xs-8">
+						<unp:UnpBootRichTextEditor fieldname="bio">
+						</unp:UnpBootRichTextEditor>
+					</div>
+				</div>
+			</xp:panel>
+		</xp:this.facets>
+	</unp:UnpBootFormEditor>
+</xp:view>

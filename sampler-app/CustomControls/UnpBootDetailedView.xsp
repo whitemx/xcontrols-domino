@@ -122,11 +122,26 @@
 				</div>
 			</xp:panel>
 			<xp:panel>
-				<xp:this.styleClass><![CDATA[#{javascript:var out = "list-group";
+				<xp:this.styleClass><![CDATA[#{javascript:var out = "list-group detailedview";
 if (compositeData.enableazpicker && (isIOS() || isAndroid())){
 	out += " bootcards-no-indicators";
 }
 return out;}]]></xp:this.styleClass>
+				<xp:this.attrs>
+					<xp:attr name="refreshdetails">
+						<xp:this.value><![CDATA[#{javascript:"{\"dbname\": \"" + compositeData.dbname + 
+"\", \"viewname\": \"" + compositeData.viewname + 
+"\", \"summarycolumn\": \"" + compositeData.summarycolumn + 
+"\", \"detailcol1\": \"" + compositeData.detailcolumn1 + 
+"\", \"detailcol2\": \"" + compositeData.detailcolumn2 + 
+"\", \"detailcol3\": \"" + compositeData.detailcolumn3 + 
+"\", \"categoryfilter\": \"" + compositeData.categoryfilter + 
+"\", \"xpagedoc\": \"" + compositeData.xpagedoc + 
+"\", \"photocolumn\": \"" + compositeData.photocolumn + 
+"\", \"ajaxload\": \"" + compositeData.ajaxload + 
+"\", \"openineditmode\":\"" + compositeData.openineditmode + "\"}"}]]></xp:this.value>
+					</xp:attr>
+				</xp:this.attrs>
 				<xp:repeat id="repeat4" var="thisRowData" value="#{viewList}"
 					disableOutputTag="true" indexVar="thisRowIndex">
 					<xp:this.rows><![CDATA[${javascript:sessionScope.rowcount = compositeData.numberofrows;
@@ -174,6 +189,9 @@ if (compositeData.ajaxload != "No"){
 }]]></xp:this.value>
 							</xp:attr>
 							<xp:attr name="href" value="#"></xp:attr>
+							<xp:attr name="unid"
+								value="#{javascript:thisRowData.getUniversalID()}">
+							</xp:attr>
 							<xp:attr name="expand-first"
 								value="#{javascript:compositeData.openfirstdocument}" rendered="#{javascript:!isEmpty(compositeData.openfirstdocument)}">
 							</xp:attr>

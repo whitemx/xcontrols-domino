@@ -10,15 +10,15 @@
 				summarycolumn="FullName" viewname="People By Last Name"
 				numberofrows="20" ajaxload="Yes" detailcolumn1="Company"
 				detailcolumn2="City" detailcolumn3="Country"
-				xpagedoc="DetailView.xsp" newlink="PersonEdit.xsp"
+				xpagedoc="DetailView.xsp" newlink="PersonEditDetailed.xsp"
 				searchview="Search" footertext="Built with Bootcards - Flat List"
-				callback="callbackFunction" openfirstdocument="yes">
+				openfirstdocument="yes">
 			</unp:UnpBootDetailedView>
 			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
-				<xc:personviewer></xc:personviewer>
+				<xc:personviewer editpage="PersonEditDetailed.xsp"></xc:personviewer>
 			</div>
 		</div>
-		<div class="pagetitle hidden">Flat</div>
+		<div class="pagetitle hidden">Detailed View</div>
 	</div>
 
 	<xc:commonfooter></xc:commonfooter>

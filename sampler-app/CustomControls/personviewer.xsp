@@ -2,11 +2,15 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:unp="http://unplugged.teamstudio.com"
 	xmlns:xc="http://www.ibm.com/xsp/custom">
 
-	<unp:UnpBootFormViewer editxpagename="PersonEdit.xsp"
-		editxpagewithajax="yes" formname="Person" showbuttons="true"
-		title="Contact Details" titleiconfield="thumbnail"
+	<unp:UnpBootFormViewer editxpagewithajax="yes" formname="Person"
+		showbuttons="true" title="Contact Details" titleiconfield="thumbnail"
 		footertext="Built with Bootcards - Form Card"
 		callback="editcallback">
+		<unp:this.editxpagename><![CDATA[#{javascript:if (compositeData.editpage == null || compositeData.editpage == ""){
+	return "PersonEdit.xsp";
+}else{
+	return compositeData.editpage;
+}}]]></unp:this.editxpagename>
 		<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
 		<xp:this.facets>
 			<xp:panel id="list-group" xp:key="facet_1"
@@ -73,8 +77,7 @@
 						</xp:text>
 					</div>
 					<div class="list-group-item">
-						<xp:label value="Time" id="label1"
-							for="date">
+						<xp:label value="Time" id="label1" for="date">
 						</xp:label>
 						<xp:text tagName="h4" id="time"
 							value="#{docview.myTimeField}"
