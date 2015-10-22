@@ -400,4 +400,13 @@ function presavecallback(){
 
 function editcallback(){
 	console.log("Started editing document at " + new Date());
+	Sortable.create(prioritieslist, {
+		onUpdate: function (evt) {
+			var list = [];
+        	$("#prioritieslist .list-group-item").each(function(){
+        		list.push($(this).text());
+        	})
+        	$(".prioritiesfield").val(list.join(";"));
+    	}
+	});
 }

@@ -720,8 +720,12 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 						cache: false, 
 						encoding: 'UTF-8'
 					}).done(function(response2){
-						$('[unid="' + response + '"]').replaceWith(response2);
-						$('[unid="' + response + '"]').addClass('active');
+						try{
+							$('[unid="' + response + '"]').replaceWith(response2);
+							$('[unid="' + response + '"]').addClass('active');
+						}catch(e){
+							
+						}
 					})
 					if (callback){
 						callback(
@@ -758,8 +762,12 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 						cache: false, 
 						encoding: 'UTF-8'
 					}).done(function(response2){
-						$('[unid="' + response + '"]').replaceWith(response2);
-						$('[unid="' + response + '"]').addClass('active');
+						try{
+							$('[unid="' + response + '"]').replaceWith(response2);
+							$('[unid="' + response + '"]').addClass('active');
+						}catch(e){
+							
+						}
 					})
 					if (callback){
 						callback(

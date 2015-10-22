@@ -135,6 +135,16 @@ return out;}]]></xp:this.value>
 						</xp:text>
 					</div>
 					<div class="list-group-item">
+						<xp:label value="Priorities" id="label2"
+							for="priorities">
+						</xp:label>
+						<xp:text tagName="h4" id="priorities"
+							escape="false" styleClass="list-group-item-heading">
+							<xp:this.value><![CDATA[#{javascript:var out = @ReplaceSubstring(docview.getItemValueString("priorities"), ";", "<br />");
+return out;}]]></xp:this.value>
+						</xp:text>
+					</div>
+					<div class="list-group-item">
 						<xp:label value="Details" id="detailslabel"
 							for="bio">
 						</xp:label>

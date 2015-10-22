@@ -37,3 +37,9 @@
 	margin-right: 5px !important;
 	width: 11px !important;
 }
+
+#prioritieslist .list-group-item {
+	cursor: pointer;
+	padding: 3px;
+	margin-left: 0px;
+}

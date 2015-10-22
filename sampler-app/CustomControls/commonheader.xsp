@@ -5,6 +5,7 @@
 	<xp:this.resources>
 		<xp:script src="/custom.jss" clientSide="false"></xp:script>
 		<xp:styleSheet href="/custom.css"></xp:styleSheet>
+		<xp:script src="/unp/Sortable.js" clientSide="true"></xp:script>
 	</xp:this.resources>
 
 	<unp:UnpBootResources></unp:UnpBootResources>
@@ -70,5 +71,4 @@ out += "];";
 return out;}]]></xp:this.value>
 	</xp:text>
 	<script type="text/javascript" src="custom.js"></script>
-	
 </xp:view>
