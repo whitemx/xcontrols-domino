@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
+<noteinfo noteid="b8e" sequence="2" unid="0E78EC296017026C80257EE70023D96D">
+<created><datetime dst="true">20151023T073134,21+01</datetime></created>
+<modified><datetime dst="true">20151023T073134,24+01</datetime></modified>
+<revised><datetime dst="true">20151023T073134,23+01</datetime></revised>
+<lastaccessed><datetime dst="true">20151023T073134,24+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20151023T073134,22+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=TSPSDev</name></updatedby>
+<wassignedby><name>CN=Matt White/O=TSPSDev</name></wassignedby>
+<item name="$TITLE"><text>UnpDetailedViewRefreshItem.xsp</text></item>
+<item name="$Flags"><text>gC~4K</text></item>
+
+
+<item name="$FileNames" sign="true"><text>UnpDetailedViewRefreshItem.xsp</text></item></note>

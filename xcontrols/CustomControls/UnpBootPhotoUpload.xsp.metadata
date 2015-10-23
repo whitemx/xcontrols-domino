@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
-<noteinfo noteid="a62" sequence="8" unid="8953E9FDC0A17AA680257E9D0024E68A">
-<created><datetime dst="true">20150810T074303,14+01</datetime></created>
-<modified><datetime dst="true">20150810T074432,69+01</datetime></modified>
-<revised><datetime dst="true">20150810T074432,68+01</datetime></revised>
-<lastaccessed><datetime dst="true">20150810T074432,69+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20150810T074303,17+01</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
-<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
+<noteinfo noteid="be2" sequence="4" unid="E7CE820530B0376580257EE700242EF1">
+<created><datetime dst="true">20151023T073513,13+01</datetime></created>
+<modified><datetime dst="true">20151023T073513,65+01</datetime></modified>
+<revised><datetime dst="true">20151023T073513,64+01</datetime></revised>
+<lastaccessed><datetime dst="true">20151023T073513,65+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20151023T073513,18+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=TSPSDev</name></updatedby>
+<wassignedby><name>CN=Matt White/O=TSPSDev</name></wassignedby>
 <item name="$TITLE"><text>UnpBootPhotoUpload.xsp</text></item>
 <item name="$Flags"><text>gC~4;</text></item>
 
 
 <item name="$FileNames" sign="true"><text>UnpBootPhotoUpload.xsp</text></item>
-
-
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-
-
-
 
 </note>

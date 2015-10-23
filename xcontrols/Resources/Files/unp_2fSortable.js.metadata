@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="form" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
+<noteinfo noteid="bfe" sequence="1" unid="532BB33F12A968F280257EE7002454EF">
+<created><datetime dst="true">20151023T073650,39+01</datetime></created>
+<modified><datetime dst="true">20151023T073650,40+01</datetime></modified>
+<revised><datetime dst="true">20151023T073650,39+01</datetime></revised>
+<lastaccessed><datetime dst="true">20151023T073650,40+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20151023T073650,40+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=TSPSDev</name></updatedby>
+<wassignedby><name>CN=Matt White/O=TSPSDev</name></wassignedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt"><text>D</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20151022T123252,00+01</datetime></item>
+<item name="$TITLE" sign="true"><text>unp/Sortable.js</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+
+<item name="$FileNames" sign="true"><text>unp_2fSortable.js</text></item></note>

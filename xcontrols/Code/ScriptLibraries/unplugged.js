@@ -720,8 +720,12 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 						cache: false, 
 						encoding: 'UTF-8'
 					}).done(function(response2){
-						$('[unid="' + response + '"]').replaceWith(response2);
-						$('[unid="' + response + '"]').addClass('active');
+						try{
+							$('[unid="' + response + '"]').replaceWith(response2);
+							$('[unid="' + response + '"]').addClass('active');
+						}catch(e){
+							
+						}
 					})
 					if (callback){
 						callback(
@@ -729,6 +733,50 @@ unp.saveDocument = function(formid, unid, viewxpagename, formname, parentunid, d
 								obj.viewname, 
 								obj.summarycolumn, 
 								obj.detailcolumn, 
+								obj.categoryfilter, 
+								obj.xpagedoc, 
+								'pull', 
+								obj.photocolumn, 
+								obj.ajaxload, 
+								null, 
+								'doccontent', 
+								reopenineditmode);
+					}
+				}else if ($('.detailedview').length > 0){
+					var obj = $.parseJSON($('.detailedview').attr('refreshdetails'));
+					var url = 'UnpDetailedViewRefreshItem.xsp?chosenView=' + obj.viewname;
+					url += '&summarycol=' + obj.summarycolumn + '&detailcol1=' + obj.detailcol1;
+					url += '&detailcol2=' + obj.detailcol2 + '&detailcol3=' + obj.detailcol3;
+					url += '&photocol=' + obj.photocolumn + '&category=' + obj.categoryfilter;
+					url += '&xpage=' + obj.xpagedoc + '&dbName=' + obj.dbname;
+					url += '&refreshmethod=pull&ajaxload=' + obj.ajaxload + '&target=doccontent';
+					if (reopenineditmode){
+						url += '&openineditmode=true';
+					}
+					var el = $('[unid="' + response + '"]');
+					var pos = $(".detailedview a").index(el);
+					url += '&start=' + pos;
+					$.ajax({
+						type: 'GET', 
+						url: url,
+						cache: false, 
+						encoding: 'UTF-8'
+					}).done(function(response2){
+						try{
+							$('[unid="' + response + '"]').replaceWith(response2);
+							$('[unid="' + response + '"]').addClass('active');
+						}catch(e){
+							
+						}
+					})
+					if (callback){
+						callback(
+								obj.dbname, 
+								obj.viewname, 
+								obj.summarycolumn, 
+								obj.detailcol1,
+								obj.detailcol2,
+								obj.detailcol3,
 								obj.categoryfilter, 
 								obj.xpagedoc, 
 								'pull', 
