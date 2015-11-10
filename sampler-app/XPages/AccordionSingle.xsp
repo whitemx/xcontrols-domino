@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:unp="http://unplugged.teamstudio.com">
+
+	<xc:commonheader></xc:commonheader>
+	<div id="main" class="container bootcards-container">
+		<div class="row fullheightrow">
+			<unp:UnpBootAccordionView
+				title="People By Country and Company" summarycolumn="FullName"
+				viewname="People By Country And Company" expandfirstcategory="no" ajaxload="Yes"
+				loaddocumenttarget="doccontent" detailcolumn="City"
+				xpagedoc="Accordion.xsp" newdatatarget="#editModal"
+				newlink="PersonEdit.xsp" searchview="Search" photocolumn="Photo"
+				footertext="Built with Bootcards - Accordion List"
+				callback="callbackFunction" categoryfilter="Singapore"
+				categoryindex="2">
+			</unp:UnpBootAccordionView>
+			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
+				<xc:personviewer>
+					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
+				</xc:personviewer>
+			</div>
+		</div>
+		<div class="pagetitle hidden">Accordion</div>
+	</div>
+	<xc:commonfooter></xc:commonfooter>
+</xp:view>
