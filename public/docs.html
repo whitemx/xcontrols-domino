@@ -433,6 +433,17 @@
             <li>To make a field into a date/time picker, use the example of the initialcontactdatefield, but add the datetimevalue attribute instead</li>
             <li>To enable a mobile toggle use the markup of the mobileenabled field</li>
             <li>To provide a typeahead list, add the jslist attribute to the field, the value of this attribute is the name of a JavaScript array that will be used to search for the typeahead list</li>
+            <li>Alternatively, if your typeahead is looking up a large list (more than 1000 items) you can add the attribute "searchahead" set to a URL like this:
+            <br />
+            ```xml
+            <xp:inputText id="JobNumField" value="#{docedit.Job}"
+    styleClass="required form-control typeahead JobNum" autocomplete="off">
+  <xp:this.attrs>
+    <xp:attr name="searchahead" value="UnpSearchAhead.xsp?chosenView=UnpJobSearch"></xp:attr>                   
+  </xp:this.attrs>
+</xp:inputText>     
+            ```
+            </li>
             <li>Combo boxes can be used as normal</li>
             </ul>
             <p>As with previous versions of the Unplugged Controls, the field id is used to identify the field name to save data to.</p>
