@@ -433,10 +433,10 @@
             <li>To make a field into a date/time picker, use the example of the initialcontactdatefield, but add the datetimevalue attribute instead</li>
             <li>To enable a mobile toggle use the markup of the mobileenabled field</li>
             <li>To provide a typeahead list, add the jslist attribute to the field, the value of this attribute is the name of a JavaScript array that will be used to search for the typeahead list</li>
-            <li>Alternatively, if your typeahead is looking up a large list (more than 1000 items) you can add the attribute "searchahead" set to a URL like this:
+            <li><strong>from 1.5.2</strong> Alternatively, if your typeahead is looking up a large list (more than 1000 items) you can add the attribute "searchahead" set to a URL like this:
             <br />
             <div class="highlight"><pre><code class="html">
-            &lt;xp:inputText id="JobNumField" value="#{docedit.Job}"<br />
+&lt;xp:inputText id="JobNumField" value="#{docedit.Job}"<br />
     styleClass="required form-control typeahead JobNum" autocomplete="off"&gt;<br />
   &lt;xp:this.attrs&gt;<br />
     &lt;xp:attr name="searchahead" value="UnpSearchAhead.xsp?chosenView=UnpJobSearch"&gt;&lt;/xp:attr&gt;<br />
