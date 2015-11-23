@@ -436,12 +436,12 @@
             <li>Alternatively, if your typeahead is looking up a large list (more than 1000 items) you can add the attribute "searchahead" set to a URL like this:
             <br />
             ```xml
-            <xp:inputText id="JobNumField" value="#{docedit.Job}"
-    styleClass="required form-control typeahead JobNum" autocomplete="off">
-  <xp:this.attrs>
-    <xp:attr name="searchahead" value="UnpSearchAhead.xsp?chosenView=UnpJobSearch"></xp:attr>                   
-  </xp:this.attrs>
-</xp:inputText>     
+            &lt;xp:inputText id="JobNumField" value="#{docedit.Job}"
+    styleClass="required form-control typeahead JobNum" autocomplete="off"&gt;
+  &lt;xp:this.attrs&gt;
+    &lt;xp:attr name="searchahead" value="UnpSearchAhead.xsp?chosenView=UnpJobSearch"&gt;&lt;/xp:attr&gt;
+  &lt;/xp:this.attrs&gt;
+&lt;/xp:inputText&gt;
             ```
             </li>
             <li>Combo boxes can be used as normal</li>
