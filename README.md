@@ -15,6 +15,8 @@ XControls is built with [Bootstrap 3.x](http://getbootstrap.com) and the [Bootca
 
 The lead developer of the XControls is Matt White (@mattwhite), with technical design input from Mark Leusink and UI design input from Jack Herbert and Steve Ives.
 
+The XControls project is tested using [BrowserStack](http://browserstack.com)
+
 For a full release history you can view [HISTORY.md](https://github.com/teamstudio/xcontrols-domino/blob/master/HISTORY.md)
 
 The XControls project is sponsored by [Teamstudio](http://teamstudio.com).
