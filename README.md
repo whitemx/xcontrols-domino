@@ -18,5 +18,3 @@ The lead developer of the XControls is Matt White (@mattwhite), with technical d
 The XControls project is tested using [BrowserStack](http://browserstack.com)
 
 For a full release history you can view [HISTORY.md](https://github.com/teamstudio/xcontrols-domino/blob/master/HISTORY.md)
-
-The XControls project is sponsored by [Teamstudio](http://teamstudio.com).
