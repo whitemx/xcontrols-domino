@@ -1,5 +1,31 @@
 # XControls
 
+## v1.5.2/ 2015-11-23
+* 353 Add new custom property to allow "Add" label to be confgiered in Flat or Accordion views. Thanks to Rich Sharpe for suggesting
+* 354 Fix bug with typeahead not working with very large source lists, see documentation for configuration change to use this new mode. Thanks to Ady Makombo for reporting
+* 357 Resolve some markup confusion when using modals in different contexts. Thanks to L R Barker for suggesting
+* 364 Fix bug with global search when accessing data from an external database. Thanks to Rich Sharpe for suggesting
+* 368 Fix Detailed view so that it will immediately show changes after editing documents. Thanks to Rich Sharpe for suggesting
+* 369 Add a new demo of using draggables in the Sampler application. Thanks to Steve Ives for suggesting
+* 370 Fix bug with font file not loading correctly in Sampler reading card page. Thanks to Mike Amberg for reporting
+
+##v1.5.1/ 2015-09-17
+* 356 Fix a bug with saving content that contains a % sign. Thanks to Rich Sharpe for reporting
+
+##v1.5.0/ 2015-08-10
+* 335 Add support for two lines in Header title. Simply add a 
+tag. Thanks to Rich Sharpe for suggesting
+* 338 Fix bug with display of slide in menu in portrait mode on the iPad. Thanks to Rich Sharpe for suggesting
+* 339 Improve Android photo upload support in Sampler application. Thanks to Rich Sharpe for suggesting
+* 347 Add switch to enable editmode when opening a document from FlatList. Thanks to Rich Sharpe for suggesting
+* 348 We've upgraded to support the very latest version of Bootcards
+* 351 Fix a bug in day and week calendar views where entries were not visible. Thanks to Telemanage for suggesting
+
+##v1.4.2/ 2015-07-08
+* 343 Fix bug with saving data to other database when using Unplugged client, thanks xpagesbeast for reporting
+* 336/#321 Improve Cancel button operation when running edit mode in full screen, thanks Rich Sharpe for reporting
+* 334 Fix bug with orientation change on tablets when displaying a full page document, thanks Rich Sharpe for reporting
+
 ##v1.4 / 2015-05-19
 * Fix bug with selecting options from list in typeahead in iOS, thanks <a href="https://github.com/adymakombo”>adymakombo</a> for reporting
 * Add support for data sources on a different server to the application database, thanks Klaus F Heine for reporting
