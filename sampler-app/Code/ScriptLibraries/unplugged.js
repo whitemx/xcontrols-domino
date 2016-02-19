@@ -1286,8 +1286,13 @@ unp.dosearch = function() {
 			$(".clearsearchbutton").click();
 		} else {
 			var thisArea = $("#list .list-group");
-			var url = searchbox.attr('search') + "&category="
-					+ encodeURIComponent(searchbox.val().toLowerCase());
+			if (searchbox.attr("fulltextsearch") == "true"){
+				var url = searchbox.attr('search') + "&query="
+				+ encodeURIComponent(searchbox.val().toLowerCase());
+			}else{
+				var url = searchbox.attr('search') + "&category="
+						+ encodeURIComponent(searchbox.val().toLowerCase());
+			}
 			thisArea.load(url + " #results a");
 			$('.loadmorelink').hide();
 			$('.pullupholder').hide();

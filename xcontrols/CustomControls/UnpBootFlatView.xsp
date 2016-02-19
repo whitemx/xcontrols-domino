@@ -67,9 +67,11 @@
 						<xp:div styleClass="col-xs-9" rendered="#{javascript:!isEmpty(compositeData.searchview) || compositeData.searchlocal == 'yes'}">
 							<div class="form-group">
 								<xp:panel id="searchbox" tagName="input"
-									styleClass="form-control searchbox" rendered="#{javascript:!isEmpty(compositeData.searchview)}">
+									styleClass="form-control searchbox"
+									rendered="#{javascript:!isEmpty(compositeData.searchview)}">
 									<xp:this.attrs>
-										<xp:attr name="placeholder" value="Search...">
+										<xp:attr name="placeholder"
+											value="Search...">
 										</xp:attr>
 										<xp:attr name="search">
 											<xp:this.value><![CDATA[#{javascript:"UnpFlatViewList.xsp?chosenView=" + compositeData.searchview
@@ -77,11 +79,14 @@
 + compositeData.detailcolumn + "&photocol="
 + compositeData.photocolumn + "&xpage=" + compositeData.xpagedoc + "&dbName="
 + compositeData.dbname + "&refreshmethod=pull&start=0"
-+ "&ajaxload=" + compositeData.ajaxload + "&callback=" + compositeData.callback + "&target=doccontent";}]]></xp:this.value>
++ "&ajaxload=" + compositeData.ajaxload + "&callback=" + compositeData.callback + "&target=doccontent"}]]></xp:this.value>
 										</xp:attr>
 										<xp:attr name="searchahead">
 											<xp:this.value><![CDATA[#{javascript:"UnpSearchAhead.xsp?chosenView=" + compositeData.searchview
 + "&dbName=" + compositeData.dbname;}]]></xp:this.value>
+										</xp:attr>
+										<xp:attr name="fulltextsearch"
+											value="#{javascript:compositeData.searchfulltext}">
 										</xp:attr>
 									</xp:this.attrs>
 									<i class="fa fa-search"></i>

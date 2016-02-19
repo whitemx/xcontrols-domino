@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><note xmlns="http://www.lotus.com/dxl" class="filter" maintenanceversion="1.0" replicaid="80257D6600419717" version="9.0">
-<noteinfo noteid="bfa" sequence="1" unid="7275710D95E8B96980257EE700243AAF">
-<created><datetime dst="true">20151023T073543,19+01</datetime></created>
-<modified><datetime dst="true">20151023T073543,21+01</datetime></modified>
-<revised><datetime dst="true">20151023T073543,20+01</datetime></revised>
-<lastaccessed><datetime dst="true">20151023T073543,21+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20151023T073543,21+01</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Matt White/O=Exhilarate</name><name>CN=Matt White/O=TSPSDev</name></updatedby>
-<wassignedby><name>CN=Matt White/O=TSPSDev</name></wassignedby>
+<?xml version="1.0" encoding="UTF-8"?><note class="filter" maintenanceversion="1.0" replicaid="80257F5A002ADBAC" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2ea" sequence="1" unid="E84AA701923AA99280257F5E0053A223">
+<created><datetime>20160219T151329,95+00</datetime></created>
+<modified><datetime>20160219T151329,98+00</datetime></modified>
+<revised><datetime>20160219T151329,97+00</datetime></revised>
+<lastaccessed><datetime>20160219T151329,98+00</datetime></lastaccessed>
+<addedtofile><datetime>20160219T151329,98+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE" sign="true"><text>unplugged.js</text></item>
 <item name="$Flags"><text>h534Q</text></item>
 <item name="$PublicAccess" sign="true"><text>1</text></item>
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
-
-<item name="$Comment"><text>v1.4</text></item></note>
+</note>

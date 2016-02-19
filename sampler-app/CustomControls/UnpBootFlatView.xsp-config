@@ -127,5 +127,15 @@ no</editor-parameter>
       <property-name>newFormLabel</property-name>
       <property-class>string</property-class>
     </property>
+    <property>
+      <property-name>searchfulltext</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.std.Boolean</editor>
+          <default-value>false</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
   </composite-component>
 </faces-config>

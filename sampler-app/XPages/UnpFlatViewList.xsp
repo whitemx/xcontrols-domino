@@ -15,7 +15,7 @@
 	<xp:this.data>
 		<xp:dominoView var="viewList">
 			<xp:this.categoryFilter><![CDATA[#{javascript:var category = param.get("category");
-if (category == "null" || category == "" || category == "undefined"){
+if (category == null || category == "null" || category == "" || category == "undefined"){
 	return null;
 }else{
 	var dbname = context.getUrlParameter("dbname");
@@ -71,6 +71,12 @@ return viewname;}]]></xp:this.viewName>
 if (dbName != "null" && dbName != "" && dbName != "undefined"){
 	return dbName;
 }}]]></xp:this.databaseName>
+			<xp:this.search><![CDATA[#{javascript:var query = param.get("query");
+if (query == null || query == "" || query == "undefined"){
+	return null;
+}else{
+	return query;
+}}]]></xp:this.search>
 		</xp:dominoView>
 	</xp:this.data>
 	<xp:this.resources>
