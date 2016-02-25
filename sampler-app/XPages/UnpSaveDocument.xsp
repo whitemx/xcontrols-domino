@@ -206,6 +206,14 @@ try{
 			}
 		}
 
+		if (doc.isNewNote()){
+			doc.replaceItemValue("UnpCreatedby", @UserName());
+			doc.replaceItemValue("UnpCreatedDate", session.createDateTime(new Date()));
+		}
+		doc.replaceItemValue("UnpModifiedBy", @UserName());
+		doc.replaceItemValue("UnpModifiedDate", session.createDateTime(new Date()));
+		doc.replaceItemValue("UnpUserAgent", context.getUserAgent().getUserAgent());
+
 		doc.save();
 		unid = doc.getUniversalID();
 		resp = "OK";
