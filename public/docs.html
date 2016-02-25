@@ -231,7 +231,7 @@
               <dt>photocolumn</dt><dd>The title of the column to get the URL for a thumbnail from. Leave blank if not required.</dd>
               <dt>xpagedoc</dt><dd>The XPage to open when viewing a document. Default would be the current XPage name</dd>
               <dt>xpagedocdbname</dt><dd>The database that contains the XPage to load, leave blank for current database</dd>
-              <dt>title</dt><dd>The title for the Accordion view</dd>
+              <dt>title</dt><dd>The title for the Accordion view. From v1.6, this text can be HTML.</dd>
               <dt>categoryfilter</dt><dd>To apply a filter to the view before getting data, enter the filter value here. This allows for two levels of categorization</dd>
               <dt>categoryindex</dt><dd>The column of the view that contains the cateogirized column</dd>
               <dt>ajaxload</dt><dd>Whether to load data using Ajax. Default is Yes, can be set to No</dd>
@@ -294,7 +294,7 @@
               <dt>photocolumn</dt><dd>The column title to load photos from, leave blank if not required</dd>
               <dt>xpagedoc</dt><dd>The xpage to load documents with, by default this would be the same as the current XPage</dd>
               <dt>xpagedocdbname</dt><dd>The database that holds the xpage to load documents from, leave blank if not required</dd>
-              <dt>title</dt><dd>The title for the list</dd>
+              <dt>title</dt><dd>The title for the list. From v1.6, this text can be HTML.</dd>
               <dt>categoryfilter</dt><dd>A filter to apply to the view before loading data</dd>
               <dt>numberofrows</dt><dd>The number of rows to display per page. Default is 20</dd>
               <dt>enableazpicker</dt><dd>yes or no, enable the A-Z picker. If yes then it is best to load all documents in the view by setting number of rows to a large number</dd>
@@ -369,6 +369,7 @@
               <dt>callback</dt><dd><strong>from v1.3</strong> the name of a client side JavaScript function to call after opening a document</dd>
               <dt>openfirstdocument</dt><dd><strong>from v1.3</strong> set to yes by default, if set to no then document will not be opened automatically when opening the view</dd>
               <dt>openineditmode</dt><dd><strong>from v1.5</strong> set to true to open a document in edit mode rather than read mode, default = false</dd>
+              <dt>searchfulltext</dt><dd><strong>from v1.6</strong> boolean switch to enable full text searching in the specified view rather than using view entry searching which is still the default. If you want to use FT searching, be aware that it will not work on Unplugged devices and for Domino servers, the database must be Full Text Indexed!</dd>
             </dl>
             <p><strong>We do have one known issue with the A-Z Picker when using it in iOS and Unplugged (not Safari), there are situations where the list will disappear until the user touches their screen again. We're still investigating a solution to this issue.</strong></p>
 <div class="highlight"><pre><code class="html">
@@ -668,7 +669,7 @@
             <h2>Photo Upload</h2>
             <p class="lead">To upload pictures on your mobile device and also resize, rotate as required before uploading.</p>
             <p>To upload an image, add this control.</p>
-            
+
             <p>It should be noted that if you are using Unplugged on Android that this control will not work correctly. In this situation you should use a basic file upload control as demonstrated in the Sampler application "BasicPhotoUpload".</p>
 
             <ul>
@@ -681,8 +682,8 @@
             <li><strong>crop</strong>: whether to crop the image rather than resize it when uploading</li>
             <li><strong>customSelectElement</strong>: a classname to identify where to move the default photo upload button to (optional)</li>
             </ul>
-            
-            
+
+
 <div class="highlight"><pre><code class="html">
 &lt;div class="panel-body"&gt;
    Tap 'Select' to take a new photo or select from your Photos library, then tap 'Upload'.
@@ -1335,6 +1336,7 @@ xmlns:unp=&quot;http://unplugged.openntf.org&quot;&gt;
             <dl class="dl-horizontal">
               <dt>title</dt><dd>title for the page</dd>
               <dt>navitems</dt><dd>an array of objects that describe menu items. Each item should have the following properties: label, page and icon. The label is what will be displayed in the header bar, the page is the URL to open when the link is clicked and icon is the Font Awesome icon to use for the menu item.</dd>
+              <dt>homeurl</dt><dd><strong>from v1.6</strong> if you want the Brand logo (top left) to go somewhere other than UnpMain.xsp then enter the URL to open here</dd>
             </dl>
           <div class="highlight"><pre><code class="html">
           &lt;unp:UnpBootHeader&gt;
