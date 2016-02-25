@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
- maintenanceversion='1.0' replicaid='80257E4B002A6F3D'>
-<noteinfo noteid='11a' unid='B580C2EFB63966E380257CD8002C299E' sequence='48'>
-<created><datetime dst='true'>20140514T090222,38+01</datetime></created>
-<modified><datetime>20151104T141754,04+00</datetime></modified>
-<revised><datetime>20151104T141754,03+00</datetime></revised>
-<lastaccessed><datetime>20151104T141754,04+00</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150520T084330,03+01</datetime></addedtofile></noteinfo>
+ maintenanceversion='1.0' replicaid='80257F5A00272472'>
+<noteinfo noteid='11a' unid='BF596F084FE55A2B80257F5A00272476' sequence='15'>
+<created><datetime>20160215T070732,38+00</datetime></created>
+<modified><datetime>20160225T103901,34+00</datetime></modified>
+<revised><datetime>20160225T103901,33+00</datetime></revised>
+<lastaccessed><datetime>20160225T103901,34+00</datetime></lastaccessed>
+<addedtofile><datetime>20160215T070732,42+00</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
+<wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name='IconBitmap' summary='true'>
 <rawitemdata type='6'>
 AiAgAQAA///////wD///4Af//8AD//4AAH/8AAA/+AAAH/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAA
@@ -26,6 +27,6 @@ AAAAUEECICABAAD/////+A4DgA==
 <item name='$Daos'><text>0</text></item>
 <item name='$Flags'><text>J</text></item>
 <item name='$FlagsNoRefresh'><text>rv</text></item>
-<item name='$TITLE'><text>XControls 1.5.2 Sampler
+<item name='$TITLE'><text>XControls 1.6.0 Sampler
 </text></item></note>
 
