@@ -53,7 +53,7 @@
 	return "col-xs-12";
 }}]]></xp:this.styleClass>
 						<xp:text id="workspacetitle" tagName="h3" styleClass="panel-title"
-							value="#{javascript:compositeData.title}">
+							value="#{javascript:compositeData.title}" escape="false">
 							<xp:this.style><![CDATA[#{javascript:if (isEmpty(compositeData.title)){
 	return "display: none;";
 }}]]></xp:this.style>
