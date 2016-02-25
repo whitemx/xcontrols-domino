@@ -215,7 +215,9 @@ return out;}]]></xp:this.styleClass>
 							id="viewimage">
 							<xp:this.attrs>
 								<xp:attr name="src">
-									<xp:this.value><![CDATA[#{javascript:if (compositeData.photocolumn != null && compositeData.photocolumn != "" && thisRowData.getColumnValue(compositeData.photocolumn) != ""){
+									<xp:this.value><![CDATA[#{javascript:
+var columnValue = thisRowData.getColumnValue(compositeData.photocolumn);
+if (compositeData.photocolumn != null && compositeData.photocolumn != "" && columnValue != "" && columnValue != null){
 	return thisRowData.getColumnValue(compositeData.photocolumn);
 }else{
 	return "unp/ecblank.gif";
@@ -265,7 +267,7 @@ return out;}]]></xp:this.styleClass>
 						styleClass="loadmorebutton btn pull-right">
 						<xp:this.attrs>
 							<xp:attr name="onclick">
-								<xp:this.value><![CDATA[#{javascript:"unp.loadmore('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')"}]]></xp:this.value>
+								<xp:this.value><![CDATA[#{javascript:"unp.loadmore('" + compositeData.dbname + "', '" + @ReplaceSubstring(compositeData.viewname, "\\", "\\\\") + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')"}]]></xp:this.value>
 							</xp:attr>
 						</xp:this.attrs>
 					</xp:button>
@@ -274,7 +276,7 @@ return out;}]]></xp:this.styleClass>
 					styleClass="clearsearchbutton btn pull-right" style="display: none;">
 					<xp:this.attrs>
 						<xp:attr name="onclick">
-							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + compositeData.viewname + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')"}]]></xp:this.value>
+							<xp:this.value><![CDATA[#{javascript:"unp.clearsearch('" + compositeData.dbname + "', '" + @ReplaceSubstring(compositeData.viewname, "\\", "\\\\") + "', '" + compositeData.summarycolumn + "', '" + compositeData.detailcolumn + "', '" + compositeData.categoryfilter + "', '" + compositeData.xpagedoc + "', 'pull', '" + compositeData.photocolumn + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')"}]]></xp:this.value>
 						</xp:attr>
 					</xp:this.attrs>
 				</xp:button>

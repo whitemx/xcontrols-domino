@@ -9,7 +9,7 @@
 	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="People" summarycolumn="FullName"
-				viewname="People By Last Name" numberofrows="20" ajaxload="Yes"
+				viewname="People\By Last Name" numberofrows="20" ajaxload="Yes"
 				detailcolumn="Company" xpagedoc="FlatView.xsp"
 				newlink="PersonEdit.xsp" searchview="Search" photocolumn="Photo"
 				footertext="Built with Bootcards - Flat List"
