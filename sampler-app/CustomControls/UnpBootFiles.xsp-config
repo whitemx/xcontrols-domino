@@ -26,10 +26,12 @@
     <property>
       <property-name>filestitle</property-name>
       <property-class>string</property-class>
+      <description>The title for the list</description>
     </property>
     <property>
       <property-name>fileslist</property-name>
       <property-class>object</property-class>
+      <description>An array of file objects that contain filename and url for each file. If you're using a FormViewer, then pass in viewScope.images</description>
     </property>
   </composite-component>
 </faces-config>

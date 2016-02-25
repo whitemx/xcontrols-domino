@@ -26,62 +26,77 @@
     <property>
       <property-name>searchview</property-name>
       <property-class>string</property-class>
+      <description>the name of the view to search, leave blank to disable searching. The search view should be categorized with all the values to be searched in a typeahead style search. Look at the sampler application for an example of how to set this up. Or use full text index</description>
     </property>
     <property>
       <property-name>newlink</property-name>
       <property-class>string</property-class>
+      <description>The link to open when composing a new document, leave blank to hide new button</description>
     </property>
     <property>
       <property-name>dbname</property-name>
       <property-class>string</property-class>
+      <description>The database to load data from, leave blank if not required. To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</description>
     </property>
     <property>
       <property-name>viewname</property-name>
       <property-class>string</property-class>
+      <description>The view to load data from</description>
     </property>
     <property>
       <property-name>summarycolumn</property-name>
       <property-class>string</property-class>
+      <description>The column title to load summary data from</description>
     </property>
     <property>
       <property-name>detailcolumn1</property-name>
       <property-class>string</property-class>
+      <description>The column title to load detail data from</description>
     </property>
     <property>
       <property-name>photocolumn</property-name>
       <property-class>string</property-class>
+      <description>The column title to load photos from, leave blank if not required</description>
     </property>
     <property>
       <property-name>xpagedoc</property-name>
       <property-class>string</property-class>
+      <description>The xpage to load documents with, by default this would be the same as the current XPage</description>
     </property>
     <property>
       <property-name>xpagedocdbname</property-name>
       <property-class>string</property-class>
+      <description>The database that holds the xpage to load documents from, leave blank if not required</description>
     </property>
     <property>
       <property-name>title</property-name>
       <property-class>string</property-class>
+      <description>The title for the list</description>
     </property>
     <property>
       <property-name>categoryfilter</property-name>
       <property-class>string</property-class>
+      <description>A filter to apply to the view before loading data</description>
     </property>
     <property>
       <property-name>numberofrows</property-name>
       <property-class>string</property-class>
+      <description>The number of rows to display per page. Default is 20</description>
     </property>
     <property>
       <property-name>enableazpicker</property-name>
       <property-class>string</property-class>
+      <description>yes or no, enable the A-Z picker. If yes then it is best to load all documents in the view by setting number of rows to a large number</description>
     </property>
     <property>
       <property-name>categoryindex</property-name>
       <property-class>string</property-class>
+      <description>If you want to display categories, they will be non clickable but can effectively break up lists of data. This is the index number for the category column to use (counting from 0). Leave blank if not required.</description>
     </property>
     <property>
       <property-name>ajaxload</property-name>
       <property-class>string</property-class>
+      <description>Optionally load documents using a full page load, default is to use Ajax for performance reasons</description>
     </property>
     <property>
       <property-name>searchlocal</property-name>
@@ -93,22 +108,27 @@
 no</editor-parameter>
         </designer-extension>
       </property-extension>
+      <description>If set to yes and searchview is blank then searching on the currently displayed list will be enabled</description>
     </property>
     <property>
       <property-name>footertext</property-name>
       <property-class>string</property-class>
+      <description>A footer text message to display. Leave blank if not required.</description>
     </property>
     <property>
       <property-name>detailcolumn2</property-name>
       <property-class>string</property-class>
+      <description>The column title to load detail data from</description>
     </property>
     <property>
       <property-name>detailcolumn3</property-name>
       <property-class>string</property-class>
+      <description>The column title to load detail data from</description>
     </property>
     <property>
       <property-name>callback</property-name>
       <property-class>string</property-class>
+      <description>the name of a client side JavaScript function to call after opening a document</description>
     </property>
     <property>
       <property-name>openfirstdocument</property-name>
@@ -121,6 +141,7 @@ no</editor-parameter>
           <default-value>yes</default-value>
         </designer-extension>
       </property-extension>
+      <description>set to yes by default, if set to no then document will not be opened automatically when opening the view</description>
     </property>
     <property>
       <property-name>openineditmode</property-name>
@@ -130,10 +151,12 @@ no</editor-parameter>
           <default-value>false</default-value>
         </designer-extension>
       </property-extension>
+      <description>set to true to open a document in edit mode rather than read mode, default = false</description>
     </property>
     <property>
       <property-name>newFormLabel</property-name>
       <property-class>string</property-class>
+      <description>To override the default label of "Add" new button enter label here</description>
     </property>
   </composite-component>
 </faces-config>

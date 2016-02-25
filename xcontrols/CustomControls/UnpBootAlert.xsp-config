@@ -26,10 +26,12 @@
     <property>
       <property-name>title</property-name>
       <property-class>string</property-class>
+      <description>The title for the dialog</description>
     </property>
     <property>
       <property-name>content</property-name>
       <property-class>string</property-class>
+      <description>The HTML content of the dialog</description>
     </property>
     <property>
       <property-name>dialogid</property-name>
@@ -37,6 +39,7 @@
       <property-extension>
         <required>true</required>
       </property-extension>
+      <description>The ID of the dialog</description>
     </property>
     <property>
       <property-name>okbuttonlabel</property-name>
@@ -46,6 +49,7 @@
           <default-value>OK</default-value>
         </designer-extension>
       </property-extension>
+      <description>The label to display on the OK button</description>
     </property>
   </composite-component>
 </faces-config>

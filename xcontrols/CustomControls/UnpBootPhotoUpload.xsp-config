@@ -27,6 +27,7 @@
           <default-value>1024</default-value>
         </designer-extension>
       </property-extension>
+      <description>the width to resize the immage to</description>
     </property>
     <property>
       <property-name>targetHeight</property-name>
@@ -37,6 +38,7 @@
           <default-value>768</default-value>
         </designer-extension>
       </property-extension>
+      <description>the height to resize the image to</description>
     </property>
     <property>
       <property-name>crop</property-name>
@@ -47,6 +49,7 @@
         </designer-extension>
         <required>true</required>
       </property-extension>
+      <description>whether to crop the image to get to the target size</description>
     </property>
     <property>
       <property-name>showRotationControls</property-name>

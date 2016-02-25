@@ -27,14 +27,17 @@
     <property>
       <property-name>dbname</property-name>
       <property-class>string</property-class>
+      <description>The name of the database that contains the document, leave blank for current database. To use a database on a different server use the format: myserver!!mydir/mydb.nsf (application server must be in trusted servers list on remote server, application server must be explicitly in ACL for remote database, and application server must be able to resolve remote server host name)</description>
     </property>
     <property>
       <property-name>formname</property-name>
       <property-class>string</property-class>
+      <description>The form name of the document being edited</description>
     </property>
     <property>
       <property-name>title</property-name>
       <property-class>string</property-class>
+      <description>The title for the form card</description>
     </property>
     <property>
       <property-name>showbuttons</property-name>
@@ -46,10 +49,12 @@
           <default-value>true</default-value>
         </designer-extension>
       </property-extension>
+      <description>show or hide the save and cancel buttons</description>
     </property>
     <property>
       <property-name>viewxpagename</property-name>
       <property-class>string</property-class>
+      <description>The name of the XPage to open after saving the document, would normally be the same as the current XPage</description>
     </property>
     <property>
       <property-name>footertext</property-name>
@@ -58,6 +63,7 @@
     <property>
       <property-name>callback</property-name>
       <property-class>string</property-class>
+      <description>the name of a client side JavaScript function to call after successfully saving a document</description>
     </property>
     <property>
       <property-name>fullpagemode</property-name>
@@ -68,14 +74,17 @@
           <default-value>false</default-value>
         </designer-extension>
       </property-extension>
+      <description>a boolean switch to allow you to run the editor control in a full page rather than a dialog. Cancel button takes user back to previous page. When using this, make sure that your "doccontent" div has the class "full-width" assigned to it.</description>
     </property>
     <property>
       <property-name>presavecallback</property-name>
       <property-class>string</property-class>
+      <description>the name of a client side JavaScript function to call before running standard form validations. It must return true or false. If false the save will not proceed.</description>
     </property>
     <property>
       <property-name>fullpagemodecancellink</property-name>
       <property-class>string</property-class>
+      <description>The url to open when running in full page mode and the user clicks the cancel link</description>
     </property>
     <property>
       <property-name>reopenineditmode</property-name>
@@ -85,6 +94,7 @@
           <default-value>false</default-value>
         </designer-extension>
       </property-extension>
+      <description>Whether to open the current document in edit mode after saving it</description>
     </property>
   </composite-component>
 </faces-config>

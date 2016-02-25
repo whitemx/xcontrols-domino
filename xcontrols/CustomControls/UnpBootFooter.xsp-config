@@ -35,15 +35,17 @@ none</editor-parameter>
           <default-value>alldbs</default-value>
         </designer-extension>
       </property-extension>
+      <description>Choose between alldbs, currentdb or none to enable a sync button when using Unplugged on a mobile device</description>
     </property>
     <property>
       <property-name>tabs</property-name>
       <property-class>object</property-class>
-      <description>A JSON Object that describes the footer tabs to load</description>
+      <description>An array of objects that describe the footer tabs you want to display, leave blank if not required</description>
     </property>
     <property>
       <property-name>postSyncTarget</property-name>
       <property-class>string</property-class>
+      <description>The page to open after syncing, leave blank if not required, or you're happy with the default which is to open the UnpMain XPage</description>
     </property>
   </composite-component>
 </faces-config>

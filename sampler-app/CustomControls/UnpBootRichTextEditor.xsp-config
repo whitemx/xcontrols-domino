@@ -26,6 +26,7 @@
     <property>
       <property-name>fieldname</property-name>
       <property-class>string</property-class>
+      <description>the name of the field to get get the initial content from. The data must be HTML formatted or plain text. Domino Rich Text will not work.</description>
     </property>
   </composite-component>
 </faces-config>

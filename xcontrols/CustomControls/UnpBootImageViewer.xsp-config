@@ -26,10 +26,12 @@
     <property>
       <property-name>imageurl</property-name>
       <property-class>string</property-class>
+      <description>the URL for the image</description>
     </property>
     <property>
       <property-name>imagetitle</property-name>
       <property-class>string</property-class>
+      <description>the title for the image</description>
     </property>
   </composite-component>
 </faces-config>

@@ -26,62 +26,77 @@
     <property>
       <property-name>searchview</property-name>
       <property-class>string</property-class>
+      <description>The name of the view to search against. Leave blank to disable searching.</description>
     </property>
     <property>
       <property-name>newlink</property-name>
       <property-class>string</property-class>
+      <description>The URL to open when the Add button is clicked. Can be as simple as an XPage name e.g. myNewLink.xsp</description>
     </property>
     <property>
       <property-name>newdatatarget</property-name>
       <property-class>string</property-class>
+      <description>[Deprecated]</description>
     </property>
     <property>
       <property-name>dbname</property-name>
       <property-class>string</property-class>
+      <description>The name of the database to get data from. Leave blank for current database. Use forward slash as separator and !! to delimit (optional) server names. Example include myrdir/mydb.nsf otherServer!!mydir/mydb.nsf</description>
     </property>
     <property>
       <property-name>viewname</property-name>
       <property-class>string</property-class>
+      <description>The name of the view to get data from</description>
     </property>
     <property>
       <property-name>summarycolumn</property-name>
       <property-class>string</property-class>
+      <description>The title of the column to display summary (first line) information from</description>
     </property>
     <property>
       <property-name>detailcolumn</property-name>
       <property-class>string</property-class>
+      <description>The title of the column to display detail (second line) information from</description>
     </property>
     <property>
       <property-name>photocolumn</property-name>
       <property-class>string</property-class>
+      <description>The title of the column that has a URL pointing to an image to display against each document. Leave blank for no photos</description>
     </property>
     <property>
       <property-name>xpagedoc</property-name>
       <property-class>string</property-class>
+      <description>The name of the XPage to open when a document is selected. usually to get data to display on the right hand side of the page</description>
     </property>
     <property>
       <property-name>xpagedocdbname</property-name>
       <property-class>string</property-class>
+      <description>The name of the database that contains the XPage that should be opened when clicking a document. Leave blank for current database</description>
     </property>
     <property>
       <property-name>title</property-name>
       <property-class>string</property-class>
+      <description>The title to display for the view</description>
     </property>
     <property>
       <property-name>categoryfilter</property-name>
       <property-class>string</property-class>
+      <description>To restrict contents to a single category within the view enter the value to restrict on here. Leave blank for no restriction</description>
     </property>
     <property>
       <property-name>categoryindex</property-name>
       <property-class>string</property-class>
+      <description>The index (counting from 0) of the column containing categories to be filtered by categooryfilter. </description>
     </property>
     <property>
       <property-name>ajaxload</property-name>
       <property-class>string</property-class>
+      <description>Force data to load with ajax (Yes) or full page load (No) when a document is clicked. </description>
     </property>
     <property>
       <property-name>loaddocumenttarget</property-name>
       <property-class>string</property-class>
+      <description>The div ID into which document data will be loaded</description>
     </property>
     <property>
       <property-name>searchlocal</property-name>
@@ -93,18 +108,22 @@
 no</editor-parameter>
         </designer-extension>
       </property-extension>
+      <description>Enable local searching of data. This will search within the text of whatever view entries are displayed on the user's screen without any server interaction</description>
     </property>
     <property>
       <property-name>expandfirstcategory</property-name>
       <property-class>string</property-class>
+      <description>Whether to automatically expand the first category in the view</description>
     </property>
     <property>
       <property-name>footertext</property-name>
       <property-class>string</property-class>
+      <description>Text to display in footer of card</description>
     </property>
     <property>
       <property-name>callback</property-name>
       <property-class>string</property-class>
+      <description>The name of a javascript function (e.g. myFunction) to run whenever a document is selected</description>
     </property>
     <property>
       <property-name>openineditmode</property-name>
@@ -114,10 +133,12 @@ no</editor-parameter>
           <default-value>false</default-value>
         </designer-extension>
       </property-extension>
+      <description>When opening a document, choose whether to open in edit mode or read mode</description>
     </property>
     <property>
       <property-name>newFormLabel</property-name>
       <property-class>string</property-class>
+      <description>The text to display on the Add button in place of Add if you prefer</description>
     </property>
   </composite-component>
 </faces-config>

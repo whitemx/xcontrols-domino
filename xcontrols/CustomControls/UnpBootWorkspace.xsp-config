@@ -26,34 +26,42 @@
     <property>
       <property-name>title</property-name>
       <property-class>string</property-class>
+      <description>the title for the workspace card</description>
     </property>
     <property>
       <property-name>workspaceview</property-name>
       <property-class>string</property-class>
+      <description>the view from which to load the workspace icons</description>
     </property>
     <property>
       <property-name>labelcol</property-name>
       <property-class>string</property-class>
+      <description>The title of the column in the view that contains the labels for each icon</description>
     </property>
     <property>
       <property-name>iconcol</property-name>
       <property-class>string</property-class>
+      <description>The title of the column in the view that contains the Font Awesome icon name for each icon in the workspace</description>
     </property>
     <property>
       <property-name>linkurlcol</property-name>
       <property-class>string</property-class>
+      <description>The title of the column in the view that contains the link to open when the icon is clicked</description>
     </property>
     <property>
       <property-name>badgecol</property-name>
       <property-class>string</property-class>
+      <description>If there is a badge to display on the icon, the title for the column to get this data</description>
     </property>
     <property>
       <property-name>columndefinition</property-name>
       <property-class>string</property-class>
+      <description>To override the default column layout, enter the number of columns using Bootstrap formatting</description>
     </property>
     <property>
       <property-name>footertext</property-name>
       <property-class>string</property-class>
+      <description>Static text to display in the footer of the card</description>
     </property>
   </composite-component>
 </faces-config>

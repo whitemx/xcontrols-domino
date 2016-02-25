@@ -27,14 +27,17 @@
     <property>
       <property-name>callback</property-name>
       <property-class>string</property-class>
+      <description>The name of the JavaScript function to call when the user clicks the OK button.</description>
     </property>
     <property>
       <property-name>title</property-name>
       <property-class>string</property-class>
+      <description>The title for the dialog.</description>
     </property>
     <property>
       <property-name>footertext</property-name>
       <property-class>string</property-class>
+      <description>The footer text to display.</description>
     </property>
     <property>
       <property-name>dialogid</property-name>
@@ -42,6 +45,7 @@
       <property-extension>
         <required>true</required>
       </property-extension>
+      <description>The unique ID for the dialog.</description>
     </property>
     <property>
       <property-name>showok</property-name>
@@ -51,6 +55,7 @@
           <default-value>true</default-value>
         </designer-extension>
       </property-extension>
+      <description>A boolean to allow your to show or hide the OK button (default is true)</description>
     </property>
     <property>
       <property-name>showcancel</property-name>
@@ -60,6 +65,7 @@
           <default-value>true</default-value>
         </designer-extension>
       </property-extension>
+      <description>A boolean to allow your to show or hide the Cancel button (default is true)</description>
     </property>
     <property>
       <property-name>dismissonok</property-name>
@@ -69,6 +75,7 @@
           <default-value>true</default-value>
         </designer-extension>
       </property-extension>
+      <description>A boolean that when false means clicking the OK button will not hide the dialog. You can do this in your callback function using unp.closeDialog('mydialog')</description>
     </property>
   </composite-component>
 </faces-config>

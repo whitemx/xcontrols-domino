@@ -26,6 +26,7 @@
     <property>
       <property-name>loginpage</property-name>
       <property-class>string</property-class>
+      <description>you can specify a login page to redirect to if the current user is anonymous. You must create the login page as required. Leave blank to use standard Domino authentication.</description>
     </property>
   </composite-component>
 </faces-config>

@@ -1,22 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257E4B002A783F" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="27e" sequence="24" unid="EF14BDC5E4B8763B80257E490049EBF6">
-<created><datetime dst="true">20150518T142725,34+01</datetime></created>
-<modified><datetime>20151104T141736,69+00</datetime></modified>
-<revised><datetime>20151104T141736,68+00</datetime></revised>
-<lastaccessed><datetime>20151104T141736,69+00</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20150520T084354,91+01</datetime></addedtofile></noteinfo>
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257F5A002ADBAC" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="31e" sequence="4" unid="A96215E190D3555E80257F6400343D04">
+<created><datetime>20160225T093034,92+00</datetime></created>
+<modified><datetime>20160225T093035,26+00</datetime></modified>
+<revised><datetime>20160225T093035,25+00</datetime></revised>
+<lastaccessed><datetime>20160225T093035,26+00</datetime></lastaccessed>
+<addedtofile><datetime>20160225T093034,93+00</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpBootFormViewer.xsp</text></item>
 <item name="$Flags"><text>gC~4;</text></item>
 
 
-
-
 <item name="$FileNames" sign="true"><text>UnpBootFormViewer.xsp</text></item>
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-
-
-
 
 </note>

@@ -26,34 +26,42 @@
     <property>
       <property-name>title</property-name>
       <property-class>string</property-class>
+      <description>The title for the calendar</description>
     </property>
     <property>
       <property-name>viewname</property-name>
       <property-class>string</property-class>
+      <description>The view to get the data from. The view needs to be formatted in the same way as the example in the Sampler application.</description>
     </property>
     <property>
       <property-name>startdatefield</property-name>
       <property-class>string</property-class>
+      <description>The field to get the start date for each event from</description>
     </property>
     <property>
       <property-name>enddatefield</property-name>
       <property-class>string</property-class>
+      <description>The field to get the end date for each event from</description>
     </property>
     <property>
       <property-name>titlefield</property-name>
       <property-class>string</property-class>
+      <description>The field to get the title for each event from</description>
     </property>
     <property>
       <property-name>viewxpage</property-name>
       <property-class>string</property-class>
+      <description>The XPage to load when clicking on an event</description>
     </property>
     <property>
       <property-name>highlightfield</property-name>
       <property-class>string</property-class>
+      <description>The name of the field to check for highlighting, can be left blank</description>
     </property>
     <property>
       <property-name>highlighttest</property-name>
       <property-class>string</property-class>
+      <description>The logical test to see if the event should be highlighted, can be left blank</description>
     </property>
     <property>
       <property-name>headerbuttonsleft</property-name>
@@ -63,6 +71,7 @@
           <default-value>prev,today,next</default-value>
         </designer-extension>
       </property-extension>
+      <description>The list of buttons to display on the left header. Default is prev,today,next</description>
     </property>
     <property>
       <property-name>headerbuttonsrighttablet</property-name>
@@ -72,10 +81,12 @@
           <default-value>agendaDay,agendaWeek,month</default-value>
         </designer-extension>
       </property-extension>
+      <description>The buttons to display for a tablet. Default is agendaDay,agendaWeek,month</description>
     </property>
     <property>
       <property-name>headerbuttonsrightphone</property-name>
       <property-class>string</property-class>
+      <description>The buttons to display for a phone. Default is none</description>
     </property>
     <property>
       <property-name>defaultviewtablet</property-name>
@@ -85,6 +96,7 @@
           <default-value>month</default-value>
         </designer-extension>
       </property-extension>
+      <description>The default view to open when viewed with a tablet, default is month</description>
     </property>
     <property>
       <property-name>defaultviewphone</property-name>
@@ -94,26 +106,32 @@
           <default-value>basicWeek</default-value>
         </designer-extension>
       </property-extension>
+      <description>The default view to open when viewed with a phone, default is basicWeek</description>
     </property>
     <property>
       <property-name>filter</property-name>
       <property-class>string</property-class>
+      <description>A filter to apply to the view to get a subset of documents, can be left blank</description>
     </property>
     <property>
       <property-name>catfield</property-name>
       <property-class>string</property-class>
+      <description>The name of the field on event documents which will be used to create categories, can be left blank</description>
     </property>
     <property>
       <property-name>dbname</property-name>
       <property-class>string</property-class>
+      <description>The name of the database to load data from, can be left blank.</description>
     </property>
     <property>
       <property-name>footertext</property-name>
       <property-class>string</property-class>
+      <description>A footer string to display, can be left blank.</description>
     </property>
     <property>
       <property-name>callback</property-name>
       <property-class>string</property-class>
+      <description>the name of a client side JavaScript function to call after clicking on an entry (i.e. when a document is put into edit mode)</description>
     </property>
   </composite-component>
 </faces-config>

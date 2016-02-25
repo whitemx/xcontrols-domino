@@ -26,14 +26,17 @@
     <property>
       <property-name>carouselfileslist</property-name>
       <property-class>object</property-class>
+      <description>A javascript array of file URLs to displayin the format: [{url: "myurl.png", filename: "myurl.png", pageurl: "UnpMain.xsp", title: "My cool file", description: "This is my cool file"}]</description>
     </property>
     <property>
       <property-name>footertext</property-name>
       <property-class>string</property-class>
+      <description>The footer text to display.</description>
     </property>
     <property>
       <property-name>title</property-name>
       <property-class>string</property-class>
+      <description>The title text to display.</description>
     </property>
   </composite-component>
 </faces-config>
