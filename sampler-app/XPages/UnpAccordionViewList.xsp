@@ -70,7 +70,8 @@ if (start == ""){
 				</xp:this.attrs>
 				<xp:image styleClass="rowphoto img-rounded pull-left">
 					<xp:this.rendered><![CDATA[#{javascript:if (context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && context.getUrlParameter("photocol") != "null"){
-	if (thisRowData.getColumnValue(context.getUrlParameter("photocol")) != ""){
+	var columnValue = thisRowData.getColumnValue(context.getUrlParameter("photocol"));
+	if (columnValue != "" && columnValue != null){
 		return true;
 	}else{
 		return false;

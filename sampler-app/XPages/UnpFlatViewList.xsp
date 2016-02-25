@@ -133,9 +133,11 @@ if (start == ""){
 				</xp:this.attrs>
 
 				<xp:image styleClass="img-rounded pull-left">
-					<xp:this.url><![CDATA[#{javascript:if (context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && 
+					<xp:this.url><![CDATA[#{javascript:
+var columnValue = thisRowData.getColumnValue(context.getUrlParameter("photocol"));
+if (context.getUrlParameter("photocol") != "undefined" && context.getUrlParameter("photocol") != "" && 
 	context.getUrlParameter("photocol") != "null" && 
-	thisRowData.getColumnValue(context.getUrlParameter("photocol")) != ""){
+	columnValue != "" && columnValue != null){
 	return thisRowData.getColumnValue(context.getUrlParameter("photocol"));
 }else{
 	return "unp/ecblank.gif";
