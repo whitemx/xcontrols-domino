@@ -2,6 +2,11 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" rendered="false">
 
 	<xp:this.afterRenderResponse><![CDATA[#{javascript:
-@Command("[ReplicatorReplicateHigh]");	
+if(isUnpluggedServer()){
+	@Command("[ReplicatorReplicateHigh]");
+}	
 }]]></xp:this.afterRenderResponse>
+	<xp:this.resources>
+		<xp:script src="/unpCommon.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
 </xp:view>
