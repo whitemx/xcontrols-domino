@@ -153,9 +153,9 @@ if (isEmpty(summarycol)){
 	summarycol = null;
 }
 if (isEmpty(compositeData.categoryfilter)){
-	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')";
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + @ReplaceSubstring(thisRowData, "'", "\\'") + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')";
 }else{
-	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + thisRowData + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')";
+	return "unp.fetchDetails(this,'" + @ReplaceSubstring(compositeData.viewname, "\\","\\\\") + "','" + @ReplaceSubstring(thisRowData, "'", "\\'") + "~" + compositeData.categoryfilter + "', '" + @ReplaceSubstring(compositeData.xpagedoc, "/", "") + "', '" + compositeData.dbname + "', '" + compositeData.photocolumn + "', '" + summarycol + "', '" + datacol + "', '" + compositeData.ajaxload + "', '" + compositeData.callback + "', 'doccontent', '" + compositeData.openineditmode + "')";
 }}]]></xp:this.value>
 							</xp:attr>
 						</xp:this.attrs>
