@@ -1274,7 +1274,10 @@ unp.initSearch = function() {
                     return typeof data == 'undefined' ? false : process(data);
                 }
             });
-		}
+		},  
+        afterSelect: function(){
+        	unp.dosearch();
+        }
 	});
 }
 
