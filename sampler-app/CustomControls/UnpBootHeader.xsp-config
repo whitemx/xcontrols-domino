@@ -38,5 +38,10 @@
       <property-class>object</property-class>
       <description>an array of objects that describe menu items. Each item should have the following properties: label, page and icon. The label is what will be displayed in the header bar, the page is the URL to open when the link is clicked and icon is the Font Awesome icon to use for the menu item.&lt;/dd&gt;</description>
     </property>
+    <property>
+      <property-name>homeurl</property-name>
+      <property-class>string</property-class>
+      <description>Allows you to override the default home URL (UnpMain.xsp) to point somewhere else if you prefer</description>
+    </property>
   </composite-component>
 </faces-config>

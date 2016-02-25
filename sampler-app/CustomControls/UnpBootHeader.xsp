@@ -35,10 +35,15 @@
 				<xp:this.attrs>
 					<xp:attr name="title" value="#{javascript:compositeData.title}">
 					</xp:attr>
-					<xp:attr name="href" value="UnpMain.xsp"></xp:attr>
+					<xp:attr name="href">
+						<xp:this.value><![CDATA[#{javascript:if (isEmpty(compositeData.homeurl)){
+	return "UnpMain.xsp";
+}else{
+	return compositeData.homeurl;
+}}]]></xp:this.value>
+					</xp:attr>
 				</xp:this.attrs>
-				<xp:text value="#{javascript:compositeData.title}"
-					escape="false">
+				<xp:text value="#{javascript:compositeData.title}" escape="false">
 				</xp:text>
 			</xp:panel>
 
