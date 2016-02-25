@@ -7,18 +7,18 @@
 	<div id="main" class="container bootcards-container">
 		<div class="row fullheightrow">
 			<unp:UnpBootFlatView title="All Documents"
-				summarycolumn="Topic" viewname="MainTopic" numberofrows="5"
+				summarycolumn="Topic" viewname="($xpAllDocuments)" numberofrows="5"
 				ajaxload="Yes" detailcolumn="Date" xpagedoc="FlatViewRemote.xsp"
-				newlink="MainTopicEdit.xsp" searchview="Search"
+				newlink="MainTopicEdit.xsp" searchview="(UnpSearch)"
 				footertext="Built with Bootcards - Flat List" callback="callbackFunction"
-				openfirstdocument="yes" dbname="Surface/FCL!!demos/discussion.nsf">
+				openfirstdocument="yes" dbname="demos/discussion.nsf">
 			</unp:UnpBootFlatView>
 			<div id="doccontent" class="col-sm-7 bootcards-cards hidden-xs">
 				<unp:UnpBootFormViewer editxpagename="MainTopicEdit.xsp"
 					editxpagewithajax="yes" formname="MainTopic" showbuttons="true"
 					title="Main Topic" titleiconfield="thumbnail"
 					footertext="Built with Bootcards - Form Card"
-					callback="editcallback" dbname="Surface/FCL!!demos/discussion.nsf">
+					callback="editcallback" dbname="demos/discussion.nsf">
 					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("documentId") != ""}]]></xp:this.rendered>
 					<xp:this.facets>
 						<xp:panel id="list-group" xp:key="facet_1"
