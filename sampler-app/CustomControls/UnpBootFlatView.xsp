@@ -86,7 +86,8 @@
 + "&dbName=" + compositeData.dbname;}]]></xp:this.value>
 										</xp:attr>
 										<xp:attr name="fulltextsearch"
-											value="#{javascript:compositeData.searchfulltext}">
+											value="#{javascript:compositeData.searchfulltext}"
+											rendered="#{javascript:!isEmpty(compositeData.searchfulltext)}">
 										</xp:attr>
 									</xp:this.attrs>
 									<i class="fa fa-search"></i>
