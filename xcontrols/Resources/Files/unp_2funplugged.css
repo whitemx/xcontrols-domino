@@ -207,7 +207,7 @@ div.dBar .content {
 }
 
 .fc-event {
-	height: initial !important;	
+	height: initial /*!important*/;	
 }
 
 .fc-event-title {

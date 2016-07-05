@@ -1415,7 +1415,7 @@ unp.initCalendar = function() {
 				}else{
 					h = $(window).height() - 50;
 				}
-				// console.log("Setting height to: " + h);
+				 console.log("Setting height to: " + h);
 				$('#calendar').fullCalendar('option', 'height', h);
 			}
 		});

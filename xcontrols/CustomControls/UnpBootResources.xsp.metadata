@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257F5A002ADBAC" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="332" sequence="8" unid="105E4CF75FC05D7980257F6400343E11">
-<created><datetime>20160225T093037,61+00</datetime></created>
-<modified><datetime>20160225T093050,16+00</datetime></modified>
-<revised><datetime>20160225T093050,15+00</datetime></revised>
-<lastaccessed><datetime>20160225T093050,16+00</datetime></lastaccessed>
-<addedtofile><datetime>20160225T093037,64+00</datetime></addedtofile></noteinfo>
+<noteinfo noteid="392" sequence="12" unid="B78515AACE22DB6880257F65005B9323">
+<created><datetime>20160226T164014,43+00</datetime></created>
+<modified><datetime dst="true">20160705T170313,01+01</datetime></modified>
+<revised><datetime dst="true">20160705T170313,00+01</datetime></revised>
+<lastaccessed><datetime dst="true">20160705T170313,01+01</datetime></lastaccessed>
+<addedtofile><datetime>20160226T164014,45+00</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpBootResources.xsp</text></item>
 <item name="$Flags"><text>gC~4;</text></item>
-
-
-<item name="$FileNames" sign="true"><text>UnpBootResources.xsp</text></item>
-
-
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
 
 
 
-</note>
+<item name="$FileNames" sign="true"><text>UnpBootResources.xsp</text></item></note>
