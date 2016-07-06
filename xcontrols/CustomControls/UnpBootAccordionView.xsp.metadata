@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257F5A002ADBAC" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="34a" sequence="8" unid="34C0DD31DD2B996580257F640055A4E7">
-<created><datetime>20160225T153527,75+00</datetime></created>
-<modified><datetime>20160225T153534,62+00</datetime></modified>
-<revised><datetime>20160225T153534,61+00</datetime></revised>
-<lastaccessed><datetime>20160225T153534,62+00</datetime></lastaccessed>
-<addedtofile><datetime>20160225T153527,76+00</datetime></addedtofile></noteinfo>
+<noteinfo noteid="3ae" sequence="4" unid="5EED9727207F3B4A80257FE8006DD1A0">
+<created><datetime dst="true">20160706T205930,88+01</datetime></created>
+<modified><datetime dst="true">20160706T205931,64+01</datetime></modified>
+<revised><datetime dst="true">20160706T205931,63+01</datetime></revised>
+<lastaccessed><datetime dst="true">20160706T205931,64+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20160706T205930,89+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpBootAccordionView.xsp</text></item>
@@ -12,11 +12,5 @@
 
 
 <item name="$FileNames" sign="true"><text>UnpBootAccordionView.xsp</text></item>
-
-
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-
-
-
 
 </note>

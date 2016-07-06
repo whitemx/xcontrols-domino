@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257F5A002ADBAC" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="382" sequence="8" unid="BCFD60DBD226B63280257F65005B923B">
-<created><datetime>20160226T164012,11+00</datetime></created>
-<modified><datetime>20160226T164150,69+00</datetime></modified>
-<revised><datetime>20160226T164150,68+00</datetime></revised>
-<lastaccessed><datetime>20160226T164150,69+00</datetime></lastaccessed>
-<addedtofile><datetime>20160226T164012,12+00</datetime></addedtofile></noteinfo>
+<noteinfo noteid="3de" sequence="4" unid="4EB24854D3F1ABE080257FE8006DD4F3">
+<created><datetime dst="true">20160706T205939,39+01</datetime></created>
+<modified><datetime dst="true">20160706T205939,96+01</datetime></modified>
+<revised><datetime dst="true">20160706T205939,95+01</datetime></revised>
+<lastaccessed><datetime dst="true">20160706T205939,96+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20160706T205939,41+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpBootHeader.xsp</text></item>
@@ -12,12 +12,5 @@
 
 
 <item name="$FileNames" sign="true"><text>UnpBootHeader.xsp</text></item>
-
-
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-
-
-
-
 
 </note>

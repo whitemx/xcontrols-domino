@@ -15,7 +15,7 @@
         <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &#xd;
 &lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt; &#xd;
 	&lt;div style="border: 2px solid #A9A9A9; padding: 3px; margin: 5px;"&gt;&#xd;
-	&lt;h1&gt;UnpBootHeader v1.6.0&lt;/h1&gt;&#xd;
+	&lt;h1&gt;UnpBootHeader v1.7.0&lt;/h1&gt;&#xd;
 	&lt;div&gt;&#xd;
 		To use this custom control make sure you have set the Custom Properties.&#xd;
 	&lt;/div&gt;&#xd;

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257F5A002ADBAC" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="38e" sequence="8" unid="D8BA1FA69E63774E80257F65005B9306">
-<created><datetime>20160226T164014,14+00</datetime></created>
-<modified><datetime>20160226T164150,93+00</datetime></modified>
-<revised><datetime>20160226T164150,92+00</datetime></revised>
-<lastaccessed><datetime>20160226T164150,93+00</datetime></lastaccessed>
-<addedtofile><datetime>20160226T164014,17+00</datetime></addedtofile></noteinfo>
+<noteinfo noteid="3ea" sequence="4" unid="8DFF394E5F8A4F1B80257FE8006DD5A6">
+<created><datetime dst="true">20160706T205941,18+01</datetime></created>
+<modified><datetime dst="true">20160706T205941,64+01</datetime></modified>
+<revised><datetime dst="true">20160706T205941,63+01</datetime></revised>
+<lastaccessed><datetime dst="true">20160706T205941,64+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20160706T205941,19+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name="$TITLE"><text>UnpBootPhotoUpload.xsp</text></item>
@@ -12,11 +12,5 @@
 
 
 <item name="$FileNames" sign="true"><text>UnpBootPhotoUpload.xsp</text></item>
-
-
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-
-
-
 
 </note>
