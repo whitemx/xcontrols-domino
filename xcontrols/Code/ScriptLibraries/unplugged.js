@@ -55,6 +55,10 @@ unp.initPage = function(){
 		if (!$('body').hasClass('has-bootcards-navbar-double')){
 			$('body').addClass('has-bootcards-navbar-double');
 		}
+		if (!unp.isIOS() && !unp.isAndroid()){
+			$("#bootcards").css('padding-top', "100px");
+		}
+
 	}
 	// publish event when changing main menu option
 	$("a[data-title]").on("click", function() {

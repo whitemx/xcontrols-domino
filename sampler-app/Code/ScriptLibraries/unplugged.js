@@ -55,6 +55,9 @@ unp.initPage = function(){
 		if (!$('body').hasClass('has-bootcards-navbar-double')){
 			$('body').addClass('has-bootcards-navbar-double');
 		}
+		if (!unp.isIOS() && !unp.isAndroid()){
+			$("#bootcards").css('padding-top', "100px");
+		}
 	}
 	// publish event when changing main menu option
 	$("a[data-title]").on("click", function() {
@@ -1415,7 +1418,7 @@ unp.initCalendar = function() {
 				}else{
 					h = $(window).height() - 50;
 				}
-				 console.log("Setting height to: " + h);
+				// console.log("Setting height to: " + h);
 				$('#calendar').fullCalendar('option', 'height', h);
 			}
 		});
