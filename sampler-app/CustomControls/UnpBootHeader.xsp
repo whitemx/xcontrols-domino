@@ -131,6 +131,9 @@ else{
 							rendered="#{javascript:!navitem.children}">
 							<xp:link escape="true" text="#{javascript:navitem.label}"
 								id="navitemlink" value="#{javascript:navitem.page}">
+								<xp:this.target><![CDATA[#{javascript:if(navitem.newTab != null){
+								return "_blank";
+								}}]]></xp:this.target>
 								<xp:text id="navitemicon" tagName="i" value="">
 									<xp:this.styleClass><![CDATA[#{javascript:"fa " + navitem.icon}]]></xp:this.styleClass>
 								</xp:text>
