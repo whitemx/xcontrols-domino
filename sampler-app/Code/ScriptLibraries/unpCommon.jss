@@ -299,7 +299,7 @@ var unpDBar = {
 				sessionScope.put("unp.dbar", unpDBar);
 				
 			} catch (e) {		//error while logging
-				print(e.toString() );
+				//print(e.toString() );
 			}
 
 		},
@@ -354,8 +354,8 @@ var unpDBar = {
 				doc.save();
 			
 			} catch (e) {
-				print("error while saving:");
-				print(e);
+				//print("error while saving:");
+				//print(e);
 			}
 		}
 			
