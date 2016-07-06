@@ -289,3 +289,10 @@ div.dBar .content {
 #list.bootcards-list.offcanvas-list.active {
 	top: 45px;
 }
+
+.rtimage img {
+	width: initial !important;
+	height: initial !important;
+	max-width: 100%;
+	max-height: 100%;	
+}

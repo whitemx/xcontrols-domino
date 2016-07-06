@@ -153,6 +153,16 @@ return out;}]]></xp:this.value>
 							escape="false">
 						</xp:text>
 					</div>
+					<xp:div styleClass="list-group-item">
+						<xp:this.rendered><![CDATA[#{javascript:docview.hasItem("RTField")}]]></xp:this.rendered>
+						<xp:label value="RT Field" id="label3"
+							for="rtfield">
+						</xp:label>
+						<xp:inputRichText id="inputRichText1" styleClass="rtimage"
+							value="#{docview.RTField}">
+						</xp:inputRichText>
+					</xp:div>
+
 				</div>
 			</xp:panel>
 		</xp:this.facets>

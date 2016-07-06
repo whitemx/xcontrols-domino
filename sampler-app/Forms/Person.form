@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
- replicaid='80257D2D003F8F5C'>
-<noteinfo noteid='5ee' unid='81BC815808107CA080257CD8002C331D' sequence='6'>
-<created><datetime dst='true'>20140514T090246,69+01</datetime></created>
-<modified><datetime dst='true'>20140815T121858,90+01</datetime></modified>
-<revised><datetime dst='true'>20140813T154227,29+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20140815T121858,90+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20140815T121858,90+01</datetime></addedtofile></noteinfo>
+ replicaid='80257F5A00272472'>
+<noteinfo noteid='382' unid='07DB9BC615AB656B80257F5A00274BC8' sequence='8'>
+<created><datetime>20160215T070913,04+00</datetime></created>
+<modified><datetime dst='true'>20160706T162420,25+01</datetime></modified>
+<revised><datetime dst='true'>20160706T162420,24+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20160706T162420,25+01</datetime></lastaccessed>
+<addedtofile><datetime>20160215T070917,81+00</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Matt White/O=Exhilarate</name></updatedby>
 <wassignedby><name>CN=Matt White/O=Exhilarate</name></wassignedby>
 <item name='$Comment' sign='true'><text/></item>
@@ -64,7 +64,10 @@ hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
 <item name='Bio' placeholder='true'>
 <rawitemdata type='0'>
 </rawitemdata></item>
-<item name='$Fields'><textlist><text>Bio</text><text>thumbnailfilename</text><text
+<item name='RTField' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='$Fields'><textlist><text>RTField</text><text>Bio</text><text>thumbnailfilename</text><text
 >thumbnail</text><text>Sex</text><text>InitialContactDate</text><text>Email</text><text
 >Phone</text><text>Country</text><text>ZipCode</text><text>City</text><text
 >StreetAddress</text><text>Company</text><text>LastName</text><text>FirstName</text></textlist></item>
@@ -73,7 +76,7 @@ hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
 gQKC/1oAAQAAAAAAAAAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAABAAAAAJSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAEAhf8IAAEAAAqBAoL/WgACAAAA
 AAAAAAAAoAUAAKAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA
-AAAAlIUAAAAAoAUFAAAAAAABAAAABAAAAIMEAgDdBgEA+//7/ywAAAAAAA0CAAAAAAAAAAAAAAAA
+AAAAlIUAAAAAoAUFAAAAAAABAAAABAAAAIMEAgDdBgEA+//7/ywAAAAAAA4CAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAEAAAAAAAAAAAAAAFz/PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAOAAAAAAAAAAEAAAoAAAAAAQAAAAAA3gYBAPv/ow6gBSgAPAAAAAAAAgCkEgAAoAUlFgAA
 AAIAAAEBAACBAoL/WgADAAAAAAAAAAAAoAUlFqAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -134,7 +137,11 @@ AwB0aHVtYm5haWxmaWxlbmFtZQBiDgEAhAAAAAAAAAAAAN4GAACK/4X/CAABAAAKpBIMAKAFJRYA
 AAACAAABAQAAgQKDBAMAhf8LAAEAAApCaW8ApBIMASUWUUoAAAACAAABAQAAgQKDBAQAhf8IAAEA
 AArdBgAAiv/+/1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AHgAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIr/KACKAAAFADACAAAAAAAAAgEAAAoAAAAA
-AAAAAAMAAAAAAEJpbwBiDgEAhAAAAAAAAAAAAN4GAACK/4X/CAABAAAKpQYAAAAAgQKDBAEAhf8I
-AAEAAAo=
+AAAAAAMAAAAAAEJpbwBiDgEAhAAAAAAAAAAAAN4GAACK/4X/CAABAAAKpBINAKAFJRYAAAACAAAB
+AQAAgQKDBAMAhf8XAAEAAApSaWNoIFRleHQgRmllbGQApBINASUWUUoAAAACAAABAQAAgQKDBAQA
+hf8IAAEAAArdBgAAiv/+/1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AHgA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIr/LACCAAEAAAACAAAAAAAAAgEA
+AAoAAAAAAAAAAAcAAAAAAFJURmllbGQAYg4BAIQAAAAAAAEAAADeBgAAiv+F/wgAAQAACqUGAAAA
+AIECgwQBAIX/CAABAAAK
 </rawitemdata></item></note>
 
