@@ -10,6 +10,11 @@
 			<xp:text id="workspacetitle" tagName="h3" styleClass="panel-title"
 				value="#{javascript:compositeData.title}">
 			</xp:text>
+			<xp:panel style="float:right;">
+				<xp:callback facetName="facet_workspacebutton"
+					id="workspacebutton">
+				</xp:callback>
+			</xp:panel>
 		</div>
 		<div class="panel-body">
 			<div class="row">
